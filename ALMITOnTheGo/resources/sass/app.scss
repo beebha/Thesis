@@ -1,0 +1,109 @@
+/* BLUE COLOR THEME */
+//$base-color: #112233;
+//$primary-color: #8D8D8D;
+//$base-gradient: 'glossy';
+//$font-family: "cambria","serif"!default;
+//$page-bg-color:linear-gradient(to bottom, #F8F7F1 0%, #D9CFB0 100%)!default;
+//$form-bg-color: $page-bg-color;
+
+/* MAROON COLOR THEME */
+$base-color: #330000;
+$primary-color: #8D8D8D;
+$base-gradient: 'glossy';
+$font-family: "cambria","serif"!default;
+$page-bg-color:linear-gradient(to bottom, #F8F7F1 0%, #D9CFB0 100%)!default;
+$form-bg-color: $page-bg-color;
+
+//$include-pictos-font: false;
+//$include-default-icons: false;
+
+@import 'sencha-touch/default';
+@import 'sencha-touch/default/all';
+@import 'include/buttons';
+
+@include icon-font(
+    'almitonthego',
+    inline-font-files(
+        'custom/icomoon.woff', woff,
+        'custom/icomoon.ttf', truetype,
+        'custom/icomoon.svg', svg
+    )
+);
+
+@include icon("home"  , "\e600", "almitonthego");
+@include icon("pencil"  , "\e610", "almitonthego");
+@include icon("address-book"  , "\e614", "almitonthego");
+@include icon("calendar"  , "\e601", "almitonthego");
+@include icon("drawer"  , "\e602", "almitonthego");
+@include icon("users"  , "\e603", "almitonthego");
+@include icon("users2"  , "\e604", "almitonthego");
+@include icon("spinner"  , "\e605", "almitonthego");
+@include icon("cogs"  , "\e606", "almitonthego");
+@include icon("cog"  , "\e607", "almitonthego");
+@include icon("pie"  , "\e608", "almitonthego");
+@include icon("stats"  , "\e609", "almitonthego");
+@include icon("bars"  , "\e60a", "almitonthego");
+@include icon("trophy"  , "\e60b", "almitonthego");
+@include icon("remove"  , "\e60c", "almitonthego");
+@include icon("remove2"  , "\e60d", "almitonthego");
+@include icon("signup"  , "\e60e", "almitonthego");
+@include icon("tree"  , "\e60f", "almitonthego");
+@include icon("exit"  , "\e612", "almitonthego");
+@include icon("stackoverflow"  , "\e613", "almitonthego");
+
+
+.x-toolbar {
+  border: none;
+  background: $base-color;
+  .x-innerhtml {
+    color: #E1D9C0;
+    font-size: 1.3em;
+  }
+}
+
+.x-tabbar.x-docked-bottom .x-tab .x-button-icon:before {
+  font-size: 1.2em;
+}
+
+a{
+  color: $base-color;
+}
+
+a:link {text-decoration:none;}
+a:visited {text-decoration:none;}
+a:hover {text-decoration:none;}
+a:active {text-decoration:none;}
+.gpa-green {color: #64AD00;}
+.gpa-orange {color: orange;}
+.gpa-red {color: darkred;}
+
+.squarebox
+{
+  height: 1em;
+  border: 0.2em solid black;
+  border-radius: 3em;
+  color: white;
+  text-align:center;
+  padding:0.2em 0.3em;
+  font-size: 80%;
+}
+.EID {background-color: #660000;}
+.TMF {background-color: #663300;}
+.DCOM {background-color: #003300;}
+.DC {background-color: #003399;}
+.SP {background-color: #330066;}
+.WDD {background-color: #990000;}
+.SD {background-color: #993300;}
+.WAD {background-color: #006600;}
+.CAP {background-color: #0066FF;}
+.E {background-color: #660066;}
+.WP {background-color: #FF0000;}
+.SRM {background-color: #FF3300;}
+.DM {background-color: #00FF00;}
+.MGMT {background-color: #00CCFF;}
+.AL {background-color: #990066;}
+.P {background-color: #FF6666;}
+.AC {background-color: #FF6633;}
+.LA {background-color: #CCCC33;}
+.CD {background-color: #9999FF;}
+.DIGM {background-color: #FF99FF;}

@@ -1,0 +1,72 @@
+-> Create Thesis Directory.
+-> Execute - sencha generate app ALMITOnTheGo ~/Development/dev/Thesis/ALMITOnTheGo from Sencha Touch unzipped directory.
+-> Execute - sencha phonegap init com.harvard.thesis.ALMITOnTheGo ALMITOnTheGo from created project folder (/Development/dev/Thesis/ALMITOnTheGo)
+
+RUNNING ON DEVICE
+------------------
+-> Plugin device and execute - sencha app build -run native from app folder, i.e. ~/Development/dev/Thesis/ALMITOnTheGo
+
+RUNNING ON IOS SIMULATOR
+-------------------------
+-> Navigate to ~/Development/dev/Thesis/ALMITOnTheGo/phonegap/platforms/ios and open ALMITOnTheGo.xcodeproj with AppCode
+
+-> Any changes to app.scss, run the following command - sencha app build
+
+Available SASS variables
+------------------------
+$active-color
+$alert-color
+$base-color
+$base-gradient
+$bright-color
+$button-gradient
+$button-height
+$button-radius
+$button-stroke-weight
+$carousel-indicator-size
+$carousel-indicator-spacing
+$carousel-track-size
+$form-bg-color
+$form-dark
+$form-field-bg-color
+$form-field-height
+$form-fieldset-radius
+$form-label-width
+$form-light
+$form-slider-size
+$form-spacing
+$form-textarea-height
+$form-thumb-size
+$form-thumb-space
+$form-toggle-size
+$global-row-height
+$include-bottom-tabs
+$include-button-uis
+$include-default-icons
+$include-default-uis
+$include-form-sliders
+$include-highlights
+$include-html-style
+$include-tabbar-uis
+$include-toolbar-uis
+$include-top-tabs
+$light-tab-active
+$light-tab-color
+$page-bg-color
+$sheet-bg-color
+$sheet-button-spacing
+$sheet-padding
+$tabs-bottom-active-gradient
+$tabs-bottom-icon-size
+$tabs-bottom-gradient
+$tabs-bottom-radius
+$tabs-dark-active-color
+$tabs-dark-color
+$toolbar-gradient
+$toolbar-highlights
+$toolbar-icon-size
+$toolbar-input-bg
+$toolbar-input-color
+$toolbar-input-height
+$toolbar-spacing
+$top-tab-height

@@ -1,0 +1,77 @@
+Term,CourseNumber,Title,Instructor,Day,Time,Location,CourseType,EnrollLimit,Attributes
+January 2014,MGMTE-5050,Strategic Resource Allocation and Planning,Philip Anthony Vaccaro,Mon|Tues|Wed|Thur,6 - 9:30 pm,Emerson Hall 104,On Campus Only,35,SRM|E
+Spring 2014,CSCIE-8,Web GIS: Principles and Applications,Pinde Fu,Thur,7:40 - 9:40 pm,N/A,Web-Conference Course,50,E
+Spring 2014,CSCIE-12,Fundamentals of Website Development,David P. Heitmeyer,Mon,7:40 - 9:40 pm,Maxwell-Dworkin G115,Online Option,No limit,WP|E
+Spring 2014,CSCIE-17,Medical Informatics,Oleg Pianykh,Thur,5:30 - 7:30 pm,1 Story Street 307,Online Option,No limit,MGMT|E
+Spring 2014,CSCIE-35,Essential Modern UI Windows 8.1 App Development and Cloud Computing,Joseph Ficara,Wed,7:40 - 9:40 pm,1 Story Street 303,Online Option,No limit,E
+Spring 2014,CSCIE-40,Communication Protocols and Internet Architectures,Leonard Evenchik,N/A,N/A,N/A,Online Only,No limit,DCOM|E
+Spring 2014,CSCIE-42,Internet Voice Video and Telepresence,Leonard Evenchik,Mon,5:30 - 7:30 pm,Maxwell-Dworkin G125,Online Option,No limit,E
+Spring 2014,CSCIE-45B,Working in and Running the Cyberworld,Scott Bradner & Benoit Gaucherin,Fri,5:30 - 7:30 pm,Maxwell-Dworkin G125,Online Option,No limit,SRM|E
+Spring 2014,CSCIE-55,Java for Distributed Computing,Charles M. Sawyer Jr.,N/A,N/A,N/A,Online Only,No limit,DC|E
+Spring 2014,CSCIE-63,Big Data Analytics,Zoran B. Djordjevic,Fri,5:30 - 7:30 pm,1 Story Street 306,Online Option,No limit,E
+Spring 2014,CSCIE-66,Database and Information Management Systems,David G. Sullivan,Wed,7:40 - 9:40 pm,1 Story Street 306,Online Option,No limit,DM|E
+Spring 2014,CSCIE-67,Oracle Database Administration,Patrick McGowan,Tues,5:30 - 7:30 pm,Maxwell-Dworkin G125,Online Option,No limit,DM|E
+Spring 2014,CSCIE-92,Principles of Operating Systems,James L. Frankel,Tues,7:40 - 9:40 pm,Science Center 109,On Campus Only,No limit,E
+Spring 2014,CSCIE-171,Visualization,Hanspeter Pfister,N/A,N/A,N/A,Online Only,No limit,E
+Spring 2014,CSCIE-186,Economics and Computation,David C. Parkes,N/A,N/A,N/A,Online Only,No limit,E
+Spring 2014,DGMDE-25,Introduction to Web Content Management Systems Site Development,Jennifer A. Kramer,N/A,N/A,N/A,Online Only,No limit,E
+Spring 2014,ENSCE-105,Engineering Innovation with Information Technology,Wego Wang,Tues,7:40 - 9:40 pm,Byerly Hall 013,Online Option,No limit,E
+Spring 2014,ISMTE-155,Geographic Communication Today,Jeff Blossom,Mon,5:30 - 7:30 pm,53 Church Street 201,On Campus Only,30,E
+Spring 2014,ISMTE-180,Building and Managing Business Intelligence Systems,Basem A Neseim,Mon,7:40 - 9:40 pm,Northwest Science Building B108,On Campus Only,24,E
+Spring 2014,ISMTE-200,Capstone Seminar in Enterprise Systems,Zoya Kinstler & Bob Wittstein,Mon,7:40 - 9:40 pm,Northwest Science Building B104,On Campus Only,20,CAP
+Spring 2014,MGMTE-1600,Managerial Accounting,Richard L. Keith,Thur,5:30 - 7:30 pm,1 Story Street 306,Online Option,70,E
+Spring 2014,MGMTE-4000,Organizational Behavior,Carmine P. Gibaldi,Thur,5:30 - 7:30 pm,N/A,Web-Conference Course,35,E
+Spring 2014,MGMTE-4000,Organizational Behavior,Ellen Harris,Mon,7:40 - 9:40 pm,Pound Hall 204,On Campus Only,38,E
+Spring 2014,MGMTE-4000,Organizational Behavior,Jennifer Kay Stine,Wed,5:30 - 7:30 pm,N/A,Web-Conference Course,30,E
+Spring 2014,MGMTE-4000,Organizational Behavior,Jennifer Kay Stine,Thur,5:30 - 7:30 pm,Sever Hall 106,On Campus Only,38,E
+Spring 2014,MGMTE-4000,Organizational Behavior,Carmine P. Gibaldi,Tues,5:30 - 7:30 pm,N/A,Web-Conference Course,35,E
+Spring 2014,MGMTE-4030,Leading through Change,Harold V. Langlois & Kathrine Suzanne Livingston,Tues,5:30 - 7:30 pm,53 Church Street L01,Online Option,60,E
+Spring 2014,MGMTE-4170,Managing Virtual Teams,M. Myra S. White,Mon,5:30 - 7:30 pm,N/A,Web-Conference Course,38,MGMT|E
+Spring 2014,MGMTE-5040,Project Management of Information Technology,Jeffrey E. Francis,Mon,7:40 - 9:40 pm,CGIS South S020,On Campus Only,50,MGMT|E
+Spring 2014,MGMTE-5070,Data Mining and Forecast Management,Philip Anthony Vaccaro,Tues,7:40 - 9:40 pm,Emerson Hall 104,On Campus Only,35,SRM|E
+Spring 2014,MGMTE-5450,Launching an e-Commerce Start-up,Kishan Mallur,Tues,5:30 - 7:30 pm,53 Church Street 201,On Campus Only,30,MGMT|E
+Fall 2013,CSCIE-15,Dynamic Web Applications,Susan Buck,Wed,5:30 - 7:30 pm,Maxwell-Dworkin G115,Online Option,No limit,WP|E
+Fall 2013,CSCIE-18,Web Development Using XML,David P. Heitmeyer,Mon,7:40 - 9:40 pm,1 Story Street 304,Online Option,No limit,WP|E
+Fall 2013,CSCIE-26,Introduction to C Unix/Linux Programming and Web Interfaces,Bruce Molay,Wed,7:40 - 9:40 pm,Science Center B-10,On Campus Only,No limit,E
+Fall 2013,CSCIE-33,Programming Microsoft .NET,David S. Platt,Mon,7:40 - 9:40 pm,1 Story Street 307,Online Option,No limit,E
+Fall 2013,CSCIE-40,Communication Protocols and Internet Architectures,Leonard Evenchik,Mon,5:30 - 7:30 pm,53 Church Street L01,Online Option,No limit,DCOM|E
+Fall 2013,CSCIE-45A,Understanding and Securing the Cyber Infrastructure,Scott Bradner & Benoit Gaucherin,Fri,5:30 - 7:30 pm,Maxwell-Dworkin G125,Online Option,No limit,SRM|E
+Fall 2013,CSCIE-55,Java for Distributed Computing,Charles M. Sawyer Jr.,Wed,7:40 - 9:40 pm,Byerly Hall 013,Online Option,No limit,DC|E
+Fall 2013,CSCIE-56,Web Application Development with Groovy and Grails,Burt Beckwith,Fri,5:30 - 7:30 pm,53 Church Street L01,Online Option,No limit,WP|E
+Fall 2013,CSCIE-60,Developing Web-Based Database Applications,Maria R. Garcia,Mon,5:30 - 7:30 pm,1 Story Street 303,Online Option,No limit,DM|E
+Fall 2013,CSCIE-61,Systems Programming and Machine Organization,Eddie Kohler,N/A,N/A,N/A,Online Only,No limit,E
+Fall 2013,CSCIE-62,Modern Mobile Development,Edwin Guarin & Robert Familiar,Tues,5:30 - 7:30 pm,53 Church Street 203,On Campus Only,30,E
+Fall 2013,CSCIE-65,Building Mobile Apps: A Comparative View of Mobile Application Development,Jonathan Levin,Fri,5:30 - 7:30 pm,Maxwell-Dworkin G115,Online Option,120,E
+Fall 2013,CSCIE-90,Cloud Computing,Zoran B. Djordjevic,Fri,5:30 - 7:30 pm,1 Story Street 306,Online Option,No limit,DC|E
+Fall 2013,CSCIE-95,Compiler Design and Implementation,James L. Frankel,Tues,7:40 - 9:40 pm,Science Center 109,On Campus Only,No limit,E
+Fall 2013,CSCIE-97,Software Design: Principles Models and Patterns,Eric Gieseke,Thur,7:40 - 9:40 pm,1 Story Street 304,Online Option,No limit,E
+Fall 2013,CSCIE-205,Computing Foundations for Computational Science,Cristopher Cecka,N/A,N/A,N/A,Online Only,No limit,E
+Fall 2013,ISMTE-100,Information Systems Management,Jeffrey E. Francis,Mon,7:40 - 9:40 pm,CGIS South S020,On Campus Only,50,MGMT|E
+Fall 2013,ISMTE-130,Spreadsheet Models for Managers,Richard Brenner,Wed,7:40 - 9:40 pm,53 Church Street L01,Online Option,No limit,E
+Fall 2013,ISMTE-150,Introduction to GIS,Wendy Guan,Thur,5:30 - 7:30 pm,53 Church Street 201,On Campus Only,20,E
+Fall 2013,ISMTE-190,Enterprise Content Management,Richard E. Joltes,Tues,7:40 - 9:40 pm,Byerly Hall 013,Online Option,No limit,E
+Fall 2013,ISMTE-200,Capstone Seminar in Enterprise Systems,Zoya Kinstler & Bob Wittstein,Mon,7:40 - 9:40 pm,Northwest Science Building B104,On Campus Only,20,CAP
+Fall 2013,MGMTE-1600,Managerial Accounting,Richard L. Keith,Thur,7:40 - 9:40 pm,1 Story Street 306,Online Option,70,E
+Fall 2013,MGMTE-4000,Organizational Behavior,Carmine P. Gibaldi,Thur,5:30 - 7:30 pm,N/A,Web-Conference Course,35,E
+Fall 2013,MGMTE-4000,Organizational Behavior,Jane McHan,Wed,7:40 - 9:40 pm,Sever Hall 203,On Campus Only,38,E
+Fall 2013,MGMTE-4000,Organizational Behavior,M. Myra S. White,Mon,7:40 - 9:40 pm,N/A,Web-Conference Course,40,E
+Fall 2013,MGMTE-4000,Organizational Behavior,Carmine P. Gibaldi,Tues,5:30 - 7:30 pm,N/A,Web-Conference Course,35,E
+Fall 2013,MGMTE-4000,Organizational Behavior,Jennifer Kay Stine,Mon,5:30 - 7:30 pm,N/A,Web-Conference Course,30,E
+Fall 2013,MGMTE-4160,Creating and Leading Team Dynamics,Harold V. Langlois & Kathrine Suzanne Livingston,Tues,5:30 - 7:30 pm,Sever Hall 206,On Campus Only,30,E
+Fall 2013,MGMTE-5420,Innovation Entrepreneurship and Business Transformation,William L. Wellman & James C. Fitchett,Mon,7:40 - 9:40 pm,Pound Hall 200,On Campus Only,80,E
+Summer 2013,CSCIS-76,Building Mobile Applications,David J. Malan,Mon|Wed,6:30 - 9:30 pm,Northwest Science Building B101,On Campus Only,30,E
+Summer 2013,CSCIS-131B,Communication Protocols and Internet Architectures,Leonard Evenchik,N/A,N/A,N/A,Online Only,No limit,DCOM|E
+Summer 2013,ECONS-1901,Managerial Accounting,Lynn W. Marples,Tues|Thur,6:30 - 9:30 pm,Harvard Hall 103,On Campus Only,No limit,E
+Summer 2013,ISMTS-170,Human Factors in Information Systems Design,Dennis F. Galletta,Tues|Thur,6:30 - 9:30 pm,Northwest Science Building B108,On Campus Only,50,E
+Summer 2013,MGMTS-2800,Financial Modeling,Martin K. Konan,Mon|Wed,8:30 am - 11:30 am,Sever Hall 102,On Campus Only,60,E
+Summer 2013,MGMTS-4000,Organizational Behavior,Barbara Zepp Larson,Mon|Wed,6:30 - 9:30 pm,Sever Hall 203,On Campus Only,45,E
+Summer 2013,MGMTS-4000,Organizational Behavior,Carmine P. Gibaldi,Mon|Wed,3:15 - 6:15 pm,N/A,Web-Conference Course,40,E
+Summer 2013,MGMTS-5000,Strategic Management,Mohsin Habib,Mon|Wed,8:30 am - 11:30 am,CGIS South S020,On Campus Only,50,E
+Summer 2013,MGMTS-5000,Strategic Management,Jorge Tarzijan,Mon|Wed,6:30 - 9:30 pm,Harvard Hall 102,On Campus Only,50,E
+Summer 2013,MGMTS-5010,Electronic Commerce Strategies,Dennis F. Galletta,Tues|Thur,12 - 3 pm,1 Story Street 304,On Campus Only,40,E
+Summer 2013,MGMTS-5012,Systems Thinking,Mark Esposito,Tues|Thur,6:30 - 9:30 pm,Emerson Hall 210,On Campus Only,60,E
+Summer 2013,MGMTS-5016,Management of Technology and Innovation,Cherian S. Thachenkary,Mon|Wed,12 - 3 pm,Sever Hall 102,On Campus Only,60,E
+Summer 2013,MGMTS-5034,Introduction to Decision and Operations Analysis,Cherian S. Thachenkary,Mon|Wed,3:15 - 6:15 pm,Sever Hall 102,On Campus Only,60,E
+Summer 2013,MGMTS-5035,Cross-Border Innovation,Iris Berdrow,Tues|Thur,6:30 - 9:30 pm,Northwest Science Building B101,On Campus Only,55,E
+Summer 2013,STATS-102,Fundamentals of Biostatistics,Bernard A. Rosner & Robert J. Glynn,Tues|Thur,3:15 - 6:15 pm,Harvard Hall 103,On Campus Only,No limit,E
+Summer 2013,STATS-107,Introduction to Financial Statistics,Michael I. Parzen,Tues|Thur,8:30 am - 11:30 am,1 Story Street 304,On Campus Only,No limit,E

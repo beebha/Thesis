@@ -1,0 +1,45 @@
+Term,CourseNumber,Title,Instructor,Day,Time,Location,CourseType,EnrollLimit,Attributes
+Spring 2014,CSCIE-8,Web GIS: Principles and Applications,Pinde Fu,Thur,7:40 - 9:40 pm,N/A,Web-Conference Course,50,E
+Spring 2014,CSCIE-10B,Introduction to Computer Science Using Java II,Henry H. Leitner,N/A,N/A,N/A,Online Only,No limit,CD|E
+Spring 2014,CSCIE-12,Fundamentals of Website Development,David P. Heitmeyer,Mon,7:40 - 9:40 pm,Maxwell-Dworkin G115,Online Option,No limit,WDD|E
+Spring 2014,CSCIE-35,Essential Modern UI Windows 8.1 App Development and Cloud Computing,Joseph Ficara,Wed,7:40 - 9:40 pm,1 Story Street 303,Online Option,No limit,E
+Spring 2014,CSCIE-42,Internet Voice Video and Telepresence,Leonard Evenchik,Mon,5:30 - 7:30 pm,Maxwell-Dworkin G125,Online Option,No limit,E
+Spring 2014,CSCIE-50,Intensive Introduction to Computer Science,David J. Malan,N/A,N/A,N/A,Online Only,100,CD|E
+Spring 2014,CSCIE-51,Abstraction and Design in Computation,Henry H. Leitner & Jesse Tov,N/A,N/A,N/A,Online Only,No limit,E
+Spring 2014,CSCIE-55,Java for Distributed Computing,Charles M. Sawyer Jr.,N/A,N/A,N/A,Online Only,No limit,E
+Spring 2014,CSCIE-66,Database and Information Management Systems,David G. Sullivan,Wed,7:40 - 9:40 pm,1 Story Street 306,Online Option,No limit,E
+Spring 2014,CSCIE-171,Visualization,Hanspeter Pfister,N/A,N/A,N/A,Online Only,No limit,E
+Spring 2014,CSCIE-181,Machine Learning,Ryan Adams,N/A,N/A,N/A,Online Only,No limit,E
+Spring 2014,DGMDE-10,Exposing Digital Photography,John Selig,Wed,5:30 - 7:30 pm,Harvard Hall 201,On Campus Only,No limit,DIGM|E
+Spring 2014,DGMDE-15,Creative Explorations in Screen-Based and Physical Computing,Bakhtiar Mikhak,Thur,5:30 - 7:30 pm,53 Church Street 104,On Campus Only,30,CD|E
+Spring 2014,DGMDE-25,Introduction to Web Content Management Systems Site Development,Jennifer A. Kramer,N/A,N/A,N/A,Online Only,No limit,WDD|E
+Spring 2014,DGMDE-35,Video Editing and Digital Design,Allyson Sherlock,Tues,5:30 - 7:30 pm,53 Church Street 104,On Campus Only,30,DIGM|E
+Spring 2014,EDUCE-113,Instructional Design Studio,Stacie Cassat Green,Mon,5:30 - 7:30 pm,51 Brattle Street 323,On Campus Only,20,EID|E
+Spring 2014,ENSCE-105,Engineering Innovation with Information Technology,Wego Wang,Tues,7:40 - 9:40 pm,Byerly Hall 013,Online Option,No limit,E
+Spring 2014,EXPOE-48,Multimedia Communication: Digital Storytelling,Marlon Kuzmick,Mon,5:30 - 7:30 pm,53 Church Street L01,Online Option,80,EID|E
+Spring 2014,ISMTE-155,Geographic Communication Today,Jeff Blossom,Mon,5:30 - 7:30 pm,53 Church Street 201,On Campus Only,30,E
+Spring 2014,PSYCE-1034,Adult Development,Robert Kegan,N/A,N/A,N/A,Online Only,120,E
+Fall 2013,CSCIE-15,Dynamic Web Applications,Susan Buck,Wed,5:30 - 7:30 pm,Maxwell-Dworkin G115,Online Option,No limit,WDD|E
+Fall 2013,CSCIE-18,Web Development Using XML,David P. Heitmeyer,Mon,7:40 - 9:40 pm,1 Story Street 304,Online Option,No limit,WDD|E
+Fall 2013,CSCIE-50,Intensive Introduction to Computer Science,David J. Malan,N/A,N/A,N/A,Online Only,No limit,CD|E
+Fall 2013,CSCIE-55,Java for Distributed Computing,Charles M. Sawyer Jr.,Wed,7:40 - 9:40 pm,Byerly Hall 013,Online Option,No limit,E
+Fall 2013,CSCIE-56,Web Application Development with Groovy and Grails,Burt Beckwith,Fri,5:30 - 7:30 pm,53 Church Street L01,Online Option,No limit,WDD|E
+Fall 2013,CSCIE-60,Developing Web-Based Database Applications,Maria R. Garcia,Mon,5:30 - 7:30 pm,1 Story Street 303,Online Option,No limit,WDD|E
+Fall 2013,CSCIE-61,Systems Programming and Machine Organization,Eddie Kohler,N/A,N/A,N/A,Online Only,No limit,E
+Fall 2013,CSCIE-62,Modern Mobile Development,Edwin Guarin & Robert Familiar,Tues,5:30 - 7:30 pm,53 Church Street 203,On Campus Only,30,WDD|E
+Fall 2013,CSCIE-65,Building Mobile Apps: A Comparative View of Mobile Application Development,Jonathan Levin,Fri,5:30 - 7:30 pm,Maxwell-Dworkin G115,Online Option,120,WDD|E
+Fall 2013,CSCIE-72,Introduction to Computer Graphics,Jeff Parker,Tues,5:30 - 7:30 pm,1 Story Street 303,Online Option,No limit,E
+Fall 2013,CSCIE-80,Artificial Intelligence,Eric Breck,Thur,5:30 - 7:30 pm,Northwest Science Building B108,On Campus Only,No limit,E
+Fall 2013,CSCIE-90,Cloud Computing,Zoran B. Djordjevic,Fri,5:30 - 7:30 pm,1 Story Street 306,Online Option,No limit,E
+Fall 2013,CSCIE-205,Computing Foundations for Computational Science,Cristopher Cecka,N/A,N/A,N/A,Online Only,No limit,E
+Fall 2013,DGMDE-5,Exploring Digital Media,John Selig,Wed,7:40 - 9:40 pm,Harvard Hall 201,On Campus Only,No limit,DIGM|E
+Fall 2013,DGMDE-20,Understanding and Developing Interactive Media,Jennifer A. Kramer,N/A,N/A,N/A,Online Only,No limit,DIGM|E
+Fall 2013,DGMDE-30,Video Field Production,Allyson Sherlock,Tues,5:30 - 7:30 pm,53 Church Street 104,On Campus Only,30,DIGM|E
+Fall 2013,DGMDE-40,Producing Educational Video,Marlon Kuzmick,Mon,5:30 - 7:30 pm,53 Church Street 104,On Campus Only,30,DIGM|E
+Fall 2013,EDUCE-103,Introduction to Instructional Design,Stacie Cassat Green & Denise M. Snyder,Sat,10 am - 1:15 pm,Pierce Hall 301,On Campus Only,No limit,EID|E
+Fall 2013,ISMTE-150,Introduction to GIS,Wendy Guan,Thur,5:30 - 7:30 pm,53 Church Street 201,On Campus Only,20,E
+Summer 2013,CSCIS-24,Video Editing and Digital Design,Allyson Sherlock,Mon|Wed,6:30 - 9:30 pm,53 Church Street 104,On Campus Only,30,DIGM|E
+Summer 2013,CSCIS-76,Building Mobile Applications,David J. Malan,Mon|Wed,6:30 - 9:30 pm,Northwest Science Building B101,On Campus Only,30,WDD|E
+Summer 2013,CSCIS-111,Intensive Introduction to Computer Science Using Java,Henry H. Leitner & David G. Sullivan,Mon|Tues|Wed|Thur|Fri,8:30 am - 11:30 am,Maxwell-Dworkin G115,On Campus Only,No limit,CD|E
+Summer 2013,EXPOS-48,Multimedia Communication: Introduction to Digital Storytelling,Marlon Kuzmick,Mon|Wed,3:15 - 6:15 pm,53 Church Street 104,On Campus Only,15,EID|E
+Summer 2013,ISMTS-170,Human Factors in Information Systems Design,Dennis F. Galletta,Tues|Thur,6:30 - 9:30 pm,Northwest Science Building B108,On Campus Only,50,EID|E
