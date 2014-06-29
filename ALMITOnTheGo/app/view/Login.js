@@ -75,7 +75,7 @@ Ext.define('ALMITOnTheGo.view.Login', {
       },
       {
         xtype: 'component',
-        html: '<a href="#registerNewUser">Sign up for ALM IT On-The-Go</a>' + '  |  ' +
+        html: '<a href="#registerNewUser">Register</a>' + '  |  ' +
           '<a href="#forgotPassword">Forgot your password?</a>',
         style: 'margin:10px;'
       }
