@@ -68,7 +68,7 @@ Ext.define('ALMITOnTheGo.view.Login', {
             cls: 'modus-button primary',
             padding: 10,
             margin: 5,
-            text: 'Continue as Guest',
+            text: 'Guest',
             flex: 1
           }
         ]
