@@ -26,7 +26,7 @@ Ext.define('ALMITOnTheGo.view.Home', {
           styleHtmlContent: true
         },
         centered: true,
-        width: '70%',
+        width: '95%',
         height: '80%',
         style: {
           borderStyle: 'solid',
