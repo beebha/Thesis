@@ -5,7 +5,10 @@ Ext.define('ALMITOnTheGo.view.Main', {
     'Ext.TitleBar'
   ],
   config: {
-    tabBarPosition: 'bottom',
+    tabBar     : {
+      docked     : 'bottom',
+      scrollable : 'horizontal'
+    },
     id: 'mainViewTabPanel',
     listeners: {
       activeitemchange: function (tabPanel, tab, oldTab) {
