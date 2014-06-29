@@ -11,6 +11,7 @@ RUNNING ON IOS SIMULATOR
 -> Navigate to ~/Development/dev/Thesis/ALMITOnTheGo/phonegap/platforms/ios and open ALMITOnTheGo.xcodeproj with AppCode
 
 -> Any changes to app.scss, run the following command - sencha app build
+-> To constantly monitor for changes - sencha app watch
 
 Available SASS variables
 ------------------------
