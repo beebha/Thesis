@@ -13,6 +13,7 @@
 Ext.application({
     name: 'ALMITOnTheGo',
     authToken: null,
+    apiURL: "http://localhost:8090/api/",
     allGrades: null,
     allConcentrations: null,
     allCategories: null,
@@ -83,7 +84,7 @@ Ext.application({
         }
 
         Ext.Ajax.request({
-            url: '../../api/app.php?action=getAllStaticInfoForApp',
+            url: ALMITOnTheGo.app.apiURL+'app.php?action=getAllStaticInfoForApp',
             method: 'get',
             success: function(response) {
               var appResponse = Ext.JSON.decode(response.responseText);

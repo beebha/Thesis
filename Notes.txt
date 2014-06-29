@@ -17,6 +17,7 @@ Available SASS variables
 ------------------------
 $active-color
 $alert-color
+
 $base-color
 $base-gradient
 $bright-color
@@ -71,3 +72,4 @@ $toolbar-input-color
 $toolbar-input-height
 $toolbar-spacing
 $top-tab-height
+

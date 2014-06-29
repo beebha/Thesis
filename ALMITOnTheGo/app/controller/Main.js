@@ -21,7 +21,7 @@ Ext.define('ALMITOnTheGo.controller.Main', {
     var mainView = mc.getMainView();
 
     Ext.Ajax.request({
-      url: '../../api/app.php?action=getHomeViewDetails',
+      url: ALMITOnTheGo.app.apiURL+'app.php?action=getHomeViewDetails',
       method: 'post',
       params: {
         authToken: ALMITOnTheGo.app.authToken
@@ -85,7 +85,7 @@ Ext.define('ALMITOnTheGo.controller.Main', {
     var addCoursesView = mc.getAddCoursesView();
 
     Ext.Ajax.request({
-      url: '../../api/app.php?action=getUserInfo',
+      url: ALMITOnTheGo.app.apiURL+'app.php?action=getUserInfo',
       method: 'post',
       params: {
         authToken: ALMITOnTheGo.app.authToken
@@ -124,7 +124,7 @@ Ext.define('ALMITOnTheGo.controller.Main', {
   },
   onLogoutCommand: function () {
     Ext.Ajax.request({
-      url: '../../api/app.php?action=doLogoff',
+      url: ALMITOnTheGo.app.apiURL+'app.php?action=doLogoff',
       method: 'post',
       params: {
         authToken: ALMITOnTheGo.app.authToken

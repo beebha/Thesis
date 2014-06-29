@@ -16,7 +16,7 @@ Ext.define('ALMITOnTheGo.controller.Grades',
       var gradesView = gc.getGradesView();
 
       Ext.Ajax.request({
-        url: '../../api/app.php?action=getGradeViewDetails',
+        url: ALMITOnTheGo.app.apiURL+'app.php?action=getGradeViewDetails',
         method: 'post',
         params: {
           authToken: ALMITOnTheGo.app.authToken

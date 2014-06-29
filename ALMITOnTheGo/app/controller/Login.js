@@ -52,7 +52,7 @@ Ext.define('ALMITOnTheGo.controller.Login', {
     });
 
     Ext.Ajax.request({
-      url: '../../api/app.php?action=doLogin',
+      url: ALMITOnTheGo.app.apiURL+'app.php?action=doLogin',
       method: 'post',
       params: {
         username: username,

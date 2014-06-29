@@ -2,6 +2,13 @@
 
 class DBUtils
 {
+    const DB_HOST = "127.0.0.1";
+    const DB_USERNAME = "root";
+    const DB_PASSWORD = "root";
+    const DB_NAME = "thesis";
+    const DB_PORT = 8889;
+    const DB_SOCKET = ":/Applications/MAMP/tmp/mysql/mysql.sock";
+
     static function getInsertUpdateDeleteBulkExecutionResult(array $queries)
     {
         $bulkExecute = true;
@@ -69,7 +76,16 @@ class DBUtils
 
     private static function getConnectionLink()
     {
-        if (!$link = mysqli_connect('127.0.0.1', 'root', 'root', 'thesis', 8889, ':/Applications/MAMP/tmp/mysql/mysql.sock')) {
+        if (!$link =
+            mysqli_connect
+            (
+                self::DB_HOST,
+                self::DB_USERNAME,
+                self::DB_PASSWORD,
+                self::DB_NAME,
+                self::DB_PORT,
+                self::DB_SOCKET
+            )) {
             echo 'Could not connect to mysql';
             exit;
         }
@@ -84,7 +100,15 @@ class DBUtils
 
     private static function getConnectionAndExecuteQuery($query)
     {
-        $mysqli = new mysqli("127.0.0.1", "root", "root", "thesis", 8889, ':/Applications/MAMP/tmp/mysql/mysql.sock');
+        $mysqli = new mysqli
+        (
+            self::DB_HOST,
+            self::DB_USERNAME,
+            self::DB_PASSWORD,
+            self::DB_NAME,
+            self::DB_PORT,
+            self::DB_SOCKET
+        );
 
         if (mysqli_connect_errno()) {
             throw new APIException("Connect failed: ". mysqli_connect_error());

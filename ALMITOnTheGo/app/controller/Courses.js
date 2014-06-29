@@ -35,7 +35,7 @@ Ext.define('ALMITOnTheGo.controller.Courses',
         coursesView.down('#coursesCardPanel').setActiveItem(0);
       } else {
         Ext.Ajax.request({
-          url: '../../api/app.php?action=getCourseCategoryViewDetails',
+          url: ALMITOnTheGo.app.apiURL+'app.php?action=getCourseCategoryViewDetails',
           method: 'post',
           params: {
             authToken: ALMITOnTheGo.app.authToken,
@@ -54,7 +54,7 @@ Ext.define('ALMITOnTheGo.controller.Courses',
       var coursesView = cc.getCoursesView();
 
       Ext.Ajax.request({
-        url: '../../api/app.php?action=getCourseCategoryViewDetails',
+        url: ALMITOnTheGo.app.apiURL+'app.php?action=getCourseCategoryViewDetails',
         method: 'post',
         params: {
           authToken: ALMITOnTheGo.app.authToken,
@@ -72,7 +72,7 @@ Ext.define('ALMITOnTheGo.controller.Courses',
       var coursesView = cc.getCoursesView();
 
       Ext.Ajax.request({
-        url: '../../api/app.php?action=getCourseTermViewDetails',
+        url: ALMITOnTheGo.app.apiURL+'app.php?action=getCourseTermViewDetails',
         method: 'post',
         success: function (response) {
           var courseTermsResponse = Ext.JSON.decode(response.responseText);
@@ -86,7 +86,7 @@ Ext.define('ALMITOnTheGo.controller.Courses',
       var coursesView = cc.getCoursesView();
 
       Ext.Ajax.request({
-        url: '../../api/app.php?action=getCoursesResults',
+        url: ALMITOnTheGo.app.apiURL+'app.php?action=getCoursesResults',
         method: 'post',
         params: {
           authToken: ALMITOnTheGo.app.authToken,

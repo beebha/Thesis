@@ -30,7 +30,7 @@ Ext.define('ALMITOnTheGo.controller.Register', {
     });
 
     Ext.Ajax.request({
-      url: '../../api/app.php?action=doRegister',
+      url: ALMITOnTheGo.app.apiURL+'app.php?action=doRegister',
       method: 'post',
       params: {
         email: email,
@@ -68,7 +68,7 @@ Ext.define('ALMITOnTheGo.controller.Register', {
     var addCoursesView = rc.getAddCoursesView();
 
     Ext.Ajax.request({
-      url: '../../api/app.php?action=getCourses',
+      url: ALMITOnTheGo.app.apiURL+'app.php?action=getCourses',
       method: 'post',
       params: {
         concentration: rc.concentration

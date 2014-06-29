@@ -52,7 +52,7 @@ Ext.define('ALMITOnTheGo.controller.UserInformation', {
     });
 
     Ext.Ajax.request({
-      url: '../../api/app.php?action=saveUserInfo',
+      url: ALMITOnTheGo.app.apiURL+'app.php?action=saveUserInfo',
       method: 'post',
       params: {
         data: Ext.JSON.encode(userInfoData)
