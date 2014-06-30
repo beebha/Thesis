@@ -7,6 +7,7 @@ Ext.define('ALMITOnTheGo.view.Courses', {
   config: {
     width: '100%',
     height: '100%',
+    itemId: 'coursesViewPanel',
     items: [
       {
         xtype: 'panel',
@@ -26,10 +27,6 @@ Ext.define('ALMITOnTheGo.view.Courses', {
                 itemId: 'selectConcentrationFieldSet',
                 width: '95%',
                 centered: true,
-//                defaults: {
-//                  labelWidth: '95%',
-//                  labelAlign: 'right'
-//                },
                 items: [
                   {
                     xtype: 'radiofield',
@@ -91,10 +88,6 @@ Ext.define('ALMITOnTheGo.view.Courses', {
                 itemId: 'selectCategoryFieldSet',
                 width: '95%',
                 centered: true,
-//                defaults: {
-//                  labelWidth: '95%',
-//                  labelAlign: 'right'
-//                },
                 items: [
                   {
                     docked: 'top',
@@ -138,10 +131,6 @@ Ext.define('ALMITOnTheGo.view.Courses', {
                 itemId: 'selectCourseTermFieldSet',
                 width: '95%',
                 centered: true,
-//                defaults: {
-//                  labelWidth: '95%',
-//                  labelAlign: 'right'
-//                },
                 items: [
                   {
                     docked: 'top',
@@ -214,7 +203,16 @@ Ext.define('ALMITOnTheGo.view.Courses', {
                     store: null,
                     useSimpleItems: true,
                     disableSelection: false,
-                    onItemDisclosure: true
+                    onItemDisclosure: true,
+                    listeners : {
+                      itemtap : function(list, index, target, record, e) {
+                        if (e.getTarget('.x-list-disclosure')) {
+                          list.up('#coursesViewPanel').fireEvent('viewCoursesListItemDiscloseCommand', list, index, target, record, e);
+                        } else {
+                          list.up('#coursesViewPanel').fireEvent('viewCoursesListItemTapCommand', list, index, target, record, e);
+                        }
+                      }
+                    }
                   },
                   {
                     xtype: 'label',
@@ -248,6 +246,25 @@ Ext.define('ALMITOnTheGo.view.Courses', {
                         align: 'left'
                       }
                     ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            xtype: 'panel',
+            itemId: 'viewCourseDetailPanel',
+            hidden: true,
+            items: [
+              {
+                xtype: 'fieldset',
+                itemId: 'viewCourseDetailFieldSet',
+                width: '95%',
+                centered: true,
+                items: [
+                  {
+                    xtype: 'label',
+                    html: 'WASSSSSUP'
                   }
                 ]
               }
@@ -286,11 +303,6 @@ Ext.define('ALMITOnTheGo.view.Courses', {
         delegate: '#courseResultsBackButton',
         event: 'tap',
         fn: 'onCourseResultsBackButton'
-      },
-      {
-        delegate: '#viewCoursesList',
-        event: 'itemtap',
-        fn: 'onViewCoursesListItemTap'
       }
     ]
   },

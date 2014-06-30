@@ -16,14 +16,25 @@ Ext.define('ALMITOnTheGo.controller.Courses',
           courseTermBackButtonCommand: 'onCourseTermBackButtonCommand',
           courseTermNextButtonCommand: 'onCourseTermNextButtonCommand',
           courseResultsBackButtonCommand: 'onCourseResultsBackButtonCommand',
-          viewCoursesListItemTapCommand: 'onViewCoursesListItemTapCommand'
+          viewCoursesListItemTapCommand: 'onViewCoursesListItemTapCommand',
+          viewCoursesListItemDiscloseCommand: 'onViewCoursesListItemDiscloseCommand'
         }
       }
     },
-    onViewCoursesListItemTapCommand: function(dataview, index, target, record, e, eOpts) {
+    onViewCoursesListItemTapCommand: function(list, index, target, record, e) {
       console.log("onViewCoursesListItemTapCommand");
+      console.log(index);
+      console.log(record);
       var cc = this;
       var coursesView = cc.getCoursesView();
+    },
+    onViewCoursesListItemDiscloseCommand: function(list, index, target, record, e) {
+      console.log("onViewCoursesListItemDiscloseCommand");
+      console.log(index);
+      console.log(record);
+      var cc = this;
+      var coursesView = cc.getCoursesView();
+      coursesView.down('#coursesCardPanel').setActiveItem(4);
     },
     onCoursesViewDetailsCommand: function () {
       console.log("onCoursesViewDetailsCommand");
