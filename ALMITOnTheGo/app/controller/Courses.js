@@ -34,7 +34,7 @@ Ext.define('ALMITOnTheGo.controller.Courses',
       console.log(record);
       var cc = this;
       var coursesView = cc.getCoursesView();
-      coursesView.down('#coursesCardPanel').setActiveItem(4);
+      coursesView.down('#coursesCardPanel').animateActiveItem(4, {type:'flip'});
     },
     onCoursesViewDetailsCommand: function () {
       console.log("onCoursesViewDetailsCommand");
@@ -43,7 +43,7 @@ Ext.define('ALMITOnTheGo.controller.Courses',
 
       // if Guest, show initial courses screen
       if (ALMITOnTheGo.app.authToken == null) {
-        coursesView.down('#coursesCardPanel').setActiveItem(0);
+        coursesView.down('#coursesCardPanel').animateActiveItem(0, {type:'slide', direction:'left'});
       } else {
         Ext.Ajax.request({
           url: ALMITOnTheGo.app.apiURL+'app.php?action=getCourseCategoryViewDetails',
@@ -115,19 +115,19 @@ Ext.define('ALMITOnTheGo.controller.Courses',
       console.log("onCategoryBackButtonCommand");
       var cc = this;
       var coursesView = cc.getCoursesView();
-      coursesView.down('#coursesCardPanel').setActiveItem(0);
+      coursesView.down('#coursesCardPanel').animateActiveItem(0, {type:'slide', direction:'right'});
     },
     onCourseTermBackButtonCommand: function () {
       console.log("onCourseTermBackButtonCommand");
       var cc = this;
       var coursesView = cc.getCoursesView();
-      coursesView.down('#coursesCardPanel').setActiveItem(1);
+      coursesView.down('#coursesCardPanel').animateActiveItem(1, {type:'slide', direction:'right'});
     },
     onCourseResultsBackButtonCommand: function () {
       console.log("onCourseResultsBackButtonCommand");
       var cc = this;
       var coursesView = cc.getCoursesView();
-      coursesView.down('#coursesCardPanel').setActiveItem(2);
+      coursesView.down('#coursesCardPanel').animateActiveItem(2, {type:'slide', direction:'right'});
     },
     setupCourseResultsViewPanel: function(coursesView, courseResultsResponse) {
       console.log("setupCourseResultsViewPanel");
@@ -152,7 +152,7 @@ Ext.define('ALMITOnTheGo.controller.Courses',
 
         coursesView.down('#courseSearchLabel').setHtml(searchCriteria);
 
-        coursesView.down('#coursesCardPanel').setActiveItem(3);
+        coursesView.down('#coursesCardPanel').animateActiveItem(3, {type:'slide', direction:'left'});
       }
     },
     setupCourseTermsViewPanel: function(coursesView, courseTermsResponse) {
@@ -184,7 +184,7 @@ Ext.define('ALMITOnTheGo.controller.Courses',
           }
         );
 
-        coursesView.down('#coursesCardPanel').setActiveItem(2);
+        coursesView.down('#coursesCardPanel').animateActiveItem(2, {type:'slide', direction:'left'});
 
       } else {
         // TODO - error handling
@@ -224,7 +224,7 @@ Ext.define('ALMITOnTheGo.controller.Courses',
           }
         );
         ALMITOnTheGo.app.authToken == null ? coursesView.down('#categoryBackButton').show() : coursesView.down('#categoryBackButton').hide();
-        coursesView.down('#coursesCardPanel').setActiveItem(1);
+        coursesView.down('#coursesCardPanel').animateActiveItem(1, {type:'slide', direction:'left'});
       } else {
         // TODO - error handling
       }

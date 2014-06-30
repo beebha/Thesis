@@ -37,7 +37,6 @@ Ext.ClassManager.addNameAlternateMappings({
   "ALMITOnTheGo.view.Courses": [],
   "ALMITOnTheGo.view.Grades": [],
   "ALMITOnTheGo.view.Home": [],
-  "ALMITOnTheGo.view.ListDetail": [],
   "ALMITOnTheGo.view.Login": [],
   "ALMITOnTheGo.view.Main": [],
   "ALMITOnTheGo.view.Register": [],
@@ -793,9 +792,6 @@ Ext.ClassManager.addNameAliasMappings({
   ],
   "ALMITOnTheGo.view.Home": [
     "widget.homeView"
-  ],
-  "ALMITOnTheGo.view.ListDetail": [
-    "widget.listDetailView"
   ],
   "ALMITOnTheGo.view.Login": [
     "widget.loginView"
