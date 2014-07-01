@@ -96,7 +96,7 @@ a:active {text-decoration:none;}
 .squarebox
 {
   height: 1em;
-  border: 0.2em solid black;
+  border: 0.15em solid black;
   border-radius: 3em;
   color: white;
   text-align:center;
@@ -123,3 +123,18 @@ a:active {text-decoration:none;}
 .LA {background-color: #CCCC33;}
 .CD {background-color: #9999FF;}
 .DIGM {background-color: #FF99FF;}
+
+.x-list .x-list-disclosure {
+  -webkit-border-radius: 22px;
+  -moz-border-radius: 22px;
+  -ms-border-radius: 22px;
+  -o-border-radius: 22px;
+  border-radius: 22px;
+  width: 22px;
+  height: 22px;
+}
+
+.x-list .x-list-disclosure:before {
+  font-size: 16px;
+  line-height: 24px;
+}
