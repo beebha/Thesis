@@ -9,7 +9,7 @@ Ext.define('ALMITOnTheGo.view.Grades', {
         xtype: 'container',
         itemId: 'gradesContainer',
         layout: 'vbox',
-        width: '80%',
+        width: '85%',
         centered: true,
         items: [
           {
@@ -34,7 +34,7 @@ Ext.define('ALMITOnTheGo.view.Grades', {
                 width: '100%',
                 itemTpl: new Ext.XTemplate(
                   '<div style="font-weight: bold;">{course_code}',
-                  '<span style="float: right; font-size: 80%; padding-right:3em;">',
+                  '<span style="float: right; font-size: 80%; padding-right:0.2em;">',
                   '<i>{grade_label}</i>',
                   '</span>',
                   '</div>',

@@ -61,11 +61,11 @@ Ext.define('ALMITOnTheGo.view.AddCourses', {
         xtype: 'panel',
         hidden: true,
         itemId: 'addCoursesListPanel',
+        height: '100%',
+        width: '98%',
         style: {
-          fontSize: '80%'
+
         },
-        height: '80%',
-        width: '70%',
         centered: true,
         showAnimation: 'slideIn',
         hideAnimation: 'slideOut',
@@ -223,18 +223,19 @@ Ext.define('ALMITOnTheGo.view.AddCourses', {
           xtype: 'list',
           itemId: 'addedCoursesList',
           itemTpl: new Ext.XTemplate(
-            '<div style="font-weight: bold;">{course_code}',
-            '<span style="float: right; font-size: 80%; padding-right:3em;">',
+            '<p><b>{course_code}</b></p>',
+            '<p><span style="font-size: 80%">{course_title}</span></p>',
+            '<p><span style="font-size: 80%;">{course_term_label}</span></p>',
+            '<p><span style="font-size: 80%;font-weight:bold;">',
             '<i><span id="courseStatusText{course_id}">',
             "<tpl if='grade_id !== \"NONE\"'>",
-            '{grade_label}',
+            'Grade: {grade_label}',
             '<tpl else>',
             'No Grade/Registration Selected',
             '</tpl>',
             '</span></i>',
-            '</span>',
-            '</div>',
-            '<div style="font-weight: lighter; font-size: 80%">{course_title} [{course_term_label}]</div>'
+            '</span></p>',
+            '</div>'
           ),
           onItemDisclosure: true,
           store: ALMITOnTheGo.app.addedCoursesStore,
@@ -279,13 +280,15 @@ Ext.define('ALMITOnTheGo.view.AddCourses', {
       ]
     });
   },
-  onAddedCoursesListItemTap: function () {
-    console.log("onAddedCoursesListItemTap");
-    var me = this;
-    var selectGradesPanel = me.down('#selectGradesPanel');
-    var selectGradesList = me.down('#selectGradesList');
-    selectGradesList.deselectAll();
-    selectGradesPanel.show();
+  onAddedCoursesListItemTap: function (list, index, target, record, e) {
+    if (!e.getTarget('.x-list-disclosure')) {
+      console.log("onAddedCoursesListItemTap");
+      var me = this;
+      var selectGradesPanel = me.down('#selectGradesPanel');
+      var selectGradesList = me.down('#selectGradesList');
+      selectGradesList.deselectAll();
+      selectGradesPanel.show();
+    }
   },
   onSelectGradesListItemTap: function (dataview, index, target, record, e, eOpts) {
     console.log("onSelectGradesListItemTap");
@@ -295,7 +298,7 @@ Ext.define('ALMITOnTheGo.view.AddCourses', {
     var selectedCourseRow = addedCoursesList.getSelection()[0];
     var courseID = selectedCourseRow.data.course_id;
 
-    Ext.get('courseStatusText' + courseID).setHtml(record.data.grade_label);
+    Ext.get('courseStatusText' + courseID).setHtml("Grade: "+record.data.grade_label);
     selectedCourseRow.data.grade_id = record.data.grade_id;
     selectedCourseRow.data.grade_label = record.data.grade_label;
     selectedCourseRow.data.gpa = record.data.gpa;
