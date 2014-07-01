@@ -48,7 +48,7 @@ class Login
         }
 
         // insert user entry in DB
-        $passwordHash = password_hash($password, PASSWORD_DEFAULT);
+        $passwordHash = password_hash($password, PASSWORD_BCRYPT);
 
         $query = LoginQuery::getInsertUserQuery($username, $passwordHash, $email, $registrationType, $concentration);
         $userID = LoginDBUtils::getIDAfterInsertResult($query);

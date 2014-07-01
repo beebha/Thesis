@@ -56,7 +56,7 @@ Ext.define('ALMITOnTheGo.controller.Main', {
               fontSize: '150%',
               fontFamily: 'cambria',
               fontWeight: 'bold',
-              background: 'url(/resources/images/harvard' + imageNumber + '.jpg)',
+              background: 'url(/almitonthego/resources/images/harvard' + imageNumber + '.jpg)',
               backgroundSize: '100%',
               backgroundRepeat: 'no-repeat'
             }
@@ -123,22 +123,19 @@ Ext.define('ALMITOnTheGo.controller.Main', {
     });
   },
   onLogoutCommand: function () {
-    Ext.Ajax.request({
-      url: ALMITOnTheGo.app.apiURL+'app.php?action=doLogoff',
-      method: 'post',
-      params: {
-        authToken: ALMITOnTheGo.app.authToken
-      },
-      success: function (response) {
-
-        var logoffResponse = Ext.JSON.decode(response.responseText);
-
-        if (logoffResponse.success === true) {
-          ALMITOnTheGo.app.authToken = null;
+    if(ALMITOnTheGo.app.authToken != null) {
+      Ext.Ajax.request({
+        url: ALMITOnTheGo.app.apiURL+'app.php?action=doLogoff',
+        method: 'post',
+        params: {
+          authToken: ALMITOnTheGo.app.authToken
+        },
+        success: function (response) {
+          // TODO
         }
-      }
-    });
-
+      });
+    }
     Ext.Viewport.animateActiveItem(this.getLoginView(), ALMITOnTheGo.app.getController('Common').getSlideRightTransition());
+    location.reload();
   }
 });

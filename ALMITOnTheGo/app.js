@@ -13,8 +13,8 @@
 Ext.application({
     name: 'ALMITOnTheGo',
     authToken: null,
-    apiURL: "http://localhost:8090/api/",
-//    apiURL: 'http://54.191.50.10/api/',
+//    apiURL: "http://localhost:8090/api/",
+    apiURL: 'http://54.191.50.10/almitonthego/api/',
     allGrades: null,
     allConcentrations: null,
     allCategories: null,
@@ -68,41 +68,50 @@ Ext.application({
     },
 
     launch: function() {
-        // Destroy the #appLoadingIndicator element
-        Ext.fly('appLoadingIndicator').destroy();
+      ALMITOnTheGo.app.applyToken = null;
+      ALMITOnTheGo.app.allGrades = null;
+      ALMITOnTheGo.app.allConcentrations = null;
+      ALMITOnTheGo.app.allCategories = null;
+      ALMITOnTheGo.app.allCourseTerms = null;
+      ALMITOnTheGo.app.allCoursesStore = null;
+      ALMITOnTheGo.app.addedCoursesStore = null;
+      ALMITOnTheGo.app.viewCoursesStore = null;
 
-        // Initialize the login view
-        Ext.Viewport.add([
-          { xtype: 'loginView' },
-          { xtype: 'registerView' },
-          { xtype: 'mainView' },
-          { xtype: 'addCoursesView' },
-          { xtype: 'userInformationView' }
-        ]);
+      // Destroy the #appLoadingIndicator element
+      Ext.fly('appLoadingIndicator').destroy();
 
-        if (Ext.os.is.iOS && Ext.os.version.major >= 7) {
-          Ext.select(".x-toolbar").applyStyles("margin-top: 20px;");
+      // Initialize the login view
+      Ext.Viewport.add([
+        { xtype: 'loginView' },
+        { xtype: 'registerView' },
+        { xtype: 'mainView' },
+        { xtype: 'addCoursesView' },
+        { xtype: 'userInformationView' }
+      ]);
+
+      if (Ext.os.is.iOS && Ext.os.version.major >= 7) {
+        Ext.select(".x-toolbar").applyStyles("margin-top: 20px;");
+      }
+
+      Ext.Ajax.request({
+        url: ALMITOnTheGo.app.apiURL+'app.php?action=getAllStaticInfoForApp',
+        method: 'get',
+        success: function(response) {
+          var appResponse = Ext.JSON.decode(response.responseText);
+
+          if (appResponse.success === true) {
+            ALMITOnTheGo.app.allGrades = appResponse.data.allGrades;
+            ALMITOnTheGo.app.allConcentrations = appResponse.data.allConcentrations;
+            ALMITOnTheGo.app.allCategories = appResponse.data.allCategories;
+            ALMITOnTheGo.app.allCourseTerms = appResponse.data.allCourseTerms;
+            ALMITOnTheGo.app.allCoursesStore = Ext.getStore('allCoursesStore');
+            ALMITOnTheGo.app.addedCoursesStore = Ext.getStore('addedCoursesStore');
+            ALMITOnTheGo.app.viewCoursesStore = Ext.getStore('viewCoursesStore');
+          } else {
+            // TODO - implementation
+          }
         }
-
-        Ext.Ajax.request({
-            url: ALMITOnTheGo.app.apiURL+'app.php?action=getAllStaticInfoForApp',
-            method: 'get',
-            success: function(response) {
-              var appResponse = Ext.JSON.decode(response.responseText);
-
-              if (appResponse.success === true) {
-                ALMITOnTheGo.app.allGrades = appResponse.data.allGrades;
-                ALMITOnTheGo.app.allConcentrations = appResponse.data.allConcentrations;
-                ALMITOnTheGo.app.allCategories = appResponse.data.allCategories;
-                ALMITOnTheGo.app.allCourseTerms = appResponse.data.allCourseTerms;
-                ALMITOnTheGo.app.allCoursesStore = Ext.getStore('allCoursesStore');
-                ALMITOnTheGo.app.addedCoursesStore = Ext.getStore('addedCoursesStore');
-                ALMITOnTheGo.app.viewCoursesStore = Ext.getStore('viewCoursesStore');
-              } else {
-                // TODO - implementation
-              }
-            }
-          });
+      });
     },
 
     onUpdated: function() {
