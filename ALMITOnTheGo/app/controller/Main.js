@@ -56,7 +56,7 @@ Ext.define('ALMITOnTheGo.controller.Main', {
               fontSize: '150%',
               fontFamily: 'cambria',
               fontWeight: 'bold',
-              background: 'url(/almitonthego/resources/images/harvard' + imageNumber + '.jpg)',
+              background: 'url(resources/images/harvard' + imageNumber + '.jpg)',
               backgroundSize: '100%',
               backgroundRepeat: 'no-repeat'
             }
