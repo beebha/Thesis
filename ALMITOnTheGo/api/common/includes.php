@@ -5,6 +5,7 @@ require_once(dirname(__FILE__) . '/../private/ValidationUtils.php');
 require_once(dirname(__FILE__) . '/../private/ValidationRules.php');
 require_once(dirname(__FILE__) . '/../private/DBUtils.php');
 require_once(dirname(__FILE__) . '/../private/APIException.php');
+require_once(dirname(__FILE__) . '/../private/Password.php');
 
 // defines files
 require_once(dirname(__FILE__) . '/../defines/DBConstants.php');

@@ -2,12 +2,20 @@
 
 class DBUtils
 {
+//    const DB_HOST = "127.0.0.1";
+//    const DB_USERNAME = "root";
+//    const DB_PASSWORD = "root";
+//    const DB_NAME = "thesis";
+//    const DB_PORT = 8889;
+//    const DB_SOCKET = ":/Applications/MAMP/tmp/mysql/mysql.sock";
+
+    // CLOUD SETTINGS
     const DB_HOST = "127.0.0.1";
     const DB_USERNAME = "root";
-    const DB_PASSWORD = "root";
+    const DB_PASSWORD = "Beebs126";
     const DB_NAME = "thesis";
-    const DB_PORT = 8889;
-    const DB_SOCKET = ":/Applications/MAMP/tmp/mysql/mysql.sock";
+    const DB_PORT = 3306;
+    const DB_SOCKET = "";
 
     static function getInsertUpdateDeleteBulkExecutionResult(array $queries)
     {
