@@ -14,6 +14,7 @@ Ext.application({
     name: 'ALMITOnTheGo',
     authToken: null,
     apiURL: "http://localhost:8090/api/",
+//    apiURL: 'http://54.191.50.10/api/',
     allGrades: null,
     allConcentrations: null,
     allCategories: null,

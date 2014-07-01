@@ -14,12 +14,16 @@ $font-family: "cambria","serif"!default;
 $page-bg-color:linear-gradient(to bottom, #F8F7F1 0%, #D9CFB0 100%)!default;
 $form-bg-color: $page-bg-color;
 
+$global-row-height: 2em;
+$radio-size: 0.5em;
+
 //$include-pictos-font: false;
 //$include-default-icons: false;
 
 @import 'sencha-touch/default';
 @import 'sencha-touch/default/all';
 @import 'include/buttons';
+@import 'include/radios';
 
 @include icon-font(
     'almitonthego',
@@ -51,11 +55,23 @@ $form-bg-color: $page-bg-color;
 @include icon("exit"  , "\e612", "almitonthego");
 @include icon("stackoverflow"  , "\e613", "almitonthego");
 
+body.x-ios.x-phone {
+  font-size: 90%
+}
+
+body.x-android.x-phone {
+  font-size: 85%
+}
+
+body.x-desktop {
+  font-size: 100%
+}
 
 .x-toolbar {
   border: none;
   background: $base-color;
   .x-innerhtml {
+
     color: #E1D9C0;
     font-size: 1.3em;
   }
@@ -84,7 +100,7 @@ a:active {text-decoration:none;}
   border-radius: 3em;
   color: white;
   text-align:center;
-  padding:0.2em 0.3em;
+  padding:0.1em 0.3em;
   font-size: 80%;
 }
 .EID {background-color: #660000;}

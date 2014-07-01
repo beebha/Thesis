@@ -32,6 +32,9 @@ Ext.define('ALMITOnTheGo.view.Courses', {
                 xtype: 'fieldset',
                 itemId: 'selectConcentrationFieldSet',
                 width: '95%',
+                defaults: {
+                  labelWidth: '85%'
+                },
                 centered: true,
                 items: [
                   {
@@ -93,6 +96,9 @@ Ext.define('ALMITOnTheGo.view.Courses', {
                 xtype: 'fieldset',
                 itemId: 'selectCategoryFieldSet',
                 width: '95%',
+                defaults: {
+                  labelWidth: '85%'
+                },
                 centered: true,
                 items: [
                   {
@@ -136,6 +142,9 @@ Ext.define('ALMITOnTheGo.view.Courses', {
                 xtype: 'fieldset',
                 itemId: 'selectCourseTermFieldSet',
                 width: '95%',
+                defaults: {
+                  labelWidth: '85%'
+                },
                 centered: true,
                 items: [
                   {
@@ -198,14 +207,14 @@ Ext.define('ALMITOnTheGo.view.Courses', {
                     mode: 'MULTI',
                     itemTpl: new Ext.XTemplate(
                       '<div><b>{course_code}</b><br>',
-                      '<span style="font-size: 80%">',
-                        '{course_title}</span>',
-                      '<span style="float:right;margin-right:2em;">',
+                      '<span style="font-size: 80%">{course_title}</span><br>',
+                      '<span style="font-size: 80%;font-style:italic;">{course_term_label}</span><br>',
+                      '<span>',
                       '<tpl for="attributes_array">',
-                        '<span class="squarebox {.}">{.}</span>&nbsp;&nbsp;',
+                      '<span class="squarebox {.}">{.}</span>&nbsp;&nbsp;',
                       '</tpl>',
-                      '</span><br>',
-                      '<span style="font-size: 80%;font-style:italic">{course_term_label}</span></div>'),
+                      '</span>',
+                      '</div>'),
                     store: null,
                     useSimpleItems: true,
                     disableSelection: false,
