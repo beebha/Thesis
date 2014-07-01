@@ -49,17 +49,29 @@ Ext.define('ALMITOnTheGo.controller.Main', {
 
         for (var i = 0; i < mainViewResponse.data.announcements.length; i++) {
           imageNumber = imageNumber < carouselImagesCount ? imageNumber : 0;
-          announcements.push(Ext.create('Ext.Panel', {
-            html: mainViewResponse.data.announcements[i].announcement,
-            style: {
-              fontSize: '150%',
-              fontFamily: 'cambria',
-              fontWeight: 'bold',
-              background: 'url(resources/images/harvard' + imageNumber + '.jpg)',
-              backgroundSize: '100%',
-              backgroundRepeat: 'no-repeat'
+          announcements.push(Ext.create('Ext.Panel',
+            {
+              items: [
+                {
+                  html: mainViewResponse.data.announcements[i].announcement + "<br><br>",
+                  style: {
+                    fontSize: '120%',
+                    fontFamily: 'cambria',
+                    fontWeight: 'bold'
+                  }
+                },
+                {
+                  style: {
+                    width: '100%',
+                    height: '100%',
+                    background: 'url(resources/images/harvard' + imageNumber + '.jpg)',
+                    backgroundSize: '100%',
+                    backgroundRepeat: 'no-repeat'
+                  }
+                }
+              ]
             }
-          }));
+          ));
           imageNumber++;
         }
 
