@@ -63,9 +63,6 @@ Ext.define('ALMITOnTheGo.view.AddCourses', {
         itemId: 'addCoursesListPanel',
         height: '100%',
         width: '98%',
-        style: {
-
-        },
         centered: true,
         showAnimation: 'slideIn',
         hideAnimation: 'slideOut',
@@ -218,6 +215,9 @@ Ext.define('ALMITOnTheGo.view.AddCourses', {
       width: '90%',
       centered: true,
       layout: 'fit',
+      style: {
+        border: '0.1em solid black'
+      },
       items: [
         {
           xtype: 'list',
