@@ -6,7 +6,7 @@ class UserInfoQuery
     {
         return "SELECT mat.user_id, u.registration_type, u.gpa,
                 u.concentration_id,
-                u.last_login, u.username
+                DATE_FORMAT(u.last_login,'%b %d %Y %h:%i %p') last_login, u.username
                 FROM mobile_auth_token mat
                 INNER JOIN users u ON u.user_id = mat.user_id
                 WHERE mat.auth_token = " . UserInfoDBUtils::getDBValue(DBConstants::DB_STRING, $authToken);

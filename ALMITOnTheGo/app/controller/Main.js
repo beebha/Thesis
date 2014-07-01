@@ -39,8 +39,7 @@ Ext.define('ALMITOnTheGo.controller.Main', {
         if (userInfo.registration_type == 'GUEST') {
           welcomeMsg = "Welcome Guest!!!"
         } else {
-          welcomeMsg = "Welcome back " + userInfo.username + "!!!<br>" +
-            "Your last login was on " + Ext.Date.format(new Date(userInfo.last_login), 'D, d M Y, g:i A');
+          welcomeMsg = "Welcome back " + userInfo.username + "!!!<br>" + "Your last login was on " + userInfo.last_login;
           showSettingsBtn = true;
           showGradesTab = true;
         }
