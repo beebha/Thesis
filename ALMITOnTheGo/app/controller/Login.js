@@ -33,8 +33,6 @@ Ext.define('ALMITOnTheGo.controller.Login', {
     var mainView = this.getMainView();
     loginView.setMasked(false);
 
-    ALMITOnTheGo.app.authToken = null;
-
     Ext.Viewport.animateActiveItem(mainView, ALMITOnTheGo.app.getController('Common').getSlideLeftTransition());
   },
   onLoginCommand: function (view, username, password) {

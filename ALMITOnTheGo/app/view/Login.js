@@ -94,6 +94,7 @@ Ext.define('ALMITOnTheGo.view.Login', {
     ]
   },
   onGuestButtonTap: function () {
+    ALMITOnTheGo.app.authToken = null;
     var me = this;
     var task = Ext.create('Ext.util.DelayedTask', function () {
       me.fireEvent('guestCommand');
@@ -102,6 +103,7 @@ Ext.define('ALMITOnTheGo.view.Login', {
     task.delay(500);
   },
   onLoginButtonTap: function () {
+    ALMITOnTheGo.app.authToken = null;
     var me = this;
 
     var usernameField = me.down('#usernameTextField'),
@@ -115,6 +117,8 @@ Ext.define('ALMITOnTheGo.view.Login', {
 
     var task = Ext.create('Ext.util.DelayedTask', function () {
       loginFailedLabel.setHtml('');
+      usernameField.setValue('');
+      passwordField.setValue('');
       me.fireEvent('loginCommand', me, username, password);
     });
 
