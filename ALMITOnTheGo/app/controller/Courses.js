@@ -16,6 +16,7 @@ Ext.define('ALMITOnTheGo.controller.Courses',
           courseTermBackButtonCommand: 'onCourseTermBackButtonCommand',
           courseTermNextButtonCommand: 'onCourseTermNextButtonCommand',
           courseResultsBackButtonCommand: 'onCourseResultsBackButtonCommand',
+          courseDetailBackButtonCommand: 'onCourseDetailBackButtonCommand',
           viewCoursesListItemTapCommand: 'onViewCoursesListItemTapCommand',
           viewCoursesListItemDiscloseCommand: 'onViewCoursesListItemDiscloseCommand'
         }
@@ -30,10 +31,20 @@ Ext.define('ALMITOnTheGo.controller.Courses',
     },
     onViewCoursesListItemDiscloseCommand: function(list, index, target, record, e) {
       console.log("onViewCoursesListItemDiscloseCommand");
-      console.log(index);
       console.log(record);
       var cc = this;
       var coursesView = cc.getCoursesView();
+
+      coursesView.down('#courseTitle').setValue(record.data.course_title);
+      coursesView.down('#courseCode').setValue(record.data.course_code);
+      coursesView.down('#courseTerm').setValue(record.data.course_term_label);
+      coursesView.down('#courseDay').setValue(record.data.course_day);
+      coursesView.down('#courseTime').setValue(record.data.course_time);
+      coursesView.down('#courseLocation').setValue(record.data.location);
+      coursesView.down('#courseType').setValue(record.data.course_type);
+      coursesView.down('#courseInstructor').setValue(record.data.instructor);
+      coursesView.down('#courseLimit').setValue(record.data.course_limit == 0 ? "No Limit" : record.data.course_limit);
+
       coursesView.down('#coursesCardPanel').animateActiveItem(4, {type:'flip'});
     },
     onCoursesViewDetailsCommand: function () {
@@ -128,6 +139,12 @@ Ext.define('ALMITOnTheGo.controller.Courses',
       var cc = this;
       var coursesView = cc.getCoursesView();
       coursesView.down('#coursesCardPanel').animateActiveItem(2, {type:'slide', direction:'right'});
+    },
+    onCourseDetailBackButtonCommand: function () {
+      console.log("onCourseDetailBackButtonCommand");
+      var cc = this;
+      var coursesView = cc.getCoursesView();
+      coursesView.down('#coursesCardPanel').animateActiveItem(3, {type:'flip'});
     },
     setupCourseResultsViewPanel: function(coursesView, courseResultsResponse) {
       console.log("setupCourseResultsViewPanel");

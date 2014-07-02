@@ -277,8 +277,78 @@ Ext.define('ALMITOnTheGo.view.Courses', {
                 centered: true,
                 items: [
                   {
-                    xtype: 'label',
-                    html: 'WASSSSSUP'
+                    xtype: 'textfield',
+                    label: 'Course Title',
+                    itemId: 'courseTitle',
+                    readOnly: true
+                  },
+                  {
+                    xtype: 'textfield',
+                    label: 'Course Code',
+                    itemId: 'courseCode',
+                    readOnly: true
+                  },
+                  {
+                    xtype: 'textfield',
+                    label: 'Course Term',
+                    itemId: 'courseTerm',
+                    readOnly: true
+                  },
+                  {
+                    xtype: 'textfield',
+                    label: 'Course Day',
+                    itemId: 'courseDay',
+                    readOnly: true
+                  },
+                  {
+                    xtype: 'textfield',
+                    label: 'Course Time',
+                    itemId: 'courseTime',
+                    readOnly: true
+                  },
+                  {
+                    xtype: 'textfield',
+                    label: 'Course Location',
+                    itemId: 'courseLocation',
+                    readOnly: true
+                  },
+                  {
+                    xtype: 'textfield',
+                    label: 'Course Type',
+                    itemId: 'courseType',
+                    readOnly: true
+                  },
+                  {
+                    xtype: 'textfield',
+                    label: 'Course Instructor',
+                    itemId: 'courseInstructor',
+                    readOnly: true
+                  },
+                  {
+                    xtype: 'textfield',
+                    label: 'Course Limit',
+                    itemId: 'courseLimit',
+                    readOnly: true
+                  },
+                  {
+                    docked: 'top',
+                    xtype: 'titlebar',
+                    title: 'Course Details',
+                    style: {
+                      fontSize: '80%'
+                    }
+                  },
+                  {
+                    docked: 'bottom',
+                    xtype: 'titlebar',
+                    items: [
+                      {
+                        xtype: 'button',
+                        text: 'Back',
+                        itemId: 'courseDetailBackButton',
+                        align: 'left'
+                      }
+                    ]
                   }
                 ]
               }
@@ -317,6 +387,11 @@ Ext.define('ALMITOnTheGo.view.Courses', {
         delegate: '#courseResultsBackButton',
         event: 'tap',
         fn: 'onCourseResultsBackButton'
+      },
+      {
+        delegate: '#courseDetailBackButton',
+        event: 'tap',
+        fn: 'onCourseDetailBackButton'
       }
     ]
   },
@@ -370,6 +445,15 @@ Ext.define('ALMITOnTheGo.view.Courses', {
 
     var task = Ext.create('Ext.util.DelayedTask', function () {
       me.fireEvent('courseResultsBackButtonCommand');
+    });
+
+    task.delay(500);
+  },
+    onCourseDetailBackButton: function () {
+    var me = this;
+
+    var task = Ext.create('Ext.util.DelayedTask', function () {
+      me.fireEvent('courseDetailBackButtonCommand');
     });
 
     task.delay(500);
