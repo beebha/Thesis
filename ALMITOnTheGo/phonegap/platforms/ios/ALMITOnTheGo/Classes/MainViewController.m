@@ -63,11 +63,20 @@
 
 #pragma mark View lifecycle
 
+// Fix for shrinking screen on Camera, Camera-Roll, InAppBrowser and more...
+bool sizeWasAdjusted = false;
 - (void)viewWillAppear:(BOOL)animated
 {
     // View defaults to full size.  If you want to customize the view's size, or its subviews (e.g. webView),
     // you can do so here.
-
+    //Lower screen 20px on ios 7
+    if (!sizeWasAdjusted && [[[UIDevice currentDevice] systemVersion] floatValue] >= 7) {
+        CGRect viewBounds = [self.webView bounds];
+        viewBounds.origin.y = 20;
+        viewBounds.size.height = viewBounds.size.height - 20;
+        self.webView.frame = viewBounds;
+        sizeWasAdjusted = true;
+    }
     [super viewWillAppear:animated];
 }
 

@@ -89,10 +89,6 @@ Ext.application({
         { xtype: 'userInformationView' }
       ]);
 
-      if (Ext.os.is.iOS && Ext.os.version.major >= 7) {
-        Ext.select(".x-toolbar").applyStyles("margin-top: 20px;");
-      }
-
       Ext.Ajax.request({
         url: ALMITOnTheGo.app.apiURL+'app.php?action=getAllStaticInfoForApp',
         method: 'get',
