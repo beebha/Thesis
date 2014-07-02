@@ -337,13 +337,13 @@ foreach($allCourseContents as $singleFileContents)
 //    $authToken = md5(uniqid(rand(), true));
 //
 //    $demoUsers[] = "INSERT INTO users
-//                    (username, password_hash, email, registration_type, concentration_id, last_login, create_date) values ('" .
+//                    (username, password_hash, email, registration_type, concentration_id, current_login, last_login, create_date) values ('" .
 //                    $username . "','" .
 //                    $passwordHash . "','" .
 //                    $email . "','" .
 //                    $registrationType . "'," .
 //                    $concID . ",
-//                    CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)";
+//                    CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)";
 //
 //    $demoMobileAuthTokens[] = "INSERT INTO mobile_auth_token
 //                    (user_id, auth_token, device_type, device_os, create_date) values (" .

@@ -26,6 +26,10 @@ class Login
         $query = LoginQuery::getInsertUpdateMobileAuthTokenQuery($userID, $authToken, $deviceType, $deviceOS);
         LoginDBUtils::getInsertUpdateDeleteExecutionResult($query);
 
+        // insert/update last_login entry in DB
+        $query = LoginQuery::getUpdateLastLoginQuery($userID);
+        LoginDBUtils::getInsertUpdateDeleteExecutionResult($query);
+
         return array("status" => TRUE, "errorMsg" => "", "data" => $authToken);
     }
 

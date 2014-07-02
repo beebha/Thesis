@@ -35,13 +35,20 @@ class LoginQuery
     public static function getInsertUserQuery($username, $passwordHash, $email, $registrationType, $concentration)
     {
         return "INSERT INTO users
-                (username, password_hash, email, registration_type, concentration_id, last_login, create_date) values (" .
+                (username, password_hash, email, registration_type, concentration_id, current_login, last_login, create_date) values (" .
                 LoginDBUtils::getDBValue(DBConstants::DB_STRING, $username) . "," .
                 LoginDBUtils::getDBValue(DBConstants::DB_STRING, $passwordHash) . "," .
                 LoginDBUtils::getDBValue(DBConstants::DB_STRING, $email) . "," .
                 LoginDBUtils::getDBValue(DBConstants::DB_STRING, $registrationType) . "," .
                 LoginDBUtils::getDBValue(DBConstants::DB_VALUE, $concentration) . ",
-                CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)";
+                CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)";
+    }
+
+    public static function getUpdateLastLoginQuery($userID)
+    {
+        return "UPDATE users
+                SET last_login = current_login, current_login = CURRENT_TIMESTAMP
+                WHERE user_id = " . LoginDBUtils::getDBValue(DBConstants::DB_VALUE, $userID);
     }
 
     public static function deleteAuthTokenQuery($authToken)
