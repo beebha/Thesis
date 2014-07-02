@@ -278,55 +278,55 @@ Ext.define('ALMITOnTheGo.view.Courses', {
                 items: [
                   {
                     xtype: 'textfield',
-                    label: 'Course Title',
+                    label: 'Title',
                     itemId: 'courseTitle',
                     readOnly: true
                   },
                   {
                     xtype: 'textfield',
-                    label: 'Course Code',
+                    label: 'Code',
                     itemId: 'courseCode',
                     readOnly: true
                   },
                   {
                     xtype: 'textfield',
-                    label: 'Course Term',
+                    label: 'Term',
                     itemId: 'courseTerm',
                     readOnly: true
                   },
                   {
                     xtype: 'textfield',
-                    label: 'Course Day',
+                    label: 'Day',
                     itemId: 'courseDay',
                     readOnly: true
                   },
                   {
                     xtype: 'textfield',
-                    label: 'Course Time',
+                    label: 'Time',
                     itemId: 'courseTime',
                     readOnly: true
                   },
                   {
                     xtype: 'textfield',
-                    label: 'Course Location',
+                    label: 'Location',
                     itemId: 'courseLocation',
                     readOnly: true
                   },
                   {
                     xtype: 'textfield',
-                    label: 'Course Type',
+                    label: 'Type',
                     itemId: 'courseType',
                     readOnly: true
                   },
                   {
                     xtype: 'textfield',
-                    label: 'Course Instructor',
+                    label: 'Instructor',
                     itemId: 'courseInstructor',
                     readOnly: true
                   },
                   {
                     xtype: 'textfield',
-                    label: 'Course Limit',
+                    label: 'Limit',
                     itemId: 'courseLimit',
                     readOnly: true
                   },
