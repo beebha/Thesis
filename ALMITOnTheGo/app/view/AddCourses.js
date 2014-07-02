@@ -225,7 +225,8 @@ Ext.define('ALMITOnTheGo.view.AddCourses', {
           itemTpl: new Ext.XTemplate(
             '<p><b>{course_code}</b></p>',
             '<p><span style="font-size: 80%">{course_title}</span></p>',
-            '<p><span style="font-size: 80%;">{course_term_label}</span></p>',
+            '<p><span style="font-size: 80%;">{course_term_label}',
+            '<span style="float:right;" class="fake-disclosure">]</span></span></p>',
             '<p><span style="font-size: 80%;font-weight:bold;">',
             '<i><span id="courseStatusText{course_id}">',
             "<tpl if='grade_id !== \"NONE\"'>",
@@ -233,11 +234,8 @@ Ext.define('ALMITOnTheGo.view.AddCourses', {
             '<tpl else>',
             'No Grade/Registration Selected',
             '</tpl>',
-            '</span></i>',
-            '</span></p>',
-            '</div>'
+            '</span></i></span></p>'
           ),
-          onItemDisclosure: true,
           store: ALMITOnTheGo.app.addedCoursesStore,
           emptyText: '<div style="font-size: 120%; color: grey">No Courses Added</div>',
           disableSelection: false,
