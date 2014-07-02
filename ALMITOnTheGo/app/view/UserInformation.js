@@ -11,6 +11,9 @@ Ext.define('ALMITOnTheGo.view.UserInformation', {
   ],
   config: {
     title: 'User Information',
+//    scrollable: {
+//      direction: 'vertical'
+//    },
     items: [
       {
         xtype: 'titlebar',
@@ -46,11 +49,14 @@ Ext.define('ALMITOnTheGo.view.UserInformation', {
         itemId: 'userInformationContainer',
         hidden: true,
         width: '80%',
-        layout: 'fit',
+        layout: 'vbox',
         centered: true,
         items: [
           {
             xtype: 'fieldset',
+            style: {
+              marginTop: '2em'
+            },
             items: [
               {
                 xtype: 'textfield',
@@ -86,6 +92,9 @@ Ext.define('ALMITOnTheGo.view.UserInformation', {
           {
             xtype: 'fieldset',
             title: 'Completed Courses',
+            style: {
+              marginTop: '-1em'
+            },
             items: [
               {
                 xtype: 'list',
@@ -114,6 +123,9 @@ Ext.define('ALMITOnTheGo.view.UserInformation', {
           {
             xtype: 'fieldset',
             title: 'Registered Courses',
+            style: {
+              marginTop: '-1em'
+            },
             items: [
               {
                 xtype: 'list',

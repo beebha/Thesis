@@ -159,3 +159,7 @@ a:active {text-decoration:none;}
   border: 1px solid $base-color;
   background-color: $base-color;
 }
+
+.x-panel.x-floating, .x-msgbox, .x-form.x-floating {
+  padding: 3px;
+}
