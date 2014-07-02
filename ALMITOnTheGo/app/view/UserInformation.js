@@ -19,7 +19,7 @@ Ext.define('ALMITOnTheGo.view.UserInformation', {
       },
       {
         xtype: 'panel',
-        itemId: 'reviewUserInformationMsgPanel',
+        itemId: 'userInformationMsgPanel',
         modal: true,
         hideOnMaskTap: true,
         showAnimation: {
@@ -33,27 +33,17 @@ Ext.define('ALMITOnTheGo.view.UserInformation', {
           easing: 'ease-out'
         },
         centered: true,
-        width: 300,
-        height: 300,
+        width: 250,
+        height: 250,
         styleHtmlContent: true,
-        html: '<p><b>Please review all information</b><br><br>' +
+        html: '<p><b>Please review all added/registered courses and GPA.</b><br><br>' +
           'Click <b>Back</b> to make changes.<br>' +
           'Click <b>Done</b> to start using this application.<br><br>' +
-          'Tap anywhere outside this alert to dismiss this message.</p>',
-        items: [
-          {
-            docked: 'top',
-            xtype: 'toolbar',
-            title: 'Review',
-            style: {
-              fontSize : '80%'
-            }
-          }
-        ]
+          'Tap anywhere outside this alert to dismiss this message.</p>'
       },
       {
         xtype: 'container',
-        itemId: 'reviewUserInformationContainer',
+        itemId: 'userInformationContainer',
         hidden: true,
         width: '80%',
         layout: 'fit',
@@ -184,17 +174,17 @@ Ext.define('ALMITOnTheGo.view.UserInformation', {
         fn: 'onDoneButtonTap'
       },
       {
-        delegate: '#reviewUserInformationMsgPanel',
+        delegate: '#userInformationMsgPanel',
         event: 'hide',
-        fn: 'onReviewUserInformationMsgPanelHide'
+        fn: 'onUserInformationMsgPanelHide'
       }
     ]
   },
-  onReviewUserInformationMsgPanelHide: function () {
+  onUserInformationMsgPanelHide: function () {
     var me = this;
     me.down('#completedCoursesList').refresh();
     me.down('#registeredCoursesList').refresh();
-    me.down('#reviewUserInformationContainer').show();
+    me.down('#userInformationContainer').show();
     me.down('#backButton').show();
     me.down('#doneButton').show();
   },

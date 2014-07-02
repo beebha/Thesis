@@ -45,8 +45,7 @@ Ext.define('ALMITOnTheGo.controller.Login', {
     }
 
     loginView.setMasked({
-      xtype: 'loadmask',
-      message: 'Logging In...'
+      xtype: 'loadmask'
     });
 
     Ext.Ajax.request({

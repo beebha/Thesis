@@ -47,8 +47,7 @@ Ext.define('ALMITOnTheGo.controller.UserInformation', {
     userInfoData.authToken = ALMITOnTheGo.app.authToken;
 
     userInformationView.setMasked({
-      xtype: 'loadmask',
-      message: 'Logging In...'
+      xtype: 'loadmask'
     });
 
     Ext.Ajax.request({
