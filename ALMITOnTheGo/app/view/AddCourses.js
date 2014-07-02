@@ -43,19 +43,12 @@ Ext.define('ALMITOnTheGo.view.AddCourses', {
           easing: 'ease-out'
         },
         centered: true,
-        width: 300,
-        height: 300,
+        width: 250,
+        height: 250,
         styleHtmlContent: true,
-        html: '<p><b>Successful Registration!!!</b><br><br>' +
-          'Please add all completed/currently registered courses or revisit this step later.<br><br>' +
-          'Tap anywhere outside this alert to dismiss this message.</p>',
-        items: [
-          {
-            docked: 'top',
-            xtype: 'toolbar',
-            title: 'Add Courses'
-          }
-        ]
+        html: '<p><b>Add/Edit Courses</b><br><br>' +
+          'Please add/edit all completed/currently registered courses or revisit this step later.<br><br>' +
+          'Tap anywhere outside this alert to dismiss this message.</p>'
       },
       {
         xtype: 'panel',
