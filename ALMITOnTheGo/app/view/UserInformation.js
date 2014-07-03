@@ -131,11 +131,7 @@ Ext.define('ALMITOnTheGo.view.UserInformation', {
                 width: '100%',
                 itemId: 'registeredCoursesList',
                 itemTpl: new Ext.XTemplate(
-                  '<div style="font-weight: bold;">{course_code}',
-                  '<span style="float: right; font-size: 80%;">',
-                  '<i>{grade_label}</i>',
-                  '</span>',
-                  '</div>',
+                  '<div style="font-weight: bold;">{course_code}</div>',
                   '<div style="font-weight: lighter; font-size: 80%">{course_title}</div>',
                   '<div style="font-style: italic; font-size: 80%">{course_term_label}</div>'
                 ),
