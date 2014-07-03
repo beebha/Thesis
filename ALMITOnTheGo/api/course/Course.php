@@ -43,15 +43,14 @@ class Course
 
                 if (in_array($categoryCode, $attributeCompleted) && !$countHasBeenMet) {
 
-                    // check if non elective requirement has been met
+                    // check if non elective requirement has been mets
                     $nonElectivesMet = TRUE;
 
                     if($categoryCode == "E") {
                         foreach($attributeCompleted as $singleAttribute) {
                             if($singleAttribute != "E") {
-                                $categoryReqCount = $currentRequirementsResults[$singleAttribute]['category_count'];
                                 $currentCategoryReqCount = $currentRequirementsResults[$singleAttribute]['registered'] + $currentRequirementsResults[$singleAttribute]['completed'];
-                                if($categoryReqCount != $currentCategoryReqCount) {
+                                if($categoryCount != $currentCategoryReqCount) {
                                     $nonElectivesMet = FALSE;
                                     break;
                                 }
@@ -60,6 +59,7 @@ class Course
                     }
 
                     if($nonElectivesMet) {
+                        error_log("non electives met for : ");
                         $grade == 1 ? ++$singleReq['registered'] : ++$singleReq['completed'];
                     }
                 }
@@ -68,6 +68,8 @@ class Course
             $singleReq['subText'] = self::getSubTextForCategory($singleReq);
             $currentRequirementsResults[$categoryCode] = $singleReq;
         }
+
+        error_log(print_r($currentRequirementsResults, true));
 
         return array(
             "status" => TRUE,
@@ -120,7 +122,8 @@ class Course
 
         $text = $req['admission'] ? "Required for Admission" : $categoryCount . " course" . ($categoryCount > 1 ? "s" : "");
         $text .= $registeredCount > 0 || $completedCount > 0 ? " (" : "";
-        $text .= $registeredCount > 0 ? $registeredCount . " registered, " : "";
+        $text .= $registeredCount > 0 ? $registeredCount . " registered" : "";
+        $text .= $registeredCount > 0 && $completedCount > 0 ? ", " : "";
         $text .= $completedCount > 0 ? $completedCount . " completed" : "";
         $text .= $registeredCount > 0 || $completedCount > 0 ? ")" : "";
 
