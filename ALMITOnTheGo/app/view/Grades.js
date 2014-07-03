@@ -9,7 +9,7 @@ Ext.define('ALMITOnTheGo.view.Grades', {
         xtype: 'container',
         itemId: 'gradesContainer',
         layout: 'vbox',
-        width: '85%',
+        width: '97%',
         centered: true,
         items: [
           {

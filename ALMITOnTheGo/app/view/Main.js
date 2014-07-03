@@ -43,7 +43,7 @@ Ext.define('ALMITOnTheGo.view.Main', {
             xtype: 'button',
             iconCls: 'cogs',
             itemId: 'settingsButton',
-            align: 'right',
+            align: 'left',
             hidden: true,
             listeners: {
               tap: function () {

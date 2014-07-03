@@ -56,7 +56,6 @@ Ext.define('ALMITOnTheGo.controller.Main', {
                   html: mainViewResponse.data.announcements[i].announcement + "<br><br>",
                   style: {
                     fontSize: '120%',
-                    fontFamily: 'cambria',
                     fontWeight: 'bold'
                   }
                 },

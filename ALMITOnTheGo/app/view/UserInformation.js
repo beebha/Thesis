@@ -11,9 +11,6 @@ Ext.define('ALMITOnTheGo.view.UserInformation', {
   ],
   config: {
     title: 'User Information',
-//    scrollable: {
-//      direction: 'vertical'
-//    },
     items: [
       {
         xtype: 'titlebar',
@@ -48,14 +45,14 @@ Ext.define('ALMITOnTheGo.view.UserInformation', {
         xtype: 'container',
         itemId: 'userInformationContainer',
         hidden: true,
-        width: '80%',
+        width: '97%',
         layout: 'vbox',
         centered: true,
         items: [
           {
             xtype: 'fieldset',
             style: {
-              marginTop: '2em'
+              marginTop: '0.8em'
             },
             items: [
               {
@@ -93,7 +90,7 @@ Ext.define('ALMITOnTheGo.view.UserInformation', {
             xtype: 'fieldset',
             title: 'Completed Courses',
             style: {
-              marginTop: '-1em'
+              marginTop: '-1.8em'
             },
             items: [
               {
@@ -103,7 +100,7 @@ Ext.define('ALMITOnTheGo.view.UserInformation', {
                 itemId: 'completedCoursesList',
                 itemTpl: new Ext.XTemplate(
                   '<div style="font-weight: bold;">{course_code}',
-                  '<span style="float: right; font-size: 80%; padding-right:3em;">',
+                  '<span style="float: right; font-size: 80%;">',
                   '<i>{grade_label}</i>',
                   '</span>',
                   '</div>',
@@ -125,7 +122,7 @@ Ext.define('ALMITOnTheGo.view.UserInformation', {
             xtype: 'fieldset',
             title: 'Registered Courses',
             style: {
-              marginTop: '-1em'
+              marginTop: '-1.8em'
             },
             items: [
               {
@@ -135,7 +132,7 @@ Ext.define('ALMITOnTheGo.view.UserInformation', {
                 itemId: 'registeredCoursesList',
                 itemTpl: new Ext.XTemplate(
                   '<div style="font-weight: bold;">{course_code}',
-                  '<span style="float: right; font-size: 80%; padding-right:3em;">',
+                  '<span style="float: right; font-size: 80%;">',
                   '<i>{grade_label}</i>',
                   '</span>',
                   '</div>',

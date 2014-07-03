@@ -14,10 +14,7 @@ class Grade
             $gpa = count($completedCourses) > 0 ? $completedCourses[0]['gpa'] : 0;
         }
 
-        // calculate GPA state, get range cut-off from John
-        // G - green
-        // A - amber
-        // R - red
+        // calculate GPA state
         if($gpa >= 3.00) {
             $state = "G";
         } else if ($gpa >= 2.00) {

@@ -14,7 +14,6 @@ Ext.define('ALMITOnTheGo.view.Home', {
         itemId: 'welcomeLabel',
         height: '10%',
         style: {
-          fontFamily: 'cambria',
           fontWeight: 'bold',
           padding: '0.5em'
         }
