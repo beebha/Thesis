@@ -53,11 +53,11 @@ $radio-size: 0.7em;
 @include icon("stackoverflow"  , "\e613", "almitonthego");
 
 body.x-ios.x-phone {
-  font-size: 90%
+  font-size: 100%
 }
 
 body.x-android.x-phone {
-  font-size: 85%
+  font-size: 90%
 }
 
 body.x-desktop {

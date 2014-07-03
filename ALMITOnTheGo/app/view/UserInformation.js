@@ -107,7 +107,8 @@ Ext.define('ALMITOnTheGo.view.UserInformation', {
                   '<i>{grade_label}</i>',
                   '</span>',
                   '</div>',
-                  '<div style="font-weight: lighter; font-size: 80%">{course_title} [{course_term_label}]</div>'
+                  '<div style="font-weight: lighter; font-size: 80%">{course_title}</div>',
+                  '<div style="font-style: italic; font-size: 80%">{course_term_label}</div>'
                 ),
                 store: {
                   storeId: 'completedCoursesStore',
@@ -138,7 +139,8 @@ Ext.define('ALMITOnTheGo.view.UserInformation', {
                   '<i>{grade_label}</i>',
                   '</span>',
                   '</div>',
-                  '<div style="font-weight: lighter; font-size: 80%">{course_title} [{course_term_label}]</div>'
+                  '<div style="font-weight: lighter; font-size: 80%">{course_title}</div>',
+                  '<div style="font-style: italic; font-size: 80%">{course_term_label}</div>'
                 ),
                 store: {
                   storeId: 'registeredCoursesStore',

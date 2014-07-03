@@ -71,9 +71,9 @@ Ext.define('ALMITOnTheGo.view.AddCourses', {
             grouped: true,
             indexBar: true,
             mode: 'MULTI',
-            itemTpl: '<div><b>{course_code}</b><br>' +
-              '<span style="font-size: 80%">' +
-              '{course_title} [{course_term_label}]</span></div>',
+            itemTpl:  '<p><b>{course_code}</b></p>' +
+                      '<p style="font-size: 80%">{course_title}</p>'+
+                      '<p style="font-size: 80%"><i>{course_term_label}</i></p>',
             store: null,
             useSimpleItems: true,
             emptyText: '<div style="margin-top: 15px; text-align: center">No Matching Items</div>',
@@ -218,7 +218,7 @@ Ext.define('ALMITOnTheGo.view.AddCourses', {
           itemTpl: new Ext.XTemplate(
             '<p><b>{course_code}</b></p>',
             '<p><span style="font-size: 80%">{course_title}</span></p>',
-            '<p><span style="font-size: 80%;">{course_term_label}',
+            '<p><span style="font-size: 80%;"><i>{course_term_label}</i>',
             '<span style="float:right;" class="fake-disclosure">]</span></span></p>',
             '<p><span style="font-size: 80%;font-weight:bold;">',
             '<i><span id="courseStatusText{course_id}">',
