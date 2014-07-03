@@ -211,8 +211,6 @@ Ext.define('ALMITOnTheGo.controller.Courses',
       console.log("setupCategoriesViewPanel");
       if (coursesResponse.success === true) {
 
-        console.log(coursesResponse);
-
         var currentReqs = coursesResponse.data.currentReqs;
         var singleReq;
 

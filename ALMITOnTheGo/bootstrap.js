@@ -33,6 +33,7 @@ Ext.ClassManager.addNameAlternateMappings({
   "ALMITOnTheGo.store.AddedCourses": [],
   "ALMITOnTheGo.store.AllCourses": [],
   "ALMITOnTheGo.store.ViewCourses": [],
+  "ALMITOnTheGo.store.ViewRequirements": [],
   "ALMITOnTheGo.view.AddCourses": [],
   "ALMITOnTheGo.view.Courses": [],
   "ALMITOnTheGo.view.Grades": [],
@@ -781,6 +782,7 @@ Ext.ClassManager.addNameAliasMappings({
   "ALMITOnTheGo.store.AddedCourses": [],
   "ALMITOnTheGo.store.AllCourses": [],
   "ALMITOnTheGo.store.ViewCourses": [],
+  "ALMITOnTheGo.store.ViewRequirements": [],
   "ALMITOnTheGo.view.AddCourses": [
     "widget.addCoursesView"
   ],

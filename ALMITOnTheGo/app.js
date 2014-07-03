@@ -22,6 +22,7 @@ Ext.application({
     allCoursesStore: null,
     addedCoursesStore: null,
     viewCoursesStore: null,
+    viewRequirementsStore:null,
     homeTab: 0,
     coursesTab: 1,
     requirementsTab: 2,
@@ -46,7 +47,7 @@ Ext.application({
     ],
 
     stores: [
-      'AddedCourses', 'AllCourses', 'ViewCourses'
+      'AddedCourses', 'AllCourses', 'ViewCourses', 'ViewRequirements'
     ],
 
     icon: {
@@ -76,6 +77,7 @@ Ext.application({
       ALMITOnTheGo.app.allCoursesStore = null;
       ALMITOnTheGo.app.addedCoursesStore = null;
       ALMITOnTheGo.app.viewCoursesStore = null;
+      ALMITOnTheGo.app.viewRequirementsStore = null;
 
       // Destroy the #appLoadingIndicator element
       Ext.fly('appLoadingIndicator').destroy();
@@ -103,6 +105,7 @@ Ext.application({
             ALMITOnTheGo.app.allCoursesStore = Ext.getStore('allCoursesStore');
             ALMITOnTheGo.app.addedCoursesStore = Ext.getStore('addedCoursesStore');
             ALMITOnTheGo.app.viewCoursesStore = Ext.getStore('viewCoursesStore');
+            ALMITOnTheGo.app.viewRequirementsStore = Ext.getStore('viewRequirementsStore');
           } else {
             // TODO - implementation
           }

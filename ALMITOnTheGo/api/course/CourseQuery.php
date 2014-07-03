@@ -45,7 +45,6 @@ class CourseQuery
 
     }
 
-    // TODO - move function to Requirements file once created
     public static function getGeneralCourseRequirements($concentrationID)
     {
         return "SELECT * FROM concentration_req WHERE concentration_id = " .CourseDBUtils::getDBValue(DBConstants::DB_VALUE, $concentrationID);
@@ -59,7 +58,7 @@ class CourseQuery
                 ct.concentration_id = cr.concentration_id AND 
                 ct.category_id = cr.category_id
                 WHERE cr.concentration_id = " .CourseDBUtils::getDBValue(DBConstants::DB_VALUE, $concentrationID). "
-                ORDER BY cr.admission DESC";
+                ORDER BY cr.admission DESC, cr.category_id";
     }
 }
  

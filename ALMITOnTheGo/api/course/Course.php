@@ -59,7 +59,6 @@ class Course
                     }
 
                     if($nonElectivesMet) {
-                        error_log("non electives met for : ");
                         $grade == 1 ? ++$singleReq['registered'] : ++$singleReq['completed'];
                     }
                 }
@@ -68,8 +67,6 @@ class Course
             $singleReq['subText'] = self::getSubTextForCategory($singleReq);
             $currentRequirementsResults[$categoryCode] = $singleReq;
         }
-
-        error_log(print_r($currentRequirementsResults, true));
 
         return array(
             "status" => TRUE,
