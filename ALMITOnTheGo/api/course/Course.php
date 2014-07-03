@@ -71,7 +71,7 @@ class Course
         return array(
             "status" => TRUE,
             "errorMsg" => "",
-            "data" => array('currentReqs' => $currentRequirementsResults));
+            "data" => array('currentReqs' => $currentRequirementsResults, 'concentrationID' => $concentrationID));
     }
 
     public static function getCourseTermViewDetails()

@@ -54,13 +54,13 @@ Ext.define('ALMITOnTheGo.view.Requirements', {
                     xtype: 'radiofield',
                     name: 'concentration',
                     value: 3,
-                    label: 'Mathematics & Computation'
+                    label: 'Mathematics And Computation'
                   },
                   {
                     xtype: 'radiofield',
                     name: 'concentration',
                     value: 4,
-                    label: 'Digital Media & Instructional Design'
+                    label: 'Digital Media And Instructional Design'
                   },
                   {
                     docked: 'top',
@@ -103,16 +103,6 @@ Ext.define('ALMITOnTheGo.view.Requirements', {
                 centered: true,
                 items: [
                   {
-                    xtype: 'label',
-                    itemId: 'requirementsSearchLabel',
-                    style: {
-                      fontWeight: 'bold',
-                      fontSize: '80%',
-                      padding: '0.5em',
-                      textAlign: 'left'
-                    }
-                  },
-                  {
                     xtype: 'list',
                     itemId: 'viewRequirementsList',
                     hidden: true,
@@ -130,9 +120,9 @@ Ext.define('ALMITOnTheGo.view.Requirements', {
                   {
                     docked: 'top',
                     xtype: 'titlebar',
-                    title: 'Requirements',
+                    itemId: 'viewRequirementsTitle',
                     style: {
-                      fontSize: '80%'
+                      fontSize: '70%'
                     }
                   },
                   {

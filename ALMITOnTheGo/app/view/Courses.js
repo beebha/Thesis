@@ -54,13 +54,13 @@ Ext.define('ALMITOnTheGo.view.Courses', {
                     xtype: 'radiofield',
                     name: 'concentration',
                     value: 3,
-                    label: 'Mathematics & Computation'
+                    label: 'Mathematics And Computation'
                   },
                   {
                     xtype: 'radiofield',
                     name: 'concentration',
                     value: 4,
-                    label: 'Digital Media & Instructional Design'
+                    label: 'Digital Media And Instructional Design'
                   },
                   {
                     docked: 'top',

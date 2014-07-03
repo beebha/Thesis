@@ -76,6 +76,9 @@ Ext.define('ALMITOnTheGo.controller.Requirements',
         requirementsView.down('#viewRequirementsList').setStore(ALMITOnTheGo.app.viewRequirementsStore);
         requirementsView.down('#viewRequirementsList').show();
 
+        var titleText = ALMITOnTheGo.app.getController('Common').getConcentrationText(requirementsResponse.data.concentrationID);
+        requirementsView.down('#viewRequirementsTitle').setTitle(titleText);
+
         ALMITOnTheGo.app.authToken == null ? requirementsView.down('#requirementsBackButton').show() : requirementsView.down('#requirementsBackButton').hide();
         requirementsView.down('#requirementsCardPanel').animateActiveItem(1, {type:'slide', direction:'left'});
       } else {
