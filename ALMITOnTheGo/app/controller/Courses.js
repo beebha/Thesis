@@ -218,7 +218,7 @@ Ext.define('ALMITOnTheGo.controller.Courses',
         coursesView.down('#selectCategoryFieldSet').removeAll();
 
         for (singleReq in currentReqs) {
-          var subText = "<div style = 'font-weight:normal;font-size: 90%;'>"
+          var subText = "<div style = 'font-weight:normal;font-size: 95%;'>"
             +currentReqs[singleReq]['subText'] +
             "</div>";
           coursesView.down('#selectCategoryFieldSet').add(

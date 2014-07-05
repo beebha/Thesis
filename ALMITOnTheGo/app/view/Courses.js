@@ -65,12 +65,18 @@ Ext.define('ALMITOnTheGo.view.Courses', {
                     docked: 'top',
                     xtype: 'titlebar',
                     title: 'Select Concentration',
-                    cls: 'inner-toolbar'
+                    cls: 'inner-toolbar',
+                    style: {
+                      border: 'none'
+                    }
                   },
                   {
                     docked: 'bottom',
                     xtype: 'titlebar',
                     cls: 'inner-toolbar',
+                    style: {
+                      border: 'none'
+                    },
                     items: [
                       {
                         xtype: 'button',
@@ -95,7 +101,6 @@ Ext.define('ALMITOnTheGo.view.Courses', {
                 xtype: 'fieldset',
                 itemId: 'selectCategoryFieldSet',
                 width: '95%',
-                maxHeight: '95%',
                 defaults: {
                   labelWidth: '85%'
                 },
@@ -105,12 +110,18 @@ Ext.define('ALMITOnTheGo.view.Courses', {
                     docked: 'top',
                     xtype: 'titlebar',
                     title: 'Select Category',
-                    cls: 'inner-toolbar'
+                    cls: 'inner-toolbar',
+                    style: {
+                      border: 'none'
+                    }
                   },
                   {
                     docked: 'bottom',
                     xtype: 'titlebar',
                     cls: 'inner-toolbar',
+                    style: {
+                      border: 'none'
+                    },
                     items: [
                       {
                         xtype: 'button',
@@ -152,12 +163,18 @@ Ext.define('ALMITOnTheGo.view.Courses', {
                     docked: 'top',
                     xtype: 'titlebar',
                     title: 'Select Course Term',
-                    cls: 'inner-toolbar'
+                    cls: 'inner-toolbar',
+                    style: {
+                      border: 'none'
+                    }
                   },
                   {
                     docked: 'bottom',
                     xtype: 'titlebar',
                     cls: 'inner-toolbar',
+                    style: {
+                      border: 'none'
+                    },
                     items: [
                       {
                         xtype: 'button',
@@ -242,12 +259,18 @@ Ext.define('ALMITOnTheGo.view.Courses', {
                     docked: 'top',
                     xtype: 'titlebar',
                     title: 'Search Course Results',
-                    cls: 'inner-toolbar'
+                    cls: 'inner-toolbar',
+                    style: {
+                      border: 'none'
+                    }
                   },
                   {
                     docked: 'bottom',
                     xtype: 'titlebar',
                     cls: 'inner-toolbar',
+                    style: {
+                      border: 'none'
+                    },
                     items: [
                       {
                         xtype: 'button',
@@ -331,12 +354,18 @@ Ext.define('ALMITOnTheGo.view.Courses', {
                     docked: 'top',
                     xtype: 'titlebar',
                     title: 'Course Details',
-                    cls: 'inner-toolbar'
+                    cls: 'inner-toolbar',
+                    style: {
+                      border: 'none'
+                    }
                   },
                   {
                     docked: 'bottom',
                     xtype: 'titlebar',
                     cls: 'inner-toolbar',
+                    style: {
+                      border: 'none'
+                    },
                     items: [
                       {
                         xtype: 'button',

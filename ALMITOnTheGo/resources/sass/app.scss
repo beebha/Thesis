@@ -122,6 +122,9 @@ a:active {text-decoration:none;}
   padding: 3px;
 }
 
+.x-form-label {
+  padding: 0.3em 0.6em;
+}
 
 .gpa-green {color: #64AD00;}
 .gpa-orange {color: orange;}
@@ -180,7 +183,6 @@ a:active {text-decoration:none;}
 
 .inner-toolbar {
   background-color: $primary-color;
-  border: 1px solid black;
   .x-innerhtml {
     color: black;
     font-size: 90%;
