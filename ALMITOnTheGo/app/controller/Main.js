@@ -62,7 +62,7 @@ Ext.define('ALMITOnTheGo.controller.Main', {
                 {
                   style: {
                     width: '100%',
-                    height: '100%',
+                    height: '80%',
                     background: 'url(resources/images/harvard' + imageNumber + '.jpg)',
                     backgroundSize: '100%',
                     backgroundRepeat: 'no-repeat'

@@ -164,9 +164,9 @@ Ext.define('ALMITOnTheGo.controller.Courses',
         var concentrationIDText = ALMITOnTheGo.app.getController('Common').getConcentrationText(courseResultsResponse.data.concentrationID);
         var categoryIDText = ALMITOnTheGo.app.getController('Common').getCategoryText(coursesView.down('radiofield[name=category]').getGroupValue());
         var courseTermIDText = ALMITOnTheGo.app.getController('Common').getCourseTermText(coursesView.down('radiofield[name=courseTerm]').getGroupValue());
-        var searchCriteria = ALMITOnTheGo.app.authToken == null ? "Selected Concentration: " + concentrationIDText + "<br>" : "";
-        searchCriteria += "Selected Category: " + categoryIDText + "<br>" +
-                          "Selected Course Term: " + courseTermIDText;
+        var searchCriteria = ALMITOnTheGo.app.authToken == null ? "Concentration: " + concentrationIDText + "<br>" : "";
+        searchCriteria += "Category: " + categoryIDText + "<br>" +
+                          "Course Term: " + courseTermIDText;
 
         coursesView.down('#courseSearchLabel').setHtml(searchCriteria);
 

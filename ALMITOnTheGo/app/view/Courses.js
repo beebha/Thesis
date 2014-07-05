@@ -206,6 +206,7 @@ Ext.define('ALMITOnTheGo.view.Courses', {
                 xtype: 'fieldset',
                 itemId: 'viewCoursesFieldSet',
                 width: '95%',
+                height:'96%',
                 centered: true,
                 items: [
                   {
@@ -217,7 +218,7 @@ Ext.define('ALMITOnTheGo.view.Courses', {
                     xtype: 'list',
                     itemId: 'viewCoursesList',
                     hidden: true,
-                    height: window.innerHeight / 2,
+                    height: '88%',
                     mode: 'MULTI',
                     itemTpl: new Ext.XTemplate(
                       '<p><b>{course_code}</b></p>',

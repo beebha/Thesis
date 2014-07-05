@@ -101,6 +101,7 @@ Ext.define('ALMITOnTheGo.view.Requirements', {
                 xtype: 'fieldset',
                 itemId: 'viewRequirementsFieldSet',
                 width: '95%',
+                height:'95%',
                 defaults: {
                   labelWidth: '88%'
                 },
@@ -110,7 +111,7 @@ Ext.define('ALMITOnTheGo.view.Requirements', {
                     xtype: 'list',
                     itemId: 'viewRequirementsList',
                     hidden: true,
-                    height: window.innerHeight / 2,
+                    height: '100%',
                     itemTpl: new Ext.XTemplate(
                       '<p><b>{category_label}</b></p>',
                       '<p><span style="font-weight:normal;font-size: 90%;">{subText}</span></p>',
