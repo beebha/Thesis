@@ -33,7 +33,7 @@ Ext.define('ALMITOnTheGo.view.Requirements', {
                 itemId: 'selectReqConcentrationFieldSet',
                 width: '95%',
                 defaults: {
-                  labelWidth: '85%'
+                  labelWidth: '88%'
                 },
                 centered: true,
                 items: [
@@ -41,8 +41,7 @@ Ext.define('ALMITOnTheGo.view.Requirements', {
                     xtype: 'radiofield',
                     name: 'concentration',
                     value: 1,
-                    label: 'Software Engineering',
-                    checked: true
+                    label: 'Software Engineering'
                   },
                   {
                     xtype: 'radiofield',
@@ -66,17 +65,22 @@ Ext.define('ALMITOnTheGo.view.Requirements', {
                     docked: 'top',
                     xtype: 'titlebar',
                     title: 'Select Concentration',
+                    cls: 'inner-toolbar',
                     style: {
-                      fontSize: '80%'
+                      border: 'none'
                     }
                   },
                   {
                     docked: 'bottom',
                     xtype: 'titlebar',
+                    cls: 'inner-toolbar',
+                    style: {
+                      border: 'none'
+                    },
                     items: [
                       {
                         xtype: 'button',
-                        iconCls: 'arrow_right',
+                        iconCls: 'arrow_right inner-toolbar-button',
                         iconMask: true,
                         itemId: 'requirementsNextButton',
                         align: 'right'
@@ -98,7 +102,7 @@ Ext.define('ALMITOnTheGo.view.Requirements', {
                 itemId: 'viewRequirementsFieldSet',
                 width: '95%',
                 defaults: {
-                  labelWidth: '85%'
+                  labelWidth: '88%'
                 },
                 centered: true,
                 items: [
@@ -121,17 +125,22 @@ Ext.define('ALMITOnTheGo.view.Requirements', {
                     docked: 'top',
                     xtype: 'titlebar',
                     itemId: 'viewRequirementsTitle',
+                    cls: 'inner-toolbar',
                     style: {
-                      fontSize: '70%'
+                      border: 'none'
                     }
                   },
                   {
                     docked: 'bottom',
                     xtype: 'titlebar',
+                    cls: 'inner-toolbar',
+                    style: {
+                      border: 'none'
+                    },
                     items: [
                       {
                         xtype: 'button',
-                        iconCls: 'arrow_left',
+                        iconCls: 'arrow_left inner-toolbar-button',
                         iconMask: true,
                         itemId: 'requirementsBackButton',
                         align: 'left',

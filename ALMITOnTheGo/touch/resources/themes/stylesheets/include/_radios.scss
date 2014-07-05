@@ -4,7 +4,7 @@
 
 @mixin radiomark($color: #000, $radio-size: 16px) {
   @include insertion($radio-size, $radio-size, ($radio-size * -.5) + 18, auto);
-  right: ($radio-size * -.5) + 30;
+  right: ($radio-size * -.5) + 35;
   background-color: $color;
   @include border-radius($radio-size);
 }

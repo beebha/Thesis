@@ -19,6 +19,7 @@ Ext.define('ALMITOnTheGo.controller.Requirements',
       console.log("onRequirementsBackButtonCommand");
       var rc = this;
       var requirementsView = rc.getRequirementsView();
+      requirementsView.down('radiofield[name=concentration]').setGroupValue(1);
       requirementsView.down('#requirementsCardPanel').animateActiveItem(0, {type:'slide', direction:'right'});
     },
     onRequirementsViewDetailsCommand: function () {
@@ -28,6 +29,7 @@ Ext.define('ALMITOnTheGo.controller.Requirements',
 
       // if Guest, show initial courses screen
       if (ALMITOnTheGo.app.authToken == null) {
+        requirementsView.down('radiofield[name=concentration]').setGroupValue(1);
         requirementsView.down('#requirementsCardPanel').animateActiveItem(0, {type:'slide', direction:'left'});
       } else {
         Ext.Ajax.request({

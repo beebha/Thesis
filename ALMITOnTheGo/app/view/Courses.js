@@ -33,7 +33,7 @@ Ext.define('ALMITOnTheGo.view.Courses', {
                 itemId: 'selectConcentrationFieldSet',
                 width: '95%',
                 defaults: {
-                  labelWidth: '85%'
+                  labelWidth: '88%'
                 },
                 centered: true,
                 items: [
@@ -102,7 +102,7 @@ Ext.define('ALMITOnTheGo.view.Courses', {
                 itemId: 'selectCategoryFieldSet',
                 width: '95%',
                 defaults: {
-                  labelWidth: '85%'
+                  labelWidth: '88%'
                 },
                 centered: true,
                 items: [
@@ -155,7 +155,7 @@ Ext.define('ALMITOnTheGo.view.Courses', {
                 itemId: 'selectCourseTermFieldSet',
                 width: '95%',
                 defaults: {
-                  labelWidth: '85%'
+                  labelWidth: '88%'
                 },
                 centered: true,
                 items: [
