@@ -41,8 +41,7 @@ Ext.define('ALMITOnTheGo.view.Courses', {
                     xtype: 'radiofield',
                     name: 'concentration',
                     value: 1,
-                    label: 'Software Engineering',
-                    checked: true
+                    label: 'Software Engineering'
                   },
                   {
                     xtype: 'radiofield',
@@ -66,17 +65,17 @@ Ext.define('ALMITOnTheGo.view.Courses', {
                     docked: 'top',
                     xtype: 'titlebar',
                     title: 'Select Concentration',
-                    style: {
-                      fontSize: '80%'
-                    }
+                    cls: 'inner-toolbar'
                   },
                   {
                     docked: 'bottom',
                     xtype: 'titlebar',
+                    cls: 'inner-toolbar',
                     items: [
                       {
                         xtype: 'button',
-                        text: 'Next',
+                        iconCls: 'arrow_right inner-toolbar-button',
+                        iconMask: true,
                         itemId: 'coursesNextButton',
                         align: 'right'
                       }
@@ -96,6 +95,7 @@ Ext.define('ALMITOnTheGo.view.Courses', {
                 xtype: 'fieldset',
                 itemId: 'selectCategoryFieldSet',
                 width: '95%',
+                maxHeight: '95%',
                 defaults: {
                   labelWidth: '85%'
                 },
@@ -105,24 +105,25 @@ Ext.define('ALMITOnTheGo.view.Courses', {
                     docked: 'top',
                     xtype: 'titlebar',
                     title: 'Select Category',
-                    style: {
-                      fontSize: '80%'
-                    }
+                    cls: 'inner-toolbar'
                   },
                   {
                     docked: 'bottom',
                     xtype: 'titlebar',
+                    cls: 'inner-toolbar',
                     items: [
                       {
                         xtype: 'button',
-                        text: 'Back',
+                        iconCls: 'arrow_left inner-toolbar-button',
+                        iconMask: true,
                         itemId: 'categoryBackButton',
                         align: 'left',
                         hidden: true
                       },
                       {
                         xtype: 'button',
-                        text: 'Next',
+                        iconCls: 'arrow_right inner-toolbar-button',
+                        iconMask: true,
                         itemId: 'categoryNextButton',
                         align: 'right'
                       }
@@ -151,23 +152,24 @@ Ext.define('ALMITOnTheGo.view.Courses', {
                     docked: 'top',
                     xtype: 'titlebar',
                     title: 'Select Course Term',
-                    style: {
-                      fontSize: '80%'
-                    }
+                    cls: 'inner-toolbar'
                   },
                   {
                     docked: 'bottom',
                     xtype: 'titlebar',
+                    cls: 'inner-toolbar',
                     items: [
                       {
                         xtype: 'button',
-                        text: 'Back',
+                        iconCls: 'arrow_left inner-toolbar-button',
+                        iconMask: true,
                         itemId: 'courseTermBackButton',
                         align: 'left'
                       },
                       {
                         xtype: 'button',
-                        text: 'Next',
+                        iconCls: 'arrow_right inner-toolbar-button',
+                        iconMask: true,
                         itemId: 'courseTermNextButton',
                         align: 'right'
                       }
@@ -192,12 +194,7 @@ Ext.define('ALMITOnTheGo.view.Courses', {
                   {
                     xtype: 'label',
                     itemId: 'courseSearchLabel',
-                    style: {
-                      fontWeight: 'bold',
-                      fontSize: '80%',
-                      padding: '0.5em',
-                      textAlign: 'left'
-                    }
+                    cls: 'search-results-label'
                   },
                   {
                     xtype: 'list',
@@ -245,17 +242,17 @@ Ext.define('ALMITOnTheGo.view.Courses', {
                     docked: 'top',
                     xtype: 'titlebar',
                     title: 'Search Course Results',
-                    style: {
-                      fontSize: '80%'
-                    }
+                    cls: 'inner-toolbar'
                   },
                   {
                     docked: 'bottom',
                     xtype: 'titlebar',
+                    cls: 'inner-toolbar',
                     items: [
                       {
                         xtype: 'button',
-                        text: 'Back',
+                        iconCls: 'arrow_left inner-toolbar-button',
+                        iconMask: true,
                         itemId: 'courseResultsBackButton',
                         align: 'left'
                       }
@@ -334,17 +331,17 @@ Ext.define('ALMITOnTheGo.view.Courses', {
                     docked: 'top',
                     xtype: 'titlebar',
                     title: 'Course Details',
-                    style: {
-                      fontSize: '80%'
-                    }
+                    cls: 'inner-toolbar'
                   },
                   {
                     docked: 'bottom',
                     xtype: 'titlebar',
+                    cls: 'inner-toolbar',
                     items: [
                       {
                         xtype: 'button',
-                        text: 'Back',
+                        iconCls: 'arrow_left inner-toolbar-button',
+                        iconMask: true,
                         itemId: 'courseDetailBackButton',
                         align: 'left'
                       }

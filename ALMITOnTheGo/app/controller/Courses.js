@@ -54,6 +54,7 @@ Ext.define('ALMITOnTheGo.controller.Courses',
 
       // if Guest, show initial courses screen
       if (ALMITOnTheGo.app.authToken == null) {
+        coursesView.down('radiofield[name=concentration]').setGroupValue(1);
         coursesView.down('#coursesCardPanel').animateActiveItem(0, {type:'slide', direction:'left'});
       } else {
         Ext.Ajax.request({
@@ -200,7 +201,7 @@ Ext.define('ALMITOnTheGo.controller.Courses',
             label: 'All'
           }
         );
-
+        coursesView.down('radiofield[name=courseTerm]').setGroupValue(0);
         coursesView.down('#coursesCardPanel').animateActiveItem(2, {type:'slide', direction:'left'});
 
       } else {
@@ -239,6 +240,7 @@ Ext.define('ALMITOnTheGo.controller.Courses',
           }
         );
         ALMITOnTheGo.app.authToken == null ? coursesView.down('#categoryBackButton').show() : coursesView.down('#categoryBackButton').hide();
+        coursesView.down('radiofield[name=category]').setGroupValue(0);
         coursesView.down('#coursesCardPanel').animateActiveItem(1, {type:'slide', direction:'left'});
       } else {
         // TODO - error handling
