@@ -57,14 +57,14 @@ Ext.define('ALMITOnTheGo.view.UserInformation', {
             items: [
               {
                 xtype: 'textfield',
-                label: 'Registration Type',
                 itemId: 'registration',
+                labelWidth: '0%',
                 readOnly: true
               },
               {
                 xtype: 'textfield',
-                label: 'Concentration',
                 itemId: 'concentration',
+                labelWidth: '0%',
                 readOnly: true
               },
               {
