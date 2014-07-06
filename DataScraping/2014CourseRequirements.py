@@ -94,8 +94,6 @@ for ind_requirement in all_requirements:
         if single_requirement.find("(") != -1:
             single_req_info = single_requirement.split("(")
             is_admission = "FALSE"
-            is_capstone = "FALSE"
-            is_thesis = "FALSE"
 
             single_req = str(single_req_info[0].strip().title())
 
@@ -114,13 +112,8 @@ for ind_requirement in all_requirements:
                         single_req_count = AllNumbers[x.split("for")[0].strip()]
                         course_requirements.append([single_req, single_req_count, is_admission, "FALSE", "TRUE"])
 
-            elif single_req_info[1].find(";") != -1 and single_req_info[1].find("capstone") != -1:
-                single_req_count = AllNumbers[single_req_info[1].split("course")[0].strip()]
-                course_requirements.append([single_req, single_req_count, is_admission, "FALSE", "TRUE"])
-
-            elif single_req_info[1].find(";") != -1 and single_req_info[0].find("Capstone") != -1:
-                single_req_count = AllNumbers[single_req_info[1].split("course")[0].strip()]
-                course_requirements.append([single_req, single_req_count, is_admission, "FALSE", "TRUE"])
+            elif single_req_info[0].find("Capstone") != -1 or single_req_info[1].find("capstone") != -1:
+                course_requirements.append([single_req, AllNumbers['one'], is_admission, "FALSE", "TRUE"])
 
             else:
                 single_req_count = AllNumbers[single_req_info[1].split("course")[0].strip()]
@@ -134,6 +127,9 @@ for ind_requirement in all_requirements:
                 writer.writerow(info_row)
 
             course_requirements = []
+
+        if single_requirement.find("Capstone") != -1 and single_requirement.find("(") == -1:
+            writer.writerow([course_concentration, "Capstone", AllNumbers['one'], "FALSE", "FALSE", "TRUE"])
 
 # close the CSV file
 output.close()
