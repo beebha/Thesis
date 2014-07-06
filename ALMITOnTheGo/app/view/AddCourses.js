@@ -110,7 +110,7 @@ Ext.define('ALMITOnTheGo.view.AddCourses', {
                   {
                     xtype: 'button',
                     itemId: 'addSelectedCoursesButton',
-                    text: 'Add Courses',
+                    text: 'ADD COURSES',
                     align: 'center'
                   },
                   { xtype: 'spacer' }
@@ -134,7 +134,7 @@ Ext.define('ALMITOnTheGo.view.AddCourses', {
         items: [
           {
             xtype: 'button',
-            text: 'Next',
+            text: 'NEXT',
             itemId: 'nextButton',
             align: 'right',
             hidden: true

@@ -154,14 +154,14 @@ Ext.define('ALMITOnTheGo.view.UserInformation', {
         items: [
           {
             xtype: 'button',
-            text: 'Done',
+            text: 'DONE',
             itemId: 'doneButton',
             align: 'right',
             hidden: true
           },
           {
             xtype: 'button',
-            text: 'Back',
+            text: 'BACK',
             itemId: 'backButton',
             align: 'left',
             hidden: true
