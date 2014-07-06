@@ -85,7 +85,7 @@ for ind_data_row in all_data_rows:
                 # column 6 - Day & Time
                 # column 7 - Location
                 # column 8 - Type
-                # column 10 - Enroll Limit
+                # column 9 - Enroll Limit
                 # column 13 - Attributes
 
                 if i == 0:
@@ -122,10 +122,10 @@ for ind_data_row in all_data_rows:
                 if i == 7:
                     course_type = ind_column
 
-                if i == 9:
+                if i == 8:
                     enroll_limit = ind_column
 
-                if i == 12:
+                if i == 9:
                     attributes = plaintext(str(all_columns[i]).replace(", &#8224;", ""))
 
             date_to_write.append([term, course_number, title, instructor, day, time, location, course_type, enroll_limit, attributes])

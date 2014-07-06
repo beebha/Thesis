@@ -1,68 +1,68 @@
 Term,CourseNumber,Title,Instructor,Day,Time,Location,CourseType,EnrollLimit,Attributes
-Fall 2014,CSCIE-15,Dynamic Web Applications,Susan Buck,Thur,5:30 – 7:30 pm,Maxwell-Dworkin G115,Online Option,"WAD, E, †",
-Fall 2014,CSCIE-18,Web Development Using XML,David P. Heitmeyer,Mon,7:40 – 9:40 pm,One Brattle Square 202,Online Option,"WAD, E, †",
-Fall 2014,CSCIE-24,Numerical Analysis,Jeff Parker,Wed,7:40 – 9:40 pm,1 Story Street 304,Online Option,"TMF, E, †",
-Fall 2014,CSCIE-26,"Introduction to C, Unix/Linux Programming, and Web Interfaces",Bruce Molay,Wed,7:40 – 9:40 pm,Science Center B-10,On Campus Only,E,
-Fall 2014,CSCIE-33,Programming Microsoft .NET,David S. Platt,Tues,7:40 – 9:40 pm,53 Church Street L01,Online Option,"E, †",
-Fall 2014,CSCIE-34,User Experience Engineering,David S. Platt,Mon,7:40 – 9:40 pm,Maxwell-Dworkin G125,Online Option,"E, †",
-Fall 2014,CSCIE-40,Communication Protocols and Internet Architectures,Leonard Evenchik,Mon,5:30 – 7:30 pm,53 Church Street L01,Online Option,"DCOM, E, †",
-Fall 2014,CSCIE-45A,"The Cyber World: Hardware, Software, Networks, Security, and Management",Scott Bradner & Benoit Gaucherin,Fri,5:30 – 7:30 pm,Maxwell-Dworkin G125,Online Option,"DCOM, E, †",
-Fall 2014,CSCIE-55,Java for Distributed Computing,"Charles M. Sawyer, Jr.",Wed,7:40 – 9:40 pm,Byerly Hall 013,Online Option,"DC, E, †",
-Fall 2014,CSCIE-56,Web Application Development with Groovy and Grails,Burt Beckwith,Wed,5:30 – 7:30 pm,53 Church Street L01,Online Option,"WAD, E, †",
-Fall 2014,CSCIE-60,Developing Web-Based Database Applications,Maria R. Garcia Altobello,Wed,5:30 – 7:30 pm,Byerly Hall 013,Online Option,"WAD, E, †",
-Fall 2014,CSCIE-61,Systems Programming and Machine Organization,Eddie Kohler,N/A,N/A,N/A,Online Only,"SP, E, †",
-Fall 2014,CSCIE-90,Cloud Computing,Zoran B. Djordjevic,Fri,5:30 – 7:30 pm,1 Story Street 306,Online Option,"DC, E, †",
-Fall 2014,CSCIE-93,Computer Architecture,James L. Frankel,Tues,7:40 – 9:40 pm,1 Story Street 302,Online Option,"TMF, E, †",
-Fall 2014,CSCIE-97,"Software Design: Principles, Models, and Patterns",Eric Gieseke,Thur,7:40 – 9:40 pm,1 Story Street 304,Online Option,"SD, E, †",
-Fall 2014,CSCIE-98,Managed Environments for the Execution of Programs,Philip McGachey,Mon,5:30 – 7:30 pm,1 Story Street 304,Online Option,"SD, E, †",
-Fall 2014,CSCIE-109,Data Science,Rafael Irizarry & Verena S Kaynig-Fittkau,N/A,N/A,N/A,Online Only,"TMF, E, DSCI, †",
-Fall 2014,CSCIE-121,Introduction to the Theory of Computation,Harry R. Lewis,N/A,N/A,N/A,Online Only,"TMF, E, †",
-Fall 2014,CSCIE-207,Systems Development for Computational Science,Cristopher Cecka & Thouis Ray Jones,N/A,N/A,N/A,Online Only,"SP, E, DSCI, †",
-Fall 2014,ENSCE-130,Introduction to MEMS with BioMEMS,Fawwaz Habbal,Tues,5:30 – 7:30 pm,Maxwell-Dworkin G125,Online Option,"E, †",
-Fall 2014,ENSCE-150,Introduction to Nanobiotechnology: Concepts and Applications,Anas Chalah,Mon,5:30 – 7:30 pm,Pierce Hall 209,Online Option,"E, †",
-Fall 2014,MATHE-23A,Linear Algebra and Real Analysis I,Paul G. Bamberg,"Tues, Thur",2:30 – 4 pm,N/A,On Campus Only,E,
-Fall 2014,MATHE-156,Mathematical Foundations of Statistical Software,Paul G. Bamberg,Mon,2 – 4:30 pm,N/A,On Campus Only,"TMF, E, DSCI",
-Fall 2014,STATE-100,Introduction to Quantitative Methods for the Social Sciences and Humanities,Luke Miratrix,N/A,N/A,N/A,Online Only,"E, DSCI, †",
-Fall 2014,STATE-104,Introduction to Quantitative Methods for Economics and Other Quantitative Fields,Michael I. Parzen,N/A,N/A,N/A,Online Only,"E, DSCI, †",
-Fall 2014,STATE-150,Statistical Methods,Jenny Gutbezahl,Tues,7:40 – 9:40 pm,Harvard Hall 201,On Campus Only,"E, DSCI",
-January 2015,DGMDE-27,Beyond the Basics of Front-End Web Design,Jennifer A. Kramer,"Mon, Tues, Wed, Thur",9 am – 12 pm,53 Church Street 104,On Campus Only,"WAD, E",
-Spring 2015,APMAE-207,Monte Carlo Methods for Inference and Data Analysis,Verena S Kaynig-Fittkau & Pavlos Protopapas,N/A,N/A,N/A,Online Only,"E, DSCI, †",
-Spring 2015,CSCIE-8,Web GIS: Principles and Applications,Pinde Fu,Thur,7:40 – 9:40 pm,N/A,Web-Conference Course,"E, †",
-Spring 2015,CSCIE-17,Medical Informatics,Oleg Pianykh,Thur,5:30 – 7:30 pm,1 Story Street 307,Online Option,"E, †",
-Spring 2015,CSCIE-20,Discrete Mathematics for Computer Science,Harry R. Lewis & Deborah Abel,Tues,9 – 11 pm,N/A,Web-Conference Course,"TMF, E, †",
-Spring 2015,CSCIE-28,Unix/Linux Systems Programming,Bruce Molay,Tues,5:30 – 7:30 pm,53 Church Street L01,Online Option,"SP, E, †",
-Spring 2015,CSCIE-40,Communication Protocols and Internet Architectures,Leonard Evenchik,N/A,N/A,N/A,Online Only,"DCOM, E, †",
-Spring 2015,CSCIE-45B,"The Cyber World: Governance, Threats, Conflict, Privacy, Identity, and Commerce",Scott Bradner & Benoit Gaucherin,Fri,5:30 – 7:30 pm,Maxwell-Dworkin G125,Online Option,"DCOM, E, †",
-Spring 2015,CSCIE-51,Abstraction and Design in Computation,John Gregory Morrisett,N/A,N/A,N/A,Online Only,"TMF, E, †",
-Spring 2015,CSCIE-54,Concurrent Programming in Scala,Nermin Serifovic & Morgan Creighton,Mon,7:40 – 9:40 pm,Sever Hall 206,On Campus Only,E,
-Spring 2015,CSCIE-55,Java for Distributed Computing,"Charles M. Sawyer, Jr.",N/A,N/A,N/A,Online Only,"DC, E, †",
-Spring 2015,CSCIE-58,Bioinformatics Algorithms,Jeff Parker,Wed,7:40 – 9:40 pm,53 Church Street L01,Online Option,"E, †",
-Spring 2015,CSCIE-63,Big Data Analytics,Zoran B. Djordjevic,Fri,5:30 – 7:30 pm,1 Story Street 306,Online Option,"E, DSCI, †",
-Spring 2015,CSCIE-64,Mobile and Cloud Computing,Joseph Ficara,Thur,7:40 – 9:40 pm,Maxwell-Dworkin G125,Online Option,"E, †",
-Spring 2015,CSCIE-66,Database Systems,David G. Sullivan,Wed,7:40 – 9:40 pm,1 Story Street 306,Online Option,"E, DSCI, †",
-Spring 2015,CSCIE-95,Compiler Design and Implementation,James L. Frankel,Tues,7:40 – 9:40 pm,1 Story Street 307,Online Option,"TMF, E, †",
-Spring 2015,CSCIE-124,Data Structures and Algorithms,Jelani Nelson,N/A,N/A,N/A,Online Only,"TMF, E, †",
-Spring 2015,CSCIE-152,Programming Languages,Stephen Chong,N/A,N/A,N/A,Online Only,"TMF, E, †",
-Spring 2015,CSCIE-171,Visualization,Alexander Lex,N/A,N/A,N/A,Online Only,"E, DSCI, †",
-Spring 2015,CSCIE-186,Economics and Computation,David C. Parkes,N/A,N/A,N/A,Online Only,"TMF, E, †",
-Spring 2015,DGMDE-25,Introduction to Web Content Management Systems Site Development,Jennifer A. Kramer,N/A,N/A,N/A,Online Only,"WAD, E, †",
-Spring 2015,ENSCE-105,Engineering Innovation with Information Technology,Wego Wang,Wed,7:40 – 9:40 pm,N/A,Web-Conference Course,"E, †",
-Spring 2015,ENSCE-123,Laboratory Electronics: Digital Circuit Design,Thomas C. Hayes,Thur,6 – 9:30 pm,Science Center 206,On Campus Only,E,
-Spring 2015,ENSCE-155,Fundamentals and Applications of Microfluidics,Fawwaz Habbal & Anas Chalah,Tues,5:30 – 7:30 pm,Pierce Hall 209,Online Option,"E, †",
-Spring 2015,ISMTE-155,Geographic Communication Today,Jeff Blossom,Mon,5:30 – 7:30 pm,N/A,Web-Conference Course,"E, †",
-Spring 2015,ISMTE-170,Human Factors in Information Systems Design,Dennis F. Galletta,Mon,7:40 – 9:40 pm,N/A,Web-Conference Course,"E, †",
-Spring 2015,MATHE-23B,Linear Algebra and Real Analysis II,Paul G. Bamberg,"Tues, Thur",2:30 – 4 pm,N/A,On Campus Only,E,
-Spring 2015,MATHE-155R,Combinatorics,Sukhada Fadnavis,"Tues, Thur",1 – 2:30 pm,Science Center,On Campus Only,E,
-Spring 2015,MATHE-210,Vector Space Methods for Differential Equations,Paul G. Bamberg,"Mon, Wed",2 – 3:30 pm,N/A,On Campus Only,E,
-Spring 2015,MGMTE-5070,Data Mining and Forecast Management,Philip Anthony Vaccaro,Tues,7:40 – 9:40 pm,Emerson Hall 104,On Campus Only,"E, DSCI",
-Spring 2015,STATE-101,Introduction to Statistics for the Behavioral Sciences,Max Krasnow,N/A,N/A,N/A,Online Only,"E, DSCI, †",
-Spring 2015,STATE-102,Fundamentals of Biostatistics,Bernard A. Rosner,Tues,5:30 – 7:30 pm,Sever Hall 113,On Campus Only,"E, DSCI",
-Spring 2015,STATE-150,Statistical Methods,Stephanie McMains,Wed,5:30 – 7:30 pm,Science Center Hall A,Online Option,"E, DSCI, †",
-Summer 2014,CSCIS-15,Dynamic Web Applications,Susan Buck,"Tues, Thur",6:30 – 9:30 pm,Northwest Science Building B103,On Campus Only,"WAD, E",
-Summer 2014,CSCIS-40,Communication Protocols and Internet Architectures,Leonard Evenchik,N/A,N/A,N/A,Online Only,"DCOM, E, †",
-Summer 2014,ENSCS-157,Introduction to Fabrication of Microfluidic Devices,Turgut Fettah Kosar,"Mon, Wed",6:30 – 9:30 pm,LISE 303,On Campus Only,E,
-Summer 2014,ENSCS-175,Introduction to Semiconductor Device Physics with Applications to Chip Design and Manufacturing,Mary Y. Lanzerotti,"Mon, Wed",12 – 3 pm,Cruft Laboratory 309,On Campus Only,E,
-Summer 2014,ISMTS-170,Human Factors in Information Systems Design,Dennis F. Galletta,"Tues, Thur",6:30 – 9:30 pm,Northwest Science Building B108,On Campus Only,E,
-Summer 2014,MATHS-323,"Vectors: a Tool for Teaching Algebra, Geometry, and Trigonometry",Paul G. Bamberg & Katherine Leigh Penner,"Mon, Tues, Wed, Thur, Fri",9 am – 11:30 am,Northwest Science Building B104,On Campus Only,E,
-Summer 2014,PHILS-140,Deductive Logic,James Pearson,"Mon, Wed",8:30 am – 11:30 am,Boylston Hall 105,On Campus Only,E,
-Summer 2014,STATS-110,Introduction to Probability,Kevin A. Rader,"Mon, Wed",3:15 – 6:15 pm,1 Story Street 306,Online Option,"TMF, E, †",
+Fall 2014,CSCIE-15,Dynamic Web Applications,Susan Buck,Thur,5:30 – 7:30 pm,Maxwell-Dworkin G115,Online Option,No limit,"WAD, E"
+Fall 2014,CSCIE-18,Web Development Using XML,David P. Heitmeyer,Mon,7:40 – 9:40 pm,One Brattle Square 202,Online Option,No limit,"WAD, E"
+Fall 2014,CSCIE-24,Numerical Analysis,Jeff Parker,Wed,7:40 – 9:40 pm,1 Story Street 304,Online Option,No limit,"TMF, E"
+Fall 2014,CSCIE-26,"Introduction to C, Unix/Linux Programming, and Web Interfaces",Bruce Molay,Wed,7:40 – 9:40 pm,Science Center B-10,On Campus Only,No limit,E
+Fall 2014,CSCIE-33,Programming Microsoft .NET,David S. Platt,Tues,7:40 – 9:40 pm,53 Church Street L01,Online Option,No limit,E
+Fall 2014,CSCIE-34,User Experience Engineering,David S. Platt,Mon,7:40 – 9:40 pm,Maxwell-Dworkin G125,Online Option,No limit,E
+Fall 2014,CSCIE-40,Communication Protocols and Internet Architectures,Leonard Evenchik,Mon,5:30 – 7:30 pm,53 Church Street L01,Online Option,No limit,"DCOM, E"
+Fall 2014,CSCIE-45A,"The Cyber World: Hardware, Software, Networks, Security, and Management",Scott Bradner & Benoit Gaucherin,Fri,5:30 – 7:30 pm,Maxwell-Dworkin G125,Online Option,No limit,"DCOM, E"
+Fall 2014,CSCIE-55,Java for Distributed Computing,"Charles M. Sawyer, Jr.",Wed,7:40 – 9:40 pm,Byerly Hall 013,Online Option,No limit,"DC, E"
+Fall 2014,CSCIE-56,Web Application Development with Groovy and Grails,Burt Beckwith,Wed,5:30 – 7:30 pm,53 Church Street L01,Online Option,No limit,"WAD, E"
+Fall 2014,CSCIE-60,Developing Web-Based Database Applications,Maria R. Garcia Altobello,Wed,5:30 – 7:30 pm,Byerly Hall 013,Online Option,No limit,"WAD, E"
+Fall 2014,CSCIE-61,Systems Programming and Machine Organization,Eddie Kohler,N/A,N/A,N/A,Online Only,No limit,"SP, E"
+Fall 2014,CSCIE-90,Cloud Computing,Zoran B. Djordjevic,Fri,5:30 – 7:30 pm,1 Story Street 306,Online Option,No limit,"DC, E"
+Fall 2014,CSCIE-93,Computer Architecture,James L. Frankel,Tues,7:40 – 9:40 pm,1 Story Street 302,Online Option,40,"TMF, E"
+Fall 2014,CSCIE-97,"Software Design: Principles, Models, and Patterns",Eric Gieseke,Thur,7:40 – 9:40 pm,1 Story Street 304,Online Option,No limit,"SD, E"
+Fall 2014,CSCIE-98,Managed Environments for the Execution of Programs,Philip McGachey,Mon,5:30 – 7:30 pm,1 Story Street 304,Online Option,No limit,"SD, E"
+Fall 2014,CSCIE-109,Data Science,Rafael Irizarry & Verena S Kaynig-Fittkau,N/A,N/A,N/A,Online Only,60,"TMF, E, DSCI"
+Fall 2014,CSCIE-121,Introduction to the Theory of Computation,Harry R. Lewis,N/A,N/A,N/A,Online Only,No limit,"TMF, E"
+Fall 2014,CSCIE-207,Systems Development for Computational Science,Cristopher Cecka & Thouis Ray Jones,N/A,N/A,N/A,Online Only,No limit,"SP, E, DSCI"
+Fall 2014,ENSCE-130,Introduction to MEMS with BioMEMS,Fawwaz Habbal,Tues,5:30 – 7:30 pm,Maxwell-Dworkin G125,Online Option,No limit,E
+Fall 2014,ENSCE-150,Introduction to Nanobiotechnology: Concepts and Applications,Anas Chalah,Mon,5:30 – 7:30 pm,Pierce Hall 209,Online Option,No limit,E
+Fall 2014,MATHE-23A,Linear Algebra and Real Analysis I,Paul G. Bamberg,"Tues, Thur",2:30 – 4 pm,N/A,On Campus Only,No limit,E
+Fall 2014,MATHE-156,Mathematical Foundations of Statistical Software,Paul G. Bamberg,Mon,2 – 4:30 pm,N/A,On Campus Only,No limit,"TMF, E, DSCI"
+Fall 2014,STATE-100,Introduction to Quantitative Methods for the Social Sciences and Humanities,Luke Miratrix,N/A,N/A,N/A,Online Only,No limit,"E, DSCI"
+Fall 2014,STATE-104,Introduction to Quantitative Methods for Economics and Other Quantitative Fields,Michael I. Parzen,N/A,N/A,N/A,Online Only,No limit,"E, DSCI"
+Fall 2014,STATE-150,Statistical Methods,Jenny Gutbezahl,Tues,7:40 – 9:40 pm,Harvard Hall 201,On Campus Only,No limit,"E, DSCI"
+January 2015,DGMDE-27,Beyond the Basics of Front-End Web Design,Jennifer A. Kramer,"Mon, Tues, Wed, Thur",9 am – 12 pm,53 Church Street 104,On Campus Only,30,"WAD, E"
+Spring 2015,APMAE-207,Monte Carlo Methods for Inference and Data Analysis,Verena S Kaynig-Fittkau & Pavlos Protopapas,N/A,N/A,N/A,Online Only,No limit,"E, DSCI"
+Spring 2015,CSCIE-8,Web GIS: Principles and Applications,Pinde Fu,Thur,7:40 – 9:40 pm,N/A,Web-Conference Course,50,E
+Spring 2015,CSCIE-17,Medical Informatics,Oleg Pianykh,Thur,5:30 – 7:30 pm,1 Story Street 307,Online Option,No limit,E
+Spring 2015,CSCIE-20,Discrete Mathematics for Computer Science,Harry R. Lewis & Deborah Abel,Tues,9 – 11 pm,N/A,Web-Conference Course,45,"TMF, E"
+Spring 2015,CSCIE-28,Unix/Linux Systems Programming,Bruce Molay,Tues,5:30 – 7:30 pm,53 Church Street L01,Online Option,No limit,"SP, E"
+Spring 2015,CSCIE-40,Communication Protocols and Internet Architectures,Leonard Evenchik,N/A,N/A,N/A,Online Only,No limit,"DCOM, E"
+Spring 2015,CSCIE-45B,"The Cyber World: Governance, Threats, Conflict, Privacy, Identity, and Commerce",Scott Bradner & Benoit Gaucherin,Fri,5:30 – 7:30 pm,Maxwell-Dworkin G125,Online Option,No limit,"DCOM, E"
+Spring 2015,CSCIE-51,Abstraction and Design in Computation,John Gregory Morrisett,N/A,N/A,N/A,Online Only,No limit,"TMF, E"
+Spring 2015,CSCIE-54,Concurrent Programming in Scala,Nermin Serifovic & Morgan Creighton,Mon,7:40 – 9:40 pm,Sever Hall 206,On Campus Only,No limit,E
+Spring 2015,CSCIE-55,Java for Distributed Computing,"Charles M. Sawyer, Jr.",N/A,N/A,N/A,Online Only,No limit,"DC, E"
+Spring 2015,CSCIE-58,Bioinformatics Algorithms,Jeff Parker,Wed,7:40 – 9:40 pm,53 Church Street L01,Online Option,No limit,E
+Spring 2015,CSCIE-63,Big Data Analytics,Zoran B. Djordjevic,Fri,5:30 – 7:30 pm,1 Story Street 306,Online Option,No limit,"E, DSCI"
+Spring 2015,CSCIE-64,Mobile and Cloud Computing,Joseph Ficara,Thur,7:40 – 9:40 pm,Maxwell-Dworkin G125,Online Option,No limit,E
+Spring 2015,CSCIE-66,Database Systems,David G. Sullivan,Wed,7:40 – 9:40 pm,1 Story Street 306,Online Option,No limit,"E, DSCI"
+Spring 2015,CSCIE-95,Compiler Design and Implementation,James L. Frankel,Tues,7:40 – 9:40 pm,1 Story Street 307,Online Option,40,"TMF, E"
+Spring 2015,CSCIE-124,Data Structures and Algorithms,Jelani Nelson,N/A,N/A,N/A,Online Only,No limit,"TMF, E"
+Spring 2015,CSCIE-152,Programming Languages,Stephen Chong,N/A,N/A,N/A,Online Only,No limit,"TMF, E"
+Spring 2015,CSCIE-171,Visualization,Alexander Lex,N/A,N/A,N/A,Online Only,No limit,"E, DSCI"
+Spring 2015,CSCIE-186,Economics and Computation,David C. Parkes,N/A,N/A,N/A,Online Only,No limit,"TMF, E"
+Spring 2015,DGMDE-25,Introduction to Web Content Management Systems Site Development,Jennifer A. Kramer,N/A,N/A,N/A,Online Only,No limit,"WAD, E"
+Spring 2015,ENSCE-105,Engineering Innovation with Information Technology,Wego Wang,Wed,7:40 – 9:40 pm,N/A,Web-Conference Course,40,E
+Spring 2015,ENSCE-123,Laboratory Electronics: Digital Circuit Design,Thomas C. Hayes,Thur,6 – 9:30 pm,Science Center 206,On Campus Only,22,E
+Spring 2015,ENSCE-155,Fundamentals and Applications of Microfluidics,Fawwaz Habbal & Anas Chalah,Tues,5:30 – 7:30 pm,Pierce Hall 209,Online Option,No limit,E
+Spring 2015,ISMTE-155,Geographic Communication Today,Jeff Blossom,Mon,5:30 – 7:30 pm,N/A,Web-Conference Course,30,E
+Spring 2015,ISMTE-170,Human Factors in Information Systems Design,Dennis F. Galletta,Mon,7:40 – 9:40 pm,N/A,Web-Conference Course,35,E
+Spring 2015,MATHE-23B,Linear Algebra and Real Analysis II,Paul G. Bamberg,"Tues, Thur",2:30 – 4 pm,N/A,On Campus Only,No limit,E
+Spring 2015,MATHE-155R,Combinatorics,Sukhada Fadnavis,"Tues, Thur",1 – 2:30 pm,Science Center,On Campus Only,No limit,E
+Spring 2015,MATHE-210,Vector Space Methods for Differential Equations,Paul G. Bamberg,"Mon, Wed",2 – 3:30 pm,N/A,On Campus Only,No limit,E
+Spring 2015,MGMTE-5070,Data Mining and Forecast Management,Philip Anthony Vaccaro,Tues,7:40 – 9:40 pm,Emerson Hall 104,On Campus Only,35,"E, DSCI"
+Spring 2015,STATE-101,Introduction to Statistics for the Behavioral Sciences,Max Krasnow,N/A,N/A,N/A,Online Only,No limit,"E, DSCI"
+Spring 2015,STATE-102,Fundamentals of Biostatistics,Bernard A. Rosner,Tues,5:30 – 7:30 pm,Sever Hall 113,On Campus Only,No limit,"E, DSCI"
+Spring 2015,STATE-150,Statistical Methods,Stephanie McMains,Wed,5:30 – 7:30 pm,Science Center Hall A,Online Option,No limit,"E, DSCI"
+Summer 2014,CSCIS-15,Dynamic Web Applications,Susan Buck,"Tues, Thur",6:30 – 9:30 pm,Northwest Science Building B103,On Campus Only,No limit,"WAD, E"
+Summer 2014,CSCIS-40,Communication Protocols and Internet Architectures,Leonard Evenchik,N/A,N/A,N/A,Online Only,No limit,"DCOM, E"
+Summer 2014,ENSCS-157,Introduction to Fabrication of Microfluidic Devices,Turgut Fettah Kosar,"Mon, Wed",6:30 – 9:30 pm,LISE 303,On Campus Only,15,E
+Summer 2014,ENSCS-175,Introduction to Semiconductor Device Physics with Applications to Chip Design and Manufacturing,Mary Y. Lanzerotti,"Mon, Wed",12 – 3 pm,Cruft Laboratory 309,On Campus Only,No limit,E
+Summer 2014,ISMTS-170,Human Factors in Information Systems Design,Dennis F. Galletta,"Tues, Thur",6:30 – 9:30 pm,Northwest Science Building B108,On Campus Only,44,E
+Summer 2014,MATHS-323,"Vectors: a Tool for Teaching Algebra, Geometry, and Trigonometry",Paul G. Bamberg & Katherine Leigh Penner,"Mon, Tues, Wed, Thur, Fri",9 am – 11:30 am,Northwest Science Building B104,On Campus Only,No limit,E
+Summer 2014,PHILS-140,Deductive Logic,James Pearson,"Mon, Wed",8:30 am – 11:30 am,Boylston Hall 105,On Campus Only,No limit,E
+Summer 2014,STATS-110,Introduction to Probability,Kevin A. Rader,"Mon, Wed",3:15 – 6:15 pm,1 Story Street 306,Online Option,No limit,"TMF, E"
