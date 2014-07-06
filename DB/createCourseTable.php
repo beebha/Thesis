@@ -29,7 +29,7 @@ $createTableSql = "CREATE TABLE course (
                     course_limit INT(3) UNSIGNED NULL,
                     instructor VARCHAR(64) NOT NULL,
                     location VARCHAR(64) NULL,
-                    attributes SET('TMF','DCOM','DC','SP','SD','WAD','WP','SRM','DM','MGMT','AL','P','AC','LA','CD','DIGM','EID','WDD','CAP','E') NOT NULL,
+                    attributes SET('TMF','DCOM','DC','SP','SD','WAD','WP','SRM','DM','MGMT','AL','P','AC','LA','CD','DIGM','EID','WDD','CAP','E','DSCI') NOT NULL,
                     PRIMARY KEY (course_id)
                     ) ENGINE = InnoDB";
 
