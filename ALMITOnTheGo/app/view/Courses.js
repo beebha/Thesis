@@ -296,6 +296,9 @@ Ext.define('ALMITOnTheGo.view.Courses', {
                 itemId: 'viewCourseDetailFieldSet',
                 width: '95%',
                 centered: true,
+                defaults: {
+                  labelWidth: '25%'
+                },
                 items: [
                   {
                     xtype: 'textfield',

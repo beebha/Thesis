@@ -54,8 +54,8 @@ Ext.define('ALMITOnTheGo.view.AddCourses', {
         xtype: 'panel',
         hidden: true,
         itemId: 'addCoursesListPanel',
-        height: '100%',
-        width: '98%',
+        height: '95%',
+        width: '95%',
         centered: true,
         showAnimation: 'slideIn',
         hideAnimation: 'slideOut',
@@ -86,7 +86,7 @@ Ext.define('ALMITOnTheGo.view.AddCourses', {
                   { xtype: 'spacer' },
                   {
                     xtype: 'searchfield',
-                    placeHolder: 'Search...',
+                    placeHolder: 'Search',
                     itemId: 'addCoursesSearchField'
                   },
                   { xtype: 'spacer' },
@@ -97,7 +97,7 @@ Ext.define('ALMITOnTheGo.view.AddCourses', {
                     ui: 'plain',
                     align: 'right',
                     style: {
-                      padding: 5
+                      padding: 10
                     }
                   }
                 ]
@@ -205,7 +205,7 @@ Ext.define('ALMITOnTheGo.view.AddCourses', {
       xtype: 'container',
       itemId: 'addedCoursesContainer',
       height: '80%',
-      width: '90%',
+      width: '95%',
       centered: true,
       layout: 'fit',
       style: {
@@ -320,6 +320,7 @@ Ext.define('ALMITOnTheGo.view.AddCourses', {
     var addCoursesList = me.down('#addCoursesList');
 
     addedCoursesContainer.hide();
+    me.down('#nextButton').hide();
     addCoursesList.deselectAll();
     addCoursesListPanel.show();
   },
@@ -362,6 +363,7 @@ Ext.define('ALMITOnTheGo.view.AddCourses', {
     var addedCoursesContainer = me.down('#addedCoursesContainer');
 
     addCoursesListPanel.hide();
+    me.down('#nextButton').show();
     addedCoursesContainer.show();
   },
   onSearchKeyUp: function (field) {
