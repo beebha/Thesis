@@ -3,37 +3,30 @@ Ext.define('ALMITOnTheGo.controller.Login', {
 
   config: {
     routes: {
-      'registerNewUser': 'registerNewUser',
       'forgotPassword': 'forgotPassword'
     },
     refs: {
+      landingView: 'landingView',
       loginView: 'loginView',
-      mainView: 'mainView',
-      registerView: 'registerView'
+      mainView: 'mainView'
     },
     control: {
       loginView: {
         loginCommand: 'onLoginCommand',
-        guestCommand: 'onGuestCommand'
+        backCommand: 'onBackCommand'
       }
     }
-  },
-  registerNewUser: function () {
-    var loginView = this.getLoginView();
-    var registerView = this.getRegisterView();
-    loginView.setMasked(false);
-
-    Ext.Viewport.animateActiveItem(registerView, ALMITOnTheGo.app.getController('Common').getSlideLeftTransition());
   },
   forgotPassword: function () {
     console.log("forgotPassword");
   },
-  onGuestCommand: function () {
+  onBackCommand: function () {
+    window.history.back();
     var loginView = this.getLoginView();
-    var mainView = this.getMainView();
+    var landingView = this.getLandingView();
     loginView.setMasked(false);
 
-    Ext.Viewport.animateActiveItem(mainView, ALMITOnTheGo.app.getController('Common').getSlideLeftTransition());
+    Ext.Viewport.animateActiveItem(landingView, ALMITOnTheGo.app.getController('Common').getSlideRightTransition());
   },
   onLoginCommand: function (view, username, password) {
     var me = this,

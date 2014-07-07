@@ -13,7 +13,15 @@ Ext.define('ALMITOnTheGo.view.Login', {
       {
         xtype: 'titlebar',
         title: 'ALM IT On-The-Go',
-        docked: 'top'
+        docked: 'top',
+        items: [
+          {
+            xtype: 'button',
+            text: 'BACK',
+            itemId: 'backButton',
+            align: 'left'
+          }
+        ]
       },
       {
         xtype: 'label',
@@ -61,22 +69,12 @@ Ext.define('ALMITOnTheGo.view.Login', {
             margin: 5,
             text: 'Log In',
             flex: 1
-          },
-          {
-            xtype: 'button',
-            itemId: 'guestButton',
-            cls: 'modus-button primary',
-            padding: 10,
-            margin: 5,
-            text: 'Guest',
-            flex: 1
           }
         ]
       },
       {
         xtype: 'component',
-        html: '<a href="#registerNewUser">Register</a>' + '  |  ' +
-          '<a href="#forgotPassword">Forgot your password?</a>',
+        html: '<center><a href="#forgotPassword">Forgot your password?</a></center>',
         style: 'margin:10px;'
       }
     ],
@@ -87,17 +85,16 @@ Ext.define('ALMITOnTheGo.view.Login', {
         fn: 'onLoginButtonTap'
       },
       {
-        delegate: '#guestButton',
+        delegate: '#backButton',
         event: 'tap',
-        fn: 'onGuestButtonTap'
+        fn: 'onBackButtonTap'
       }
     ]
   },
-  onGuestButtonTap: function () {
-    ALMITOnTheGo.app.authToken = null;
+  onBackButtonTap: function () {
     var me = this;
     var task = Ext.create('Ext.util.DelayedTask', function () {
-      me.fireEvent('guestCommand');
+      me.fireEvent('backCommand');
     });
 
     task.delay(500);

@@ -35,11 +35,11 @@ Ext.application({
     ],
 
     controllers: [
-      'Common', 'Login', 'Register', 'Main', 'AddCourses', 'UserInformation', 'Courses', 'Grades', 'Requirements'
+      'Landing', 'Common', 'Login', 'Register', 'Main', 'AddCourses', 'UserInformation', 'Courses', 'Grades', 'Requirements'
     ],
 
     views: [
-      'Home', 'Login', 'Register', 'Main', 'AddCourses', 'UserInformation', 'Courses', 'Grades', 'Requirements'
+      'Landing', 'Home', 'Login', 'Register', 'Main', 'AddCourses', 'UserInformation', 'Courses', 'Grades', 'Requirements'
     ],
 
     models: [
@@ -84,9 +84,10 @@ Ext.application({
 
       // Initialize the login view
       Ext.Viewport.add([
-        { xtype: 'loginView' },
-        { xtype: 'registerView' },
+        { xtype: 'landingView' },
         { xtype: 'mainView' },
+        { xtype: 'registerView' },
+        { xtype: 'loginView' },
         { xtype: 'addCoursesView' },
         { xtype: 'userInformationView' }
       ]);

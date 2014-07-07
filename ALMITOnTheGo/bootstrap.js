@@ -24,6 +24,7 @@ Ext.ClassManager.addNameAlternateMappings({
   "ALMITOnTheGo.controller.Common": [],
   "ALMITOnTheGo.controller.Courses": [],
   "ALMITOnTheGo.controller.Grades": [],
+  "ALMITOnTheGo.controller.Landing": [],
   "ALMITOnTheGo.controller.Login": [],
   "ALMITOnTheGo.controller.Main": [],
   "ALMITOnTheGo.controller.Register": [],
@@ -38,6 +39,7 @@ Ext.ClassManager.addNameAlternateMappings({
   "ALMITOnTheGo.view.Courses": [],
   "ALMITOnTheGo.view.Grades": [],
   "ALMITOnTheGo.view.Home": [],
+  "ALMITOnTheGo.view.Landing": [],
   "ALMITOnTheGo.view.Login": [],
   "ALMITOnTheGo.view.Main": [],
   "ALMITOnTheGo.view.Register": [],
@@ -773,6 +775,7 @@ Ext.ClassManager.addNameAliasMappings({
   "ALMITOnTheGo.controller.Common": [],
   "ALMITOnTheGo.controller.Courses": [],
   "ALMITOnTheGo.controller.Grades": [],
+  "ALMITOnTheGo.controller.Landing": [],
   "ALMITOnTheGo.controller.Login": [],
   "ALMITOnTheGo.controller.Main": [],
   "ALMITOnTheGo.controller.Register": [],
@@ -794,6 +797,9 @@ Ext.ClassManager.addNameAliasMappings({
   ],
   "ALMITOnTheGo.view.Home": [
     "widget.homeView"
+  ],
+  "ALMITOnTheGo.view.Landing": [
+    "widget.landingView"
   ],
   "ALMITOnTheGo.view.Login": [
     "widget.loginView"

@@ -5,13 +5,13 @@ Ext.define('ALMITOnTheGo.controller.Register', {
     refs: {
       registerView: 'registerView',
       addCoursesView: 'addCoursesView',
-      loginView: 'loginView',
+      landingView: 'landingView',
       mainView: 'mainView'
     },
     control: {
       registerView: {
         registerCommand: 'onRegisterCommand',
-        cancelRegisterCommand: 'onCancelRegisterCommand'
+        backCommand: 'onBackCommand'
       }
     }
   },
@@ -101,12 +101,12 @@ Ext.define('ALMITOnTheGo.controller.Register', {
     registerView.showRegistrationFailedMessage(message);
     registerView.setMasked(false);
   },
-  onCancelRegisterCommand: function () {
+  onBackCommand: function () {
     window.history.back();
     var registerView = this.getRegisterView();
-    var loginView = this.getLoginView();
+    var landingView = this.getLandingView();
     registerView.setMasked(false);
 
-    Ext.Viewport.animateActiveItem(loginView, ALMITOnTheGo.app.getController('Common').getSlideRightTransition());
+    Ext.Viewport.animateActiveItem(landingView, ALMITOnTheGo.app.getController('Common').getSlideRightTransition());
   }
 });

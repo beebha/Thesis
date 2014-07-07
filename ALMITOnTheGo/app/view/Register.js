@@ -14,7 +14,15 @@ Ext.define('ALMITOnTheGo.view.Register', {
       {
         xtype: 'titlebar',
         title: 'Register',
-        docked: 'top'
+        docked: 'top',
+        items: [
+          {
+            xtype: 'button',
+            text: 'BACK',
+            itemId: 'backButton',
+            align: 'left'
+          }
+        ]
       },
       {
         xtype: 'label',
@@ -104,15 +112,6 @@ Ext.define('ALMITOnTheGo.view.Register', {
             margin: 5,
             text: 'Register',
             flex: 1
-          },
-          {
-            xtype: 'button',
-            itemId: 'cancelButton',
-            cls: 'modus-button primary',
-            padding: 10,
-            margin: 5,
-            text: 'Cancel',
-            flex: 1
           }
         ]
       }
@@ -124,14 +123,19 @@ Ext.define('ALMITOnTheGo.view.Register', {
         fn: 'onRegisterButtonTap'
       },
       {
-        delegate: '#cancelButton',
+        delegate: '#backButton',
         event: 'tap',
-        fn: 'onCancelButtonTap'
+        fn: 'onBackButtonTap'
       }
     ]
   },
-  onCancelButtonTap: function () {
-    this.fireEvent('cancelRegisterCommand');
+  onBackButtonTap: function () {
+    var me = this;
+    var task = Ext.create('Ext.util.DelayedTask', function () {
+      me.fireEvent('backCommand');
+    });
+
+    task.delay(500);
 
   },
   onRegisterButtonTap: function () {
