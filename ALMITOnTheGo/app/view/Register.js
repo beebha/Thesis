@@ -67,7 +67,8 @@ Ext.define('ALMITOnTheGo.view.Register', {
           },
           {
             xtype: 'selectfield',
-            label: 'Select Candidate Type',
+            label: 'Candidate Type',
+            labelWidth: '37%',
             itemId: 'selectRegistrationTypeField',
             name: 'selectRegistrationTypeField',
             options: [
@@ -77,7 +78,8 @@ Ext.define('ALMITOnTheGo.view.Register', {
           },
           {
             xtype: 'selectfield',
-            label: 'Select Concentration',
+            label: 'Concentration',
+            labelWidth: '37%',
             itemId: 'selectConcentrationField',
             name: 'selectConcentrationField',
             options: [
