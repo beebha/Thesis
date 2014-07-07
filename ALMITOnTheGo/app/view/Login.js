@@ -12,7 +12,7 @@ Ext.define('ALMITOnTheGo.view.Login', {
     items: [
       {
         xtype: 'titlebar',
-        title: 'ALM IT On-The-Go',
+        title: 'Log In',
         docked: 'top',
         items: [
           {
