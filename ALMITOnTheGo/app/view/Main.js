@@ -44,6 +44,9 @@ Ext.define('ALMITOnTheGo.view.Main', {
             iconCls: 'cogs',
             itemId: 'settingsButton',
             align: 'left',
+            style: {
+              color: '#E1D9C0'
+            },
             hidden: true,
             listeners: {
               tap: function () {
@@ -56,6 +59,9 @@ Ext.define('ALMITOnTheGo.view.Main', {
             iconCls: 'exit',
             itemId: 'logoutButton',
             align: 'right',
+            style: {
+              color: '#E1D9C0'
+            },
             listeners: {
               tap: function () {
                 ALMITOnTheGo.app.getController('Main').onLogoutCommand();

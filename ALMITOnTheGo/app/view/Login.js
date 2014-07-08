@@ -19,7 +19,10 @@ Ext.define('ALMITOnTheGo.view.Login', {
             xtype: 'button',
             text: 'BACK',
             itemId: 'backButton',
-            align: 'left'
+            align: 'left',
+            style: {
+              color: '#E1D9C0'
+            }
           }
         ]
       },
