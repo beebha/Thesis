@@ -438,8 +438,36 @@ Ext.define('ALMITOnTheGo.view.Courses', {
         delegate: '#courseDetailBackButton',
         event: 'tap',
         fn: 'onCourseDetailBackButton'
+      },
+      {
+        delegate: '#viewConflictsButton',
+        event: 'tap',
+        fn: 'onViewConflictsButton'
+      },
+      {
+        delegate: '#addToCalendarButton',
+        event: 'tap',
+        fn: 'onAddToCalendarButton'
       }
     ]
+  },
+  onViewConflictsButton: function () {
+    var me = this;
+
+    var task = Ext.create('Ext.util.DelayedTask', function () {
+      me.fireEvent('viewConflictsButtonCommand');
+    });
+
+    task.delay(500);
+  },
+  onAddToCalendarButton: function () {
+    var me = this;
+
+    var task = Ext.create('Ext.util.DelayedTask', function () {
+      me.fireEvent('addToCalendarButtonCommand');
+    });
+
+    task.delay(500);
   },
   onCoursesNextButton: function () {
     var me = this;

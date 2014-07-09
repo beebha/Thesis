@@ -18,30 +18,26 @@ Ext.define('ALMITOnTheGo.controller.Courses',
           courseResultsBackButtonCommand: 'onCourseResultsBackButtonCommand',
           courseDetailBackButtonCommand: 'onCourseDetailBackButtonCommand',
           viewCoursesListItemTapCommand: 'onViewCoursesListItemTapCommand',
-          viewCoursesListItemDiscloseCommand: 'onViewCoursesListItemDiscloseCommand'
+          viewCoursesListItemDiscloseCommand: 'onViewCoursesListItemDiscloseCommand',
+          viewConflictsButtonCommand: 'onViewConflictsButtonCommand',
+          addToCalendarButtonCommand: 'onAddToCalendarButtonCommand'
         }
       }
+    },
+    onViewConflictsButtonCommand: function() {
+
     },
     onViewCoursesListItemTapCommand: function(list, index, target, record, e) {
       console.log("onViewCoursesListItemTapCommand");
 
-      var cc = this;
-      var coursesView = cc.getCoursesView();
-
       var courseID = record.data.course_id;
       var checkboxCourse = Ext.get('chkCourse'+courseID);
       var checkboxCourseDom = checkboxCourse.dom;
-      var active = false;
 
       if (e.target.tagName.toUpperCase() != 'LABEL' )
       {
         checkboxCourseDom.checked = !checkboxCourseDom.checked;
-        active = checkboxCourseDom.checked;
-      } else{
-        active = !checkboxCourseDom.checked;
       }
-
-
     },
     onViewCoursesListItemDiscloseCommand: function(list, index, target, record, e) {
       console.log("onViewCoursesListItemDiscloseCommand");
