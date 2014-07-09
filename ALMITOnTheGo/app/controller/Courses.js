@@ -26,6 +26,15 @@ Ext.define('ALMITOnTheGo.controller.Courses',
     },
     onViewConflictsButtonCommand: function() {
       console.log("onViewConflictsButtonCommand");
+
+      var cc = this;
+      var coursesView = cc.getCoursesView();
+      var viewCoursesList = coursesView.down('#viewCoursesList');
+
+      ALMITOnTheGo.app.viewCoursesStore.each(function (item, index, length) {
+        viewCoursesList.getItemAt(index).setStyle('background-color:#FFFFFF;');
+      });
+
       var allCheckedCourses = [];
 
       Ext.each(Ext.query('input[type=checkbox'), function(item) {
@@ -83,9 +92,6 @@ Ext.define('ALMITOnTheGo.controller.Courses',
         }
 
         if(!Ext.isEmpty(courseConflictsMsg)) {
-
-          var cc = this;
-          var coursesView = cc.getCoursesView();
 
           Ext.Msg.show({
             title: 'Course Conflicts',
