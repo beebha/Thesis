@@ -2,7 +2,7 @@ Ext.define('ALMITOnTheGo.controller.Main', {
   extend: 'Ext.app.Controller',
   config: {
     refs: {
-      loginView: 'loginView',
+      landingView: 'landingView',
       mainView: 'mainView',
       userInformationView: 'userInformationView',
       addCoursesView: 'addCoursesView'
@@ -145,7 +145,7 @@ Ext.define('ALMITOnTheGo.controller.Main', {
         }
       });
     }
-    Ext.Viewport.animateActiveItem(this.getLoginView(), ALMITOnTheGo.app.getController('Common').getSlideRightTransition());
+    Ext.Viewport.animateActiveItem(this.getLandingView(), ALMITOnTheGo.app.getController('Common').getSlideRightTransition());
     location.reload();
   }
 });

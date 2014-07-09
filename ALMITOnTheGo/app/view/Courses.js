@@ -219,10 +219,13 @@ Ext.define('ALMITOnTheGo.view.Courses', {
                     itemId: 'viewCoursesList',
                     hidden: true,
                     height: '88%',
-                    mode: 'MULTI',
                     itemTpl: new Ext.XTemplate(
-                      '<p><b>{course_code}</b></p>',
-                      '<p><span style="font-size: 80%">{course_title}</span></p>',
+                      '<div class="custom-square-checkbox">',
+                      '<input type="checkbox" value="{course_id}" id="chkCourse{course_id}"/>',
+                      '<label for="chkCourse{course_id}"></label>',
+                      '<span style="font-weight: bold;white-space: nowrap;margin-left:25px;">{course_code}</span>',
+                      '</div>',
+                      '<p><span style="font-size: 80%;">{course_title}</span></p>',
                       '<p><span style="font-size: 80%;font-style:italic;">{course_term_label}</span></p>',
                       '<p style="margin-top:0.2em;">',
                       '<tpl for="attributes_array">',
@@ -231,7 +234,7 @@ Ext.define('ALMITOnTheGo.view.Courses', {
                       '</p>'),
                     store: null,
                     useSimpleItems: true,
-                    disableSelection: false,
+                    disableSelection: true,
                     onItemDisclosure: true,
                     listeners : {
                       itemtap : function(list, index, target, record, e) {

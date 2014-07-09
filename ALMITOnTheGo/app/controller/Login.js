@@ -66,6 +66,7 @@ Ext.define('ALMITOnTheGo.controller.Login', {
     });
   },
   loginSuccess: function () {
+    window.history.back();
     var loginView = this.getLoginView();
     var mainView = this.getMainView();
     loginView.setMasked(false);
