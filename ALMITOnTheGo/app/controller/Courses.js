@@ -25,7 +25,93 @@ Ext.define('ALMITOnTheGo.controller.Courses',
       }
     },
     onViewConflictsButtonCommand: function() {
+      console.log("onViewConflictsButtonCommand");
+      var allCheckedCourses = [];
 
+      Ext.each(Ext.query('input[type=checkbox'), function(item) {
+        if(item.checked) {
+          var courseID = item.value;
+          var record = ALMITOnTheGo.app.viewCoursesStore.findRecord("course_id", courseID);
+          allCheckedCourses.push(record.data);
+        }
+      });
+
+      if(allCheckedCourses.length < 2) {
+        Ext.Msg.alert('Select Course', 'Please select at least 2 courses to view conflicts', Ext.emptyFn);
+      } else {
+
+        var coursesComboChecked = [];
+        var courseConflictsMsg = "";
+        var courseConflictIDs = [];
+        var coursesToCheck = allCheckedCourses.slice();
+
+        for(var i=0; i<allCheckedCourses.length; i++)
+        {
+          var currentCourseRecord = allCheckedCourses[i];
+
+          for(var j=0; j<coursesToCheck.length; j++)
+          {
+            var courseToCheck = coursesToCheck[j];
+            var courseCombo = currentCourseRecord.course_id + "|" + courseToCheck.course_id;
+
+            if((currentCourseRecord.course_id != courseToCheck.course_id) && !Ext.Array.contains(coursesComboChecked, courseCombo))
+            {
+              coursesComboChecked.push(currentCourseRecord.course_id + "|" + courseToCheck.course_id);
+              coursesComboChecked.push(courseToCheck.course_id + "|" + currentCourseRecord.course_id);
+
+              if(currentCourseRecord.course_term_id == courseToCheck.course_term_id)
+              {
+                var currentCourseDays = !Ext.isEmpty(currentCourseRecord.course_day) ? currentCourseRecord.course_day.split(",") : [];
+                var courseToCheckDays = !Ext.isEmpty(courseToCheck.course_day) ? courseToCheck.course_day.split(",") : [];
+
+                var conflictDays = Ext.Array.intersect(currentCourseDays, courseToCheckDays);
+
+                if(!Ext.isEmpty(conflictDays))
+                {
+                  courseConflictsMsg += currentCourseRecord.course_code + " and " + courseToCheck.course_code + " conflict on: " + conflictDays.join(",") + "<br>";
+
+                  if(!Ext.Array.contains(courseConflictIDs, currentCourseRecord.course_id)) {
+                    courseConflictIDs.push(currentCourseRecord.course_id);
+                  }
+                  if(!Ext.Array.contains(courseConflictIDs, courseToCheck.course_id)) {
+                    courseConflictIDs.push(courseToCheck.course_id);
+                  }
+                }
+              }
+            }
+          }
+        }
+
+        if(!Ext.isEmpty(courseConflictsMsg)) {
+
+          var cc = this;
+          var coursesView = cc.getCoursesView();
+
+          Ext.Msg.show({
+            title: 'Course Conflicts',
+            message: courseConflictsMsg,
+            width: 210,
+            height: 200,
+            scrollable: {
+              direction: 'vertical'
+            },
+            style: {
+              fontSize: '80%'
+            },
+            fn:function() {
+              Ext.Array.each(courseConflictIDs, function (courseID) {
+                var index = ALMITOnTheGo.app.viewCoursesStore.find("course_id", courseID);
+                coursesView.down('#viewCoursesList').getItemAt(index).setStyle('background-color:#C24641');
+              });
+            }
+          });
+        } else {
+          Ext.Msg.alert('No Course Conflicts', '', Ext.emptyFn);
+        }
+      }
+    },
+    onAddToCalendarButtonCommand: function() {
+      console.log("onAddToCalendarButtonCommand");
     },
     onViewCoursesListItemTapCommand: function(list, index, target, record, e) {
       console.log("onViewCoursesListItemTapCommand");
