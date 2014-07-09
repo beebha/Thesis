@@ -279,9 +279,22 @@ Ext.define('ALMITOnTheGo.view.Courses', {
                       {
                         xtype: 'button',
                         iconCls: 'arrow_left inner-toolbar-button',
-                        iconMask: true,
                         itemId: 'courseResultsBackButton',
                         align: 'left'
+                      },
+                      {
+                        xtype: 'button',
+                        text: 'VIEW CONFLICTS',
+                        itemId: 'viewConflictsButton',
+                        align: 'right'
+                      },
+                      {
+                        xtype: 'button',
+                        iconCls: 'calendar inner-toolbar-button',
+                        iconAlign: 'right',
+                        text: 'ADD TO',
+                        itemId: 'addToCalendarButton',
+                        align: 'right'
                       }
                     ]
                   }

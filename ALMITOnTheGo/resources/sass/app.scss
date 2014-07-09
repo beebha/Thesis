@@ -100,6 +100,10 @@ input[type="checkbox"] {
   color: #CD5C5C;
 }
 
+.x-tab .x-button-icon.calendar:before, .x-button .x-button-icon.calendar:before {
+  font-size: 1em;
+}
+
 .x-tabbar-dark .x-tab {
   color: #E9967A;
 }

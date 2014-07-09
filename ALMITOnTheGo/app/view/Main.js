@@ -93,7 +93,11 @@ Ext.define('ALMITOnTheGo.view.Main', {
       },
       {
         title: 'Calendar',
-        iconCls: 'calendar'
+        iconCls: 'calendar',
+        style: {
+          margin: '3em'
+        },
+        html: 'COMING SOON!'
       },
       {
         title: 'Grades',
@@ -104,11 +108,19 @@ Ext.define('ALMITOnTheGo.view.Main', {
       },
       {
         title: 'Analysis',
-        iconCls: 'stats'
+        iconCls: 'stats',
+        style: {
+          margin: '3em'
+        },
+        html: 'COMING SOON!'
       },
       {
         title: 'Contacts',
-        iconCls: 'address-book'
+        iconCls: 'address-book',
+        style: {
+          margin: '3em'
+        },
+        html: 'COMING SOON!'
       }
     ]
   },

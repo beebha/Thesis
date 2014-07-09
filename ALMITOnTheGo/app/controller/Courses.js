@@ -40,6 +40,8 @@ Ext.define('ALMITOnTheGo.controller.Courses',
       } else{
         active = !checkboxCourseDom.checked;
       }
+
+
     },
     onViewCoursesListItemDiscloseCommand: function(list, index, target, record, e) {
       console.log("onViewCoursesListItemDiscloseCommand");
