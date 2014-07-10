@@ -17,10 +17,22 @@ Ext.Loader.addClassPathMappings({
   "Ext.device.sqlite.SQLResultSet": "touch/src/device/sqlite/Sencha.js",
   "Ext.device.sqlite.SQLResultSetRowList": "touch/src/device/sqlite/Sencha.js",
   "Ext.device.sqlite.SQLTransaction": "touch/src/device/sqlite/Sencha.js",
-  "Ext.draw.engine.SvgContext.Gradient": "touch/src/draw/engine/SvgContext.js"
+  "Ext.draw.engine.SvgContext.Gradient": "touch/src/draw/engine/SvgContext.js",
+  "Ext.util.Region.partial": "touch/src/plugin/Ext.ux.TouchCalendarEvents.js",
+  "Ext.ux.CalendarEventBarModel": "touch/src/plugin/Ext.ux.TouchCalendarEvents.js",
+  "Ext.ux.TouchCalendar": "touch/src/plugin/Ext.ux.TouchCalendar.js",
+  "Ext.ux.TouchCalendarDayEvents": "touch/src/plugin/Ext.ux.TouchCalendarDayEvents.js",
+  "Ext.ux.TouchCalendarEvents": "touch/src/plugin/Ext.ux.TouchCalendarEvents.js",
+  "Ext.ux.TouchCalendarEventsBase": "touch/src/plugin/Ext.ux.TouchCalendarEventsBase.js",
+  "Ext.ux.TouchCalendarMonthEvents": "touch/src/plugin/Ext.ux.TouchCalendarMonthEvents.js",
+  "Ext.ux.TouchCalendarSimpleEvents": "touch/src/plugin/Ext.ux.TouchCalendarSimpleEvents.js",
+  "Ext.ux.TouchCalendarView": "touch/src/plugin/Ext.ux.TouchCalendarView.js",
+  "Ext.ux.TouchCalendarWeekEvents": "touch/src/plugin/Ext.ux.TouchCalendarWeekEvents.js",
+  "TouchCalendarViewModel": "touch/src/plugin/Ext.ux.TouchCalendarView.js"
 });
 Ext.ClassManager.addNameAlternateMappings({
   "ALMITOnTheGo.controller.AddCourses": [],
+  "ALMITOnTheGo.controller.Calendar": [],
   "ALMITOnTheGo.controller.Common": [],
   "ALMITOnTheGo.controller.Courses": [],
   "ALMITOnTheGo.controller.Grades": [],
@@ -36,6 +48,7 @@ Ext.ClassManager.addNameAlternateMappings({
   "ALMITOnTheGo.store.ViewCourses": [],
   "ALMITOnTheGo.store.ViewRequirements": [],
   "ALMITOnTheGo.view.AddCourses": [],
+  "ALMITOnTheGo.view.Calendar": [],
   "ALMITOnTheGo.view.Courses": [],
   "ALMITOnTheGo.view.Grades": [],
   "ALMITOnTheGo.view.Home": [],
@@ -722,6 +735,7 @@ Ext.ClassManager.addNameAlternateMappings({
   "Ext.util.Point": [],
   "Ext.util.PositionMap": [],
   "Ext.util.Region": [],
+  "Ext.util.Region.partial": [],
   "Ext.util.SizeMonitor": [],
   "Ext.util.Sortable": [],
   "Ext.util.Sorter": [],
@@ -744,9 +758,18 @@ Ext.ClassManager.addNameAlternateMappings({
   "Ext.util.translatable.ScrollPosition": [],
   "Ext.ux.ActionOverFlowMenuButton": [],
   "Ext.ux.ApplicationMenu": [],
+  "Ext.ux.CalendarEventBarModel": [],
   "Ext.ux.ContextMenu": [],
   "Ext.ux.MenuButton": [],
   "Ext.ux.TabMenuButton": [],
+  "Ext.ux.TouchCalendar": [],
+  "Ext.ux.TouchCalendarDayEvents": [],
+  "Ext.ux.TouchCalendarEvents": [],
+  "Ext.ux.TouchCalendarEventsBase": [],
+  "Ext.ux.TouchCalendarMonthEvents": [],
+  "Ext.ux.TouchCalendarSimpleEvents": [],
+  "Ext.ux.TouchCalendarView": [],
+  "Ext.ux.TouchCalendarWeekEvents": [],
   "Ext.ux.device.Analytics": [],
   "Ext.ux.device.Twitter": [],
   "Ext.ux.device.analytics.Abstract": [],
@@ -768,10 +791,12 @@ Ext.ClassManager.addNameAlternateMappings({
   "Ext.viewport.Viewport": [],
   "Ext.viewport.WindowsPhone": [
     "Ext.viewport.WP"
-  ]
+  ],
+  "TouchCalendarViewModel": []
 });
 Ext.ClassManager.addNameAliasMappings({
   "ALMITOnTheGo.controller.AddCourses": [],
+  "ALMITOnTheGo.controller.Calendar": [],
   "ALMITOnTheGo.controller.Common": [],
   "ALMITOnTheGo.controller.Courses": [],
   "ALMITOnTheGo.controller.Grades": [],
@@ -788,6 +813,9 @@ Ext.ClassManager.addNameAliasMappings({
   "ALMITOnTheGo.store.ViewRequirements": [],
   "ALMITOnTheGo.view.AddCourses": [
     "widget.addCoursesView"
+  ],
+  "ALMITOnTheGo.view.Calendar": [
+    "widget.calendarView"
   ],
   "ALMITOnTheGo.view.Courses": [
     "widget.coursesView"
@@ -1707,6 +1735,7 @@ Ext.ClassManager.addNameAliasMappings({
   "Ext.util.Point": [],
   "Ext.util.PositionMap": [],
   "Ext.util.Region": [],
+  "Ext.util.Region.partial": [],
   "Ext.util.SizeMonitor": [],
   "Ext.util.Sortable": [],
   "Ext.util.Sorter": [],
@@ -1729,9 +1758,22 @@ Ext.ClassManager.addNameAliasMappings({
   "Ext.util.translatable.ScrollPosition": [],
   "Ext.ux.ActionOverFlowMenuButton": [],
   "Ext.ux.ApplicationMenu": [],
+  "Ext.ux.CalendarEventBarModel": [],
   "Ext.ux.ContextMenu": [],
   "Ext.ux.MenuButton": [],
   "Ext.ux.TabMenuButton": [],
+  "Ext.ux.TouchCalendar": [
+    "widget.calendar"
+  ],
+  "Ext.ux.TouchCalendarDayEvents": [],
+  "Ext.ux.TouchCalendarEvents": [],
+  "Ext.ux.TouchCalendarEventsBase": [],
+  "Ext.ux.TouchCalendarMonthEvents": [],
+  "Ext.ux.TouchCalendarSimpleEvents": [],
+  "Ext.ux.TouchCalendarView": [
+    "widget.touchcalendarview"
+  ],
+  "Ext.ux.TouchCalendarWeekEvents": [],
   "Ext.ux.device.Analytics": [],
   "Ext.ux.device.Twitter": [],
   "Ext.ux.device.analytics.Abstract": [],
@@ -1759,5 +1801,6 @@ Ext.ClassManager.addNameAliasMappings({
   ],
   "Ext.viewport.Ios": [],
   "Ext.viewport.Viewport": [],
-  "Ext.viewport.WindowsPhone": []
+  "Ext.viewport.WindowsPhone": [],
+  "TouchCalendarViewModel": []
 });

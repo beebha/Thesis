@@ -39,23 +39,23 @@
      *      }
      */
     "js": [
-		{
-			"path": "phonegap.js",
-			"remote": true
-		},
-        {
-            "path": "touch/sencha-touch.js",
-            "x-bootstrap": true
-        },
-        {
-            "path": "bootstrap.js",
-            "x-bootstrap": true
-        },
-        {
-            "path": "app.js",
-            "bundle": true,  /* Indicates that all class dependencies are concatenated into this file when build */
-            "update": "delta"
-        }
+      {
+        "path": "phonegap.js",
+        "remote": true
+      },
+      {
+          "path": "touch/sencha-touch.js",
+          "x-bootstrap": true
+      },
+      {
+          "path": "bootstrap.js",
+          "x-bootstrap": true
+      },
+      {
+          "path": "app.js",
+          "bundle": true,
+          "update": "delta"
+      }
     ],
 
     /**
@@ -78,6 +78,18 @@
         {
             "path": "resources/css/app.css",
             "update": "delta"
+        },
+        {
+          "path": "resources/css/Ext.ux.TouchCalendarView.css",
+          "update": "delta"
+        },
+        {
+          "path": "resources/css/Ext.ux.TouchCalendarEvents.css",
+          "update": "delta"
+        },
+        {
+          "path": "resources/css/Ext.ux.TouchCalendarSimpleEvents.css",
+          "update": "delta"
         }
     ],
 

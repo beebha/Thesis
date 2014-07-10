@@ -13,8 +13,8 @@
 Ext.application({
     name: 'ALMITOnTheGo',
     authToken: null,
-    apiURL: "http://localhost:8090/api/",
-//    apiURL: 'http://54.191.50.10/almitonthego/api/',
+//    apiURL: "http://localhost:8090/api/",
+    apiURL: 'http://54.191.50.10/almitonthego/api/',
     allGrades: null,
     allConcentrations: null,
     allCategories: null,
@@ -35,11 +35,11 @@ Ext.application({
     ],
 
     controllers: [
-      'Landing', 'Common', 'Login', 'Register', 'Main', 'AddCourses', 'UserInformation', 'Courses', 'Grades', 'Requirements'
+      'Landing', 'Common', 'Login', 'Register', 'Main', 'AddCourses', 'UserInformation', 'Courses', 'Grades', 'Requirements', 'Calendar'
     ],
 
     views: [
-      'Landing', 'Home', 'Login', 'Register', 'Main', 'AddCourses', 'UserInformation', 'Courses', 'Grades', 'Requirements'
+      'Landing', 'Home', 'Login', 'Register', 'Main', 'AddCourses', 'UserInformation', 'Courses', 'Grades', 'Requirements', 'Calendar'
     ],
 
     models: [

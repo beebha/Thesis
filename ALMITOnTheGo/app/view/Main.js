@@ -24,6 +24,10 @@ Ext.define('ALMITOnTheGo.view.Main', {
           console.log("Requirements clicked!");
           me.fireEvent('requirementsViewDetailsCommand');
         }
+        if (tab.config.title == 'Calendar') {
+          console.log("Calendar clicked!");
+          me.fireEvent('calendarViewDetailsCommand');
+        }
         if (tab.config.title == 'Grades') {
           console.log("Grades clicked!");
           me.fireEvent('gradesViewDetailsCommand');
@@ -94,10 +98,9 @@ Ext.define('ALMITOnTheGo.view.Main', {
       {
         title: 'Calendar',
         iconCls: 'calendar',
-        style: {
-          margin: '3em'
-        },
-        html: 'COMING SOON!'
+        items: {
+          xtype: 'calendarView'
+        }
       },
       {
         title: 'Grades',
