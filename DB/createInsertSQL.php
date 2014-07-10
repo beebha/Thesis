@@ -386,6 +386,7 @@ include 'createCategoryReqTable.php';
 include 'createCourseTable.php';
 include 'createUsersTable.php';
 include 'createUserCoursesTable.php';
+include 'createUserCalendarTable.php';
 include 'createMobileAuthTokenTable.php';
 
 foreach ($allInserts as $singleInsert)
