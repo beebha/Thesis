@@ -533,10 +533,10 @@ insert into course (concentration_id, course_id, course_code, course_title, cour
 insert into course (concentration_id, course_id, course_code, course_title, course_term_id, course_day, course_time, course_type, course_limit, instructor, location, attributes) values (4, 431, 'STATS-110', 'Introduction to Probability', 5, 'MON,WED', '3:15 - 6:15 pm', 'Online Option', 0, 'Kevin A. Rader', '1 Story Street 306', 'E');
 DROP TABLE course_terms;
 CREATE TABLE course_terms ( course_term_id int(10) unsigned NOT NULL, course_term_label varchar(64) NOT NULL, current_course tinyint(1) NOT NULL, PRIMARY KEY (course_term_id) ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-insert into course_terms (course_term_id, course_term_label, current_course) values (1, 'Summer 2013', true);
-insert into course_terms (course_term_id, course_term_label, current_course) values (2, 'Fall 2013', true);
-insert into course_terms (course_term_id, course_term_label, current_course) values (3, 'January 2014', true);
-insert into course_terms (course_term_id, course_term_label, current_course) values (4, 'Spring 2014', true);
+insert into course_terms (course_term_id, course_term_label, current_course) values (1, 'Summer 2013', false);
+insert into course_terms (course_term_id, course_term_label, current_course) values (2, 'Fall 2013', false);
+insert into course_terms (course_term_id, course_term_label, current_course) values (3, 'January 2014', false);
+insert into course_terms (course_term_id, course_term_label, current_course) values (4, 'Spring 2014', false);
 insert into course_terms (course_term_id, course_term_label, current_course) values (5, 'Summer 2014', true);
 insert into course_terms (course_term_id, course_term_label, current_course) values (6, 'Fall 2014', true);
 insert into course_terms (course_term_id, course_term_label, current_course) values (7, 'January 2015', true);
