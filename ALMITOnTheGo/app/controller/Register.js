@@ -62,7 +62,6 @@ Ext.define('ALMITOnTheGo.controller.Register', {
     });
   },
   registerSuccess: function () {
-    window.history.back();
     var rc = this;
     var registerView = rc.getRegisterView();
     var addCoursesView = rc.getAddCoursesView();
