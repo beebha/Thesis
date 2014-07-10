@@ -81,7 +81,6 @@ Ext.define('ALMITOnTheGo.view.Courses', {
                       {
                         xtype: 'button',
                         iconCls: 'arrow_right inner-toolbar-button',
-                        iconMask: true,
                         itemId: 'coursesNextButton',
                         align: 'right'
                       }
@@ -126,7 +125,6 @@ Ext.define('ALMITOnTheGo.view.Courses', {
                       {
                         xtype: 'button',
                         iconCls: 'arrow_left inner-toolbar-button',
-                        iconMask: true,
                         itemId: 'categoryBackButton',
                         align: 'left',
                         hidden: true
@@ -134,7 +132,6 @@ Ext.define('ALMITOnTheGo.view.Courses', {
                       {
                         xtype: 'button',
                         iconCls: 'arrow_right inner-toolbar-button',
-                        iconMask: true,
                         itemId: 'categoryNextButton',
                         align: 'right'
                       }
@@ -179,14 +176,12 @@ Ext.define('ALMITOnTheGo.view.Courses', {
                       {
                         xtype: 'button',
                         iconCls: 'arrow_left inner-toolbar-button',
-                        iconMask: true,
                         itemId: 'courseTermBackButton',
                         align: 'left'
                       },
                       {
                         xtype: 'button',
                         iconCls: 'arrow_right inner-toolbar-button',
-                        iconMask: true,
                         itemId: 'courseTermNextButton',
                         align: 'right'
                       }
@@ -382,7 +377,6 @@ Ext.define('ALMITOnTheGo.view.Courses', {
                       {
                         xtype: 'button',
                         iconCls: 'arrow_left inner-toolbar-button',
-                        iconMask: true,
                         itemId: 'courseDetailBackButton',
                         align: 'left'
                       }

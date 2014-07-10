@@ -261,12 +261,23 @@ Ext.define('ALMITOnTheGo.controller.Courses',
         searchCriteria += "Category: " + categoryIDText + "<br>" +
                           "Course Term: " + courseTermIDText;
 
+        coursesView.down('#viewConflictsButton').hide();
+        coursesView.down('#addToCalendarButton').hide();
+
         if(courseResultsResponse.data.coursesResults.length > 0) {
           ALMITOnTheGo.app.viewCoursesStore.applyData(courseResultsResponse.data.coursesResults);
           coursesView.down('#viewCoursesList').setStore(ALMITOnTheGo.app.viewCoursesStore);
+          ALMITOnTheGo.app.viewCoursesStore.each(function (item, index, length) {
+            coursesView.down('#viewCoursesList').getItemAt(index).setStyle('background-color:#FFFFFF;');
+          });
           coursesView.down('#viewCoursesList').show();
+          coursesView.down('#addToCalendarButton').show();
+
+          if(courseResultsResponse.data.coursesResults.length >= 2) {
+            coursesView.down('#viewConflictsButton').show();
+          }
         } else {
-          searchCriteria += "<br>No Matching Items";
+          searchCriteria += "<br><span style='font-size: 115%;color:#8b0000;'>No Matching Items</span>";
           coursesView.down('#viewCoursesList').hide();
         }
 
