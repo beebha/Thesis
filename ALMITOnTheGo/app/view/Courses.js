@@ -218,7 +218,7 @@ Ext.define('ALMITOnTheGo.view.Courses', {
                     xtype: 'list',
                     itemId: 'viewCoursesList',
                     hidden: true,
-                    height: '88%',
+                    height: '95%',
                     itemTpl: new Ext.XTemplate(
                       '<div class="custom-square-checkbox">',
                       '<input type="checkbox" value="{course_id}" id="chkCourse{course_id}"/>',
@@ -240,24 +240,11 @@ Ext.define('ALMITOnTheGo.view.Courses', {
                       itemtap : function(list, index, target, record, e) {
                         if (e.getTarget('.x-list-disclosure')) {
                           list.up('#coursesViewPanel').fireEvent('viewCoursesListItemDiscloseCommand', list, index, target, record, e);
-                        } else {
+                        } else if (e.getTarget('.x-innerhtml')) {
                           list.up('#coursesViewPanel').fireEvent('viewCoursesListItemTapCommand', list, index, target, record, e);
                         }
                       }
                     }
-                  },
-                  {
-                    xtype: 'label',
-                    itemId: 'courseSearchNoResultsLabel',
-                    hidden: true,
-                    style: {
-                      fontWeight: 'bold',
-                      fontSize: '110%',
-                      padding: '1em',
-                      textAlign: 'center',
-                      color: 'red'
-                    },
-                    html: 'No Matching Items'
                   },
                   {
                     docked: 'top',
@@ -286,7 +273,12 @@ Ext.define('ALMITOnTheGo.view.Courses', {
                         xtype: 'button',
                         text: 'VIEW CONFLICTS',
                         itemId: 'viewConflictsButton',
-                        align: 'right'
+                        align: 'right',
+                        listeners : {
+                          tap : function(button, e, eOpts) {
+                            button.up('#coursesViewPanel').fireEvent('viewConflictsButtonCommand');
+                          }
+                        }
                       },
                       {
                         xtype: 'button',
@@ -440,11 +432,6 @@ Ext.define('ALMITOnTheGo.view.Courses', {
         fn: 'onCourseDetailBackButton'
       },
       {
-        delegate: '#viewConflictsButton',
-        event: 'tap',
-        fn: 'onViewConflictsButton'
-      },
-      {
         delegate: '#addToCalendarButton',
         event: 'tap',
         fn: 'onAddToCalendarButton'
@@ -455,6 +442,7 @@ Ext.define('ALMITOnTheGo.view.Courses', {
     var me = this;
 
     var task = Ext.create('Ext.util.DelayedTask', function () {
+      alert("firing viewConflictsButtonCommand");
       me.fireEvent('viewConflictsButtonCommand');
     });
 
@@ -523,20 +511,11 @@ Ext.define('ALMITOnTheGo.view.Courses', {
 
     task.delay(500);
   },
-    onCourseDetailBackButton: function () {
+  onCourseDetailBackButton: function () {
     var me = this;
 
     var task = Ext.create('Ext.util.DelayedTask', function () {
       me.fireEvent('courseDetailBackButtonCommand');
-    });
-
-    task.delay(500);
-  },
-  onViewCoursesListItemTap: function () {
-    var me = this;
-
-    var task = Ext.create('Ext.util.DelayedTask', function () {
-      me.fireEvent('viewCoursesListItemTapCommand');
     });
 
     task.delay(500);

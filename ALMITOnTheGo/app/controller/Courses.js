@@ -37,7 +37,7 @@ Ext.define('ALMITOnTheGo.controller.Courses',
 
       var allCheckedCourses = [];
 
-      Ext.each(Ext.query('input[type=checkbox'), function(item) {
+      Ext.each(Ext.query("input[type='checkbox']"), function(item) {
         if(item.checked) {
           var courseID = item.value;
           var record = ALMITOnTheGo.app.viewCoursesStore.findRecord("course_id", courseID);
@@ -92,7 +92,6 @@ Ext.define('ALMITOnTheGo.controller.Courses',
         }
 
         if(!Ext.isEmpty(courseConflictsMsg)) {
-
           Ext.Msg.show({
             title: 'Course Conflicts',
             message: courseConflictsMsg,
@@ -104,15 +103,17 @@ Ext.define('ALMITOnTheGo.controller.Courses',
             style: {
               fontSize: '80%'
             },
-            fn:function() {
+            fn:function(btn) {
+              console.log("button clicked....");
+              console.log(btn);
               Ext.Array.each(courseConflictIDs, function (courseID) {
                 var index = ALMITOnTheGo.app.viewCoursesStore.find("course_id", courseID);
-                coursesView.down('#viewCoursesList').getItemAt(index).setStyle('background-color:#C24641');
+                viewCoursesList.getItemAt(index).setStyle('background-color:#C24641');
               });
             }
           });
         } else {
-          Ext.Msg.alert('No Course Conflicts', '', Ext.emptyFn);
+          Ext.Msg.alert('No Course Conflicts', 'Congratulations!', Ext.emptyFn);
         }
       }
     },
@@ -253,22 +254,21 @@ Ext.define('ALMITOnTheGo.controller.Courses',
       console.log("setupCourseResultsViewPanel");
       if (courseResultsResponse.success === true) {
 
-        if(courseResultsResponse.data.coursesResults.length > 0) {
-          ALMITOnTheGo.app.viewCoursesStore.applyData(courseResultsResponse.data.coursesResults);
-          coursesView.down('#viewCoursesList').setStore(ALMITOnTheGo.app.viewCoursesStore);
-          coursesView.down('#viewCoursesList').show();
-          coursesView.down('#courseSearchNoResultsLabel').hide();
-        } else {
-          coursesView.down('#viewCoursesList').hide();
-          coursesView.down('#courseSearchNoResultsLabel').show();
-        }
-
         var concentrationIDText = ALMITOnTheGo.app.getController('Common').getConcentrationText(courseResultsResponse.data.concentrationID);
         var categoryIDText = ALMITOnTheGo.app.getController('Common').getCategoryText(coursesView.down('radiofield[name=category]').getGroupValue());
         var courseTermIDText = ALMITOnTheGo.app.getController('Common').getCourseTermText(coursesView.down('radiofield[name=courseTerm]').getGroupValue());
         var searchCriteria = ALMITOnTheGo.app.authToken == null ? "Concentration: " + concentrationIDText + "<br>" : "";
         searchCriteria += "Category: " + categoryIDText + "<br>" +
                           "Course Term: " + courseTermIDText;
+
+        if(courseResultsResponse.data.coursesResults.length > 0) {
+          ALMITOnTheGo.app.viewCoursesStore.applyData(courseResultsResponse.data.coursesResults);
+          coursesView.down('#viewCoursesList').setStore(ALMITOnTheGo.app.viewCoursesStore);
+          coursesView.down('#viewCoursesList').show();
+        } else {
+          searchCriteria += "<br>No Matching Items";
+          coursesView.down('#viewCoursesList').hide();
+        }
 
         coursesView.down('#courseSearchLabel').setHtml(searchCriteria);
 
