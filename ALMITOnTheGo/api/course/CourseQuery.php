@@ -40,7 +40,7 @@ class CourseQuery
 
         return "SELECT *, ct.course_term_label
                 FROM course c
-                INNER JOIN course_terms ct ON ct.course_term_id = c.course_term_id
+                INNER JOIN course_terms ct ON ct.course_term_id = c.course_term_id AND ct.current_course = TRUE
                 WHERE c.concentration_id = ".CourseDBUtils::getDBValue(DBConstants::DB_VALUE, $concentrationID). $courseTermClause . $categoryClause;
 
     }

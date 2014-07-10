@@ -38,11 +38,12 @@ Ext.define('ALMITOnTheGo.view.Grades', {
                   '<i>{grade_label}</i>',
                   '</span>',
                   '</div>',
-                  '<div style="font-weight: lighter; font-size: 80%">{course_title}</div>'
+                  '<div style="font-weight: lighter; font-size: 80%">{course_title}</div>',
+                  '<div style="font-style:italic;font-size: 80%">{course_term_label}</div>'
                 ),
                 store: {
                   storeId: 'gradesCoursesStore',
-                  fields: ['course_code', 'course_title', 'grade_label'],
+                  fields: ['course_code', 'course_title', 'grade_label', 'course_term_label'],
                   sorters: 'course_code',
                   data: []
                 },
