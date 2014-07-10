@@ -27,11 +27,20 @@ Ext.define('ALMITOnTheGo.controller.Requirements',
       var rc = this;
       var requirementsView = rc.getRequirementsView();
 
+      requirementsView.down('#requirementsCardPanel').hide();
+
       // if Guest, show initial courses screen
       if (ALMITOnTheGo.app.authToken == null) {
+        requirementsView.down('#requirementsCardPanel').show();
         requirementsView.down('radiofield[name=concentration]').setGroupValue(1);
         requirementsView.down('#requirementsCardPanel').animateActiveItem(0, {type:'slide', direction:'left'});
       } else {
+
+        requirementsView.setMasked({
+          xtype: 'loadmask',
+          message: '&nbsp;'
+        });
+
         Ext.Ajax.request({
           url: ALMITOnTheGo.app.apiURL+'app.php?action=getCourseCategoryViewDetails',
           method: 'post',
@@ -75,6 +84,8 @@ Ext.define('ALMITOnTheGo.controller.Requirements',
           ALMITOnTheGo.app.viewRequirementsStore.addData(allReqs[singleReq]);
         }
 
+        requirementsView.down('#requirementsCardPanel').show();
+
         requirementsView.down('#viewRequirementsList').setStore(ALMITOnTheGo.app.viewRequirementsStore);
         requirementsView.down('#viewRequirementsList').show();
 
@@ -83,6 +94,7 @@ Ext.define('ALMITOnTheGo.controller.Requirements',
 
         ALMITOnTheGo.app.authToken == null ? requirementsView.down('#requirementsBackButton').show() : requirementsView.down('#requirementsBackButton').hide();
         requirementsView.down('#requirementsCardPanel').animateActiveItem(1, {type:'slide', direction:'left'});
+        requirementsView.setMasked(false);
       } else {
         // TODO - error handling
       }

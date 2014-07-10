@@ -155,11 +155,20 @@ Ext.define('ALMITOnTheGo.controller.Courses',
       var cc = this;
       var coursesView = cc.getCoursesView();
 
+      coursesView.down('#coursesCardPanel').hide();
+
       // if Guest, show initial courses screen
       if (ALMITOnTheGo.app.authToken == null) {
+        coursesView.down('#coursesCardPanel').show();
         coursesView.down('radiofield[name=concentration]').setGroupValue(1);
         coursesView.down('#coursesCardPanel').animateActiveItem(0, {type:'slide', direction:'left'});
       } else {
+
+        coursesView.setMasked({
+          xtype: 'loadmask',
+          message: '&nbsp;'
+        });
+
         Ext.Ajax.request({
           url: ALMITOnTheGo.app.apiURL+'app.php?action=getCourseCategoryViewDetails',
           method: 'post',
@@ -178,6 +187,11 @@ Ext.define('ALMITOnTheGo.controller.Courses',
       console.log("onCoursesNextButtonCommand");
       var cc = this;
       var coursesView = cc.getCoursesView();
+
+      coursesView.setMasked({
+        xtype: 'loadmask',
+        message: '&nbsp;'
+      });
 
       Ext.Ajax.request({
         url: ALMITOnTheGo.app.apiURL+'app.php?action=getCourseCategoryViewDetails',
@@ -210,6 +224,11 @@ Ext.define('ALMITOnTheGo.controller.Courses',
       console.log("onCourseTermNextButtonCommand");
       var cc = this;
       var coursesView = cc.getCoursesView();
+
+      coursesView.setMasked({
+        xtype: 'loadmask',
+        message: '&nbsp;'
+      });
 
       Ext.Ajax.request({
         url: ALMITOnTheGo.app.apiURL+'app.php?action=getCoursesResults',
@@ -282,8 +301,8 @@ Ext.define('ALMITOnTheGo.controller.Courses',
         }
 
         coursesView.down('#courseSearchLabel').setHtml(searchCriteria);
-
         coursesView.down('#coursesCardPanel').animateActiveItem(3, {type:'slide', direction:'left'});
+        coursesView.setMasked(false);
       }
     },
     setupCourseTermsViewPanel: function(coursesView, courseTermsResponse) {
@@ -352,9 +371,11 @@ Ext.define('ALMITOnTheGo.controller.Courses',
             label: 'All'
           }
         );
+        coursesView.down('#coursesCardPanel').show();
         ALMITOnTheGo.app.authToken == null ? coursesView.down('#categoryBackButton').show() : coursesView.down('#categoryBackButton').hide();
         coursesView.down('radiofield[name=category]').setGroupValue(0);
         coursesView.down('#coursesCardPanel').animateActiveItem(1, {type:'slide', direction:'left'});
+        coursesView.setMasked(false);
       } else {
         // TODO - error handling
       }
