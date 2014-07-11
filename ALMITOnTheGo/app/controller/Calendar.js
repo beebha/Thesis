@@ -30,6 +30,10 @@ Ext.define('ALMITOnTheGo.controller.Calendar',
             },
             selectionchange: function () {
               console.log("selectionchange");
+            },
+            eventtap: function (eventRecord, e, eOpts) {
+              console.log("eventtap");
+              console.log(eventRecord);
             }
           },
           enableEventBars: {
