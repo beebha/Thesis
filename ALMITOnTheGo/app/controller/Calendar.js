@@ -34,6 +34,10 @@ Ext.define('ALMITOnTheGo.controller.Calendar',
             eventtap: function (eventRecord, e, eOpts) {
               console.log("eventtap");
               console.log(eventRecord);
+              Ext.Msg.alert(
+                eventRecord.data.event,
+                eventRecord.data.title
+              );
             }
           },
           enableEventBars: {
