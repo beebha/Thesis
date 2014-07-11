@@ -4,7 +4,10 @@ Ext.define('ALMITOnTheGo.view.Calendar', {
   requires: [
     'Ext.ux.TouchCalendar',
     'Ext.ux.TouchCalendarView',
-    'Ext.ux.TouchCalendarSimpleEvents'
+    'Ext.ux.TouchCalendarEvents',
+    'Ext.ux.TouchCalendarMonthEvents',
+    'Ext.ux.TouchCalendarWeekEvents',
+    'Ext.ux.TouchCalendarDayEvents'
   ],
   config: {
     width: '100%',
@@ -20,29 +23,6 @@ Ext.define('ALMITOnTheGo.view.Calendar', {
         width: '100%',
         height: '100%',
         items: [
-          {
-            xtype      : 'touchcalendarview',
-            itemId      : 'touchCalendarViewWidget',
-            viewMode    : 'month',
-            dayTimeSlotSize: 60,
-            weekStart   : 0,
-            value       : new Date(),
-            width: '100%',
-            height: '100%',
-            listeners : {
-              periodchange : function(calendarView, minDate, maxDate, direction, eOpts) {
-                console.log(calendarView.getScrollable().getScroller());
-                console.log("periodchange");
-              },
-              selectionchange : function() {
-                console.log("selectionchange");
-              }
-            }
-//            eventStore  : Ext.getStore('Events'),
-//            plugins: {
-//              xclass: 'Ext.ux.TouchCalendarSimpleEvents'
-//            }
-          },
           {
             docked: 'top',
             xtype: 'titlebar',
@@ -78,7 +58,6 @@ Ext.define('ALMITOnTheGo.view.Calendar', {
                 }
               }
             }]
-
           },
           {
             docked: 'bottom',

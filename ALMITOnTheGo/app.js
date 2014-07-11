@@ -20,6 +20,7 @@ Ext.application({
     allCategories: null,
     allCourseTerms: null,
     allCoursesStore: null,
+    allEventsStore: null,
     addedCoursesStore: null,
     viewCoursesStore: null,
     viewRequirementsStore:null,
@@ -33,7 +34,6 @@ Ext.application({
     requires: [
         'Ext.MessageBox'
     ],
-
     controllers: [
       'Landing', 'Common', 'Login', 'Register', 'Main', 'AddCourses', 'UserInformation', 'Courses', 'Grades', 'Requirements', 'Calendar'
     ],
@@ -43,11 +43,11 @@ Ext.application({
     ],
 
     models: [
-      'Grade'
+      'Grade', 'CalendarEvent'
     ],
 
     stores: [
-      'AddedCourses', 'AllCourses', 'ViewCourses', 'ViewRequirements'
+      'AddedCourses', 'AllCourses', 'ViewCourses', 'ViewRequirements', 'CalendarEvents'
     ],
 
     icon: {
@@ -78,19 +78,7 @@ Ext.application({
       ALMITOnTheGo.app.addedCoursesStore = null;
       ALMITOnTheGo.app.viewCoursesStore = null;
       ALMITOnTheGo.app.viewRequirementsStore = null;
-
-      // Destroy the #appLoadingIndicator element
-      Ext.fly('appLoadingIndicator').destroy();
-
-      // Initialize the login view
-      Ext.Viewport.add([
-        { xtype: 'landingView' },
-        { xtype: 'mainView' },
-        { xtype: 'registerView' },
-        { xtype: 'loginView' },
-        { xtype: 'addCoursesView' },
-        { xtype: 'userInformationView' }
-      ]);
+      ALMITOnTheGo.app.allEventsStore = null;
 
       Ext.Ajax.request({
         url: ALMITOnTheGo.app.apiURL+'app.php?action=getAllStaticInfoForApp',
@@ -107,6 +95,21 @@ Ext.application({
             ALMITOnTheGo.app.addedCoursesStore = Ext.getStore('addedCoursesStore');
             ALMITOnTheGo.app.viewCoursesStore = Ext.getStore('viewCoursesStore');
             ALMITOnTheGo.app.viewRequirementsStore = Ext.getStore('viewRequirementsStore');
+            ALMITOnTheGo.app.allEventsStore = Ext.getStore('calendarEventsStore');
+
+            // Destroy the #appLoadingIndicator element
+            Ext.fly('appLoadingIndicator').destroy();
+
+            // Initialize the login view
+            Ext.Viewport.add([
+              { xtype: 'landingView' },
+              { xtype: 'mainView' },
+              { xtype: 'registerView' },
+              { xtype: 'loginView' },
+              { xtype: 'addCoursesView' },
+              { xtype: 'userInformationView' }
+            ]);
+
           } else {
             // TODO - implementation
           }
