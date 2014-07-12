@@ -53,6 +53,7 @@ $radio-size: 0.7em;
 @include icon("stackoverflow"  , "\e613", "almitonthego");
 @include icon("checkmark-cir"  , "\e611", "almitonthego");
 @include icon("radio-uncheck"  , "\e615", "almitonthego");
+@include icon("eye"  , "\e616", "almitonthego");
 
 body.x-ios.x-phone {
   font-size: 90%
@@ -102,6 +103,11 @@ input[type="checkbox"] {
 
 .x-tab .x-button-icon.calendar:before, .x-button .x-button-icon.calendar:before {
   font-size: 1em;
+}
+
+.x-tab .x-button-icon.eye:before, .x-button .x-button-icon.eye:before {
+  font-size: 1em;
+  line-height: 1.5em;
 }
 
 .x-tabbar-dark .x-tab {
@@ -181,6 +187,11 @@ input[type="checkbox"] {
 .DIGM {background-color: #FF99FF;}
 .DSCI {background-color: #FF9900;}
 .DCAP {background-color: #667700;}
+
+.SWE {background-color: #E69000;}
+.IMS {background-color: #00A60A;}
+.MAC {background-color: #1300BD;}
+.DGM {background-color: #9000E6;}
 
 .fake-disclosure {
   -webkit-border-radius: 22px;

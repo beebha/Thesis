@@ -30,34 +30,69 @@ Ext.define('ALMITOnTheGo.view.Calendar', {
             style: {
               border: 'none'
             },
-            items: [{
-              xtype: 'button',
-              text: 'Month',
-              listeners : {
-                tap : function(button, e, eOpts) {
-                  var touchCalendarViewWidget = button.up('#calendarViewContainer').down('#touchCalendarViewWidget');
-                  touchCalendarViewWidget.setViewMode('month');
+            items:
+            [
+              {
+                xtype: 'button',
+                text: 'Month',
+                listeners : {
+                  tap : function(button, e, eOpts) {
+                    var touchCalendarViewWidget = button.up('#calendarViewContainer').down('#touchCalendarViewWidget');
+                    touchCalendarViewWidget.setViewMode('month');
+                  }
+                }
+              },
+              {
+                xtype: 'button',
+                text: 'Week',
+                listeners : {
+                  tap : function(button, e, eOpts) {
+                    var touchCalendarViewWidget = button.up('#calendarViewContainer').down('#touchCalendarViewWidget');
+                    button.up('#calendarViewContainer').down('#touchCalendarViewWidget').setViewMode('week');
+                  }
+                }
+              },
+              {
+                xtype: 'button',
+                text: 'Day',
+                listeners : {
+                  tap : function(button, e, eOpts) {
+                    var touchCalendarViewWidget = button.up('#calendarViewContainer').down('#touchCalendarViewWidget');
+                    touchCalendarViewWidget.setViewMode('day');
+                  }
+                }
+              },
+              {
+                xtype: 'button',
+                text: 'SWE&nbsp;<span class="squarebox SWE">&nbsp;&nbsp;</span>',
+                align: 'right',
+                listeners : {
+                  tap : function(button, e, eOpts) {
+                    console.log('SWE button tapped');
+                  }
+                }
+              },
+              {
+                xtype: 'button',
+                text: 'IMS&nbsp;<span class="squarebox IMS">&nbsp;&nbsp;</span>',
+                align: 'right',
+                listeners : {
+                  tap : function(button, e, eOpts) {
+                    console.log('IMS button tapped');
+                  }
+                }
+              },
+              {
+                xtype: 'button',
+                text: 'DGM&nbsp;<span class="squarebox DGM">&nbsp;&nbsp;</span>',
+                align: 'right',
+                listeners : {
+                  tap : function(button, e, eOpts) {
+                    console.log('DGM button tapped');
+                  }
                 }
               }
-            }, {
-              xtype: 'button',
-              text: 'Week',
-              listeners : {
-                tap : function(button, e, eOpts) {
-                  var touchCalendarViewWidget = button.up('#calendarViewContainer').down('#touchCalendarViewWidget');
-                  button.up('#calendarViewContainer').down('#touchCalendarViewWidget').setViewMode('week');
-                }
-              }
-            }, {
-              xtype: 'button',
-              text: 'Day',
-              listeners : {
-                tap : function(button, e, eOpts) {
-                  var touchCalendarViewWidget = button.up('#calendarViewContainer').down('#touchCalendarViewWidget');
-                  touchCalendarViewWidget.setViewMode('day');
-                }
-              }
-            }]
+            ]
           },
           {
             docked: 'bottom',

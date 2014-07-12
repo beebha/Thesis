@@ -16,6 +16,18 @@ Ext.define('ALMITOnTheGo.controller.Calendar',
       var cal = this;
       var calendarView = cal.getCalendarView();
 
+      Ext.Ajax.request({
+        url: ALMITOnTheGo.app.apiURL+'app.php?action=getCalendarViewDetails',
+        method: 'post',
+        success: function (response) {
+          var calResponse = Ext.JSON.decode(response.responseText);
+          cal.setupCalendarViewPanel(calendarView, calResponse);
+        }
+      });
+    },
+    setupCalendarViewPanel: function(calendarView, calResponse)
+    {
+      console.log("setupCalendarViewPanel");
       calendarView.down('#calendarViewContainer').add(
         {
           xtype: 'calendar',

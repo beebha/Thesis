@@ -65,6 +65,11 @@ try {
         if($action == 'getGradeViewDetails') {
             $result = GradeController::getGradeViewDetails($_POST);
         }
+
+        // redirect to calendar server file
+        if($action == 'getCalendarViewDetails') {
+            $result = CalendarController::getCalendarViewDetails($_POST);
+        }
     }
 } catch (APIException $ex) {
     $error = array();
