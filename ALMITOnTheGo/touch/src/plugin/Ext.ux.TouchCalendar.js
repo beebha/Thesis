@@ -262,6 +262,4 @@ Ext.define('Ext.ux.TouchCalendar',{
 			this.fireEvent('periodchange', this.view, dateRange.min.get('date'), dateRange.max.get('date'), direction);
 		}
 	}
-    
-    
 });

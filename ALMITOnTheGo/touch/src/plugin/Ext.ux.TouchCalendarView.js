@@ -619,7 +619,7 @@ Ext.define('Ext.ux.TouchCalendarView', {
 	 * @method
 	 */
 	refresh: function(){
-		this.populateStore();
+		    this.populateStore();
 
         var records = this.getStore().getRange();
 

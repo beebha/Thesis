@@ -166,11 +166,14 @@ Ext.define('Ext.ux.TouchCalendarSimpleEvents', {
 					var store = this.calendar.eventStore;
 					
 					if (cell) {
-						store.clearFilter();
-						
+
+            if(store) {
+              store.clearFilter();
+            }
+
 						// if we only want to show a single dot per day then use findBy for better performance
-						var matchIndex = store[this.multiEventDots ? 'filterBy' : 'findBy'](Ext.bind(this.filterFn, this, [date], true));
-						var eventCount = store.getRange().length;
+						var matchIndex = store ? store[this.multiEventDots ? 'filterBy' : 'findBy'](Ext.bind(this.filterFn, this, [date], true)) : -1;
+						var eventCount = store ? store.getRange().length : 0;
 						
 						if ((!this.multiEventDots && matchIndex > -1) || (this.multiEventDots && eventCount > 0)) {
 							// get maximum number of dots that can fitted in the cell

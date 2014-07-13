@@ -10,7 +10,7 @@ Ext.define('ALMITOnTheGo.controller.Calendar',
           calendarViewDetailsCommand: 'onCalendarViewDetailsCommand'
         },
         calendarView: {
-          calendarViewDetailsCommand: 'onCalendarViewDetailsCommand'
+          hello: 'onCalendarViewDetailsCommand'
         }
       }
     },
@@ -39,11 +39,11 @@ Ext.define('ALMITOnTheGo.controller.Calendar',
         },
         success: function (response) {
           var calResponse = Ext.JSON.decode(response.responseText);
-          ALMITOnTheGo.app.getController('Calendar').setupCalendarViewPanel(calResponse);
+          ALMITOnTheGo.app.getController('Calendar').setupCalendarViewPanel(calResponse, mode);
         }
       });
     },
-    setupCalendarViewPanel: function(calResponse) {
+    setupCalendarViewPanel: function(calResponse, mode) {
       console.log("setupCalendarViewPanel");
 
       var cal = ALMITOnTheGo.app.getController('Calendar');
@@ -55,12 +55,22 @@ Ext.define('ALMITOnTheGo.controller.Calendar',
       {
         calendarEvents[i]['start'] = cal.getDateForCalendar(calendarEvents[i]['startDate']);
         calendarEvents[i]['end'] = cal.getDateForCalendar(calendarEvents[i]['endDate']);
-        console.log(calendarEvents[i]);
         ALMITOnTheGo.app.allEventsStore.addData(calendarEvents[i]);
       }
 
-      calendarView.down('#touchCalendarViewWidget').setViewConfig({eventStore: ALMITOnTheGo.app.allEventsStore});
-      calendarView.down('#touchCalendarViewWidget').setEnableSimpleEvents({multiEventDots: false});
+      console.log(ALMITOnTheGo.app.allEventsStore.getCount());
+
+      Ext.each(calendarView.down('#touchCalendarViewWidget').items.items, function(calendarView) {
+        calendarView.eventStore = ALMITOnTheGo.app.allEventsStore;
+      });
+      calendarView.down('#touchCalendarViewWidget').setViewConfig(
+      {
+        viewMode: mode,
+        dayTimeSlotSize: 60,
+        weekStart: 0,
+        eventStore: ALMITOnTheGo.app.allEventsStore
+      });
+
 
     },
     getDateForCalendar: function(dateObj) {
