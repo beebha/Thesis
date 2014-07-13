@@ -8,59 +8,67 @@ Ext.define('ALMITOnTheGo.controller.Calendar',
       control: {
         mainView: {
           calendarViewDetailsCommand: 'onCalendarViewDetailsCommand'
+        },
+        calendarView: {
+          calendarViewDetailsCommand: 'onCalendarViewDetailsCommand'
         }
       }
     },
-    onCalendarViewDetailsCommand: function () {
+    onCalendarViewDetailsCommand: function (viewMode, date) {
       console.log("onCalendarViewDetailsCommand");
-      var cal = this;
-      var calendarView = cal.getCalendarView();
 
+      console.log("viewMode : " + viewMode);
+      console.log("date : " + date);
+
+      this.getCalendarEvents(
+        ALMITOnTheGo.app.authToken != null ? ALMITOnTheGo.app.authToken : null,
+        ALMITOnTheGo.app.authToken != null ? null : ALMITOnTheGo.app.getController('Common').getConcentrationID(ALMITOnTheGo.app.defaultConcentrationCode),
+        viewMode,
+        date
+      );
+    },
+    getCalendarEvents: function(authToken, concentrationID, mode, date) {
       Ext.Ajax.request({
         url: ALMITOnTheGo.app.apiURL+'app.php?action=getCalendarViewDetails',
         method: 'post',
+        params: {
+          authToken: authToken,
+          concentrationID: concentrationID,
+          mode: mode,
+          date: date
+        },
         success: function (response) {
           var calResponse = Ext.JSON.decode(response.responseText);
-          cal.setupCalendarViewPanel(calendarView, calResponse);
+          ALMITOnTheGo.app.getController('Calendar').setupCalendarViewPanel(calResponse);
         }
       });
     },
-    setupCalendarViewPanel: function(calendarView, calResponse)
-    {
+    setupCalendarViewPanel: function(calResponse) {
       console.log("setupCalendarViewPanel");
-      calendarView.down('#calendarViewContainer').add(
-        {
-          xtype: 'calendar',
-          itemId: 'touchCalendarViewWidget',
-          viewMode: 'month',
-          value: new Date(),
-          width: '100%',
-          height: '100%',
-          listeners: {
-            periodchange: function (calendarView, minDate, maxDate, direction, eOpts) {
-              console.log("periodchange");
-            },
-            selectionchange: function () {
-              console.log("selectionchange");
-            },
-            eventtap: function (eventRecord, e, eOpts) {
-              console.log("eventtap");
-              console.log(eventRecord);
-              Ext.Msg.alert(
-                eventRecord.data.event,
-                eventRecord.data.title
-              );
-            }
-          },
-          enableEventBars: {
-            eventHeight: 'auto',
-            eventBarTpl: '<div>{title}</div>'
-          },
-          viewConfig: {
-            weekStart: 0,
-            eventStore: ALMITOnTheGo.app.allEventsStore
-          }
-        }
-      );
-    }
+
+      var cal = ALMITOnTheGo.app.getController('Calendar');
+      var calendarView = cal.getCalendarView();
+
+      ALMITOnTheGo.app.allEventsStore.removeAll();
+      var calendarEvents = calResponse.data.calendarEvents;
+      for (var i=0; i<calendarEvents.length; i++)
+      {
+        calendarEvents[i]['start'] = cal.getDateForCalendar(calendarEvents[i]['startDate']);
+        calendarEvents[i]['end'] = cal.getDateForCalendar(calendarEvents[i]['endDate']);
+        console.log(calendarEvents[i]);
+        ALMITOnTheGo.app.allEventsStore.addData(calendarEvents[i]);
+      }
+
+      calendarView.down('#touchCalendarViewWidget').setViewConfig({eventStore: ALMITOnTheGo.app.allEventsStore});
+      calendarView.down('#touchCalendarViewWidget').setEnableSimpleEvents({multiEventDots: false});
+
+    },
+    getDateForCalendar: function(dateObj) {
+      return new Date(
+        dateObj['year'],
+        dateObj['month'],
+        dateObj['day'],
+        dateObj['hour'],
+        dateObj['min']);
+      }
   });

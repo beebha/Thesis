@@ -26,7 +26,7 @@ Ext.define('ALMITOnTheGo.view.Main', {
         }
         if (tab.config.title == 'Calendar') {
           console.log("Calendar clicked!");
-          me.fireEvent('calendarViewDetailsCommand');
+          me.fireEvent('calendarViewDetailsCommand', 'month', 'current');
         }
         if (tab.config.title == 'Grades') {
           console.log("Grades clicked!");

@@ -20,6 +20,11 @@ error_log("Dropped TABLE course_terms");
 $createTableSql = "CREATE TABLE course_terms (
                     course_term_id INT(10) UNSIGNED NOT NULL,
                     course_term_label VARCHAR(64) NOT NULL,
+                    course_year INT(10) UNSIGNED NOT NULL,
+                    start_day INT(10) UNSIGNED NOT NULL,
+                    start_month INT(10) UNSIGNED NOT NULL,
+                    end_day INT(10) UNSIGNED NOT NULL,
+                    end_month INT(10) UNSIGNED NOT NULL,
                     current_course TINYINT(1) NOT NULL,
                     PRIMARY KEY (course_term_id)
                     ) ENGINE = InnoDB";

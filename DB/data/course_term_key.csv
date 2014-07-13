@@ -1,9 +1,9 @@
-Course Term ID,Course Term Label,Current
-1,'Summer 2013',0
-2,'Fall 2013',0
-3,'January 2014',0
-4,'Spring 2014',0
-5,'Summer 2014',1
-6,'Fall 2014',1
-7,'January 2015',1
-8,'Spring 2015',1
+Course Term ID,Course Term Label,Year, Start Day, Start Month, End Day, End Month, Current
+1,'Summer 2013',2013,21,6,9,8,0,
+2,'Fall 2013',2013,2,9,20,12,0
+3,'January 2014',2014,5,1,24,1,0
+4,'Spring 2014',2014,26,1,16,5,0
+5,'Summer 2014',2014,21,6,9,8,1
+6,'Fall 2014',2014,2,9,20,12,1
+7,'January 2015',2015,5,1,24,1,1
+8,'Spring 2015',2015,26,1,16,5,1

@@ -7,7 +7,8 @@ Ext.define('ALMITOnTheGo.view.Calendar', {
     'Ext.ux.TouchCalendarEvents',
     'Ext.ux.TouchCalendarMonthEvents',
     'Ext.ux.TouchCalendarWeekEvents',
-    'Ext.ux.TouchCalendarDayEvents'
+    'Ext.ux.TouchCalendarDayEvents',
+    'Ext.ux.TouchCalendarSimpleEvents'
   ],
   config: {
     width: '100%',
@@ -37,8 +38,9 @@ Ext.define('ALMITOnTheGo.view.Calendar', {
                 text: 'Month',
                 listeners : {
                   tap : function(button, e, eOpts) {
+                    console.log('Month button clicked');
                     var touchCalendarViewWidget = button.up('#calendarViewContainer').down('#touchCalendarViewWidget');
-                    touchCalendarViewWidget.setViewMode('month');
+                    touchCalendarViewWidget.updateViewMode('month');
                   }
                 }
               },
@@ -47,8 +49,9 @@ Ext.define('ALMITOnTheGo.view.Calendar', {
                 text: 'Week',
                 listeners : {
                   tap : function(button, e, eOpts) {
+                    console.log('Week button clicked');
                     var touchCalendarViewWidget = button.up('#calendarViewContainer').down('#touchCalendarViewWidget');
-                    button.up('#calendarViewContainer').down('#touchCalendarViewWidget').setViewMode('week');
+                    touchCalendarViewWidget.updateViewMode('week');
                   }
                 }
               },
@@ -57,6 +60,7 @@ Ext.define('ALMITOnTheGo.view.Calendar', {
                 text: 'Day',
                 listeners : {
                   tap : function(button, e, eOpts) {
+                    console.log('Day button clicked');
                     var touchCalendarViewWidget = button.up('#calendarViewContainer').down('#touchCalendarViewWidget');
                     touchCalendarViewWidget.setViewMode('day');
                   }
@@ -100,6 +104,49 @@ Ext.define('ALMITOnTheGo.view.Calendar', {
             cls: 'inner-toolbar',
             style: {
               border: 'none'
+            }
+          },
+          {
+            xtype: 'calendar',
+            itemId: 'touchCalendarViewWidget',
+            viewMode: 'month',
+            value: new Date(),
+            width: '100%',
+            height: '100%',
+            listeners: {
+              periodchange: function (calendarView, minDate, maxDate, direction, eOpts) {
+                console.log("periodchange");
+                console.log("minDate: " + minDate);
+                console.log("maxDate: " + maxDate);
+
+                var me = this;
+                me.fireEvent('calendarViewDetailsCommand', 'month', 'current');
+              },
+              selectionchange: function (calendarView, newDate, oldDate, eOpts) {
+                console.log("selectionchange");
+                console.log("newDate: " + newDate);
+                console.log("oldDate: " + oldDate);
+              },
+              eventtap: function (eventRecord, e, eOpts) {
+                console.log("eventtap");
+                console.log(eventRecord);
+                Ext.Msg.alert(
+                  eventRecord.data.event,
+                  eventRecord.data.title
+                );
+              }
+            },
+//          enableEventBars: {
+//            eventHeight: 'auto',
+//            eventBarTpl: '<div>{title}</div>'
+//          },
+//            enableSimpleEvents: {
+//              multiEventDots: false
+//            },
+            viewConfig: {
+              dayTimeSlotSize: 60,
+              weekStart: 0,
+              eventStore: ALMITOnTheGo.app.allEventsStore
             }
           }
         ]

@@ -55,5 +55,23 @@ Ext.define('ALMITOnTheGo.controller.Common',
           break;
       }
       return registrationTypeText;
+    },
+    getConcentrationID: function (concentrationCode) {
+      var concentrationID = 0;
+      switch (concentrationCode) {
+        case 'SWE':
+          concentrationID = 1;
+          break;
+        case 'IMS':
+          concentrationID = 2;
+          break;
+        case 'MAC':
+          concentrationID = 3;
+          break;
+        case 'DGM':
+          concentrationID = 4;
+          break;
+      }
+      return concentrationID;
     }
   });

@@ -110,8 +110,11 @@ foreach($course_term_key_fileContents as $singleFile)
 
         $courseTermTableInserts[] =
             "INSERT INTO course_terms
-                (course_term_id, course_term_label, current_course)
-                VALUES (". $courseTermType[0].",". $courseTermType[1].",". $courseTermType[2].");";
+                (course_term_id, course_term_label, course_year, start_day, start_month, end_day, end_month, current_course)
+                VALUES (". $courseTermType[0].",". $courseTermType[1].",".
+                            $courseTermType[2].",". $courseTermType[3].",".
+                            $courseTermType[4].",". $courseTermType[5].",".
+                            $courseTermType[6].",". $courseTermType[7].");";
 
         $line++;
     }
