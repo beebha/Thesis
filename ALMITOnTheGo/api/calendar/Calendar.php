@@ -12,15 +12,15 @@ class Calendar
         $month = date('n', $timeStamp);
         $year = date('Y', $timeStamp);
 
-        if($mode == 'month') {
+        if($mode == 'MONTH') {
             $daysInMonth = date('t', $timeStamp);
             $startDate = $year."-".$month."-1";
             $endDate = $year."-".$month."-".$daysInMonth;
-        } else if ($mode == 'week') {
+        } else if ($mode == 'WEEK') {
             $mondayDate = date('Y-n-j', strtotime('this week', $timeStamp));
             $startDate = date('Y-n-j', strtotime($mondayDate . " -1 day"));
             $endDate = date('Y-n-j', strtotime($mondayDate . " +5 day"));
-        } else if ($mode == 'day') {
+        } else if ($mode == 'DAY') {
             $startDate = date('Y-n-j', $timeStamp);
             $endDate = $startDate;
         }

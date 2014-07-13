@@ -17,17 +17,19 @@ Ext.define('ALMITOnTheGo.controller.Calendar',
     onCalendarViewDetailsCommand: function (viewMode, date) {
       console.log("onCalendarViewDetailsCommand");
 
-      console.log("viewMode : " + viewMode);
-      console.log("date : " + date);
-
       this.getCalendarEvents(
         ALMITOnTheGo.app.authToken != null ? ALMITOnTheGo.app.authToken : null,
         ALMITOnTheGo.app.authToken != null ? null : ALMITOnTheGo.app.getController('Common').getConcentrationID(ALMITOnTheGo.app.defaultConcentrationCode),
-        viewMode,
+        viewMode.toUpperCase(),
         date
       );
     },
     getCalendarEvents: function(authToken, concentrationID, mode, date) {
+
+      console.log("getCalendarEvents");
+      console.log("mode : " + mode);
+      console.log("date : " + date);
+
       Ext.Ajax.request({
         url: ALMITOnTheGo.app.apiURL+'app.php?action=getCalendarViewDetails',
         method: 'post',
@@ -61,17 +63,10 @@ Ext.define('ALMITOnTheGo.controller.Calendar',
       console.log(ALMITOnTheGo.app.allEventsStore.getCount());
 
       Ext.each(calendarView.down('#touchCalendarViewWidget').items.items, function(calendarView) {
+        console.log(calendarView);
+        calendarView.viewMode = mode;
         calendarView.eventStore = ALMITOnTheGo.app.allEventsStore;
       });
-      calendarView.down('#touchCalendarViewWidget').setViewConfig(
-      {
-        viewMode: mode,
-        dayTimeSlotSize: 60,
-        weekStart: 0,
-        eventStore: ALMITOnTheGo.app.allEventsStore
-      });
-
-
     },
     getDateForCalendar: function(dateObj) {
       return new Date(
