@@ -120,12 +120,16 @@ Ext.define('ALMITOnTheGo.view.Calendar', {
                 console.log("minDate: " + minDate);
                 console.log("maxDate: " + maxDate);
 
-                var tempDate = new Date(minDate);
-                var dateString = tempDate.getFullYear() + "-" + (tempDate.getMonth()+1) + "-" + tempDate.getDate();
+                var min = new Date(minDate);
+                var max = new Date(maxDate);
+                var minDateString = min.getFullYear() + "-" + (min.getMonth()+1) + "-" + min.getDate();
+                var maxDateString = max.getFullYear() + "-" + (max.getMonth()+1) + "-" + max.getDate();
 
                 console.log(calendarView.getViewMode());
-                console.log(dateString);
-                ALMITOnTheGo.app.getController('Calendar').onCalendarViewDetailsCommand(calendarView.getViewMode(), dateString);
+                console.log(minDateString);
+                console.log(maxDateString);
+
+                ALMITOnTheGo.app.getController('Calendar').onCalendarViewDetailsCommand(calendarView.getViewMode(), minDateString, maxDateString);
               },
               selectionchange: function (calendarView, newDate, oldDate, eOpts) {
                 console.log("selectionchange");
@@ -147,9 +151,11 @@ Ext.define('ALMITOnTheGo.view.Calendar', {
               weekStart: 0,
               eventStore: ALMITOnTheGo.app.allEventsStore
             },
-            enableSimpleEvents: {
-              multiEventDots: false
-            }
+            enableSimpleEvents: true
+//            enableEventBars: {
+//              eventHeight: 'auto',
+//              eventBarTpl: '<div>{title}</div>'
+//            }
           }
         ]
       }

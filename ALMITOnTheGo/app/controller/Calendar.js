@@ -8,27 +8,26 @@ Ext.define('ALMITOnTheGo.controller.Calendar',
       control: {
         mainView: {
           calendarViewDetailsCommand: 'onCalendarViewDetailsCommand'
-        },
-        calendarView: {
-          hello: 'onCalendarViewDetailsCommand'
         }
       }
     },
-    onCalendarViewDetailsCommand: function (viewMode, date) {
+    onCalendarViewDetailsCommand: function (viewMode, minDate, maxDate) {
       console.log("onCalendarViewDetailsCommand");
 
       this.getCalendarEvents(
         ALMITOnTheGo.app.authToken != null ? ALMITOnTheGo.app.authToken : null,
         ALMITOnTheGo.app.authToken != null ? null : ALMITOnTheGo.app.getController('Common').getConcentrationID(ALMITOnTheGo.app.defaultConcentrationCode),
         viewMode.toUpperCase(),
-        date
+        minDate,
+        maxDate
       );
     },
-    getCalendarEvents: function(authToken, concentrationID, mode, date) {
+    getCalendarEvents: function(authToken, concentrationID, mode, minDate, maxDate) {
 
       console.log("getCalendarEvents");
       console.log("mode : " + mode);
-      console.log("date : " + date);
+      console.log("minDate : " + minDate);
+      console.log("maxDate : " + maxDate);
 
       Ext.Ajax.request({
         url: ALMITOnTheGo.app.apiURL+'app.php?action=getCalendarViewDetails',
@@ -37,7 +36,8 @@ Ext.define('ALMITOnTheGo.controller.Calendar',
           authToken: authToken,
           concentrationID: concentrationID,
           mode: mode,
-          date: date
+          minDate: minDate,
+          maxDate: maxDate
         },
         success: function (response) {
           var calResponse = Ext.JSON.decode(response.responseText);
@@ -59,19 +59,17 @@ Ext.define('ALMITOnTheGo.controller.Calendar',
         calendarEvents[i]['end'] = cal.getDateForCalendar(calendarEvents[i]['endDate']);
         ALMITOnTheGo.app.allEventsStore.addData(calendarEvents[i]);
       }
-
       console.log(ALMITOnTheGo.app.allEventsStore.getCount());
 
-      Ext.each(calendarView.down('#touchCalendarViewWidget').items.items, function(calendarView) {
-        console.log(calendarView);
-        calendarView.viewMode = mode;
-        calendarView.eventStore = ALMITOnTheGo.app.allEventsStore;
+      Ext.each(calendarView.down('#touchCalendarViewWidget').items.items, function(singleCalendarView) {
+        singleCalendarView.eventStore = ALMITOnTheGo.app.allEventsStore;
+        singleCalendarView.refresh();
       });
     },
     getDateForCalendar: function(dateObj) {
       return new Date(
         dateObj['year'],
-        dateObj['month'],
+        dateObj['month']-1,
         dateObj['day'],
         dateObj['hour'],
         dateObj['min']);

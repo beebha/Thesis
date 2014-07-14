@@ -8,7 +8,12 @@ class CalendarController
         $resultData = null;
 
         // get calendar view details
-        $resultData = Calendar::getCalendarViewDetails($postVar['authToken'], $postVar['concentrationID'], $postVar['mode'], $postVar['date']);
+        $resultData = Calendar::getCalendarViewDetails(
+                        $postVar['authToken'],
+                        $postVar['concentrationID'],
+                        $postVar['mode'],
+                        $postVar['minDate'],
+                        $postVar['maxDate']);
 
         $result['success'] = $resultData['status'];
         $result['error']['message'] = $resultData['errorMsg'];
