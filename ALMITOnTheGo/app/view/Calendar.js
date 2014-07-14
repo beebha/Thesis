@@ -5,10 +5,12 @@ Ext.define('ALMITOnTheGo.view.Calendar', {
     'Ext.ux.TouchCalendar',
     'Ext.ux.TouchCalendarView',
     'Ext.ux.TouchCalendarEvents',
+    'Ext.ux.TouchCalendarEventsBase',
     'Ext.ux.TouchCalendarMonthEvents',
     'Ext.ux.TouchCalendarWeekEvents',
     'Ext.ux.TouchCalendarDayEvents',
-    'Ext.ux.TouchCalendarSimpleEvents'
+    'Ext.ux.TouchCalendarSimpleEvents',
+    'Ext.field.Hidden'
   ],
   config: {
     width: '100%',
@@ -35,7 +37,7 @@ Ext.define('ALMITOnTheGo.view.Calendar', {
             [
               {
                 xtype: 'button',
-                text: 'Month',
+                text: 'M',
                 listeners : {
                   tap : function(button, e, eOpts) {
                     console.log('Month button clicked');
@@ -47,7 +49,7 @@ Ext.define('ALMITOnTheGo.view.Calendar', {
               },
               {
                 xtype: 'button',
-                text: 'Week',
+                text: 'W',
                 listeners : {
                   tap : function(button, e, eOpts) {
                     console.log('Week button clicked');
@@ -59,7 +61,7 @@ Ext.define('ALMITOnTheGo.view.Calendar', {
               },
               {
                 xtype: 'button',
-                text: 'Day',
+                text: 'D',
                 listeners : {
                   tap : function(button, e, eOpts) {
                     console.log('Day button clicked');
@@ -117,8 +119,7 @@ Ext.define('ALMITOnTheGo.view.Calendar', {
           },
           {
             xtype: 'hiddenfield',
-            itemId: 'concentrationCode',
-            value: ALMITOnTheGo.app.defaultConcentrationCode
+            itemId: 'concentrationCode'
           },
           {
             xtype: 'calendar',
@@ -159,8 +160,7 @@ Ext.define('ALMITOnTheGo.view.Calendar', {
             viewConfig: {
               viewMode: 'month',
               dayTimeSlotSize: 60,
-              weekStart: 0,
-              eventStore: ALMITOnTheGo.app.allEventsStore
+              weekStart: 0
             },
             enableSimpleEvents: true
           }

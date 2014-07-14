@@ -6,6 +6,7 @@
  */
 Ext.Loader.addClassPathMappings({
   "ALMITOnTheGo": "app",
+  "ALMITOnTheGo.store.CourseCalendarEvents": "app/store/CalendarEvents.js",
   "Ext": "touch/src",
   "Ext.device.Purchases.Product": "touch/src/device/purchases/Sencha.js",
   "Ext.device.filesystem.DirectoryEntry": "touch/src/device/filesystem/HTML5.js",
@@ -46,7 +47,7 @@ Ext.ClassManager.addNameAlternateMappings({
   "ALMITOnTheGo.model.Grade": [],
   "ALMITOnTheGo.store.AddedCourses": [],
   "ALMITOnTheGo.store.AllCourses": [],
-  "ALMITOnTheGo.store.CalendarEvents": [],
+  "ALMITOnTheGo.store.CourseCalendarEvents": [],
   "ALMITOnTheGo.store.ViewCourses": [],
   "ALMITOnTheGo.store.ViewRequirements": [],
   "ALMITOnTheGo.view.AddCourses": [],
@@ -812,7 +813,7 @@ Ext.ClassManager.addNameAliasMappings({
   "ALMITOnTheGo.model.Grade": [],
   "ALMITOnTheGo.store.AddedCourses": [],
   "ALMITOnTheGo.store.AllCourses": [],
-  "ALMITOnTheGo.store.CalendarEvents": [],
+  "ALMITOnTheGo.store.CourseCalendarEvents": [],
   "ALMITOnTheGo.store.ViewCourses": [],
   "ALMITOnTheGo.store.ViewRequirements": [],
   "ALMITOnTheGo.view.AddCourses": [

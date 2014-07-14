@@ -16,6 +16,11 @@ Ext.define('ALMITOnTheGo.controller.Calendar',
 
       var concentrationCode = this.getCalendarView().down('#concentrationCode').getValue();
 
+      if(concentrationCode != 'SWE' && concentrationCode != 'IMS' && concentrationCode != 'DGM' ) {
+        concentrationCode = ALMITOnTheGo.app.defaultConcentrationCode;
+        this.getCalendarView().down('#concentrationCode').getValue(concentrationCode);
+      }
+
       this.getCalendarEvents(
         ALMITOnTheGo.app.authToken != null ? ALMITOnTheGo.app.authToken : null,
         ALMITOnTheGo.app.authToken != null ? null : ALMITOnTheGo.app.getController('Common').getConcentrationID(concentrationCode),

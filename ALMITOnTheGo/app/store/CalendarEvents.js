@@ -1,7 +1,7 @@
-Ext.define('ALMITOnTheGo.store.CalendarEvents', {
+Ext.define('ALMITOnTheGo.store.CourseCalendarEvents', {
   extend: 'Ext.data.Store',
   config: {
-    storeId: 'calendarEventsStore',
+    storeId: 'allEventsStore',
     model: 'ALMITOnTheGo.model.CalendarEvent',
     data: []
   }

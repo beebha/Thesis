@@ -13,8 +13,8 @@
 Ext.application({
     name: 'ALMITOnTheGo',
     authToken: null,
-    apiURL: "http://localhost:8090/api/",
-//    apiURL: 'http://54.191.50.10/almitonthego/api/',
+//    apiURL: "http://localhost:8090/api/",
+    apiURL: 'http://54.191.50.10/almitonthego/api/',
     allGrades: null,
     allConcentrations: null,
     allCategories: null,
@@ -48,7 +48,7 @@ Ext.application({
     ],
 
     stores: [
-      'AddedCourses', 'AllCourses', 'ViewCourses', 'ViewRequirements', 'CalendarEvents'
+      'AddedCourses', 'AllCourses', 'ViewCourses', 'ViewRequirements', 'CourseCalendarEvents'
     ],
 
     icon: {
@@ -81,6 +81,19 @@ Ext.application({
       ALMITOnTheGo.app.viewRequirementsStore = null;
       ALMITOnTheGo.app.allEventsStore = null;
 
+      // Destroy the #appLoadingIndicator element
+      Ext.fly('appLoadingIndicator').destroy();
+
+      // Initialize the login view
+      Ext.Viewport.add([
+        { xtype: 'landingView' },
+        { xtype: 'mainView' },
+        { xtype: 'registerView' },
+        { xtype: 'loginView' },
+        { xtype: 'addCoursesView' },
+        { xtype: 'userInformationView' }
+      ]);
+
       Ext.Ajax.request({
         url: ALMITOnTheGo.app.apiURL+'app.php?action=getAllStaticInfoForApp',
         method: 'get',
@@ -96,20 +109,7 @@ Ext.application({
             ALMITOnTheGo.app.addedCoursesStore = Ext.getStore('addedCoursesStore');
             ALMITOnTheGo.app.viewCoursesStore = Ext.getStore('viewCoursesStore');
             ALMITOnTheGo.app.viewRequirementsStore = Ext.getStore('viewRequirementsStore');
-            ALMITOnTheGo.app.allEventsStore = Ext.getStore('calendarEventsStore');
-
-            // Destroy the #appLoadingIndicator element
-            Ext.fly('appLoadingIndicator').destroy();
-
-            // Initialize the login view
-            Ext.Viewport.add([
-              { xtype: 'landingView' },
-              { xtype: 'mainView' },
-              { xtype: 'registerView' },
-              { xtype: 'loginView' },
-              { xtype: 'addCoursesView' },
-              { xtype: 'userInformationView' }
-            ]);
+            ALMITOnTheGo.app.allEventsStore = Ext.getStore('allEventsStore');
 
           } else {
             // TODO - implementation
