@@ -61,18 +61,6 @@ Ext.define('ALMITOnTheGo.view.Calendar', {
               },
               {
                 xtype: 'button',
-                text: 'D',
-                listeners : {
-                  tap : function(button, e, eOpts) {
-                    console.log('Day button clicked');
-                    var touchCalendarViewWidget = button.up('#calendarViewContainer').down('#touchCalendarViewWidget');
-                    touchCalendarViewWidget.setViewMode('day');
-                    touchCalendarViewWidget.updateViewMode('day');
-                  }
-                }
-              },
-              {
-                xtype: 'button',
                 itemId: 'SWEButton',
                 text: 'SWE&nbsp;<span class="squarebox SWE">&nbsp;&nbsp;</span>',
                 align: 'right',
@@ -116,59 +104,8 @@ Ext.define('ALMITOnTheGo.view.Calendar', {
             ]
           },
           {
-            docked: 'bottom',
-            xtype: 'titlebar',
-            cls: 'inner-toolbar',
-            style: {
-              border: 'none'
-            }
-          },
-          {
             xtype: 'hiddenfield',
             itemId: 'concentrationCode'
-          },
-          {
-            xtype: 'calendar',
-            itemId: 'touchCalendarViewWidget',
-            width: '100%',
-            height: '100%',
-            listeners: {
-              periodchange: function (calendarView, minDate, maxDate, direction, eOpts) {
-                console.log("periodchange");
-                console.log("minDate: " + minDate);
-                console.log("maxDate: " + maxDate);
-
-                var min = new Date(minDate);
-                var max = new Date(maxDate);
-                var minDateString = min.getFullYear() + "-" + (min.getMonth()+1) + "-" + min.getDate();
-                var maxDateString = max.getFullYear() + "-" + (max.getMonth()+1) + "-" + max.getDate();
-
-                console.log(calendarView.getViewMode());
-                console.log(minDateString);
-                console.log(maxDateString);
-
-                ALMITOnTheGo.app.getController('Calendar').onCalendarViewDetailsCommand(calendarView.getViewMode(), minDateString, maxDateString);
-              },
-              selectionchange: function (calendarView, newDate, oldDate, eOpts) {
-                console.log("selectionchange");
-                console.log("newDate: " + newDate);
-                console.log("oldDate: " + oldDate);
-              },
-              eventtap: function (eventRecord, e, eOpts) {
-                console.log("eventtap");
-                console.log(eventRecord);
-                Ext.Msg.alert(
-                  eventRecord.data.event,
-                  eventRecord.data.title
-                );
-              }
-            },
-            viewConfig: {
-              viewMode: 'month',
-              dayTimeSlotSize: 60,
-              weekStart: 0
-            },
-            enableSimpleEvents: true
           }
         ]
       }

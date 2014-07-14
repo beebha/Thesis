@@ -1,17 +1,16 @@
 /* line 7, ../scss/Ext.ux.TouchCalendarEvents.scss */
 .touch-calendar-view div.event-bar {
-  background-color: #7991b3;
   border: 1px solid #485e7e;
   color: white;
-  font-size: 7px;
+  font-size: 80%;
   font-weight: bold;
-  height: 15px;
+  height: 9px;
   overflow: hidden;
-  padding: 0px 4px;
+  padding: 0px;
   position: absolute;
   -webkit-border-radius: 4px;
   z-index: 100;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.1em;
   text-shadow: none;
 }
 /* line 23, ../scss/Ext.ux.TouchCalendarEvents.scss */

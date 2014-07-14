@@ -70,12 +70,84 @@ Ext.define('ALMITOnTheGo.controller.Calendar',
         calendarEvents[i]['end'] = cal.getDateForCalendar(calendarEvents[i]['endDate']);
         ALMITOnTheGo.app.allEventsStore.addData(calendarEvents[i]);
       }
-      console.log(ALMITOnTheGo.app.allEventsStore.getCount());
 
-      Ext.each(calendarView.down('#touchCalendarViewWidget').items.items, function(singleCalendarView) {
-        singleCalendarView.eventStore = ALMITOnTheGo.app.allEventsStore;
-        singleCalendarView.syncHeight();
-      });
+      var touchCalendar = calendarView.down('#touchCalendarViewWidget');
+
+      if(touchCalendar != null) {
+        Ext.each(touchCalendar.items.items, function(singleCalendarView) {
+          singleCalendarView.eventStore = ALMITOnTheGo.app.allEventsStore;
+          singleCalendarView.syncHeight();
+        });
+
+        if(mode == 'WEEK') {
+          Ext.each(Ext.query('td.time-block'), function(singleDayElement)
+          {
+            if(Ext.getDom(singleDayElement).innerHTML.indexOf('simple-event-wrapper') !== -1 )
+            {
+              var singleDate = Ext.getDom(singleDayElement).getAttribute('datetime');
+              var eventsHtml = "";
+              var eventCount = 0;
+
+              for (var j=0; j<ALMITOnTheGo.app.allEventsStore.getCount(); j++)
+              {
+                var singleDayRecord = ALMITOnTheGo.app.allEventsStore.getAt(j);
+                if(singleDayRecord.get('singleDate') == singleDate) {
+                  if(eventCount == 0) {
+                    eventsHtml  += singleDayRecord.data.singleDateDay+"<br>";
+                    eventCount++;
+                  }
+                  eventsHtml  += '<br><span style="float:left;padding-left:0.2em;font-weight:bold;font-size:60%;text-align:center;">' +
+                              singleDayRecord.data.title +
+                              '</span><br><span style="float:left;padding-left:0.2em;font-weight:normal;font-size:60%;text-align:center;font-style:italic">' +
+                              singleDayRecord.data.event+ '</span><br>';
+                }
+              }
+              Ext.get(singleDayElement).setHtml(eventsHtml);
+            }
+          });
+        }
+      } else {
+        calendarView.down('#calendarViewContainer').add(
+          {
+            xtype: 'calendar',
+            itemId: 'touchCalendarViewWidget',
+            width: '100%',
+            height: '100%',
+            listeners: {
+              periodchange: function (calendarView, minDate, maxDate, direction, eOpts) {
+                console.log("periodchange");
+
+                var min = new Date(minDate);
+                var max = new Date(maxDate);
+                var minDateString = min.getFullYear() + "-" + (min.getMonth() + 1) + "-" + min.getDate();
+                var maxDateString = max.getFullYear() + "-" + (max.getMonth() + 1) + "-" + max.getDate();
+
+                ALMITOnTheGo.app.getController('Calendar').onCalendarViewDetailsCommand(calendarView.getViewMode(), minDateString, maxDateString);
+              },
+              selectionchange: function (calendarView, newDate, oldDate, eOpts) {
+                console.log("selectionchange");
+                console.log("newDate: " + newDate);
+                console.log("oldDate: " + oldDate);
+              },
+              eventtap: function (eventRecord, e, eOpts) {
+                console.log("eventtap");
+                console.log(eventRecord);
+                Ext.Msg.alert(
+                  eventRecord.data.event,
+                  eventRecord.data.title
+                );
+              }
+            },
+            viewConfig: {
+              viewMode: 'month',
+              dayTimeSlotSize: 60,
+              weekStart: 0,
+              eventStore: ALMITOnTheGo.app.allEventsStore
+            },
+            enableSimpleEvents: true
+          }
+        );
+      }
 
       ALMITOnTheGo.app.authToken == null ? calendarView.down('#SWEButton').show() : calendarView.down('#SWEButton').hide();
       ALMITOnTheGo.app.authToken == null ? calendarView.down('#IMSButton').show() : calendarView.down('#IMSButton').hide();

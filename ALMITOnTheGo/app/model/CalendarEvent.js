@@ -23,6 +23,14 @@ Ext.define('ALMITOnTheGo.model.CalendarEvent', {
       {
         name: 'css',
         type: 'string'
+      },
+      {
+        name: 'singleDateDay',
+        type: 'string'
+      },
+      {
+        name: 'singleDate',
+        type: 'string'
       }
     ]
   }

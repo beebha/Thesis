@@ -73,8 +73,10 @@ class Calendar
                     $currentEndMin = date("i", strtotime($endTime));
 
                     $singleCalendarEvent = array();
-                    $singleCalendarEvent['event'] = $singleCourse['course_time'];
+                    $singleCalendarEvent['event'] = str_replace("pm -", " -", str_replace("am -", " -",$singleCourse['course_time']));
                     $singleCalendarEvent['title'] = $singleCourse['course_code'];
+                    $singleCalendarEvent['singleDateDay'] = $currentDay;
+                    $singleCalendarEvent['singleDate'] = date('d', $currentTimeStamp) . '-' . date('m', $currentTimeStamp) . '-' . date('Y', $currentTimeStamp);
                     $singleCalendarEvent['startDate'] = array(
                                                         'year' => $currentYear,
                                                         'month' => $currentMonth,
