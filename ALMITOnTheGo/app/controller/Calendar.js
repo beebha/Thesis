@@ -14,9 +14,11 @@ Ext.define('ALMITOnTheGo.controller.Calendar',
     onCalendarViewDetailsCommand: function (viewMode, minDate, maxDate) {
       console.log("onCalendarViewDetailsCommand");
 
+      var concentrationCode = this.getCalendarView().down('#concentrationCode').getValue();
+
       this.getCalendarEvents(
         ALMITOnTheGo.app.authToken != null ? ALMITOnTheGo.app.authToken : null,
-        ALMITOnTheGo.app.authToken != null ? null : ALMITOnTheGo.app.getController('Common').getConcentrationID(ALMITOnTheGo.app.defaultConcentrationCode),
+        ALMITOnTheGo.app.authToken != null ? null : ALMITOnTheGo.app.getController('Common').getConcentrationID(concentrationCode),
         viewMode.toUpperCase(),
         minDate,
         maxDate

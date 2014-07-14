@@ -76,6 +76,8 @@ Ext.define('ALMITOnTheGo.view.Calendar', {
                 listeners : {
                   tap : function(button, e, eOpts) {
                     console.log('SWE button tapped');
+                    button.up('#calendarViewContainer').down('#concentrationCode').setValue('SWE');
+                    ALMITOnTheGo.app.getController('Calendar').onCalendarViewDetailsCommand('month', 'current', 'current');
                   }
                 }
               },
@@ -86,6 +88,8 @@ Ext.define('ALMITOnTheGo.view.Calendar', {
                 listeners : {
                   tap : function(button, e, eOpts) {
                     console.log('IMS button tapped');
+                    button.up('#calendarViewContainer').down('#concentrationCode').setValue('IMS');
+                    ALMITOnTheGo.app.getController('Calendar').onCalendarViewDetailsCommand('month', 'current', 'current');
                   }
                 }
               },
@@ -96,6 +100,8 @@ Ext.define('ALMITOnTheGo.view.Calendar', {
                 listeners : {
                   tap : function(button, e, eOpts) {
                     console.log('DGM button tapped');
+                    button.up('#calendarViewContainer').down('#concentrationCode').setValue('DGM');
+                    ALMITOnTheGo.app.getController('Calendar').onCalendarViewDetailsCommand('month', 'current', 'current');
                   }
                 }
               }
@@ -108,6 +114,11 @@ Ext.define('ALMITOnTheGo.view.Calendar', {
             style: {
               border: 'none'
             }
+          },
+          {
+            xtype: 'hiddenfield',
+            itemId: 'concentrationCode',
+            value: ALMITOnTheGo.app.defaultConcentrationCode
           },
           {
             xtype: 'calendar',
