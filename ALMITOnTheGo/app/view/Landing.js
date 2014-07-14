@@ -53,20 +53,43 @@ Ext.define('ALMITOnTheGo.view.Landing', {
               styleHtmlContent: true
             },
             width: '75%',
-            height: 220,
+            height: 235,
             style: {
               border: '0.2em solid #A4946D',
               borderRadius: '0.5em'
             },
             items: [
               {
-                html: '<span style ="color:#A4946D;">TODO: 1st info about application</span>'
+                html: '<center>' +
+                      '<span style ="font-size:120%;color:#A4946D;font-weight:bold;">' +
+                      '<br><br>ALM IT On The Go<br>' +
+                      'A personal assistant mobile application for ALM IT Graduate Program candidates.' +
+                      '</span>' +
+                      '</center>'
               },
               {
-                html: '<span style ="color:#A4946D;">TODO: 2nd info about application</span>'
+                html: '<span style ="font-size:110%;color:#A4946D;">' +
+                      'A one-stop mobile application that allows <B>Registered</B> users to:<br><br>' +
+                      'View & Schedule Courses<br>' +
+                      'View Courses Conflicts<br>' +
+                      'View Requirements<br>' +
+                      'View User Information<br>' +
+                      'View GPA & Analysis<br>' +
+                      'View Contacts<br>' +
+                      'View Thesis Info<br>' +
+                      'View Announcements<br>' +
+                      '</span>'
               },
               {
-                html: '<span style ="color:#A4946D;">TODO: 3rd info about application</span>'
+                html: '<span style ="font-size:110%;color:#A4946D;">' +
+                      'A one-stop mobile application that allows <B>Guest</B> users to:<br><br>' +
+                      'View Courses<br>' +
+                      'View Courses Conflicts<br>' +
+                      'View Requirements<br>' +
+                      'View Contacts<br>' +
+                      'View Thesis Info<br>' +
+                      'View Announcements<br>' +
+                      '</span>'
               }
             ]
           }
