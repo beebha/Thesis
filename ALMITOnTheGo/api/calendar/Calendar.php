@@ -32,20 +32,27 @@ class Calendar
         $query = !empty($authToken)? CalendarQuery::getCalendarViewForUserQuery($authToken) : CalendarQuery::getCalendarViewForGuestQuery($concentrationID, $startDate, $endDate);
         $calendarCourses = CalendarDBUtils::getAllResults($query);
 
-        error_log($query);
-
         $calendarEvents = array();
 
         foreach($calendarCourses as $singleCourse)
         {
             if($singleCourse['validStart'] == 1 || $singleCourse['validEnd'] == 1 ) {
                 $currentDate = $startDate;
+                $courseStartDate = $singleCourse['course_year'] . "-" . $singleCourse['start_month'] . "-" . $singleCourse['start_day'];
+                $courseEndDate = $singleCourse['course_year'] . "-" . $singleCourse['end_month'] . "-" . $singleCourse['end_day'];
 
                 while(strtotime($currentDate) <= strtotime($endDate))
                 {
                     $textDayOfCurrentDate = strtoupper(date('D', strtotime($currentDate)));
+                    if($textDayOfCurrentDate == 'TUE') {
+                        $textDayOfCurrentDate = 'TUES';
+                    } else if($textDayOfCurrentDate == 'THU') {
+                        $textDayOfCurrentDate = 'THUR';
+                    }
 
-                    if(in_array($textDayOfCurrentDate, explode(",", $singleCourse['course_day'])))
+                    if(in_array($textDayOfCurrentDate, explode(",", $singleCourse['course_day'])) &&
+                        strtotime($currentDate) >= strtotime($courseStartDate) &&
+                        strtotime($currentDate) <= strtotime($courseEndDate))
                     {
                         $calendarTime = array_map("trim", explode("-", $singleCourse['course_time']));
                         $startTime = $calendarTime[0];
@@ -83,14 +90,13 @@ class Calendar
                                                             'min' => $currentEndMin
                                                         );
                         $singleCalendarEvent['css'] = $singleCourse['concentration_code'];
+                        $singleCalendarEvent['day'] = $textDayOfCurrentDate;
                         $calendarEvents[] = $singleCalendarEvent;
                     }
                     $currentDate = date('Y-n-j', strtotime($currentDate . " +1 day"));
                 }
             }
         }
-
-        error_log(print_r($calendarEvents, true));
 
         return array(
             "status" => TRUE,

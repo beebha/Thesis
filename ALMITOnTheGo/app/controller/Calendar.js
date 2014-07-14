@@ -63,7 +63,7 @@ Ext.define('ALMITOnTheGo.controller.Calendar',
 
       Ext.each(calendarView.down('#touchCalendarViewWidget').items.items, function(singleCalendarView) {
         singleCalendarView.eventStore = ALMITOnTheGo.app.allEventsStore;
-        singleCalendarView.refresh();
+        singleCalendarView.syncHeight();
       });
     },
     getDateForCalendar: function(dateObj) {
