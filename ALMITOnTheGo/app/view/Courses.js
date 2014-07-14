@@ -281,7 +281,8 @@ Ext.define('ALMITOnTheGo.view.Courses', {
                         iconAlign: 'right',
                         text: 'ADD TO',
                         itemId: 'addToCalendarButton',
-                        align: 'right'
+                        align: 'right',
+                        hidden: true
                       }
                     ]
                   }

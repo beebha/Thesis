@@ -72,6 +72,10 @@ Ext.define('ALMITOnTheGo.controller.Calendar',
         singleCalendarView.eventStore = ALMITOnTheGo.app.allEventsStore;
         singleCalendarView.syncHeight();
       });
+
+      ALMITOnTheGo.app.authToken == null ? calendarView.down('#SWEButton').show() : calendarView.down('#SWEButton').hide();
+      ALMITOnTheGo.app.authToken == null ? calendarView.down('#IMSButton').show() : calendarView.down('#IMSButton').hide();
+      ALMITOnTheGo.app.authToken == null ? calendarView.down('#DGMButton').show() : calendarView.down('#DGMButton').hide();
     },
     getDateForCalendar: function(dateObj) {
       return new Date(

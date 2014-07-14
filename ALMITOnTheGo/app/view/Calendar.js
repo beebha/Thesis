@@ -73,8 +73,10 @@ Ext.define('ALMITOnTheGo.view.Calendar', {
               },
               {
                 xtype: 'button',
+                itemId: 'SWEButton',
                 text: 'SWE&nbsp;<span class="squarebox SWE">&nbsp;&nbsp;</span>',
                 align: 'right',
+                hidden: true,
                 listeners : {
                   tap : function(button, e, eOpts) {
                     console.log('SWE button tapped');
@@ -85,8 +87,10 @@ Ext.define('ALMITOnTheGo.view.Calendar', {
               },
               {
                 xtype: 'button',
+                itemId: 'IMSButton',
                 text: 'IMS&nbsp;<span class="squarebox IMS">&nbsp;&nbsp;</span>',
                 align: 'right',
+                hidden: true,
                 listeners : {
                   tap : function(button, e, eOpts) {
                     console.log('IMS button tapped');
@@ -97,8 +101,10 @@ Ext.define('ALMITOnTheGo.view.Calendar', {
               },
               {
                 xtype: 'button',
+                itemId: 'DGMButton',
                 text: 'DGM&nbsp;<span class="squarebox DGM">&nbsp;&nbsp;</span>',
                 align: 'right',
+                hidden: true,
                 listeners : {
                   tap : function(button, e, eOpts) {
                     console.log('DGM button tapped');

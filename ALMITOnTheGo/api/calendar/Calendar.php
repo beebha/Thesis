@@ -29,7 +29,7 @@ class Calendar
         error_log('Start Date: ' . $startDate);
         error_log('End Date: ' . $endDate);
 
-        $query = !empty($authToken)? CalendarQuery::getCalendarViewForUserQuery($authToken) : CalendarQuery::getCalendarViewForGuestQuery($concentrationID, $startDate, $endDate);
+        $query = !empty($authToken)? CalendarQuery::getCalendarViewForUserQuery($authToken) : CalendarQuery::getCalendarViewForGuestQuery($concentrationID);
         $calendarCourses = CalendarDBUtils::getAllResults($query);
 
         $calendarEvents = array();

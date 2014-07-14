@@ -290,10 +290,12 @@ Ext.define('ALMITOnTheGo.controller.Courses',
             coursesView.down('#viewCoursesList').getItemAt(index).setStyle('background-color:#FFFFFF;');
           });
           coursesView.down('#viewCoursesList').show();
-          coursesView.down('#addToCalendarButton').show();
 
           if(courseResultsResponse.data.coursesResults.length >= 2) {
             coursesView.down('#viewConflictsButton').show();
+          }
+          if(ALMITOnTheGo.app.authToken != null) {
+            coursesView.down('#addToCalendarButton').show();
           }
         } else {
           searchCriteria += "<br><span style='font-size: 115%;color:#8b0000;'>No Matching Items</span>";
