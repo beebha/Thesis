@@ -152,10 +152,6 @@ Ext.define('ALMITOnTheGo.view.Calendar', {
               eventStore: ALMITOnTheGo.app.allEventsStore
             },
             enableSimpleEvents: true
-//            enableEventBars: {
-//              eventHeight: 'auto',
-//              eventBarTpl: '<div>{title}</div>'
-//            }
           }
         ]
       }
