@@ -14,6 +14,11 @@ Ext.define('ALMITOnTheGo.controller.Calendar',
     onCalendarViewDetailsCommand: function (viewMode, minDate, maxDate) {
       console.log("onCalendarViewDetailsCommand");
 
+      this.getCalendarView().setMasked({
+        xtype: 'loadmask',
+        message: '&nbsp;'
+      });
+
       var concentrationCode = this.getCalendarView().down('#concentrationCode').getValue();
 
       if(concentrationCode != 'SWE' && concentrationCode != 'IMS' && concentrationCode != 'DGM' ) {
@@ -30,7 +35,6 @@ Ext.define('ALMITOnTheGo.controller.Calendar',
       );
     },
     getCalendarEvents: function(authToken, concentrationID, mode, minDate, maxDate) {
-
       console.log("getCalendarEvents");
       console.log("mode : " + mode);
       console.log("minDate : " + minDate);
@@ -76,6 +80,8 @@ Ext.define('ALMITOnTheGo.controller.Calendar',
       ALMITOnTheGo.app.authToken == null ? calendarView.down('#SWEButton').show() : calendarView.down('#SWEButton').hide();
       ALMITOnTheGo.app.authToken == null ? calendarView.down('#IMSButton').show() : calendarView.down('#IMSButton').hide();
       ALMITOnTheGo.app.authToken == null ? calendarView.down('#DGMButton').show() : calendarView.down('#DGMButton').hide();
+
+      calendarView.setMasked(false);
     },
     getDateForCalendar: function(dateObj) {
       return new Date(

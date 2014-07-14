@@ -146,6 +146,14 @@ input[type="checkbox"] {
   margin-left: 1.5em;
 }
 
+.x-carousel-indicator-dark span.x-carousel-indicator-active {
+  background-color: #CD5C5C;
+}
+
+.x-carousel-indicator-dark span {
+  background-color: #E9967A;
+}
+
 .icon {
   font-family: "Pictos";
 }
