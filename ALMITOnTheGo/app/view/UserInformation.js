@@ -18,30 +18,6 @@ Ext.define('ALMITOnTheGo.view.UserInformation', {
         docked: 'top'
       },
       {
-        xtype: 'panel',
-        itemId: 'userInformationMsgPanel',
-        modal: true,
-        hideOnMaskTap: true,
-        showAnimation: {
-          type: 'popIn',
-          duration: 250,
-          easing: 'ease-out'
-        },
-        hideAnimation: {
-          type: 'popOut',
-          duration: 250,
-          easing: 'ease-out'
-        },
-        centered: true,
-        width: 250,
-        height: 250,
-        styleHtmlContent: true,
-        html: '<p><b>Please review all added/registered courses and GPA.</b><br><br>' +
-          'Click <b>Back</b> to make changes.<br>' +
-          'Click <b>Done</b> to start using this application.<br><br>' +
-          'Tap anywhere outside this alert to dismiss this message.</p>'
-      },
-      {
         xtype: 'container',
         itemId: 'userInformationContainer',
         hidden: true,
@@ -192,32 +168,15 @@ Ext.define('ALMITOnTheGo.view.UserInformation', {
             itemId: 'doneButton',
             align: 'right',
             hidden: true
-          },
-          {
-            xtype: 'button',
-            text: 'BACK',
-            itemId: 'backButton',
-            align: 'left',
-            hidden: true
           }
         ]
       }
     ],
     listeners: [
       {
-        delegate: '#backButton',
-        event: 'tap',
-        fn: 'onBackButtonTap'
-      },
-      {
         delegate: '#doneButton',
         event: 'tap',
         fn: 'onDoneButtonTap'
-      },
-      {
-        delegate: '#userInformationMsgPanel',
-        event: 'hide',
-        fn: 'onUserInformationMsgPanelHide'
       },
       {
         delegate: '#completedEditButton',
@@ -232,22 +191,19 @@ Ext.define('ALMITOnTheGo.view.UserInformation', {
 
     ]
   },
-  onEditButtonTap: function() {
-    console.log("onEditButtonTap");
-  },
   onUserInformationMsgPanelHide: function () {
     var me = this;
     me.down('#completedCoursesList').refresh();
     me.down('#registeredCoursesList').refresh();
     me.down('#userInformationContainer').show();
-    me.down('#backButton').show();
     me.down('#doneButton').show();
   },
-  onBackButtonTap: function () {
+  onEditButtonTap: function () {
+    console.log("onEditButtonTap");
     var me = this;
 
     var task = Ext.create('Ext.util.DelayedTask', function () {
-      me.fireEvent('backButtonCommand');
+      me.fireEvent('editButtonCommand');
     });
 
     task.delay(500);

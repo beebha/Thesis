@@ -176,72 +176,74 @@ Ext.define('ALMITOnTheGo.view.AddCourses', {
     this.down('#addButton').show();
     this.down('#nextButton').show();
 
-    this.add({
-      xtype: 'container',
-      itemId: 'addedCoursesContainer',
-      height: '80%',
-      width: '95%',
-      centered: true,
-      layout: 'fit',
-      style: {
-        border: '0.1em solid black'
-      },
-      items: [
-        {
-          xtype: 'list',
-          itemId: 'addedCoursesList',
-          itemTpl: new Ext.XTemplate(
-            '<p><b>{course_code}</b></p>',
-            '<p><span style="font-size: 80%">{course_title}</span></p>',
-            '<p><span style="font-size: 80%;"><i>{course_term_label}</i>',
-            '<span style="float:right;" class="fake-disclosure">]</span></span></p>',
-            '<p><span style="font-size: 80%;font-weight:bold;">',
-            '<i><span id="courseStatusText{course_id}">',
-            "<tpl if='grade_id !== \"NONE\"'>",
-            'Grade: <span style="height:1.6em;" class="squarebox grade">{grade_label}</span>',
-            '<tpl else>',
-            'No Grade/Registration Selected',
-            '</tpl>',
-            '</span></i></span></p>'
-          ),
-          store: ALMITOnTheGo.app.addedCoursesStore,
-          emptyText: '<div style="font-size: 120%; color: grey">No Courses Added</div>',
-          disableSelection: false
+    if(!this.down('#addedCoursesContainer')) {
+      this.add({
+        xtype: 'container',
+        itemId: 'addedCoursesContainer',
+        height: '80%',
+        width: '95%',
+        centered: true,
+        layout: 'fit',
+        style: {
+          border: '0.1em solid black'
         },
-        {
-          xtype: 'panel',
-          itemId: 'selectGradesPanel',
-          hidden: true,
-          modal: true,
-          hideOnMaskTap: false,
-          showAnimation: {
-            type: 'popIn',
-            duration: 250,
-            easing: 'ease-out'
+        items: [
+          {
+            xtype: 'list',
+            itemId: 'addedCoursesList',
+            itemTpl: new Ext.XTemplate(
+              '<p><b>{course_code}</b></p>',
+              '<p><span style="font-size: 80%">{course_title}</span></p>',
+              '<p><span style="font-size: 80%;"><i>{course_term_label}</i>',
+              '<span style="float:right;" class="fake-disclosure">]</span></span></p>',
+              '<p><span style="font-size: 80%;font-weight:bold;">',
+              '<i><span id="courseStatusText{course_id}">',
+              "<tpl if='grade_id !== \"NONE\"'>",
+              'Grade: <span style="height:1.6em;" class="squarebox grade">{grade_label}</span>',
+              '<tpl else>',
+              'No Grade/Registration Selected',
+              '</tpl>',
+              '</span></i></span></p>'
+            ),
+            store: ALMITOnTheGo.app.addedCoursesStore,
+            emptyText: '<div style="font-size: 120%; color: grey">No Courses Added</div>',
+            disableSelection: false
           },
-          hideAnimation: {
-            type: 'popOut',
-            duration: 250,
-            easing: 'ease-out'
-          },
-          centered: true,
-          width: 300,
-          height: 300,
-          layout: 'fit',
-          items: [
-            {
-              xtype: 'list',
-              itemId: 'selectGradesList',
-              itemTpl: '{grade_label}',
-              store: {
-                model: 'ALMITOnTheGo.model.Grade',
-                data: ALMITOnTheGo.app.allGrades
+          {
+            xtype: 'panel',
+            itemId: 'selectGradesPanel',
+            hidden: true,
+            modal: true,
+            hideOnMaskTap: false,
+            showAnimation: {
+              type: 'popIn',
+              duration: 250,
+              easing: 'ease-out'
+            },
+            hideAnimation: {
+              type: 'popOut',
+              duration: 250,
+              easing: 'ease-out'
+            },
+            centered: true,
+            width: 300,
+            height: 300,
+            layout: 'fit',
+            items: [
+              {
+                xtype: 'list',
+                itemId: 'selectGradesList',
+                itemTpl: '{grade_label}',
+                store: {
+                  model: 'ALMITOnTheGo.model.Grade',
+                  data: ALMITOnTheGo.app.allGrades
+                }
               }
-            }
-          ]
-        }
-      ]
-    });
+            ]
+          }
+        ]
+      });
+    }
   },
   onAddedCoursesListItemTap: function (list, index, target, record, e) {
     if (!e.getTarget('.x-list-disclosure')) {

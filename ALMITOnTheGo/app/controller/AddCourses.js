@@ -14,17 +14,13 @@ Ext.define('ALMITOnTheGo.controller.AddCourses', {
       }
     }
   },
-  onShowAddCoursesMsg: function(calledFromView) {
+  onShowAddCoursesMsg: function() {
     var ac = this;
     var addCoursesView = ac.getAddCoursesView();
 
-    var addCoursesMsg = calledFromView == 'register' ?
-                "Successful Registration!!!<br><br>Please add/edit all completed/currently registered courses or revisit this step later." :
-                "";
-
     Ext.Msg.show({
       title: 'Add Courses',
-      message: addCoursesMsg,
+      message: "Successful Registration!!!<br><br>Please add/edit all completed/currently registered courses or revisit this step later.",
       width: 210,
       height: 200,
       style: {
