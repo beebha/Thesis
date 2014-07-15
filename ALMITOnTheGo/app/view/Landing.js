@@ -45,7 +45,7 @@ Ext.define('ALMITOnTheGo.view.Landing', {
             xtype: 'image',
             src: 'resources/images/ALMITOnTheGo_logo.png',
             width: 290,
-            height: 180
+            height: 165
           },
           {
             xtype: 'carousel',
@@ -53,7 +53,7 @@ Ext.define('ALMITOnTheGo.view.Landing', {
               styleHtmlContent: true
             },
             width: '75%',
-            height: 235,
+            height: 250,
             style: {
               border: '0.2em solid #A4946D',
               borderRadius: '0.5em'
