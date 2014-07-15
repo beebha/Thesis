@@ -10,6 +10,7 @@ Ext.define('ALMITOnTheGo.view.Grades', {
         itemId: 'gradesContainer',
         layout: 'vbox',
         width: '97%',
+        height: '97%',
         centered: true,
         items: [
           {
@@ -26,11 +27,14 @@ Ext.define('ALMITOnTheGo.view.Grades', {
           },
           {
             xtype: 'fieldset',
+            style: {
+              marginTop: '-0.5em'
+            },
             items: [
               {
                 xtype: 'list',
                 itemId: 'gradesCoursesList',
-                height: window.innerHeight / 2,
+                height: (window.innerHeight / 3) * 2,
                 width: '100%',
                 itemTpl: new Ext.XTemplate(
                   '<div style="font-weight: bold;">{course_code}',
