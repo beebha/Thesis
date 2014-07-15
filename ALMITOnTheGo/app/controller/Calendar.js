@@ -11,6 +11,27 @@ Ext.define('ALMITOnTheGo.controller.Calendar',
         }
       }
     },
+    onShowSelectedEventCommand: function(selectedDate, displayDate) {
+      console.log("onCalendarViewDetailsCommand");
+      console.log("selectedDate : " + selectedDate);
+
+      var showEventsHtml = "";
+
+      for (var j=0; j<ALMITOnTheGo.app.allEventsStore.getCount(); j++)
+      {
+        var singleDayRecord = ALMITOnTheGo.app.allEventsStore.getAt(j);
+        if(singleDayRecord.get('singleDate') == selectedDate) {
+          showEventsHtml  += '<span style="font-size:90%;font-weight:normal;">'+singleDayRecord.data.title + ': ' + singleDayRecord.data.event+ '</span><br>';
+        }
+      }
+
+      if(showEventsHtml != "") {
+        Ext.Msg.alert(
+          displayDate,
+          showEventsHtml
+        );
+      }
+    },
     onCalendarViewDetailsCommand: function (viewMode, minDate, maxDate) {
       console.log("onCalendarViewDetailsCommand");
 
@@ -126,16 +147,15 @@ Ext.define('ALMITOnTheGo.controller.Calendar',
               },
               selectionchange: function (calendarView, newDate, oldDate, eOpts) {
                 console.log("selectionchange");
-                console.log("newDate: " + newDate);
-                console.log("oldDate: " + oldDate);
-              },
-              eventtap: function (eventRecord, e, eOpts) {
-                console.log("eventtap");
-                console.log(eventRecord);
-                Ext.Msg.alert(
-                  eventRecord.data.event,
-                  eventRecord.data.title
-                );
+
+                if(calendarView.getViewMode().toUpperCase() == 'MONTH') {
+
+                  var selectedDate = new Date(newDate);
+                  var selectedDateString = ('0'+selectedDate.getDate()).slice(-2) + "-" + ('0'+(selectedDate.getMonth() + 1)).slice(-2) + "-" + selectedDate.getFullYear();
+                  var displayDate = selectedDate.toDateString();
+
+                  ALMITOnTheGo.app.getController('Calendar').onShowSelectedEventCommand(selectedDateString, displayDate);
+                }
               }
             },
             viewConfig: {
