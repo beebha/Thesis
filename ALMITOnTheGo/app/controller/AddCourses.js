@@ -9,9 +9,32 @@ Ext.define('ALMITOnTheGo.controller.AddCourses', {
     },
     control: {
       addCoursesView: {
-        nextViewCommand: 'onNextViewCommand'
+        nextViewCommand: 'onNextViewCommand',
+        showAddCoursesMsg: 'onShowAddCoursesMsg'
       }
     }
+  },
+  onShowAddCoursesMsg: function(calledFromView) {
+    var ac = this;
+    var addCoursesView = ac.getAddCoursesView();
+
+    var addCoursesMsg = calledFromView == 'register' ?
+                "Successful Registration!!!<br><br>Please add/edit all completed/currently registered courses or revisit this step later." :
+                "";
+
+    Ext.Msg.show({
+      title: 'Add Courses',
+      message: addCoursesMsg,
+      width: 210,
+      height: 200,
+      style: {
+        fontSize: '80%'
+      },
+      fn:function(btn) {
+        console.log("button clicked....");
+        addCoursesView.onRegistrationMsgPanelHide();
+      }
+    });
   },
   onNextViewCommand: function (addedCoursesCount) {
     var ac = this;

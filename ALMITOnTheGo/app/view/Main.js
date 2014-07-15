@@ -127,7 +127,7 @@ Ext.define('ALMITOnTheGo.view.Main', {
       },
       {
         title: 'Thesis',
-        iconCls: 'trophy',
+        iconCls: 'checkmark-cir',
         style: {
           margin: '3em'
         },

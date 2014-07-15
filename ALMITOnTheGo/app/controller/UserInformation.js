@@ -19,6 +19,7 @@ Ext.define('ALMITOnTheGo.controller.UserInformation', {
     var userInformationView = uic.getUserInformationView();
 
     userInformationView.setMasked(false);
+    addCoursesView.onRegistrationMsgPanelHide();
     Ext.Viewport.animateActiveItem(addCoursesView, ALMITOnTheGo.app.getController('Common').getSlideRightTransition());
   },
   onDoneButtonCommand: function (userView) {

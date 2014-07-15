@@ -29,9 +29,11 @@ Ext.define('ALMITOnTheGo.view.AddCourses', {
       },
       {
         xtype: 'panel',
-        itemId: 'registrationMsgPanel',
-        modal: true,
-        hideOnMaskTap: true,
+        hidden: true,
+        itemId: 'addCoursesListPanel',
+        height: '95%',
+        width: '95%',
+        centered: true,
         showAnimation: {
           type: 'popIn',
           duration: 250,
@@ -42,23 +44,6 @@ Ext.define('ALMITOnTheGo.view.AddCourses', {
           duration: 250,
           easing: 'ease-out'
         },
-        centered: true,
-        width: 250,
-        height: 250,
-        styleHtmlContent: true,
-        html: '<p><b>Add/Edit Courses</b><br><br>' +
-          'Please add/edit all completed/currently registered courses or revisit this step later.<br><br>' +
-          'Tap anywhere outside this alert to dismiss this message.</p>'
-      },
-      {
-        xtype: 'panel',
-        hidden: true,
-        itemId: 'addCoursesListPanel',
-        height: '95%',
-        width: '95%',
-        centered: true,
-        showAnimation: 'slideIn',
-        hideAnimation: 'slideOut',
         modal: true,
         hideOnMaskTap: false,
         layout: 'fit',
@@ -182,21 +167,11 @@ Ext.define('ALMITOnTheGo.view.AddCourses', {
         delegate: '#selectGradesList',
         event: 'itemtap',
         fn: 'onSelectGradesListItemTap'
-      },
-      {
-        delegate: '#registrationMsgPanel',
-        event: 'hide',
-        fn: 'onRegistrationMsgPanelHide'
       }
     ]
   },
   onRegistrationMsgPanelHide: function () {
     console.log("onRegistrationMsgPanelHide");
-
-    console.log(this.down('#concentrationID').getValue());
-    console.log(this.down('#registrationType').getValue());
-
-    this.remove(this.down('#registrationMsgPanel'), true);
 
     this.down('#addButton').show();
     this.down('#nextButton').show();
@@ -231,10 +206,7 @@ Ext.define('ALMITOnTheGo.view.AddCourses', {
           ),
           store: ALMITOnTheGo.app.addedCoursesStore,
           emptyText: '<div style="font-size: 120%; color: grey">No Courses Added</div>',
-          disableSelection: false,
-          plugins: {
-            xclass: 'Ext.plugin.SlideToRemove'
-          }
+          disableSelection: false
         },
         {
           xtype: 'panel',
@@ -346,7 +318,7 @@ Ext.define('ALMITOnTheGo.view.AddCourses', {
 
     } else {
       Ext.Msg.alert(
-        'Courses Grades/Registration Status',
+        'Courses Status',
         'Please set the grades/registration for the highlighted courses.',
         function () {
           Ext.Array.each(itemsWithNoGradeStatus, function (index) {
