@@ -124,6 +124,14 @@ Ext.define('ALMITOnTheGo.view.Main', {
           margin: '3em'
         },
         html: 'COMING SOON!'
+      },
+      {
+        title: 'Thesis',
+        iconCls: 'trophy',
+        style: {
+          margin: '3em'
+        },
+        html: 'COMING SOON!'
       }
     ]
   },

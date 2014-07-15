@@ -31,6 +31,7 @@ Ext.application({
     gradesTab: 4,
     analysisTab: 5,
     contactsTab: 6,
+    thesisTab: 7,
     defaultConcentrationCode: 'SWE',
     requires: [
         'Ext.MessageBox'
