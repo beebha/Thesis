@@ -88,11 +88,28 @@ Ext.define('ALMITOnTheGo.view.UserInformation', {
           },
           {
             xtype: 'fieldset',
-            title: 'Completed Courses',
             style: {
-              marginTop: '-1.8em'
+              marginTop: '-1em'
             },
             items: [
+              {
+                xtype: 'titlebar',
+                docked: 'top',
+                height: '1em',
+                title: 'Completed Courses',
+                cls: 'inner-toolbar',
+                style: {
+                  border: 'none'
+                },
+                items: [
+                  {
+                    xtype: 'button',
+                    text: 'EDIT',
+                    itemId: 'completedEditButton',
+                    align: 'right'
+                  }
+                ]
+              },
               {
                 xtype: 'list',
                 height: window.innerHeight / 5,
@@ -100,7 +117,7 @@ Ext.define('ALMITOnTheGo.view.UserInformation', {
                 itemId: 'completedCoursesList',
                 itemTpl: new Ext.XTemplate(
                   '<div style="font-weight: bold;">{course_code}',
-                  '<span style="float: right; font-size: 80%;">',
+                  '<span style="float: right;font-size:90%;height:1.6em;margin-right:0.2em;" class="squarebox grade">',
                   '<i>{grade_label}</i>',
                   '</span>',
                   '</div>',
@@ -120,11 +137,28 @@ Ext.define('ALMITOnTheGo.view.UserInformation', {
           },
           {
             xtype: 'fieldset',
-            title: 'Registered Courses',
             style: {
-              marginTop: '-1.8em'
+              marginTop: '-1em'
             },
             items: [
+              {
+                xtype: 'titlebar',
+                docked: 'top',
+                height: '1em',
+                title: 'Registered Courses',
+                cls: 'inner-toolbar',
+                style: {
+                  border: 'none'
+                },
+                items: [
+                  {
+                    xtype: 'button',
+                    text: 'EDIT',
+                    itemId: 'registeredEditButton',
+                    align: 'right'
+                  }
+                ]
+              },
               {
                 xtype: 'list',
                 height: window.innerHeight / 5,
@@ -149,8 +183,8 @@ Ext.define('ALMITOnTheGo.view.UserInformation', {
         ]
       },
       {
-        docked: 'bottom',
         xtype: 'titlebar',
+        docked: 'bottom',
         items: [
           {
             xtype: 'button',
@@ -184,8 +218,22 @@ Ext.define('ALMITOnTheGo.view.UserInformation', {
         delegate: '#userInformationMsgPanel',
         event: 'hide',
         fn: 'onUserInformationMsgPanelHide'
+      },
+      {
+        delegate: '#completedEditButton',
+        event: 'tap',
+        fn: 'onEditButtonTap'
+      },
+      {
+        delegate: '#registeredEditButton',
+        event: 'tap',
+        fn: 'onEditButtonTap'
       }
+
     ]
+  },
+  onEditButtonTap: function() {
+    console.log("onEditButtonTap");
   },
   onUserInformationMsgPanelHide: function () {
     var me = this;

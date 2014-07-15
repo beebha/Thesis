@@ -198,7 +198,7 @@ Ext.define('ALMITOnTheGo.view.AddCourses', {
             '<p><span style="font-size: 80%;font-weight:bold;">',
             '<i><span id="courseStatusText{course_id}">',
             "<tpl if='grade_id !== \"NONE\"'>",
-            'Grade: {grade_label}',
+            'Grade: <span style="height:1.6em;" class="squarebox grade">{grade_label}</span>',
             '<tpl else>',
             'No Grade/Registration Selected',
             '</tpl>',
@@ -261,7 +261,7 @@ Ext.define('ALMITOnTheGo.view.AddCourses', {
     var selectedCourseRow = addedCoursesList.getSelection()[0];
     var courseID = selectedCourseRow.data.course_id;
 
-    Ext.get('courseStatusText' + courseID).setHtml("Grade: "+record.data.grade_label);
+    Ext.get('courseStatusText' + courseID).setHtml("Grade: <span style='height:1.6em;' class='squarebox grade'>"+record.data.grade_label+ "</span>");
     selectedCourseRow.data.grade_id = record.data.grade_id;
     selectedCourseRow.data.grade_label = record.data.grade_label;
     selectedCourseRow.data.gpa = record.data.gpa;

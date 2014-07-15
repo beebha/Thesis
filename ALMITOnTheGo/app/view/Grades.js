@@ -34,7 +34,7 @@ Ext.define('ALMITOnTheGo.view.Grades', {
                 width: '100%',
                 itemTpl: new Ext.XTemplate(
                   '<div style="font-weight: bold;">{course_code}',
-                  '<span style="float: right; font-size: 80%; padding-right:0.2em;">',
+                  '<span style="float: right;font-size:90%;height:1.6em;margin-right:0.2em;" class="squarebox grade">',
                   '<i>{grade_label}</i>',
                   '</span>',
                   '</div>',

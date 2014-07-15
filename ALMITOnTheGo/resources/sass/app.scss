@@ -201,6 +201,11 @@ input[type="checkbox"] {
 .MAC {background-color: #1300BD;}
 .DGM {background-color: #9000E6;}
 
+.grade {
+  background-color: $base-color;
+  color: #E1D9C0;
+}
+
 .fake-disclosure {
   -webkit-border-radius: 22px;
   -moz-border-radius: 22px;
