@@ -3,6 +3,10 @@ Ext.define('ALMITOnTheGo.model.CalendarEvent', {
   config: {
     fields: [
       {
+        name: 'courseID',
+        type: 'int'
+      },
+      {
         name: 'event',
         type: 'string'
       },
@@ -31,6 +35,10 @@ Ext.define('ALMITOnTheGo.model.CalendarEvent', {
       {
         name: 'singleDate',
         type: 'string'
+      },
+      {
+        name: 'userAddedCourse',
+        type: 'boolean'
       }
     ]
   }

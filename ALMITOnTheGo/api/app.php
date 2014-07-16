@@ -70,6 +70,10 @@ try {
         if($action == 'getCalendarViewDetails') {
             $result = CalendarController::getCalendarViewDetails($_POST);
         }
+
+        if($action == 'addCalendarEvents') {
+            $result = CalendarController::addCalendarEvents($_POST);
+        }
     }
 } catch (APIException $ex) {
     $error = array();

@@ -282,7 +282,13 @@ Ext.define('ALMITOnTheGo.view.Courses', {
                         text: 'ADD TO',
                         itemId: 'addToCalendarButton',
                         align: 'right',
-                        hidden: true
+                        hidden: true,
+                        listeners : {
+                          tap : function(button, e, eOpts) {
+                            button.up('#coursesViewPanel').fireEvent('addToCalendarButtonCommand');
+                          }
+                        }
+
                       }
                     ]
                   }

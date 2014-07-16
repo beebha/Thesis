@@ -21,7 +21,8 @@ Ext.define('ALMITOnTheGo.controller.Calendar',
       {
         var singleDayRecord = ALMITOnTheGo.app.allEventsStore.getAt(j);
         if(singleDayRecord.get('singleDate') == selectedDate) {
-          showEventsHtml  += '<span style="font-size:90%;font-weight:normal;">'+singleDayRecord.data.title + ': ' + singleDayRecord.data.event+ '</span><br>';
+          showEventsHtml  += '<span style="font-size:90%;font-weight:normal;float:left;">'+singleDayRecord.data.title + ': ' + singleDayRecord.data.event;
+          showEventsHtml  += singleDayRecord.get('userAddedCourse') ? " [Added]</span><br>" : "</span><br>";
         }
       }
 
@@ -117,10 +118,14 @@ Ext.define('ALMITOnTheGo.controller.Calendar',
                     eventsHtml  += singleDayRecord.data.singleDateDay+"<br>";
                     eventCount++;
                   }
-                  eventsHtml  += '<br><span style="float:left;padding-left:0.2em;font-weight:bold;font-size:60%;text-align:center;">' +
+
+                  var additionalCSSClass = singleDayRecord.get('userAddedCourse') ? "calendar-event" : "";
+                  eventsHtml  += '<br><span class="'+additionalCSSClass+'" '+
+                              'style="float:left;padding-left:0.2em;font-weight:bold;font-size:60%;text-align:center;">' +
                               singleDayRecord.data.title +
-                              '</span><br><span style="float:left;padding-left:0.2em;font-weight:normal;font-size:60%;text-align:center;font-style:italic">' +
-                              singleDayRecord.data.event+ '</span><br>';
+                              '</span><br><span class="'+additionalCSSClass+'" '+
+                              'style="float:left;padding-left:0.2em;font-weight:normal;font-size:60%;text-align:center;font-style:italic">' +
+                              singleDayRecord.data.event + '</span><br>';
                 }
               }
               Ext.get(singleDayElement).setHtml(eventsHtml);

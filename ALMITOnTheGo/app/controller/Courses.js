@@ -35,15 +35,7 @@ Ext.define('ALMITOnTheGo.controller.Courses',
         viewCoursesList.getItemAt(index).setStyle('background-color:#FFFFFF;');
       });
 
-      var allCheckedCourses = [];
-
-      Ext.each(Ext.query("input[type='checkbox']"), function(item) {
-        if(item.checked) {
-          var courseID = item.value;
-          var record = ALMITOnTheGo.app.viewCoursesStore.findRecord("course_id", courseID);
-          allCheckedCourses.push(record.data);
-        }
-      });
+      var allCheckedCourses = cc.getCheckedCourses();
 
       if(allCheckedCourses.length < 2) {
         Ext.Msg.alert('Select Course', 'Please select at least 2 courses to view conflicts', Ext.emptyFn);
@@ -119,6 +111,31 @@ Ext.define('ALMITOnTheGo.controller.Courses',
     },
     onAddToCalendarButtonCommand: function() {
       console.log("onAddToCalendarButtonCommand");
+
+      var cc = this;
+      var allCheckedCourses = cc.getCheckedCourses();
+
+      if(allCheckedCourses.length < 1) {
+        Ext.Msg.alert('Select Course', 'Please select at least 1 course to add to the calendar', Ext.emptyFn);
+      } else {
+        console.log(allCheckedCourses);
+        Ext.Ajax.request({
+          url: ALMITOnTheGo.app.apiURL+'app.php?action=addCalendarEvents',
+          method: 'post',
+          params: {
+            authToken: ALMITOnTheGo.app.authToken,
+            allCheckedCourses : Ext.encode(allCheckedCourses)
+          },
+          success: function (response) {
+            var calendarResponse = Ext.JSON.decode(response.responseText);
+            if(calendarResponse.success) {
+              Ext.Msg.alert('Congratulations!', 'Courses have been successfully added to the calendar', Ext.emptyFn);
+            } else {
+              Ext.Msg.alert('Oops!', 'An error has occurred while adding to the calendar', Ext.emptyFn);
+            }
+          }
+        });
+      }
     },
     onViewCoursesListItemTapCommand: function(list, index, target, record, e) {
       console.log("onViewCoursesListItemTapCommand");
@@ -381,5 +398,18 @@ Ext.define('ALMITOnTheGo.controller.Courses',
       } else {
         // TODO - error handling
       }
+    },
+    getCheckedCourses: function() {
+      var allCheckedCourses = [];
+
+      Ext.each(Ext.query("input[type='checkbox']"), function(item) {
+        if(item.checked) {
+          var courseID = item.value;
+          var record = ALMITOnTheGo.app.viewCoursesStore.findRecord("course_id", courseID);
+          allCheckedCourses.push(record.data);
+        }
+      });
+
+      return allCheckedCourses;
     }
   });

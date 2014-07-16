@@ -2,8 +2,37 @@
  
 class Calendar
 {
+    public static function addCalendarEvents($authToken, $allCheckedCourses)
+    {
+        if(!empty($authToken))
+        {
+            $query = UserInfoQuery::getUserInfoQuery($authToken);
+            $userResults = CalendarDBUtils::getSingleDetailExecutionResult($query);
+
+            $userID = $userResults['user_id'];
+            $courseIDs = array();
+
+            for($i = 0; $i < count($allCheckedCourses); $i++) {
+                $courseIDs[] = $allCheckedCourses[$i]['course_id'];
+            }
+
+            $createUserCalendarQuery = CalendarQuery::createUserCalendarQuery($userID, $courseIDs);
+            $createUserCalendarResults = CalendarDBUtils::getInsertUpdateDeleteBulkExecutionResult($createUserCalendarQuery);
+
+            if(!$createUserCalendarResults) {
+                return array("status" => FALSE, "errorMsg" => "DB Error", "data" => NULL);
+            }
+        }
+
+        return array(
+            "status" => TRUE,
+            "errorMsg" => "",
+            "data" => NULL);
+    }
+
     public static function getCalendarViewDetails($authToken, $concentrationID, $mode, $minDate, $maxDate)
     {
+        $userCalendarEvents = array();
         $startDate = "";
         $endDate = "";
 
@@ -26,10 +55,22 @@ class Calendar
             $endDate = $maxDate;
         }
 
-        error_log('Start Date: ' . $startDate);
-        error_log('End Date: ' . $endDate);
+        if(!empty($authToken)) {
+            $userInfoQuery = UserInfoQuery::getUserInfoQuery($authToken);
+            $userResults = CalendarDBUtils::getSingleDetailExecutionResult($userInfoQuery);
 
-        $query = !empty($authToken)? CalendarQuery::getCalendarViewForUserQuery($authToken) : CalendarQuery::getCalendarViewForGuestQuery($concentrationID);
+            $userID = $userResults['user_id'];
+            $concentrationID = $userResults['concentration_id'];
+
+            $userCalendarQuery = CalendarQuery::getUserCalendarQuery($userID);
+            $userCalendarResults = CalendarDBUtils::getSingleDetailExecutionResult($userCalendarQuery);
+
+            if(!is_null($userCalendarResults['allCourseIDs'])) {
+                $userCalendarEvents = explode(",", $userCalendarResults['allCourseIDs']);
+            }
+        }
+
+        $query = CalendarQuery::getCalendarViewQuery($concentrationID);
         $calendarCourses = CalendarDBUtils::getAllResults($query);
 
         $calendarEvents = array();
@@ -93,6 +134,8 @@ class Calendar
                                                     );
                     $singleCalendarEvent['css'] = $singleCourse['concentration_code'];
                     $singleCalendarEvent['day'] = $textDayOfCurrentDate;
+                    $singleCalendarEvent['courseID'] = $singleCourse['course_id'];
+                    $singleCalendarEvent['userAddedCourse'] = in_array($singleCourse['course_id'], $userCalendarEvents);
                     $calendarEvents[] = $singleCalendarEvent;
                 }
                 $currentDate = date('Y-n-j', strtotime($currentDate . " +1 day"));
