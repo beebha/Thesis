@@ -158,6 +158,46 @@ input[type="checkbox"] {
   padding-bottom: 0em;
 }
 
+.x-toggle-inner {
+  height: 2.5em;
+}
+
+.x-toggle-on {
+  background-image: -webkit-linear-gradient(top, #4d0000, #1a0000 50%, #000000 51%, #000000);
+  background-image: -moz-linear-gradient(top, #4d0000, #1a0000 50%, #000000 51%, #000000);
+  background-image: -o-linear-gradient(top, #4d0000, #1a0000 50%, #000000 51%, #000000);
+  background-image: linear-gradient(top, #4d0000, #1a0000 50%, #000000 51%, #000000);
+  width: 5em;
+}
+
+.x-toggle-on:before {
+  position:absolute;
+  content:'MONTH';
+  font-weight: bold;
+  font-size: 65%;
+  color: #FFB3B2;
+  left: 0.3em;
+  top: 1em;
+}
+
+.x-toggle-off {
+  background-image: -webkit-linear-gradient(top, #4d0000, #1a0000 50%, #000000 51%, #000000);
+  background-image: -moz-linear-gradient(top, #4d0000, #1a0000 50%, #000000 51%, #000000);
+  background-image: -o-linear-gradient(top, #4d0000, #1a0000 50%, #000000 51%, #000000);
+  background-image: linear-gradient(top, #4d0000, #1a0000 50%, #000000 51%, #000000);
+  width: 5em;
+}
+
+.x-toggle-off:before {
+  position:absolute;
+  content:'WEEK';
+  font-weight: bold;
+  font-size: 65%;
+  color: #FFB3B2;
+  right: 0.3em;
+  top: 1em;
+}
+
 .gpa-green {color: #64AD00;}
 .gpa-orange {color: orange;}
 .gpa-red {color: darkred;}
@@ -200,6 +240,7 @@ input[type="checkbox"] {
 .IMS {background-color: #00A60A;}
 .MAC {background-color: #1300BD;}
 .DGM {background-color: #9000E6;}
+.NONE {background-color: #FFFFFF;}
 
 .grade {
   background-color: $base-color;

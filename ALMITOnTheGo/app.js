@@ -10,11 +10,15 @@
     will need to resolve manually.
 */
 
+Ext.Loader.setPath({
+  'GT': 'touch/src/plugin'
+});
+
 Ext.application({
     name: 'ALMITOnTheGo',
     authToken: null,
-//    apiURL: "http://localhost:8090/api/",
-    apiURL: 'http://54.191.50.10/almitonthego/api/',
+    apiURL: "http://localhost:8090/api/",
+//    apiURL: 'http://54.191.50.10/almitonthego/api/',
     allGrades: null,
     allConcentrations: null,
     allCategories: null,
@@ -34,7 +38,8 @@ Ext.application({
     thesisTab: 7,
     defaultConcentrationCode: 'SWE',
     requires: [
-        'Ext.MessageBox'
+        'Ext.MessageBox',
+        'GT.FixedButton'
     ],
     controllers: [
       'Landing', 'Common', 'Login', 'Register', 'Main', 'AddCourses', 'UserInformation', 'Courses', 'Grades', 'Requirements', 'Calendar'

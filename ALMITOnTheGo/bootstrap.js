@@ -29,6 +29,7 @@ Ext.Loader.addClassPathMappings({
   "Ext.ux.TouchCalendarSimpleEvents": "touch/src/plugin/Ext.ux.TouchCalendarSimpleEvents.js",
   "Ext.ux.TouchCalendarView": "touch/src/plugin/Ext.ux.TouchCalendarView.js",
   "Ext.ux.TouchCalendarWeekEvents": "touch/src/plugin/Ext.ux.TouchCalendarWeekEvents.js",
+  "GT": "touch/src/plugin",
   "TouchCalendarViewModel": "touch/src/plugin/Ext.ux.TouchCalendarView.js"
 });
 Ext.ClassManager.addNameAlternateMappings({
@@ -795,6 +796,7 @@ Ext.ClassManager.addNameAlternateMappings({
   "Ext.viewport.WindowsPhone": [
     "Ext.viewport.WP"
   ],
+  "GT.FixedButton": [],
   "TouchCalendarViewModel": []
 });
 Ext.ClassManager.addNameAliasMappings({
@@ -1807,5 +1809,8 @@ Ext.ClassManager.addNameAliasMappings({
   "Ext.viewport.Ios": [],
   "Ext.viewport.Viewport": [],
   "Ext.viewport.WindowsPhone": [],
+  "GT.FixedButton": [
+    "widget.fixedbutton"
+  ],
   "TouchCalendarViewModel": []
 });
