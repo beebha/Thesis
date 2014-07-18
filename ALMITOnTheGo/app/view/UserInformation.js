@@ -191,7 +191,7 @@ Ext.define('ALMITOnTheGo.view.UserInformation', {
 
     ]
   },
-  onUserInformationMsgPanelHide: function () {
+  onUserInformationPanelShow: function () {
     var me = this;
     me.down('#completedCoursesList').refresh();
     me.down('#registeredCoursesList').refresh();

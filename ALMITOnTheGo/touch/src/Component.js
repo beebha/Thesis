@@ -1989,7 +1989,7 @@ Ext.define('Ext.Component', {
      */
     hide: function(animation) {
         this.setCurrentAlignmentInfo(null);
-        if(this.activeAnimation) {
+        /*if(this.activeAnimation) {
             this.activeAnimation.on({
                 animationend: function(){
                     this.hide(animation);
@@ -1998,7 +1998,7 @@ Ext.define('Ext.Component', {
                 single: true
             });
             return this;
-        }
+        }*/
 
         if (!this.getHidden()) {
             if (animation === undefined || (animation && animation.isComponent)) {

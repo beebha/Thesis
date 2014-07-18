@@ -196,6 +196,7 @@ Ext.define('ALMITOnTheGo.view.AddCourses', {
               '<p><span style="font-size: 80%">{course_title}</span></p>',
               '<p><span style="font-size: 80%;"><i>{course_term_label}</i>',
               '<span style="float:right;" class="fake-disclosure">]</span></span></p>',
+              '<span class="deleteplaceholder"></span>',
               '<p><span style="font-size: 80%;font-weight:bold;">',
               '<i><span id="courseStatusText{course_id}">',
               "<tpl if='grade_id !== \"NONE\"'>",
@@ -207,7 +208,46 @@ Ext.define('ALMITOnTheGo.view.AddCourses', {
             ),
             store: ALMITOnTheGo.app.addedCoursesStore,
             emptyText: '<div style="font-size: 120%; color: grey">No Courses Added</div>',
-            disableSelection: false
+            disableSelection: false,
+            listeners: {
+//              itemswipe: function(list, index, target, record, e, eOpts) {
+//                if (e.direction == "left") {
+//                  var del = Ext.create("GT.FixedButton", {
+//                    ui: 'decline',
+//                    text: 'DELETE',
+//                    cls: 'inner-toolbar',
+//                    itemId: 'deleteCourseBtn',
+//                    style: 'position:absolute;right:0.7em;bottom:1.4em;',
+//                    handler: function(btn, event) {
+//                      ALMITOnTheGo.app.addedCoursesStore.remove(record);
+//                      event.stopEvent();
+//                    }
+//                  });
+//                  var removeDeleteButton = function() {
+//                    Ext.Anim.run(del, 'fade', {
+//                      after: function() {
+//                        del.destroy();
+//                      },
+//                      out: true
+//                    });
+//                  };
+//                  del.renderTo(Ext.DomQuery.selectNode(".deleteplaceholder", target.element.dom));
+//                  Ext.Anim.run(del, 'fade', {
+//                    out : false
+//                  });
+//                  list.on({
+//                    single: true,
+//                    buffer: 250,
+//                    itemtouchstart: removeDeleteButton
+//                  });
+//                  list.element.on({
+//                    single: true,
+//                    buffer: 250,
+//                    touchstart: removeDeleteButton
+//                  });
+//                }
+//              }
+            }
           },
           {
             xtype: 'panel',

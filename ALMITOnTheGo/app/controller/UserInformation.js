@@ -9,28 +9,9 @@ Ext.define('ALMITOnTheGo.controller.UserInformation', {
     control: {
       userInformationView: {
         editButtonCommand: 'oneEditButtonCommand',
-        doneButtonCommand: 'onDoneButtonCommand',
-        showUserInfoMsg: 'onShowUserInfoMsg'
+        doneButtonCommand: 'onDoneButtonCommand'
       }
     }
-  },
-  onShowUserInfoMsg: function() {
-    var uic = this;
-    var userInformationView = uic.getUserInformationView();
-
-    Ext.Msg.show({
-      title: 'Review User Info',
-      message: "Please review all added/registered courses and GPA.",
-      width: 210,
-      height: 200,
-      style: {
-        fontSize: '80%'
-      },
-      fn:function(btn) {
-        console.log("button clicked....");
-        userInformationView.onUserInformationMsgPanelHide();
-      }
-    });
   },
   oneEditButtonCommand: function () {
     var uic = this;
@@ -127,6 +108,6 @@ Ext.define('ALMITOnTheGo.controller.UserInformation', {
     userInformationView.down('#currentGPA').setValue(currentGPA);
 
     Ext.Viewport.animateActiveItem(userInformationView, ALMITOnTheGo.app.getController('Common').getSlideLeftTransition());
-    userInformationView.fireEvent('showUserInfoMsg');
+    userInformationView.onUserInformationPanelShow();
   }
 });
