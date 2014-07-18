@@ -44,7 +44,7 @@ Ext.define('ALMITOnTheGo.view.Main', {
         id: 'mainTitle',
         items: [
           {
-            xtype: 'button',
+            xtype: 'fixedbutton',
             iconCls: 'cogs',
             itemId: 'settingsButton',
             align: 'left',
@@ -59,7 +59,7 @@ Ext.define('ALMITOnTheGo.view.Main', {
             }
           },
           {
-            xtype: 'button',
+            xtype: 'fixedbutton',
             iconCls: 'exit',
             itemId: 'logoutButton',
             align: 'right',

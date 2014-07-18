@@ -79,7 +79,7 @@ Ext.define('ALMITOnTheGo.view.UserInformation', {
                 },
                 items: [
                   {
-                    xtype: 'button',
+                    xtype: 'fixedbutton',
                     text: 'EDIT',
                     itemId: 'completedEditButton',
                     align: 'right'
@@ -128,7 +128,7 @@ Ext.define('ALMITOnTheGo.view.UserInformation', {
                 },
                 items: [
                   {
-                    xtype: 'button',
+                    xtype: 'fixedbutton',
                     text: 'EDIT',
                     itemId: 'registeredEditButton',
                     align: 'right'
@@ -163,7 +163,7 @@ Ext.define('ALMITOnTheGo.view.UserInformation', {
         docked: 'bottom',
         items: [
           {
-            xtype: 'button',
+            xtype: 'fixedbutton',
             text: 'DONE',
             itemId: 'doneButton',
             align: 'right',

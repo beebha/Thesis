@@ -19,7 +19,7 @@ Ext.define('ALMITOnTheGo.view.AddCourses', {
         title: 'Courses',
         items: [
           {
-            xtype: 'button',
+            xtype: 'fixedbutton',
             iconCls: 'add',
             itemId: 'addButton',
             align: 'right',
@@ -76,7 +76,7 @@ Ext.define('ALMITOnTheGo.view.AddCourses', {
                   },
                   { xtype: 'spacer' },
                   {
-                    xtype: 'button',
+                    xtype: 'fixedbutton',
                     itemId: 'closeButton',
                     text: 'X',
                     ui: 'plain',
@@ -93,7 +93,7 @@ Ext.define('ALMITOnTheGo.view.AddCourses', {
                 items: [
                   { xtype: 'spacer' },
                   {
-                    xtype: 'button',
+                    xtype: 'fixedbutton',
                     itemId: 'addSelectedCoursesButton',
                     text: 'ADD COURSES',
                     align: 'center'
@@ -118,7 +118,7 @@ Ext.define('ALMITOnTheGo.view.AddCourses', {
         xtype: 'titlebar',
         items: [
           {
-            xtype: 'button',
+            xtype: 'fixedbutton',
             text: 'NEXT',
             itemId: 'nextButton',
             align: 'right',

@@ -16,7 +16,7 @@ Ext.define('ALMITOnTheGo.view.Login', {
         docked: 'top',
         items: [
           {
-            xtype: 'button',
+            xtype: 'fixedbutton',
             text: 'BACK',
             itemId: 'backButton',
             align: 'left',
@@ -65,7 +65,7 @@ Ext.define('ALMITOnTheGo.view.Login', {
         layout: { type: 'hbox'},
         items: [
           {
-            xtype: 'button',
+            xtype: 'fixedbutton',
             itemId: 'loginButton',
             cls: 'modus-button default',
             padding: 10,

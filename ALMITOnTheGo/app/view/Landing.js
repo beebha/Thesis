@@ -15,7 +15,7 @@ Ext.define('ALMITOnTheGo.view.Landing', {
         docked: 'top',
         items: [
           {
-            xtype: 'button',
+            xtype: 'fixedbutton',
             text: 'LOG IN AS GUEST',
             itemId: 'guestButton',
             align: 'right',

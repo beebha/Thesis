@@ -79,7 +79,7 @@ Ext.define('ALMITOnTheGo.view.Requirements', {
                     },
                     items: [
                       {
-                        xtype: 'button',
+                        xtype: 'fixedbutton',
                         iconCls: 'arrow_right inner-toolbar-button',
                         itemId: 'requirementsNextButton',
                         align: 'right'
@@ -139,7 +139,7 @@ Ext.define('ALMITOnTheGo.view.Requirements', {
                     },
                     items: [
                       {
-                        xtype: 'button',
+                        xtype: 'fixedbutton',
                         iconCls: 'arrow_left inner-toolbar-button',
                         itemId: 'requirementsBackButton',
                         align: 'left',

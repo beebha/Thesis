@@ -17,7 +17,7 @@ Ext.define('ALMITOnTheGo.view.Register', {
         docked: 'top',
         items: [
           {
-            xtype: 'button',
+            xtype: 'fixedbutton',
             text: 'BACK',
             itemId: 'backButton',
             align: 'left',
@@ -108,7 +108,7 @@ Ext.define('ALMITOnTheGo.view.Register', {
         layout: { type: 'hbox'},
         items: [
           {
-            xtype: 'button',
+            xtype: 'fixedbutton',
             itemId: 'registerButton',
             cls: 'modus-button default',
             padding: 10,
