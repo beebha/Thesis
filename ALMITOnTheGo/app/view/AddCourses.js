@@ -27,8 +27,9 @@ Ext.define('ALMITOnTheGo.view.AddCourses', {
           },
           {
             xtype: 'fixedbutton',
-            iconCls: 'compose',
-            text: 'Switch to Delete Mode',
+            iconCls: 'trash',
+            iconAlign: 'right',
+            text: 'Switch to',
             itemId: 'editButton',
             align: 'left',
             hidden: true
@@ -198,7 +199,7 @@ Ext.define('ALMITOnTheGo.view.AddCourses', {
     });
 
     this.down('#editMode').setValue('NORMAL');
-    this.down('#editButton').setText('Switch to Delete Mode');
+    this.down('#editButton').setIconCls('trash');
 
     this.down('#addButton').show();
     this.down('#editButton').show();
@@ -357,7 +358,7 @@ Ext.define('ALMITOnTheGo.view.AddCourses', {
     });
 
     inDeleteMode ? this.down('#editMode').setValue('NORMAL') : this.down('#editMode').setValue('DELETE');
-    inDeleteMode ? this.down('#editButton').setText('Switch to Delete Mode') : this.down('#editButton').setText('Switch to Normal Mode');
+    inDeleteMode ? this.down('#editButton').setIconCls('trash') : this.down('#editButton').setIconCls('compose');
   },
   onNextButtonTap: function () {
     console.log("onNextButtonTap");
