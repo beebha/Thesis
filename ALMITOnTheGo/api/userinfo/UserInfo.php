@@ -2,7 +2,7 @@
  
 class UserInfo
 {
-    public static function createUserInfo(array $userInfoData)
+    public static function saveUserInfo(array $userInfoData)
     {
         $authToken = $userInfoData['authToken'];
         $registrationType = $userInfoData['registrationType'];
@@ -44,6 +44,15 @@ class UserInfo
 
             if(!$createUserCoursesResults) {
                 return array("status" => FALSE, "errorMsg" => "DB Error", "data" => NULL);
+            }
+
+            if(count(array_keys($allCourseIDsAndGrades)) > 0) {
+                $deleteUserCoursesQuery = UserInfoQuery::deleteUserCoursesQuery($userID, array_keys($allCourseIDsAndGrades));
+                $deleteUserCoursesResults = UserInfoDBUtils::getInsertUpdateDeleteExecutionResult($deleteUserCoursesQuery);
+
+                if(!$deleteUserCoursesResults) {
+                    return array("status" => FALSE, "errorMsg" => "DB Error", "data" => NULL);
+                }
             }
         }
 

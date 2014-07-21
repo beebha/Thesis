@@ -24,8 +24,21 @@ Ext.define('ALMITOnTheGo.view.AddCourses', {
             itemId: 'addButton',
             align: 'right',
             hidden: true
+          },
+          {
+            xtype: 'fixedbutton',
+            iconCls: 'compose',
+            text: 'Switch to Delete Mode',
+            itemId: 'editButton',
+            align: 'left',
+            hidden: true
           }
         ]
+      },
+      {
+        xtype: 'hiddenfield',
+        itemId: 'editMode',
+        value: 'NORMAL'
       },
       {
         xtype: 'panel',
@@ -134,6 +147,11 @@ Ext.define('ALMITOnTheGo.view.AddCourses', {
         fn: 'onAddButtonTap'
       },
       {
+        delegate: '#editButton',
+        event: 'tap',
+        fn: 'onEditButtonTap'
+      },
+      {
         delegate: '#nextButton',
         event: 'tap',
         fn: 'onNextButtonTap'
@@ -173,7 +191,17 @@ Ext.define('ALMITOnTheGo.view.AddCourses', {
   onRegistrationMsgPanelHide: function () {
     console.log("onRegistrationMsgPanelHide");
 
+    Ext.each(Ext.query("*[id^=courseDelete]"), function(item) {
+      var courseID = item.id.replace("courseDelete", "");
+        Ext.get("courseDelete"+courseID).hide();
+        Ext.get("courseGrade"+courseID).show();
+    });
+
+    this.down('#editMode').setValue('NORMAL');
+    this.down('#editButton').setText('Switch to Delete Mode');
+
     this.down('#addButton').show();
+    this.down('#editButton').show();
     this.down('#nextButton').show();
 
     if(!this.down('#addedCoursesContainer')) {
@@ -195,8 +223,9 @@ Ext.define('ALMITOnTheGo.view.AddCourses', {
               '<p><b>{course_code}</b></p>',
               '<p><span style="font-size: 80%">{course_title}</span></p>',
               '<p><span style="font-size: 80%;"><i>{course_term_label}</i>',
-              '<span style="float:right;" class="fake-disclosure">]</span></span></p>',
-              '<span class="deleteplaceholder"></span>',
+              '<span id="courseGrade{course_id}" style="float:right;" class="fake-disclosure">]</span>',
+              '<span id="courseDelete{course_id}" style="float:right;display:none;" class="fake-trash">#</span>',
+              '</span></p>',
               '<p><span style="font-size: 80%;font-weight:bold;">',
               '<i><span id="courseStatusText{course_id}">',
               "<tpl if='grade_id !== \"NONE\"'>",
@@ -208,46 +237,7 @@ Ext.define('ALMITOnTheGo.view.AddCourses', {
             ),
             store: ALMITOnTheGo.app.addedCoursesStore,
             emptyText: '<div style="font-size: 120%; color: grey">No Courses Added</div>',
-            disableSelection: false,
-            listeners: {
-//              itemswipe: function(list, index, target, record, e, eOpts) {
-//                if (e.direction == "left") {
-//                  var del = Ext.create("GT.FixedButton", {
-//                    ui: 'decline',
-//                    text: 'DELETE',
-//                    cls: 'inner-toolbar',
-//                    itemId: 'deleteCourseBtn',
-//                    style: 'position:absolute;right:0.7em;bottom:1.4em;',
-//                    handler: function(btn, event) {
-//                      ALMITOnTheGo.app.addedCoursesStore.remove(record);
-//                      event.stopEvent();
-//                    }
-//                  });
-//                  var removeDeleteButton = function() {
-//                    Ext.Anim.run(del, 'fade', {
-//                      after: function() {
-//                        del.destroy();
-//                      },
-//                      out: true
-//                    });
-//                  };
-//                  del.renderTo(Ext.DomQuery.selectNode(".deleteplaceholder", target.element.dom));
-//                  Ext.Anim.run(del, 'fade', {
-//                    out : false
-//                  });
-//                  list.on({
-//                    single: true,
-//                    buffer: 250,
-//                    itemtouchstart: removeDeleteButton
-//                  });
-//                  list.element.on({
-//                    single: true,
-//                    buffer: 250,
-//                    touchstart: removeDeleteButton
-//                  });
-//                }
-//              }
-            }
+            disableSelection: false
           },
           {
             xtype: 'panel',
@@ -289,10 +279,20 @@ Ext.define('ALMITOnTheGo.view.AddCourses', {
     if (!e.getTarget('.x-list-disclosure')) {
       console.log("onAddedCoursesListItemTap");
       var me = this;
-      var selectGradesPanel = me.down('#selectGradesPanel');
-      var selectGradesList = me.down('#selectGradesList');
-      selectGradesList.deselectAll();
-      selectGradesPanel.show();
+      var inDeleteMode = me.down('#editMode').getValue() == 'DELETE';
+      if(inDeleteMode) {
+        ALMITOnTheGo.app.addedCoursesStore.remove(record);
+        Ext.each(Ext.query("*[id^=courseDelete]"), function(item) {
+          var courseID = item.id.replace("courseDelete", "");
+          Ext.get("courseDelete"+courseID).show();
+          Ext.get("courseGrade"+courseID).hide();
+        });
+      } else {
+        var selectGradesPanel = me.down('#selectGradesPanel');
+        var selectGradesList = me.down('#selectGradesList');
+        selectGradesList.deselectAll();
+        selectGradesPanel.show();
+      }
     }
   },
   onSelectGradesListItemTap: function (dataview, index, target, record, e, eOpts) {
@@ -337,6 +337,27 @@ Ext.define('ALMITOnTheGo.view.AddCourses', {
     me.down('#nextButton').hide();
     addCoursesList.deselectAll();
     addCoursesListPanel.show();
+  },
+  onEditButtonTap: function() {
+    console.log("onEditButtonTap");
+
+    var inDeleteMode = this.down('#editMode').getValue() == 'DELETE';
+
+    console.log(this.down('#editMode').getValue());
+
+    Ext.each(Ext.query("*[id^=courseDelete]"), function(item) {
+      var courseID = item.id.replace("courseDelete", "");
+      if (inDeleteMode) {
+        Ext.get("courseDelete"+courseID).hide();
+        Ext.get("courseGrade"+courseID).show();
+      } else {
+        Ext.get("courseDelete"+courseID).show();
+        Ext.get("courseGrade"+courseID).hide();
+      }
+    });
+
+    inDeleteMode ? this.down('#editMode').setValue('NORMAL') : this.down('#editMode').setValue('DELETE');
+    inDeleteMode ? this.down('#editButton').setText('Switch to Delete Mode') : this.down('#editButton').setText('Switch to Normal Mode');
   },
   onNextButtonTap: function () {
     console.log("onNextButtonTap");

@@ -8,7 +8,7 @@ class UserInfoController
         $resultData = null;
 
         // create user info
-        $resultData = UserInfo::createUserInfo(json_decode($postVar['data'], true));
+        $resultData = UserInfo::saveUserInfo(json_decode($postVar['data'], true));
 
         $result['success'] = $resultData['status'];
         $result['error']['message'] = $resultData['errorMsg'];

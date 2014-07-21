@@ -29,6 +29,13 @@ class UserInfoQuery
         return $queriesToBeExecuted;
     }
 
+    public static function deleteUserCoursesQuery($userID, array $courseIDS)
+    {
+        return "DELETE FROM users_courses WHERE user_id = " .
+                UserInfoDBUtils::getDBValue(DBConstants::DB_VALUE, $userID). "
+                AND course_id NOT IN (". implode(",", $courseIDS) .")";
+    }
+
     public static function updateGPAQuery($userID, $gpa)
     {
         return "UPDATE users SET gpa = " .UserInfoDBUtils::getDBValue(DBConstants::DB_VALUE, $gpa). "
