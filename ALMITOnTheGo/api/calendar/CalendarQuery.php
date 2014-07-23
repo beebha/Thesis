@@ -5,8 +5,9 @@ class CalendarQuery
     public static function getCalendarViewQuery($concentrationID)
     {
         return "SELECT conc.concentration_code, c.course_id, c.course_code, c.course_title, c.attributes,
-                c.course_term_id, ct.course_term_label, c.course_day, c.course_time, ct.course_year,
-                ct.start_month, ct.start_day, ct.end_month, ct.end_day
+                c.course_term_id, ct.course_term_label, c.course_day, c.course_time,
+                c.course_type, c.instructor, c.location,
+                ct.course_year, ct.start_month, ct.start_day, ct.end_month, ct.end_day
                 FROM course c
                 INNER JOIN concentration conc ON conc.concentration_id = c.concentration_id
                 INNER JOIN course_terms ct ON ct.course_term_id = c.course_term_id

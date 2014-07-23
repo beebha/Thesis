@@ -101,6 +101,8 @@ Ext.define('ALMITOnTheGo.controller.Calendar',
         ALMITOnTheGo.app.addedCalendarCoursesStore.addData(userAddedCalendarCourses[i]);
       }
 
+      console.log(ALMITOnTheGo.app.addedCalendarCoursesStore);
+
       var touchCalendar = calendarView.down('#touchCalendarViewWidget');
 
       if(touchCalendar != null) {
@@ -194,6 +196,11 @@ Ext.define('ALMITOnTheGo.controller.Calendar',
               '<span id="courseCalendar{course_id}" style="float:right;font-style:normal;" class="fake-disclosure">]</span>',
               '<span id="courseCalendarDelete{course_id}" style="float:right;font-style:normal;display:none;" class="fake-trash">#</span>',
               '</span></p>',
+              '<p><span style="font-size: 80%;">{course_day}</span></p>',
+              '<p><span style="font-size: 80%;">{course_time}</span></p>',
+              '<p><span style="font-size: 80%;">{instructor}</span></p>',
+              '<p><span style="font-size: 80%;">{location}</span></p>',
+              '<p><span style="font-size: 80%;">{course_type}</span></p>',
               '<p style="margin-top:0.2em;">',
               '<tpl for="attributes_array">',
               '<span class="squarebox {.}">{.}</span>&nbsp;&nbsp;',
