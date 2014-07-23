@@ -74,6 +74,10 @@ try {
         if($action == 'addCalendarEvents') {
             $result = CalendarController::addCalendarEvents($_POST);
         }
+
+        if($action == 'deleteCalendarEvents') {
+            $result = CalendarController::deleteCalendarEvent($_POST);
+        }
     }
 } catch (APIException $ex) {
     $error = array();

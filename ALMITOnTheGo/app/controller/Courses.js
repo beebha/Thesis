@@ -96,8 +96,6 @@ Ext.define('ALMITOnTheGo.controller.Courses',
               fontSize: '80%'
             },
             fn:function(btn) {
-              console.log("button clicked....");
-              console.log(btn);
               Ext.Array.each(courseConflictIDs, function (courseID) {
                 var index = ALMITOnTheGo.app.viewCoursesStore.find("course_id", courseID);
                 viewCoursesList.getItemAt(index).setStyle('background-color:#C24641');

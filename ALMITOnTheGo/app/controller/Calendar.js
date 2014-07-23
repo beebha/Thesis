@@ -8,8 +8,31 @@ Ext.define('ALMITOnTheGo.controller.Calendar',
       control: {
         mainView: {
           calendarViewDetailsCommand: 'onCalendarViewDetailsCommand'
+        },
+        calendarView: {
+          deleteUserCalendarCourseCommand: 'onDeleteUserCalendarCourseCommand'
         }
       }
+    },
+    onDeleteUserCalendarCourseCommand: function(recordToBeDeleted) {
+      console.log("onDeleteUserCalendarCourseCommand");
+
+      ALMITOnTheGo.app.addedCalendarCoursesStore.remove(recordToBeDeleted);
+
+      Ext.Ajax.request({
+        url: ALMITOnTheGo.app.apiURL+'app.php?action=deleteCalendarEvents',
+        method: 'post',
+        params: {
+          authToken: ALMITOnTheGo.app.authToken,
+          courseID: recordToBeDeleted.data.course_id
+        },
+        success: function () {
+          Ext.each(Ext.query("*[id^=courseCalendarDelete]"), function(item) {
+            var courseID = item.id.replace("courseCalendarDelete", "");
+            Ext.get("courseCalendarDelete"+courseID).show();
+          });
+        }
+      });
     },
     onShowSelectedEventCommand: function(selectedDate, displayDate) {
       console.log("onCalendarViewDetailsCommand");
@@ -101,8 +124,6 @@ Ext.define('ALMITOnTheGo.controller.Calendar',
         ALMITOnTheGo.app.addedCalendarCoursesStore.addData(userAddedCalendarCourses[i]);
       }
 
-      console.log(ALMITOnTheGo.app.addedCalendarCoursesStore);
-
       var touchCalendar = calendarView.down('#touchCalendarViewWidget');
 
       if(touchCalendar != null) {
@@ -181,7 +202,9 @@ Ext.define('ALMITOnTheGo.controller.Calendar',
               eventStore: ALMITOnTheGo.app.allEventsStore
             },
             enableSimpleEvents: true
-          },
+          }
+        );
+        calendarView.down('#calendarViewContainer').add(
           {
             xtype: 'list',
             itemId: 'addedCalendarCoursesList',
@@ -193,7 +216,6 @@ Ext.define('ALMITOnTheGo.controller.Calendar',
               '<p><span style="font-weight: bold;">{course_code}</span></p>',
               '<p><span style="font-size: 80%;">{course_title}</span></p>',
               '<p><span style="font-size: 80%;font-style:italic;">{course_term_label}',
-              '<span id="courseCalendar{course_id}" style="float:right;font-style:normal;" class="fake-disclosure">]</span>',
               '<span id="courseCalendarDelete{course_id}" style="float:right;font-style:normal;display:none;" class="fake-trash">#</span>',
               '</span></p>',
               '<p><span style="font-size: 80%;">{course_day}</span></p>',
@@ -208,7 +230,8 @@ Ext.define('ALMITOnTheGo.controller.Calendar',
               '</p>'),
             store: ALMITOnTheGo.app.addedCalendarCoursesStore,
             useSimpleItems: true,
-            onItemDisclosure: false
+            onItemDisclosure: false,
+            disableSelection: true
           }
         );
       }

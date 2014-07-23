@@ -30,6 +30,29 @@ class Calendar
             "data" => NULL);
     }
 
+    public static function deleteCalendarEvent($authToken, $courseID)
+    {
+        if(!empty($authToken))
+        {
+            $query = UserInfoQuery::getUserInfoQuery($authToken);
+            $userResults = CalendarDBUtils::getSingleDetailExecutionResult($query);
+
+            $userID = $userResults['user_id'];
+
+            $deleteUserCalendarQuery = CalendarQuery::deleteUserCalendarQuery($userID, $courseID);
+            $deleteUserCalendarResults = CalendarDBUtils::getInsertUpdateDeleteExecutionResult($deleteUserCalendarQuery);
+
+            if(!$deleteUserCalendarResults) {
+                return array("status" => FALSE, "errorMsg" => "DB Error", "data" => NULL);
+            }
+        }
+
+        return array(
+            "status" => TRUE,
+            "errorMsg" => "",
+            "data" => NULL);
+    }
+
     public static function getCalendarViewDetails($authToken, $concentrationID, $mode, $minDate, $maxDate)
     {
         $userCalendarEvents = array();

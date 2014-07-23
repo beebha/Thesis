@@ -11,7 +11,9 @@ Ext.define('ALMITOnTheGo.view.Calendar', {
     'Ext.ux.TouchCalendarDayEvents',
     'Ext.ux.TouchCalendarSimpleEvents',
     'Ext.field.Hidden',
-    'Ext.field.Toggle'
+    'Ext.field.Toggle',
+    'Ext.List',
+    'Ext.Anim'
   ],
   config: {
     width: '100%',
@@ -176,24 +178,46 @@ Ext.define('ALMITOnTheGo.view.Calendar', {
         delegate: '#addedCalendarCoursesList',
         event: 'itemtap',
         fn: 'onAddedCalendarCoursesListItemTap'
+      },
+      {
+        delegate: '#editCalendarButton',
+        event: 'tap',
+        fn: 'onEditCalendarButtonTap'
       }
     ]
   },
-  onAddedCalendarCoursesListItemTap: function (list, index, target, record, e) {
-    if (!e.getTarget('.x-list-disclosure')) {
-      console.log("onAddedCalendarCoursesListItemTap");
-      var me = this;
-      var inDeleteMode = me.down('#editCalendarMode').getValue() == 'DELETE';
-      if(inDeleteMode) {
-        ALMITOnTheGo.app.addedCalendarCoursesStore.remove(record);
-        Ext.each(Ext.query("*[id^=courseCalendarDelete]"), function(item) {
-          var courseID = item.id.replace("courseCalendarDelete", "");
-          Ext.get("courseCalendarDelete"+courseID).show();
-          Ext.get("courseCalendar"+courseID).hide();
-        });
-      } else {
 
-      }
+  onAddedCalendarCoursesListItemTap: function (list, index, target, record, e) {
+    console.log("onAddedCalendarCoursesListItemTap");
+    var me = this;
+    var inDeleteMode = me.down('#editCalendarMode').getValue() == 'DELETE';
+    if(inDeleteMode) {
+
+      var task = Ext.create('Ext.util.DelayedTask', function () {
+        me.fireEvent('deleteUserCalendarCourseCommand', record);
+      });
+
+      task.delay(500);
     }
+  },
+  onEditCalendarButtonTap: function() {
+    console.log("onEditCalendarButtonTap");
+
+    var inDeleteMode = this.down('#editCalendarMode').getValue() == 'DELETE';
+
+    console.log(this.down('#editCalendarMode').getValue());
+
+    Ext.each(Ext.query("*[id^=courseCalendarDelete]"), function(item) {
+      var courseID = item.id.replace("courseCalendarDelete", "");
+      if (inDeleteMode) {
+        Ext.get("courseCalendarDelete"+courseID).hide();
+      } else {
+        Ext.get("courseCalendarDelete"+courseID).show();
+      }
+    });
+
+    inDeleteMode ? this.down('#editCalendarMode').setValue('NORMAL') : this.down('#editCalendarMode').setValue('DELETE');
+    inDeleteMode ? this.down('#editCalendarButton').setIconCls('trash') : this.down('#editCalendarButton').setIconCls('compose');
+    inDeleteMode ? this.down('#addedCalendarCoursesList').setDisableSelection(false) : this.down('#addedCalendarCoursesList').setDisableSelection(true);
   }
 });

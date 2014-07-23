@@ -31,6 +31,13 @@ class CalendarQuery
         return $queriesToBeExecuted;
     }
 
+    public static function deleteUserCalendarQuery($userID, $courseID)
+    {
+        return "DELETE from users_calendar
+                WHERE user_id = " .CalendarDBUtils::getDBValue(DBConstants::DB_VALUE, $userID). "
+                AND course_id = " . CalendarDBUtils::getDBValue(DBConstants::DB_VALUE, $courseID);
+    }
+
     public static function getUserCalendarQuery($userID)
     {
         return "SELECT group_concat(course_id) allCourseIDs

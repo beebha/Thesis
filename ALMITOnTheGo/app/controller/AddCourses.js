@@ -27,7 +27,6 @@ Ext.define('ALMITOnTheGo.controller.AddCourses', {
         fontSize: '80%'
       },
       fn:function(btn) {
-        console.log("button clicked....");
         addCoursesView.onRegistrationMsgPanelHide();
       }
     });

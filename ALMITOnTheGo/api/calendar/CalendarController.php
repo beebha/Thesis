@@ -34,5 +34,19 @@ class CalendarController
         $result['data'] = $resultData['data'];
         return $result;
     }
+
+    public static function deleteCalendarEvent($postVar)
+    {
+        $result = array();
+        $resultData = null;
+
+        // add calendar events
+        $resultData = Calendar::deleteCalendarEvent($postVar['authToken'], $postVar['courseID']);
+
+        $result['success'] = $resultData['status'];
+        $result['error']['message'] = $resultData['errorMsg'];
+        $result['data'] = $resultData['data'];
+        return $result;
+    }
 }
  
