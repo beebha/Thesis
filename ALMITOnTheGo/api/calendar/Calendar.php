@@ -74,6 +74,7 @@ class Calendar
         $calendarCourses = CalendarDBUtils::getAllResults($query);
 
         $calendarEvents = array();
+        $userAddedCalendarCourses = array();
 
         foreach($calendarCourses as $singleCourse)
         {
@@ -140,11 +141,17 @@ class Calendar
                 }
                 $currentDate = date('Y-n-j', strtotime($currentDate . " +1 day"));
             }
+
+            if(in_array($singleCourse['course_id'], $userCalendarEvents)) {
+                $singleCourse['attributes_array'] = explode(",", $singleCourse['attributes']);
+                $singleCourse['course_day'] = str_replace(" ", ", ", ucwords(str_replace(",", " ", strtolower($singleCourse['course_day']))));
+                $userAddedCalendarCourses[] = $singleCourse;
+            }
         }
 
         return array(
             "status" => TRUE,
             "errorMsg" => "",
-            "data" => array('calendarEvents' => $calendarEvents));
+            "data" => array('calendarEvents' => $calendarEvents, 'userAddedCalendarCourses' => $userAddedCalendarCourses));
     }
 }

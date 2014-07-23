@@ -85,12 +85,20 @@ Ext.define('ALMITOnTheGo.controller.Calendar',
       var calendarView = cal.getCalendarView();
 
       ALMITOnTheGo.app.allEventsStore.removeAll();
+      ALMITOnTheGo.app.addedCalendarCoursesStore.removeAll();
+
       var calendarEvents = calResponse.data.calendarEvents;
       for (var i=0; i<calendarEvents.length; i++)
       {
         calendarEvents[i]['start'] = cal.getDateForCalendar(calendarEvents[i]['startDate']);
         calendarEvents[i]['end'] = cal.getDateForCalendar(calendarEvents[i]['endDate']);
         ALMITOnTheGo.app.allEventsStore.addData(calendarEvents[i]);
+      }
+
+      var userAddedCalendarCourses = calResponse.data.userAddedCalendarCourses;
+      for (var i=0; i<userAddedCalendarCourses.length; i++)
+      {
+        ALMITOnTheGo.app.addedCalendarCoursesStore.addData(userAddedCalendarCourses[i]);
       }
 
       var touchCalendar = calendarView.down('#touchCalendarViewWidget');
@@ -139,6 +147,7 @@ Ext.define('ALMITOnTheGo.controller.Calendar',
             itemId: 'touchCalendarViewWidget',
             width: '100%',
             height: '100%',
+            showAnimation: 'flip',
             listeners: {
               periodchange: function (calendarView, minDate, maxDate, direction, eOpts) {
                 console.log("periodchange");
@@ -170,6 +179,29 @@ Ext.define('ALMITOnTheGo.controller.Calendar',
               eventStore: ALMITOnTheGo.app.allEventsStore
             },
             enableSimpleEvents: true
+          },
+          {
+            xtype: 'list',
+            itemId: 'addedCalendarCoursesList',
+            hidden: true,
+            width: '100%',
+            height: '100%',
+            showAnimation: 'flip',
+            itemTpl: new Ext.XTemplate(
+              '<p><span style="font-weight: bold;">{course_code}</span></p>',
+              '<p><span style="font-size: 80%;">{course_title}</span></p>',
+              '<p><span style="font-size: 80%;font-style:italic;">{course_term_label}',
+              '<span id="courseCalendar{course_id}" style="float:right;font-style:normal;" class="fake-disclosure">]</span>',
+              '<span id="courseCalendarDelete{course_id}" style="float:right;font-style:normal;display:none;" class="fake-trash">#</span>',
+              '</span></p>',
+              '<p style="margin-top:0.2em;">',
+              '<tpl for="attributes_array">',
+              '<span class="squarebox {.}">{.}</span>&nbsp;&nbsp;',
+              '</tpl>',
+              '</p>'),
+            store: ALMITOnTheGo.app.addedCalendarCoursesStore,
+            useSimpleItems: true,
+            onItemDisclosure: false
           }
         );
       }
@@ -177,7 +209,7 @@ Ext.define('ALMITOnTheGo.controller.Calendar',
       ALMITOnTheGo.app.authToken == null ? calendarView.down('#SWEButton').show() : calendarView.down('#SWEButton').hide();
       ALMITOnTheGo.app.authToken == null ? calendarView.down('#IMSButton').show() : calendarView.down('#IMSButton').hide();
       ALMITOnTheGo.app.authToken == null ? calendarView.down('#DGMButton').show() : calendarView.down('#DGMButton').hide();
-
+      ALMITOnTheGo.app.authToken == null ? calendarView.down('#viewAddedCoursesButton').hide() : calendarView.down('#viewAddedCoursesButton').show();
       calendarView.setMasked(false);
     },
     getDateForCalendar: function(dateObj) {

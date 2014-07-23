@@ -16,6 +16,7 @@ Ext.define('ALMITOnTheGo.view.Calendar', {
   config: {
     width: '100%',
     height: '100%',
+    itemId: 'calendarViewPanel',
     items: [
       {
         xtype: 'container',
@@ -32,10 +33,20 @@ Ext.define('ALMITOnTheGo.view.Calendar', {
             xtype: 'titlebar',
             cls: 'inner-toolbar',
             style: {
-              border: 'none'
+              border: 'none',
+              height: '2.8em'
             },
             items:
             [
+              {
+                xtype: 'fixedbutton',
+                iconCls: 'trash',
+                iconAlign: 'right',
+                text: 'Switch to',
+                itemId: 'editCalendarButton',
+                align: 'left',
+                hidden: true
+              },
               {
                 xtype: 'togglefield',
                 itemId: 'calendarToggle',
@@ -43,8 +54,6 @@ Ext.define('ALMITOnTheGo.view.Calendar', {
                 value: 1,
                 listeners: {
                   change: function(field, newValue, oldValue) {
-                    console.log('Value of this toggle has changed from ' + oldValue + ' to ' + newValue);
-
                     if(field.up('#calendarViewContainer')) {
                       var touchCalendarViewWidget = field.up('#calendarViewContainer').down('#touchCalendarViewWidget');
                       if(newValue == 1) {
@@ -54,6 +63,36 @@ Ext.define('ALMITOnTheGo.view.Calendar', {
                         touchCalendarViewWidget.setViewMode('week');
                         touchCalendarViewWidget.updateViewMode('week');
                       }
+                    }
+                  }
+                }
+              },
+              {
+                xtype: 'fixedbutton',
+                itemId: 'viewAddedCoursesButton',
+                text: 'View Added Courses',
+                align: 'right',
+                hidden: true,
+                listeners : {
+                  tap : function(button, e, eOpts) {
+                    console.log('View Added Courses tapped');
+                    var touchCalendarViewWidget = button.up('#calendarViewContainer').down('#touchCalendarViewWidget');
+                    var addedCalendarCoursesList = button.up('#calendarViewContainer').down('#addedCalendarCoursesList');
+                    var calendarToggleSwitch = button.up('#calendarViewContainer').down('#calendarToggle');
+                    var editCalendarButton = button.up('#calendarViewContainer').down('#editCalendarButton');
+
+                    if(touchCalendarViewWidget.isHidden()) {
+                      touchCalendarViewWidget.show();
+                      calendarToggleSwitch.show();
+                      addedCalendarCoursesList.hide();
+                      editCalendarButton.hide();
+                      button.setText('View Added Courses');
+                    } else {
+                      touchCalendarViewWidget.hide();
+                      calendarToggleSwitch.hide();
+                      addedCalendarCoursesList.show();
+                      editCalendarButton.show();
+                      button.setText('Back to Calendar');
                     }
                   }
                 }
@@ -123,9 +162,38 @@ Ext.define('ALMITOnTheGo.view.Calendar', {
           {
             xtype: 'hiddenfield',
             itemId: 'concentrationCode'
+          },
+          {
+            xtype: 'hiddenfield',
+            itemId: 'editCalendarMode',
+            value: 'NORMAL'
           }
         ]
       }
+    ],
+    listeners: [
+      {
+        delegate: '#addedCalendarCoursesList',
+        event: 'itemtap',
+        fn: 'onAddedCalendarCoursesListItemTap'
+      }
     ]
+  },
+  onAddedCalendarCoursesListItemTap: function (list, index, target, record, e) {
+    if (!e.getTarget('.x-list-disclosure')) {
+      console.log("onAddedCalendarCoursesListItemTap");
+      var me = this;
+      var inDeleteMode = me.down('#editCalendarMode').getValue() == 'DELETE';
+      if(inDeleteMode) {
+        ALMITOnTheGo.app.addedCalendarCoursesStore.remove(record);
+        Ext.each(Ext.query("*[id^=courseCalendarDelete]"), function(item) {
+          var courseID = item.id.replace("courseCalendarDelete", "");
+          Ext.get("courseCalendarDelete"+courseID).show();
+          Ext.get("courseCalendar"+courseID).hide();
+        });
+      } else {
+
+      }
+    }
   }
 });
