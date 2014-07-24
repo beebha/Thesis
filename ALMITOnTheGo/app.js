@@ -47,7 +47,7 @@ Ext.application({
     ],
 
     views: [
-      'Landing', 'Home', 'Login', 'Register', 'Main', 'AddCourses', 'UserInformation', 'Courses', 'Grades', 'Requirements', 'Calendar'
+      'Landing', 'Home', 'Login', 'Register', 'Main', 'AddCourses', 'UserInformation', 'Courses', 'Grades', 'Requirements', 'Calendar', 'Analysis'
     ],
 
     models: [

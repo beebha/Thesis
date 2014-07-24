@@ -112,10 +112,9 @@ Ext.define('ALMITOnTheGo.view.Main', {
       {
         title: 'Analysis',
         iconCls: 'stats',
-        style: {
-          margin: '3em'
-        },
-        html: 'COMING SOON!'
+        items: {
+          xtype: 'analysisView'
+        }
       },
       {
         title: 'Contacts',

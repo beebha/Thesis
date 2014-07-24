@@ -141,7 +141,7 @@ Ext.define('Ext.chart.axis.Axis', {
          * for a vertical title and vertically for an horizontal title, with half the `titleMargin`
          * being added on either side.
          */
-        titleMargin: 4,
+        titleMargin: 16,
 
         /**
          * @cfg {Object} background
