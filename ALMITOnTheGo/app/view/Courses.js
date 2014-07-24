@@ -114,7 +114,8 @@ Ext.define('ALMITOnTheGo.view.Courses', {
                     title: 'Select Category',
                     cls: 'inner-toolbar',
                     style: {
-                      border: 'none'
+                      border: 'none',
+                      fontSize: '90%'
                     }
                   },
                   {

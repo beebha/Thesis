@@ -12,10 +12,12 @@ Ext.define('ALMITOnTheGo.view.Home', {
       {
         xtype: 'label',
         itemId: 'welcomeLabel',
-        height: '10%',
+        height: '15%',
         style: {
           fontWeight: 'bold',
-          padding: '0.5em'
+          top: '0.5em',
+          bottom: '0.5em',
+          left: '0.5em'
         }
       },
       {
@@ -26,9 +28,10 @@ Ext.define('ALMITOnTheGo.view.Home', {
         },
         centered: true,
         width: '95%',
-        height: '70%',
+        height: '80%',
         style: {
-          border: '0.1em solid #330000'
+          border: '0.1em solid #330000',
+          top: '0.5em'
         },
         items: []
       }

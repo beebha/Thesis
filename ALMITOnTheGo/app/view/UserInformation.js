@@ -88,7 +88,7 @@ Ext.define('ALMITOnTheGo.view.UserInformation', {
               },
               {
                 xtype: 'list',
-                height: window.innerHeight / 5,
+                height: (window.innerHeight / 5) - 5,
                 width: '100%',
                 itemId: 'completedCoursesList',
                 itemTpl: new Ext.XTemplate(
@@ -137,7 +137,7 @@ Ext.define('ALMITOnTheGo.view.UserInformation', {
               },
               {
                 xtype: 'list',
-                height: window.innerHeight / 5,
+                height: (window.innerHeight / 5) - 5,
                 width: '100%',
                 itemId: 'registeredCoursesList',
                 itemTpl: new Ext.XTemplate(

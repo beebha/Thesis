@@ -5,6 +5,7 @@ Ext.define('ALMITOnTheGo.view.Landing', {
   ],
   config: {
     fullscreen: true,
+    layout: 'fit',
     scrollable:'false',
     style: 'background:url(resources/images/mobile_bg.jpg);background-repeat:no-repeat;' +
            '-webkit-background-size: cover;-moz-background-size: cover;' +
@@ -45,7 +46,7 @@ Ext.define('ALMITOnTheGo.view.Landing', {
             xtype: 'image',
             src: 'resources/images/ALMITOnTheGo_logo.png',
             width: 290,
-            height: 165
+            flex: 0.25
           },
           {
             xtype: 'carousel',
@@ -53,7 +54,7 @@ Ext.define('ALMITOnTheGo.view.Landing', {
               styleHtmlContent: true
             },
             width: '75%',
-            height: 250,
+            flex: 0.65,
             style: {
               border: '0.2em solid #A4946D',
               borderRadius: '0.5em'
@@ -92,6 +93,11 @@ Ext.define('ALMITOnTheGo.view.Landing', {
                       '</span>'
               }
             ]
+          },
+          {
+            xtype: 'spacer',
+            flex: 0.1,
+            width: 5
           }
         ]
       }

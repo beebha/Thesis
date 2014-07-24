@@ -374,6 +374,10 @@ Ext.define('ALMITOnTheGo.controller.Courses',
             {
               xtype: 'radiofield',
               name: 'category',
+              style: {
+                height: '1em',
+                fontSize: '85%'
+              },
               value: currentReqs[singleReq]['category_id'],
               label: currentReqs[singleReq]['category_label'] +
                 "<br>" + subText
@@ -384,6 +388,10 @@ Ext.define('ALMITOnTheGo.controller.Courses',
           {
             xtype: 'radiofield',
             name: 'category',
+            style: {
+              height: '1em',
+              fontSize: '85%'
+            },
             value: 0,
             label: 'All'
           }
