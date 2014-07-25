@@ -65,7 +65,7 @@ Ext.define('ALMITOnTheGo.controller.Analysis',
                   {
                     type: 'category',
                     position: 'bottom',
-                    fields: ['course_term_label'],
+                    fields: ['gpa_x_label'],
                     title: {
                       text: 'COURSE TERMS',
                       fontSize: 12,
@@ -84,7 +84,7 @@ Ext.define('ALMITOnTheGo.controller.Analysis',
                     style: {
                       stroke: '#8D8D8D'
                     },
-                    xField: 'course_term_label',
+                    xField: 'gpa_x_label',
                     yField: 'gpa',
                     marker: {
                       type: 'path',
