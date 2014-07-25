@@ -57,3 +57,9 @@ require_once(dirname(__FILE__) . '/../calendar/CalendarController.php');
 require_once(dirname(__FILE__) . '/../calendar/Calendar.php');
 require_once(dirname(__FILE__) . '/../calendar/CalendarDBUtils.php');
 require_once(dirname(__FILE__) . '/../calendar/CalendarQuery.php');
+
+// Analysis files
+require_once(dirname(__FILE__) . '/../analysis/AnalysisController.php');
+require_once(dirname(__FILE__) . '/../analysis/Analysis.php');
+require_once(dirname(__FILE__) . '/../analysis/AnalysisDBUtils.php');
+require_once(dirname(__FILE__) . '/../analysis/AnalysisQuery.php');

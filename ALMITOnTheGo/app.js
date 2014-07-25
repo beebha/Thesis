@@ -29,6 +29,7 @@ Ext.application({
     viewCoursesStore: null,
     viewRequirementsStore:null,
     addedCalendarCoursesStore: null,
+    allTermsGPA: null,
     homeTab: 0,
     coursesTab: 1,
     requirementsTab: 2,
@@ -43,7 +44,7 @@ Ext.application({
         'GT.FixedButton'
     ],
     controllers: [
-      'Landing', 'Common', 'Login', 'Register', 'Main', 'AddCourses', 'UserInformation', 'Courses', 'Grades', 'Requirements', 'Calendar'
+      'Landing', 'Common', 'Login', 'Register', 'Main', 'AddCourses', 'UserInformation', 'Courses', 'Grades', 'Requirements', 'Calendar', 'Analysis'
     ],
 
     views: [
@@ -55,7 +56,7 @@ Ext.application({
     ],
 
     stores: [
-      'AddedCourses', 'AllCourses', 'ViewCourses', 'AddedCalendarCourses', 'ViewRequirements', 'CourseCalendarEvents'
+      'AddedCourses', 'AllCourses', 'ViewCourses', 'AddedCalendarCourses', 'ViewRequirements', 'CourseCalendarEvents', 'CoursesGPA'
     ],
 
     icon: {
@@ -88,6 +89,7 @@ Ext.application({
       ALMITOnTheGo.app.viewRequirementsStore = null;
       ALMITOnTheGo.app.allEventsStore = null;
       ALMITOnTheGo.app.addedCalendarCoursesStore = null;
+      ALMITOnTheGo.app.allTermsGPA = null;
 
       // Destroy the #appLoadingIndicator element
       Ext.fly('appLoadingIndicator').destroy();
@@ -119,6 +121,7 @@ Ext.application({
             ALMITOnTheGo.app.viewRequirementsStore = Ext.getStore('viewRequirementsStore');
             ALMITOnTheGo.app.allEventsStore = Ext.getStore('allEventsStore');
             ALMITOnTheGo.app.addedCalendarCoursesStore = Ext.getStore('addedCalendarCoursesStore');
+            ALMITOnTheGo.app.allTermsGPA = Ext.getStore('courseGPAStore');
 
           } else {
             // TODO - implementation

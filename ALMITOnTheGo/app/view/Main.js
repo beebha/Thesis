@@ -32,6 +32,10 @@ Ext.define('ALMITOnTheGo.view.Main', {
           console.log("Grades clicked!");
           me.fireEvent('gradesViewDetailsCommand');
         }
+        if (tab.config.title == 'Analysis') {
+          console.log("Analysis clicked!");
+          me.fireEvent('analysisViewDetailsCommand');
+        }
       },
       show: function () {
         this.getHomeViewDetails();

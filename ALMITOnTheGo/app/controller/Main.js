@@ -33,6 +33,7 @@ Ext.define('ALMITOnTheGo.controller.Main', {
         var welcomeMsg = "";
         var showSettingsBtn = false;
         var showGradesTab = false;
+        var showAnalysisTab = false;
         var userInfo = mainViewResponse.data.userInfo;
         var announcements = [];
 
@@ -42,6 +43,7 @@ Ext.define('ALMITOnTheGo.controller.Main', {
           welcomeMsg = "Welcome back " + userInfo.username + "!!!<br>" + "Last Login: " + userInfo.last_login;
           showSettingsBtn = true;
           showGradesTab = true;
+          showAnalysisTab = true;
         }
 
         var carouselImagesCount = 6;
@@ -82,6 +84,9 @@ Ext.define('ALMITOnTheGo.controller.Main', {
         showGradesTab ?
           Ext.getCmp('mainViewTabPanel').getTabBar().getComponent(ALMITOnTheGo.app.gradesTab).show() :
           Ext.getCmp('mainViewTabPanel').getTabBar().getComponent(ALMITOnTheGo.app.gradesTab).hide();
+        showAnalysisTab ?
+          Ext.getCmp('mainViewTabPanel').getTabBar().getComponent(ALMITOnTheGo.app.analysisTab).show() :
+          Ext.getCmp('mainViewTabPanel').getTabBar().getComponent(ALMITOnTheGo.app.analysisTab).hide();
 
         // always set home view upon registering or login
         Ext.getCmp('mainViewTabPanel').setActiveItem(0);

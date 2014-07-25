@@ -78,6 +78,11 @@ try {
         if($action == 'deleteCalendarEvents') {
             $result = CalendarController::deleteCalendarEvent($_POST);
         }
+
+        // redirect to calendar server file
+        if($action == 'getGPAForAllTerms') {
+            $result = AnalysisController::getGPAForAllTerms($_POST);
+        }
     }
 } catch (APIException $ex) {
     $error = array();
