@@ -31,6 +31,7 @@ $createTableSql = "CREATE TABLE course (
                     instructor VARCHAR(64) NOT NULL,
                     location VARCHAR(64) NULL,
                     attributes SET('TMF','DCOM','DC','SP','SD','WAD','WP','SRM','DM','MGMT','AL','P','AC','LA','CD','DIGM','EID','WDD','CAP','E','DSCI','DCAP') NOT NULL,
+                    course_url VARCHAR(255) NULL,
                     PRIMARY KEY (course_id)
                     ) ENGINE = InnoDB";
 

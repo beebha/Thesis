@@ -290,6 +290,7 @@ foreach($allCourseContents as $singleFileContents)
                 $instructor = $info[3];
                 $location = strtoupper($info[6]) == 'N/A' ? NULL : $info[6];
                 $attributes = strtoupper(str_replace("|", ",", $info[9]));
+                $courseURL = NULL;
             } else {
                 $hesCourseID = $info[1];
                 $courseCode = $info[2];
@@ -302,12 +303,14 @@ foreach($allCourseContents as $singleFileContents)
                 $instructor = $info[4];
                 $location = strtoupper($info[7]) == 'N/A' ? NULL : $info[7];
                 $attributes = strtoupper(str_replace("|", ",", $info[10]));
+                $courseURL = $courseTermID == 5 ? "http://www.summer.harvard.edu/courses/" : "http://www.extension.harvard.edu/courses/";
+                $courseURL .= $hesCourseID;
             }
 
             $courseTableInserts[] =
                         "INSERT INTO course
                             (concentration_id, hes_course_id, course_id, course_code, course_title, course_term_id, course_day,
-                            course_time, course_type, course_limit, instructor, location, attributes)
+                            course_time, course_type, course_limit, instructor, location, attributes, course_url)
                             VALUES (" .$concentrationID. ",".
                             $hesCourseID. ",".
                             $courseID. ",'".
@@ -320,7 +323,8 @@ foreach($allCourseContents as $singleFileContents)
                             $courseLimit.",'".
                             mysqli_real_escape_string($link, $instructor)."','".
                             mysqli_real_escape_string($link, $location)."','".
-                            $attributes."');";
+                            $attributes."','".
+                            mysqli_real_escape_string($link, $courseURL)."');";
 
             $line++;
             $courseID++;
