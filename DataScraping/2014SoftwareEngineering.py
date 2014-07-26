@@ -44,7 +44,7 @@ url = URL("http://dceweb.harvard.edu/prod/sswcpgm.taf?function=search&wgrp=ALMIT
 dom = DOM(url.download(cached=True))
 
 # add 1st header row
-writer.writerow(["Term", "CourseNumber", "Title", "Instructor", "Day", "Time", "Location", "CourseType", "EnrollLimit", "Attributes"])
+writer.writerow(["Term", "CourseID", "CourseNumber", "Title", "Instructor", "Day", "Time", "Location", "CourseType", "EnrollLimit", "Attributes"])
 
 date_to_write = []
 
@@ -65,6 +65,7 @@ for ind_data_row in all_data_rows:
         if len(all_columns) > 1 and plaintext(str(all_columns[4])).find("Canceled") == -1:
 
             term = ""
+            course_id = ""
             course_number = ""
             title = ""
             instructor = ""
@@ -100,6 +101,9 @@ for ind_data_row in all_data_rows:
                     else:
                         term = ind_column.replace("Archive", "").strip()
 
+                if i == 1:
+                    course_id = plaintext(str(all_columns[i]))
+
                 if i == 2:
                     course_number = plaintext(str(all_columns[i]).replace("<br />", ""))
 
@@ -122,20 +126,16 @@ for ind_data_row in all_data_rows:
                 if i == 7:
                     course_type = ind_column
 
-                if i == 8:
+                if i == 9:
                     enroll_limit = ind_column
 
-                if i == 9:
+                if i == 12:
                     attributes = plaintext(str(all_columns[i]).replace(", &#8224;", ""))
 
-            date_to_write.append([term, course_number, title, instructor, day, time, location, course_type, enroll_limit, attributes])
+            date_to_write.append([term, course_id, course_number, title, instructor, day, time, location, course_type, enroll_limit, attributes])
 
 # at this point we have all the movie rows required, print them out to the CSV file
 writer.writerows(date_to_write)
 
 # close the CSV file
 output.close()
-
-
-
-

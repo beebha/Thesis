@@ -285,7 +285,7 @@ Ext.define('Ext.MessageBox', {
 
                 me.buttonsToolbar = Ext.create('Ext.Toolbar', {
                     docked: 'bottom',
-                    defaultType: 'button',
+                    defaultType: 'fixedbutton',
                     defaults: {
                         flex: (isFlexed) ? 1 : undefined,
                         ui: (Ext.theme.is.Blackberry) ? 'action' : undefined

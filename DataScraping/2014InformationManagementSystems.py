@@ -66,6 +66,7 @@ for ind_data_row in all_data_rows:
 
             term = ""
             course_number = ""
+            course_id = ""
             title = ""
             instructor = ""
             day = "N/A"
@@ -100,6 +101,9 @@ for ind_data_row in all_data_rows:
                     else:
                         term = ind_column.replace("Archive", "").strip()
 
+                if i == 1:
+                    course_id = plaintext(str(all_columns[i]))
+
                 if i == 2:
                     course_number = plaintext(str(all_columns[i]).replace("<br />", ""))
 
@@ -122,13 +126,13 @@ for ind_data_row in all_data_rows:
                 if i == 7:
                     course_type = ind_column
 
-                if i == 8:
+                if i == 9:
                     enroll_limit = ind_column
 
-                if i == 9:
+                if i == 12:
                     attributes = plaintext(str(all_columns[i]).replace(", &#8224;", ""))
 
-            date_to_write.append([term, course_number, title, instructor, day, time, location, course_type, enroll_limit, attributes])
+            date_to_write.append([term, course_id, course_number, title, instructor, day, time, location, course_type, enroll_limit, attributes])
 
 # at this point we have all the movie rows required, print them out to the CSV file
 writer.writerows(date_to_write)

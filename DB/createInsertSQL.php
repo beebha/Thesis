@@ -278,33 +278,49 @@ foreach($allCourseContents as $singleFileContents)
 
             $info = explode(",", $singleLine);
 
-            $courseCode = $info[1];
-            $courseTitle = $info[2];
-            $courseTermID = $COURSE_TERM_INFO[strtoupper($info[0])];
-            $courseDay = strtoupper($info[4]) == 'N/A' ? NULL : strtoupper(str_replace("|", ",", $info[4]));
-            $courseTime = strtoupper($info[5]) == 'N/A' ? NULL : $info[5];
-            $courseType = $info[7];
-            $courseLimit = strtoupper($info[8]) == 'NO LIMIT' ? 0 : $info[8];
-            $instructor = $info[3];
-            $location = strtoupper($info[6]) == 'N/A' ? NULL : $info[6];
-            $attributes = strtoupper(str_replace("|", ",", $info[9]));
+            if(count($info) == 10) {
+                $hesCourseID = 0;
+                $courseCode = $info[1];
+                $courseTitle = $info[2];
+                $courseTermID = $COURSE_TERM_INFO[strtoupper($info[0])];
+                $courseDay = strtoupper($info[4]) == 'N/A' ? NULL : strtoupper(str_replace("|", ",", $info[4]));
+                $courseTime = strtoupper($info[5]) == 'N/A' ? NULL : $info[5];
+                $courseType = $info[7];
+                $courseLimit = strtoupper($info[8]) == 'NO LIMIT' ? 0 : $info[8];
+                $instructor = $info[3];
+                $location = strtoupper($info[6]) == 'N/A' ? NULL : $info[6];
+                $attributes = strtoupper(str_replace("|", ",", $info[9]));
+            } else {
+                $hesCourseID = $info[1];
+                $courseCode = $info[2];
+                $courseTitle = $info[3];
+                $courseTermID = $COURSE_TERM_INFO[strtoupper($info[0])];
+                $courseDay = strtoupper($info[5]) == 'N/A' ? NULL : strtoupper(str_replace("|", ",", $info[5]));
+                $courseTime = strtoupper($info[6]) == 'N/A' ? NULL : $info[6];
+                $courseType = $info[8];
+                $courseLimit = strtoupper($info[9]) == 'NO LIMIT' ? 0 : $info[9];
+                $instructor = $info[4];
+                $location = strtoupper($info[7]) == 'N/A' ? NULL : $info[7];
+                $attributes = strtoupper(str_replace("|", ",", $info[10]));
+            }
 
             $courseTableInserts[] =
                         "INSERT INTO course
-                            (concentration_id, course_id, course_code, course_title, course_term_id, course_day,
+                            (concentration_id, hes_course_id, course_id, course_code, course_title, course_term_id, course_day,
                             course_time, course_type, course_limit, instructor, location, attributes)
                             VALUES (" .$concentrationID. ",".
-                                $courseID. ",'".
-                                $courseCode."','".
-                                mysqli_real_escape_string($link, $courseTitle)."',".
-                                $courseTermID.",'".
-                                $courseDay."','".
-                                mysqli_real_escape_string($link, $courseTime)."','".
-                                $courseType."',".
-                                $courseLimit.",'".
-                                mysqli_real_escape_string($link, $instructor)."','".
-                                mysqli_real_escape_string($link, $location)."','".
-                                $attributes."');";
+                            $hesCourseID. ",".
+                            $courseID. ",'".
+                            $courseCode."','".
+                            mysqli_real_escape_string($link, $courseTitle)."',".
+                            $courseTermID.",'".
+                            $courseDay."','".
+                            mysqli_real_escape_string($link, $courseTime)."','".
+                            $courseType."',".
+                            $courseLimit.",'".
+                            mysqli_real_escape_string($link, $instructor)."','".
+                            mysqli_real_escape_string($link, $location)."','".
+                            $attributes."');";
 
             $line++;
             $courseID++;
@@ -312,58 +328,6 @@ foreach($allCourseContents as $singleFileContents)
     }
     $concentrationID++;
 }
-// create demo users and mobile auth tokens
-//$demoUsers = array();
-//$demoMobileAuthTokens = array();
-//$concID = 0;
-//for($i = 0; $i < 8; $i++)
-//{
-//    $username = 'demo'.$i;
-//    $password = 'test';
-//    $email = 'demo'.$i.'@demo.com';
-//    $passwordHash = password_hash($password, PASSWORD_DEFAULT);
-//    $registrationType = "DEGREE";
-//
-//    if($i > 3 && $i < 7) {
-//        $registrationType = "PRE-ADMISSION";
-//        --$concID;
-//    } else if ($i >= 7) {
-//        $registrationType = "GUEST";
-//        $concID = 0;
-//    } else {
-//        $concID++;
-//    }
-//
-//    $deviceType = $i % 2 == 0 ? "Phone" : "Tablet";
-//    $deviceOS = $i % 2 == 0 ? "iOS" : "Android";
-//
-//    $authToken = md5(uniqid(rand(), true));
-//
-//    $demoUsers[] = "INSERT INTO users
-//                    (username, password_hash, email, registration_type, concentration_id, current_login, last_login, create_date) values ('" .
-//                    $username . "','" .
-//                    $passwordHash . "','" .
-//                    $email . "','" .
-//                    $registrationType . "'," .
-//                    $concID . ",
-//                    CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)";
-//
-//    $demoMobileAuthTokens[] = "INSERT INTO mobile_auth_token
-//                    (user_id, auth_token, device_type, device_os, create_date) values (" .
-//                    ($i+1) . ",'" .
-//                    $authToken . "','" .
-//                    $deviceType . "','" .
-//                    $deviceOS . "',
-//                    CURRENT_TIMESTAMP)
-//                    ON DUPLICATE KEY UPDATE
-//                    auth_token = '" .$authToken. "',
-//                    modify_date = CURRENT_TIMESTAMP";
-//}
-// create demo data for degree and pre-admission candidates
-//for($i = 0; $i < 8; $i++)
-//{
-//
-//}
 
 $allInserts =  array_merge(
     $courseTermTableInserts,
@@ -374,8 +338,6 @@ $allInserts =  array_merge(
     $categoryReqTableInserts,
     $courseTableInserts,
     $announcementsTableInserts
-//    $demoUsers,
-//    $demoMobileAuthTokens
 );
 
 // drop and create all tables

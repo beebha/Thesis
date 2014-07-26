@@ -19,6 +19,7 @@ error_log("Dropped TABLE course");
 
 $createTableSql = "CREATE TABLE course (
                     concentration_id INT(10) UNSIGNED NOT NULL,
+                    hes_course_id INT(10) UNSIGNED NOT NULL,
                     course_id INT(10) UNSIGNED NOT NULL,
                     course_code VARCHAR(64) NOT NULL,
                     course_title VARCHAR(255) NOT NULL,
