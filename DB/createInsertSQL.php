@@ -17,6 +17,7 @@ $general_course_requirements_fileContents = array();
 $course_key_fileContents = array();
 $detailed_course_requirements_fileContents = array();
 $announcements_fileContents = array();
+$instructors_fileContents = array();
 
 $SWE_fileContents = array();
 $IMS_fileContents = array();
@@ -31,6 +32,8 @@ $courseTableInserts = array();
 $courseTermTableInserts = array();
 $gradeTableInserts = array();
 $announcementsTableInserts = array();
+$instructorsTableInserts = array();
+$instructorsCoursesTableInserts = array();
 
 $dir = new RecursiveIteratorIterator(new RecursiveDirectoryIterator(__DIR__));
 foreach ($dir as $splFileInfo)
@@ -75,6 +78,10 @@ foreach ($dir as $splFileInfo)
 
     if(strrpos($fileName, "data/announcements") !== FALSE) {
         $announcements_fileContents[] = file($fileName, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+    }
+
+    if(strrpos($fileName, "data/instructors_and_courses") !== FALSE) {
+        $instructors_fileContents[] = file($fileName, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
     }
 }
 
@@ -254,6 +261,37 @@ foreach($detailed_course_requirements_fileContents as $singleFile)
     }
 }
 
+foreach($instructors_fileContents as $singleFile)
+{
+    $line = 0;
+    foreach($singleFile as $singleLine)
+    {
+        if ($line == 0) {
+            $line++;
+            continue;
+        }
+
+        $instructorInfo = explode(",", $singleLine);
+        $instructorEmail = !empty($instructorInfo[4]) ? $instructorInfo[4] : NULL;
+
+        $instructorsTableInserts[] =
+            "INSERT IGNORE INTO instructors
+                (instructor_id, instructor_code, instructor_name, instructor_url, instructor_email)
+                VALUES (" .$line. ",'" .
+            mysqli_real_escape_string($link, $instructorInfo[1])."','".
+            mysqli_real_escape_string($link, $instructorInfo[2])."','".
+            mysqli_real_escape_string($link, $instructorInfo[3])."','".
+            mysqli_real_escape_string($link, $instructorEmail)."');";
+
+        $instructorsCoursesTableInserts[] =
+            "INSERT IGNORE INTO instructors_courses
+                (hes_course_id, instructor_code) VALUES
+                (" .$instructorInfo[0]. ",'" .  mysqli_real_escape_string($link, $instructorInfo[1])."');";
+
+        $line++;
+    }
+}
+
 $allCourseContents =  array(
     $SWE_fileContents,
     $IMS_fileContents,
@@ -341,7 +379,9 @@ $allInserts =  array_merge(
     $categoryTableInserts,
     $categoryReqTableInserts,
     $courseTableInserts,
-    $announcementsTableInserts
+    $announcementsTableInserts,
+    $instructorsTableInserts,
+    $instructorsCoursesTableInserts
 );
 
 // drop and create all tables
@@ -353,6 +393,8 @@ include 'createConcentrationReqTable.php';
 include 'createCategoryTable.php';
 include 'createCategoryReqTable.php';
 include 'createCourseTable.php';
+include 'createInstructorTable.php';
+include 'createInstructorCoursesTable.php';
 include 'createUsersTable.php';
 include 'createUserCoursesTable.php';
 include 'createUserCalendarTable.php';
