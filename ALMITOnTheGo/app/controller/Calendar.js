@@ -231,7 +231,8 @@ Ext.define('ALMITOnTheGo.controller.Calendar',
             store: ALMITOnTheGo.app.addedCalendarCoursesStore,
             useSimpleItems: true,
             onItemDisclosure: false,
-            disableSelection: true
+            disableSelection: true,
+            emptyText: '<div style="margin-top: 15px; text-align: center">No Added Courses To View</div>'
           }
         );
       }

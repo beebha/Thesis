@@ -13,7 +13,7 @@ class CalendarQuery
                 INNER JOIN course_terms ct ON ct.course_term_id = c.course_term_id
                 AND ct.current_course = true
                 AND c.course_day != ''
-                WHERE c.concentration_id =".CalendarDBUtils::getDBValue(DBConstants::DB_VALUE, $concentrationID)."
+                WHERE c.concentration_id = ".CalendarDBUtils::getDBValue(DBConstants::DB_VALUE, $concentrationID)."
                 ORDER BY c.course_term_id ASC";
     }
 

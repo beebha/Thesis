@@ -63,3 +63,9 @@ require_once(dirname(__FILE__) . '/../analysis/AnalysisController.php');
 require_once(dirname(__FILE__) . '/../analysis/Analysis.php');
 require_once(dirname(__FILE__) . '/../analysis/AnalysisDBUtils.php');
 require_once(dirname(__FILE__) . '/../analysis/AnalysisQuery.php');
+
+// Contact files
+require_once(dirname(__FILE__) . '/../contact/ContactController.php');
+require_once(dirname(__FILE__) . '/../contact/Contact.php');
+require_once(dirname(__FILE__) . '/../contact/ContactDBUtils.php');
+require_once(dirname(__FILE__) . '/../contact/ContactQuery.php');

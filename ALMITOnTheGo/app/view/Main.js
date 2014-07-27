@@ -36,6 +36,10 @@ Ext.define('ALMITOnTheGo.view.Main', {
           console.log("Analysis clicked!");
           me.fireEvent('analysisViewDetailsCommand');
         }
+        if (tab.config.title == 'Contacts') {
+          console.log("Contacts clicked!");
+          me.fireEvent('contactsViewDetailsCommand');
+        }
       },
       show: function () {
         this.getHomeViewDetails();
@@ -123,10 +127,9 @@ Ext.define('ALMITOnTheGo.view.Main', {
       {
         title: 'Contacts',
         iconCls: 'address-book',
-        style: {
-          margin: '3em'
-        },
-        html: 'COMING SOON!'
+        items: {
+          xtype: 'contactsView'
+        }
       },
       {
         title: 'Thesis',

@@ -44,11 +44,11 @@ Ext.application({
         'GT.FixedButton'
     ],
     controllers: [
-      'Landing', 'Common', 'Login', 'Register', 'Main', 'AddCourses', 'UserInformation', 'Courses', 'Grades', 'Requirements', 'Calendar', 'Analysis'
+      'Landing', 'Common', 'Login', 'Register', 'Main', 'AddCourses', 'UserInformation', 'Courses', 'Grades', 'Requirements', 'Calendar', 'Analysis', 'Contacts'
     ],
 
     views: [
-      'Landing', 'Home', 'Login', 'Register', 'Main', 'AddCourses', 'UserInformation', 'Courses', 'Grades', 'Requirements', 'Calendar', 'Analysis'
+      'Landing', 'Home', 'Login', 'Register', 'Main', 'AddCourses', 'UserInformation', 'Courses', 'Grades', 'Requirements', 'Calendar', 'Analysis', 'Contacts'
     ],
 
     models: [
