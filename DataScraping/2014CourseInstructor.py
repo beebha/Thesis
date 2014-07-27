@@ -100,6 +100,7 @@ for ind_url in all_urls:
                                 instructor_name = plaintext(str(instructor_content[k]))
                                 instructor_url = "http://www.extension.harvard.edu"+instructor_content[k].attributes.get("href", "")
                                 instructor_code = instructor_url.replace("http://www.extension.harvard.edu/about-us/faculty-directory/", "")
+                                instructor_email = ""
 
                                 email_url = URL(instructor_url)
                                 email_dom = DOM(email_url.download(cached=True))
@@ -110,6 +111,8 @@ for ind_url in all_urls:
 
                                     if len(email_content) > 0:
                                         instructor_email = plaintext(str(email_content[0]))
+
+                                print course_id + " " + instructor_code + " " + instructor_name + " " + instructor_url + " " + instructor_email
 
                                 date_to_write.append([course_id, instructor_code, instructor_name, instructor_url, instructor_email])
 

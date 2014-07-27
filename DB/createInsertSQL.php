@@ -272,13 +272,13 @@ foreach($instructors_fileContents as $singleFile)
         }
 
         $instructorInfo = explode(",", $singleLine);
-        $instructorEmail = !empty($instructorInfo[4]) ? $instructorInfo[4] : NULL;
+        $instructorEmail = !empty($instructorInfo[4]) ? strtolower($instructorInfo[4]) : NULL;
 
         $instructorsTableInserts[] =
             "INSERT IGNORE INTO instructors
                 (instructor_id, instructor_code, instructor_name, instructor_url, instructor_email)
                 VALUES (" .$line. ",'" .
-            mysqli_real_escape_string($link, $instructorInfo[1])."','".
+            mysqli_real_escape_string($link, strtolower($instructorInfo[1]))."','".
             mysqli_real_escape_string($link, $instructorInfo[2])."','".
             mysqli_real_escape_string($link, $instructorInfo[3])."','".
             mysqli_real_escape_string($link, $instructorEmail)."');";
@@ -286,7 +286,8 @@ foreach($instructors_fileContents as $singleFile)
         $instructorsCoursesTableInserts[] =
             "INSERT IGNORE INTO instructors_courses
                 (hes_course_id, instructor_code) VALUES
-                (" .$instructorInfo[0]. ",'" .  mysqli_real_escape_string($link, $instructorInfo[1])."');";
+                (" .$instructorInfo[0]. ",'" .
+                    mysqli_real_escape_string($link, strtolower($instructorInfo[1]))."');";
 
         $line++;
     }

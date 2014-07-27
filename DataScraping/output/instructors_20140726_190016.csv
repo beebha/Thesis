@@ -7,7 +7,7 @@ CourseID,InstructorCode,InstructorName,InstructorURL,InstructorEmail
 14557,david-s-platt,David S. Platt,http://www.extension.harvard.edu/about-us/faculty-directory/david-s-platt,
 14296,leonard-evenchik,Leonard Evenchik,http://www.extension.harvard.edu/about-us/faculty-directory/leonard-evenchik,cscie42@dce.harvard.edu
 14299,scott-bradner,Scott Bradner,http://www.extension.harvard.edu/about-us/faculty-directory/scott-bradner,sob@harvard.edu
-14299,benoit-gaucherin,Benoit Gaucherin,http://www.extension.harvard.edu/about-us/faculty-directory/benoit-gaucherin,sob@harvard.edu
+14299,benoit-gaucherin,Benoit Gaucherin,http://www.extension.harvard.edu/about-us/faculty-directory/benoit-gaucherin,
 14298,charles-m-sawyer-jr,Charles M. Sawyer Jr.,http://www.extension.harvard.edu/about-us/faculty-directory/charles-m-sawyer-jr,sawyer@fas.harvard.edu
 14325,burt-beckwith,Burt Beckwith,http://www.extension.harvard.edu/about-us/faculty-directory/burt-beckwith,
 14307,maria-r-garcia-altobello,Maria R. Garcia Altobello,http://www.extension.harvard.edu/about-us/faculty-directory/maria-r-garcia-altobello,mrgarcia@fas.harvard.edu
@@ -30,7 +30,7 @@ CourseID,InstructorCode,InstructorName,InstructorURL,InstructorEmail
 14567,jenny-gutbezahl,Jenny Gutbezahl,http://www.extension.harvard.edu/about-us/faculty-directory/jenny-gutbezahl,gutbezahl@fasmail.harvard.edu
 24269,jennifer-kramer,Jennifer A. Kramer,http://www.extension.harvard.edu/about-us/faculty-directory/jennifer-kramer,jen@jenkramer.org
 24104,verena-s-kaynig-fittkau,Verena S. Kaynig-Fittkau,http://www.extension.harvard.edu/about-us/faculty-directory/verena-s-kaynig-fittkau,vkaynig@seas.harvard.edu
-24104,pavlos-protopapas,Pavlos Protopapas,http://www.extension.harvard.edu/about-us/faculty-directory/pavlos-protopapas,vkaynig@seas.harvard.edu
+24104,pavlos-protopapas,Pavlos Protopapas,http://www.extension.harvard.edu/about-us/faculty-directory/pavlos-protopapas,
 24031,pinde-fu,Pinde Fu,http://www.extension.harvard.edu/about-us/faculty-directory/pinde-fu,pfu@esri.com
 24035,oleg-pianykh,Oleg Pianykh,http://www.extension.harvard.edu/about-us/faculty-directory/oleg-pianykh,
 24032,harry-r-lewis,Harry R. Lewis,http://www.extension.harvard.edu/about-us/faculty-directory/harry-r-lewis,
@@ -38,7 +38,7 @@ CourseID,InstructorCode,InstructorName,InstructorURL,InstructorEmail
 24040,bruce-molay,Bruce Molay,http://www.extension.harvard.edu/about-us/faculty-directory/bruce-molay,
 24033,leonard-evenchik,Leonard Evenchik,http://www.extension.harvard.edu/about-us/faculty-directory/leonard-evenchik,cscie42@dce.harvard.edu
 24037,scott-bradner,Scott Bradner,http://www.extension.harvard.edu/about-us/faculty-directory/scott-bradner,sob@harvard.edu
-24037,benoit-gaucherin,Benoit Gaucherin,http://www.extension.harvard.edu/about-us/faculty-directory/benoit-gaucherin,sob@harvard.edu
+24037,benoit-gaucherin,Benoit Gaucherin,http://www.extension.harvard.edu/about-us/faculty-directory/benoit-gaucherin,
 24043,john-gregory-morrisett,John Gregory Morrisett,http://www.extension.harvard.edu/about-us/faculty-directory/john-gregory-morrisett,
 24229,nermin-serifovic,Nermin Serifovic,http://www.extension.harvard.edu/about-us/faculty-directory/nermin-serifovic,nserifovic@fas.harvard.edu
 24229,morgan-creighton,Morgan Creighton,http://www.extension.harvard.edu/about-us/faculty-directory/morgan-creighton,morgan.creighton@gmail.com
@@ -73,7 +73,7 @@ CourseID,InstructorCode,InstructorName,InstructorURL,InstructorEmail
 14557,david-s-platt,David S. Platt,http://www.extension.harvard.edu/about-us/faculty-directory/david-s-platt,
 14296,leonard-evenchik,Leonard Evenchik,http://www.extension.harvard.edu/about-us/faculty-directory/leonard-evenchik,cscie42@dce.harvard.edu
 14299,scott-bradner,Scott Bradner,http://www.extension.harvard.edu/about-us/faculty-directory/scott-bradner,sob@harvard.edu
-14299,benoit-gaucherin,Benoit Gaucherin,http://www.extension.harvard.edu/about-us/faculty-directory/benoit-gaucherin,sob@harvard.edu
+14299,benoit-gaucherin,Benoit Gaucherin,http://www.extension.harvard.edu/about-us/faculty-directory/benoit-gaucherin,
 14298,charles-m-sawyer-jr,Charles M. Sawyer Jr.,http://www.extension.harvard.edu/about-us/faculty-directory/charles-m-sawyer-jr,sawyer@fas.harvard.edu
 14325,burt-beckwith,Burt Beckwith,http://www.extension.harvard.edu/about-us/faculty-directory/burt-beckwith,
 14307,maria-r-garcia-altobello,Maria R. Garcia Altobello,http://www.extension.harvard.edu/about-us/faculty-directory/maria-r-garcia-altobello,mrgarcia@fas.harvard.edu
@@ -105,7 +105,7 @@ CourseID,InstructorCode,InstructorName,InstructorURL,InstructorEmail
 24035,oleg-pianykh,Oleg Pianykh,http://www.extension.harvard.edu/about-us/faculty-directory/oleg-pianykh,
 24033,leonard-evenchik,Leonard Evenchik,http://www.extension.harvard.edu/about-us/faculty-directory/leonard-evenchik,cscie42@dce.harvard.edu
 24037,scott-bradner,Scott Bradner,http://www.extension.harvard.edu/about-us/faculty-directory/scott-bradner,sob@harvard.edu
-24037,benoit-gaucherin,Benoit Gaucherin,http://www.extension.harvard.edu/about-us/faculty-directory/benoit-gaucherin,sob@harvard.edu
+24037,benoit-gaucherin,Benoit Gaucherin,http://www.extension.harvard.edu/about-us/faculty-directory/benoit-gaucherin,
 24036,charles-m-sawyer-jr,Charles M. Sawyer Jr.,http://www.extension.harvard.edu/about-us/faculty-directory/charles-m-sawyer-jr,sawyer@fas.harvard.edu
 24038,zoran-b-djordjevic,Zoran B. Djordjevic,http://www.extension.harvard.edu/about-us/faculty-directory/zoran-b-djordjevic,zdjordj@fas.harvard.edu
 24046,david-g-sullivan,David G. Sullivan,http://www.extension.harvard.edu/about-us/faculty-directory/david-g-sullivan,sullivan@post.harvard.edu
@@ -168,7 +168,7 @@ CourseID,InstructorCode,InstructorName,InstructorURL,InstructorEmail
 24028,alexander-lex,Alexander Lex,http://www.extension.harvard.edu/about-us/faculty-directory/alexander-lex,alex@seas.harvard.edu
 24221,john-selig,John Selig,http://www.extension.harvard.edu/about-us/faculty-directory/john-selig,
 24025,bakhtiar-mikhak,Bakhtiar Mikhak,http://www.extension.harvard.edu/about-us/faculty-directory/bakhtiar-mikhak,mikhak@fas.harvard.edu
-24025,alec-michael-resnick,Alec Michael Resnick,http://www.extension.harvard.edu/about-us/faculty-directory/alec-michael-resnick,mikhak@fas.harvard.edu
+24025,alec-michael-resnick,Alec Michael Resnick,http://www.extension.harvard.edu/about-us/faculty-directory/alec-michael-resnick,
 24048,jennifer-kramer,Jennifer A. Kramer,http://www.extension.harvard.edu/about-us/faculty-directory/jennifer-kramer,jen@jenkramer.org
 24026,allyson-sherlock,Allyson Sherlock,http://www.extension.harvard.edu/about-us/faculty-directory/allyson-sherlock,allyson_sherlock@emerson.edu
 24247,allyson-sherlock,Allyson Sherlock,http://www.extension.harvard.edu/about-us/faculty-directory/allyson-sherlock,allyson_sherlock@emerson.edu
