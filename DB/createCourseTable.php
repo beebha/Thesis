@@ -28,7 +28,6 @@ $createTableSql = "CREATE TABLE course (
                     course_time VARCHAR(64) NOT NULL,
                     course_type VARCHAR(64) NOT NULL,
                     course_limit INT(3) UNSIGNED NULL,
-                    instructor VARCHAR(64) NOT NULL,
                     location VARCHAR(64) NULL,
                     attributes SET('TMF','DCOM','DC','SP','SD','WAD','WP','SRM','DM','MGMT','AL','P','AC','LA','CD','DIGM','EID','WDD','CAP','E','DSCI','DCAP') NOT NULL,
                     course_url VARCHAR(255) NULL,

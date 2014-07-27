@@ -261,6 +261,8 @@ foreach($detailed_course_requirements_fileContents as $singleFile)
     }
 }
 
+$allInstructorInfo = array();
+
 foreach($instructors_fileContents as $singleFile)
 {
     $line = 0;
@@ -273,21 +275,22 @@ foreach($instructors_fileContents as $singleFile)
 
         $instructorInfo = explode(",", $singleLine);
         $instructorEmail = !empty($instructorInfo[4]) ? strtolower($instructorInfo[4]) : NULL;
+        $instructorCode = strtolower($instructorInfo[1]);
+        $allInstructorInfo[$instructorCode] = strtoupper($instructorInfo[2]);
 
         $instructorsTableInserts[] =
             "INSERT IGNORE INTO instructors
-                (instructor_id, instructor_code, instructor_name, instructor_url, instructor_email)
-                VALUES (" .$line. ",'" .
-            mysqli_real_escape_string($link, strtolower($instructorInfo[1]))."','".
-            mysqli_real_escape_string($link, $instructorInfo[2])."','".
-            mysqli_real_escape_string($link, $instructorInfo[3])."','".
-            mysqli_real_escape_string($link, $instructorEmail)."');";
+                (instructor_code, instructor_name, instructor_url, instructor_email)
+                VALUES ('" .
+                    mysqli_real_escape_string($link, $instructorCode)."','".
+                    mysqli_real_escape_string($link, $instructorInfo[2])."','".
+                    mysqli_real_escape_string($link, $instructorInfo[3])."','".
+                    mysqli_real_escape_string($link, $instructorEmail)."');";
 
         $instructorsCoursesTableInserts[] =
             "INSERT IGNORE INTO instructors_courses
                 (hes_course_id, instructor_code) VALUES
-                (" .$instructorInfo[0]. ",'" .
-                    mysqli_real_escape_string($link, strtolower($instructorInfo[1]))."');";
+                (" .$instructorInfo[0]. ",'" . mysqli_real_escape_string($link, $instructorCode)."');";
 
         $line++;
     }
@@ -346,10 +349,43 @@ foreach($allCourseContents as $singleFileContents)
                 $courseURL .= $hesCourseID;
             }
 
+            // entries for instructor courses where hes_course_id is not 0
+            if($hesCourseID != 0) {
+                $instructors = explode('&', $instructor);
+                foreach($instructors as $origSingleInstructor)
+                {
+                    $singleInstructor = strtoupper(trim($origSingleInstructor));
+                    $instructorCode = "";
+                    // if doesn't exist insert into instructor and instructor course
+                    foreach($allInstructorInfo as $code=>$singleInstructorName)
+                    {
+                        if ($singleInstructorName == $singleInstructor) {
+                            $instructorCode = $code;
+                            break;
+                        }
+                    }
+
+                    if(empty($instructorCode)) {
+                        $instructorCode = strtolower(str_replace(" ", "-", str_replace(".", "", $singleInstructor)));
+                        $allInstructorInfo[$instructorCode] = $singleInstructor;
+                        $instructorsTableInserts[] =
+                            "INSERT IGNORE INTO instructors
+                                (instructor_code, instructor_name, instructor_url, instructor_email)
+                                VALUES ('" . mysqli_real_escape_string($link, $instructorCode)."','".
+                                            mysqli_real_escape_string($link, trim($origSingleInstructor))."','','');";
+                    }
+
+                    $instructorsCoursesTableInserts[] =
+                        "INSERT IGNORE INTO instructors_courses
+                            (hes_course_id, instructor_code) VALUES
+                            (" .$hesCourseID. ",'" . mysqli_real_escape_string($link, $instructorCode)."');";
+                }
+            }
+
             $courseTableInserts[] =
                         "INSERT INTO course
                             (concentration_id, hes_course_id, course_id, course_code, course_title, course_term_id, course_day,
-                            course_time, course_type, course_limit, instructor, location, attributes, course_url)
+                            course_time, course_type, course_limit, location, attributes, course_url)
                             VALUES (" .$concentrationID. ",".
                             $hesCourseID. ",".
                             $courseID. ",'".
@@ -360,7 +396,6 @@ foreach($allCourseContents as $singleFileContents)
                             mysqli_real_escape_string($link, $courseTime)."','".
                             $courseType."',".
                             $courseLimit.",'".
-                            mysqli_real_escape_string($link, $instructor)."','".
                             mysqli_real_escape_string($link, $location)."','".
                             $attributes."','".
                             mysqli_real_escape_string($link, $courseURL)."');";
