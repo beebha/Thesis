@@ -13,7 +13,7 @@ Ext.define('ALMITOnTheGo.store.AddedCalendarCourses', {
       'course_day',
       'course_time',
       'course_type',
-      'instructor',
+      'instructors',
       'location'
     ],
     sorters: ['course_term_id', 'course_code'],

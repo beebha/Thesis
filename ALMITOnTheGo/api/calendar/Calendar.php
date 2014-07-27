@@ -104,6 +104,7 @@ class Calendar
             $currentDate = $startDate;
             $courseStartDate = $singleCourse['course_year'] . "-" . $singleCourse['start_month'] . "-" . $singleCourse['start_day'];
             $courseEndDate = $singleCourse['course_year'] . "-" . $singleCourse['end_month'] . "-" . $singleCourse['end_day'];
+            $singleCourse['instructors'] = str_replace(",", " & ", $singleCourse['instructors']);
 
             while(strtotime($currentDate) <= strtotime($endDate))
             {

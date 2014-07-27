@@ -160,7 +160,7 @@ Ext.define('ALMITOnTheGo.controller.Courses',
       coursesView.down('#courseTime').setValue(record.data.course_time);
       coursesView.down('#courseLocation').setValue(record.data.location);
       coursesView.down('#courseType').setValue(record.data.course_type);
-      coursesView.down('#courseInstructor').setValue(record.data.instructor);
+      coursesView.down('#courseInstructor').setValue(record.data.instructors);
       coursesView.down('#courseLimit').setValue(record.data.course_limit == 0 ? "No Limit" : record.data.course_limit);
 
       coursesView.down('#coursesCardPanel').animateActiveItem(4, {type:'flip'});

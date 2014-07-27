@@ -38,11 +38,14 @@ class CourseQuery
         $categoryClause = $categoryID != 0 ?
             " AND c.attributes LIKE (CONCAT('%', (SELECT category_code FROM category WHERE category_id = ".CourseDBUtils::getDBValue(DBConstants::DB_VALUE, $categoryID).") ,'%')) " : "";
 
-        return "SELECT *, ct.course_term_label
+        return "SELECT c.*, ct.course_term_label,
+                GROUP_CONCAT(DISTINCT i.instructor_name ORDER BY i.instructor_name ASC) instructors
                 FROM course c
                 INNER JOIN course_terms ct ON ct.course_term_id = c.course_term_id AND ct.current_course = TRUE
-                WHERE c.concentration_id = ".CourseDBUtils::getDBValue(DBConstants::DB_VALUE, $concentrationID). $courseTermClause . $categoryClause;
-
+                INNER JOIN instructors_courses ic ON ic.hes_course_id = c.hes_course_id
+                INNER JOIN instructors i ON i.instructor_code = ic.instructor_code
+                WHERE c.concentration_id = ".CourseDBUtils::getDBValue(DBConstants::DB_VALUE, $concentrationID). $courseTermClause . $categoryClause . "
+                GROUP BY ic.hes_course_id";
     }
 
     public static function getGeneralCourseRequirements($concentrationID)

@@ -100,6 +100,7 @@ class Course
 
         foreach($results as $singleResult)
         {
+            $singleResult['instructors'] = str_replace(",", " & ", $singleResult['instructors']);
             $singleResult['attributes_array'] = explode(",", $singleResult['attributes']);
             $singleResult['course_day'] = str_replace(" ", ", ", ucwords(str_replace(",", " ", strtolower($singleResult['course_day']))));
             $coursesResults[] = $singleResult;
