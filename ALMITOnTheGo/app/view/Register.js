@@ -97,7 +97,8 @@ Ext.define('ALMITOnTheGo.view.Register', {
               { text: 'None Selected', value: 0 },
               { text: 'Software Engineering', value: 1 },
               { text: 'Information Management Systems', value: 2 },
-              { text: 'Mathematics And Computation', value: 3 },
+              // Bharathi - commented away Mathematics And Computation
+              //{ text: 'Mathematics And Computation', value: 3 },
               { text: 'Digital Media And Instructional Design', value: 4 }
             ]
           }

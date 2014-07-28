@@ -49,12 +49,13 @@ Ext.define('ALMITOnTheGo.view.Courses', {
                     value: 2,
                     label: 'Information Management Systems'
                   },
-                  {
-                    xtype: 'radiofield',
-                    name: 'concentration',
-                    value: 3,
-                    label: 'Mathematics And Computation'
-                  },
+                  // Bharathi - commented away Mathematics And Computation
+                  //{
+                  //  xtype: 'radiofield',
+                  //  name: 'concentration',
+                  //  value: 3,
+                  //  label: 'Mathematics And Computation'
+                  //},
                   {
                     xtype: 'radiofield',
                     name: 'concentration',
