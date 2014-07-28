@@ -276,16 +276,19 @@ foreach($instructors_fileContents as $singleFile)
         $instructorInfo = explode(",", $singleLine);
         $instructorEmail = !empty($instructorInfo[4]) ? strtolower($instructorInfo[4]) : NULL;
         $instructorCode = strtolower($instructorInfo[1]);
-        $allInstructorInfo[$instructorCode] = strtoupper($instructorInfo[2]);
 
-        $instructorsTableInserts[] =
-            "INSERT IGNORE INTO instructors
-                (instructor_code, instructor_name, instructor_url, instructor_email)
-                VALUES ('" .
-                    mysqli_real_escape_string($link, $instructorCode)."','".
-                    mysqli_real_escape_string($link, $instructorInfo[2])."','".
-                    mysqli_real_escape_string($link, $instructorInfo[3])."','".
-                    mysqli_real_escape_string($link, $instructorEmail)."');";
+        if(!array_key_exists($instructorCode, $allInstructorInfo)) {
+            $allInstructorInfo[$instructorCode] = strtoupper($instructorInfo[2]);
+
+            $instructorsTableInserts[] =
+                "INSERT IGNORE INTO instructors
+                    (instructor_code, instructor_name, instructor_url, instructor_email)
+                    VALUES ('" .
+                mysqli_real_escape_string($link, $instructorCode)."','".
+                mysqli_real_escape_string($link, $instructorInfo[2])."','".
+                mysqli_real_escape_string($link, $instructorInfo[3])."','".
+                mysqli_real_escape_string($link, $instructorEmail)."');";
+        }
 
         $instructorsCoursesTableInserts[] =
             "INSERT IGNORE INTO instructors_courses

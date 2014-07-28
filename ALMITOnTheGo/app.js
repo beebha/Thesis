@@ -27,6 +27,7 @@ Ext.application({
     allEventsStore: null,
     addedCoursesStore: null,
     viewCoursesStore: null,
+    viewInstructorsStore: null,
     viewRequirementsStore:null,
     addedCalendarCoursesStore: null,
     allTermsGPA: null,
@@ -56,7 +57,7 @@ Ext.application({
     ],
 
     stores: [
-      'AddedCourses', 'AllCourses', 'ViewCourses', 'AddedCalendarCourses', 'ViewRequirements', 'CourseCalendarEvents', 'CoursesGPA'
+      'AddedCourses', 'AllCourses', 'ViewCourses', 'AddedCalendarCourses', 'ViewRequirements', 'CourseCalendarEvents', 'CoursesGPA', 'ViewInstructors'
     ],
 
     icon: {
@@ -86,6 +87,7 @@ Ext.application({
       ALMITOnTheGo.app.allCoursesStore = null;
       ALMITOnTheGo.app.addedCoursesStore = null;
       ALMITOnTheGo.app.viewCoursesStore = null;
+      ALMITOnTheGo.app.viewInstructorsStore = null;
       ALMITOnTheGo.app.viewRequirementsStore = null;
       ALMITOnTheGo.app.allEventsStore = null;
       ALMITOnTheGo.app.addedCalendarCoursesStore = null;
@@ -119,6 +121,7 @@ Ext.application({
             ALMITOnTheGo.app.addedCoursesStore = Ext.getStore('addedCoursesStore');
             ALMITOnTheGo.app.viewCoursesStore = Ext.getStore('viewCoursesStore');
             ALMITOnTheGo.app.viewRequirementsStore = Ext.getStore('viewRequirementsStore');
+            ALMITOnTheGo.app.viewInstructorsStore = Ext.getStore('viewInstructorsStore');
             ALMITOnTheGo.app.allEventsStore = Ext.getStore('allEventsStore');
             ALMITOnTheGo.app.addedCalendarCoursesStore = Ext.getStore('addedCalendarCoursesStore');
             ALMITOnTheGo.app.allTermsGPA = Ext.getStore('courseGPAStore');

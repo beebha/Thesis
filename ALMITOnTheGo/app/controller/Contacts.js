@@ -36,13 +36,39 @@ Ext.define('ALMITOnTheGo.controller.Contacts',
           success: function (response) {
             var contactsResponse = Ext.JSON.decode(response.responseText);
             console.log(contactsResponse);
-            contactsView.down('#SWEButton').show();
-            contactsView.down('#IMSButton').show();
-            contactsView.down('#DGMButton').show();
+            cc.setupContactsViewPanel(contactsResponse);
           }
         });
       } else {
-        contactsView.down('#allInstructorsButton').show();
+        Ext.Ajax.request({
+          url: ALMITOnTheGo.app.apiURL+'app.php?action=getInstructors',
+          method: 'post',
+          params: {
+            authToken: ALMITOnTheGo.app.authToken,
+            concentrationID: null
+          },
+          success: function (response) {
+            var contactsResponse = Ext.JSON.decode(response.responseText);
+            console.log(contactsResponse);
+            cc.setupContactsViewPanel(contactsResponse);
+          }
+        });
+      }
+    },
+    setupContactsViewPanel: function(contactsResponse) {
+
+      var cc = ALMITOnTheGo.app.getController('Contacts');
+      var contactsView = cc.getContactsView();
+
+      ALMITOnTheGo.app.viewInstructorsStore.removeAll();
+      ALMITOnTheGo.app.viewInstructorsStore.applyData(contactsResponse.data.instructors);
+      contactsView.down('#viewContactsList').setStore(ALMITOnTheGo.app.viewInstructorsStore);
+      contactsView.down('#viewContactsList').show();
+
+      if(ALMITOnTheGo.app.authToken == null) {
+        contactsView.down('#SWEButton').show();
+        contactsView.down('#IMSButton').show();
+        contactsView.down('#DGMButton').show();
       }
     }
   });
