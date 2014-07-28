@@ -125,7 +125,6 @@ Ext.application({
             ALMITOnTheGo.app.allEventsStore = Ext.getStore('allEventsStore');
             ALMITOnTheGo.app.addedCalendarCoursesStore = Ext.getStore('addedCalendarCoursesStore');
             ALMITOnTheGo.app.allTermsGPA = Ext.getStore('courseGPAStore');
-
           } else {
             // TODO - implementation
           }

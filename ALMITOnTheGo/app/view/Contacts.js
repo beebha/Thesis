@@ -95,8 +95,8 @@ Ext.define('ALMITOnTheGo.view.Contacts', {
               backgroundColor: '#330000'
             },
             itemTpl: new Ext.XTemplate(
-              '<p><span style="font-weight:bold;color:#330000">{instructor_name}</span>',
-              '&nbsp;<a href="#" onclick="window.open(\'{instructor_url}\',\'_blank\',\'location=yes\')">',
+              '<p><span style="font-weight:bold;color:#330000">',
+              '<a href="#" onclick="window.open(\'{instructor_url}\',\'_self\')">{instructor_name}&nbsp;',
               '<span style="font-family:\'Pictos\';">A</span></a></span></p>',
               '<p><span style="font-size: 80%;">',
               '<a href="#" onclick="window.open(\'mailto:{instructor_email}?subject=Course Query\')">',
