@@ -25,7 +25,7 @@ class Contact
 
             for($i = 0; $i < count($HESCourseIDs); $i++) {
                 $coursesDetails[] = '<p style="font-size: 70%;font-weight:lighter;">'.
-                                    '<a href="#" onclick="window.open(\''.$courseUrls[$i].'\',\'_self\', \'location=yes\')">'.
+                                    '<a href="#" onclick="window.open(\''.$courseUrls[$i].'\',\'_blank\', \'location=yes\')">'.
                                     $courseCodes[$i].'&nbsp;<span style="font-family:\'Pictos\';">A</span></p>'.
                                     '<p style="font-size: 70%;font-weight:lighter;">' . $courseTitles[$i] . '</p>' .
                                     '<p style="font-size: 70%;font-weight:lighter;">' . $courseTermLabels[$i] . '</a></p>';

@@ -31,11 +31,22 @@ Dieses Plugin bietet eine Web-Browser-Ansicht, die anzeigt, beim Aufrufen von `w
     cordova plugin add org.apache.cordova.inappbrowser
     
 
+### Firefox OS
+
+Erstellen Sie **www/manifest.webapp** , wie in [Docs Manifest][1]beschrieben. Fügen Sie die entsprechenden Permisions.
+
+ [1]: https://developer.mozilla.org/en-US/Apps/Developing/Manifest
+
+    "permissions": {
+        "browser": {}
+    }
+    
+
 ## window.open
 
 Öffnet eine URL in einem neuen `InAppBrowser` Instanz, die aktuelle Browserinstanz oder der Systembrowser.
 
-    var ref = window.open(url, target, options);
+    Var Ref = window.open (Url, Ziel, Optionen);
     
 
 *   **Ref**: Bezugnahme auf die `InAppBrowser` Fenster. *(InAppBrowser)*
@@ -74,19 +85,18 @@ Dieses Plugin bietet eine Web-Browser-Ansicht, die anzeigt, beim Aufrufen von `w
     *   **AllowInlineMediaPlayback**: Legen Sie auf `yes` oder `no` Inline-HTML5-Media-Wiedergabe, Darstellung im Browser-Fenster, sondern in eine gerätespezifische Wiedergabe-Schnittstelle ermöglichen. Des HTML `video` Element muss auch die `webkit-playsinline` Attribut (Standard:`no`)
     *   **KeyboardDisplayRequiresUserAction**: Legen Sie auf `yes` oder `no` um die Tastatur zu öffnen, wenn Formularelemente Fokus per JavaScript erhalten `focus()` Anruf (Standard:`yes`).
     *   **SuppressesIncrementalRendering**: Legen Sie auf `yes` oder `no` zu warten, bis alle neuen anzeigen-Inhalte empfangen wird, bevor Sie wiedergegeben wird (standardmäßig`no`).
-    *   **Presentationstyle**: Legen Sie auf `pagesheet` , `formsheet` oder `fullscreen` [Präsentationsstil][1] (standardmäßig fest`fullscreen`).
-    *   **Transitionstyle**: Legen Sie auf `fliphorizontal` , `crossdissolve` oder `coververtical` [Übergangsstil][2] (standardmäßig fest`coververtical`).
+    *   **Presentationstyle**: Legen Sie auf `pagesheet` , `formsheet` oder `fullscreen` [Präsentationsstil][2] (standardmäßig fest`fullscreen`).
+    *   **Transitionstyle**: Legen Sie auf `fliphorizontal` , `crossdissolve` oder `coververtical` [Übergangsstil][3] (standardmäßig fest`coververtical`).
     *   **Toolbarposition**: Legen Sie auf `top` oder `bottom` (Standard ist `bottom` ). Bewirkt, dass die Symbolleiste am oberen oder unteren Rand des Fensters sein.
 
- [1]: http://developer.apple.com/library/ios/documentation/UIKit/Reference/UIViewController_Class/Reference/Reference.html#//apple_ref/occ/instp/UIViewController/modalPresentationStyle
- [2]: http://developer.apple.com/library/ios/#documentation/UIKit/Reference/UIViewController_Class/Reference/Reference.html#//apple_ref/occ/instp/UIViewController/modalTransitionStyle
+ [2]: http://developer.apple.com/library/ios/documentation/UIKit/Reference/UIViewController_Class/Reference/Reference.html#//apple_ref/occ/instp/UIViewController/modalPresentationStyle
+ [3]: http://developer.apple.com/library/ios/#documentation/UIKit/Reference/UIViewController_Class/Reference/Reference.html#//apple_ref/occ/instp/UIViewController/modalTransitionStyle
 
 ### Unterstützte Plattformen
 
 *   Amazon Fire OS
 *   Android
 *   BlackBerry 10
-*   Firefox OS
 *   iOS
 *   Windows Phone 7 und 8
 
@@ -94,36 +104,6 @@ Dieses Plugin bietet eine Web-Browser-Ansicht, die anzeigt, beim Aufrufen von `w
 
     var ref = window.open('http://apache.org', '_blank', 'location=yes');
     var ref2 = window.open(encodeURI('http://ja.m.wikipedia.org/wiki/ハングル'), '_blank', 'location=yes');
-    
-
-### Firefox OS Macken
-
-Als Plugin jedes Design erzwingen nicht besteht die Notwendigkeit, einige CSS-Regeln hinzuzufügen, wenn bei `target='_blank'` . Die Regeln könnte wie diese aussehen.
-
-     css
-    .inAppBrowserWrap {
-      background-color: rgba(0,0,0,0.75);
-      color: rgba(235,235,235,1.0);
-    }
-    .inAppBrowserWrap menu {
-      overflow: auto;
-      list-style-type: none;
-      padding-left: 0;
-    }
-    .inAppBrowserWrap menu li {
-      font-size: 25px;
-      height: 25px;
-      float: left;
-      margin: 0 10px;
-      padding: 3px 10px;
-      text-decoration: none;
-      color: #ccc;
-      display: block;
-      background: rgba(30,30,30,0.50);
-    }
-    .inAppBrowserWrap menu li.disabled {
-        color: #777;
-    }
     
 
 ## InAppBrowser
@@ -226,7 +206,6 @@ Aus einem Aufruf zurückgegebenen Objekts`window.open`.
 
 *   Amazon Fire OS
 *   Android
-*   Firefox OS
 *   iOS
 *   Windows Phone 7 und 8
 

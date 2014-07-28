@@ -17,6 +17,11 @@ Ext.define('ALMITOnTheGo.controller.Contacts',
       var cc = this;
       var contactsView = cc.getContactsView();
 
+      contactsView.setMasked({
+        xtype: 'loadmask',
+        message: '&nbsp;'
+      });
+
       if (ALMITOnTheGo.app.authToken == null) {
 
         var concentrationCode = contactsView.down('#concentrationCode').getValue();
@@ -26,47 +31,41 @@ Ext.define('ALMITOnTheGo.controller.Contacts',
           contactsView.down('#concentrationCode').setValue(concentrationCode);
         }
 
-        Ext.Ajax.request({
-          url: ALMITOnTheGo.app.apiURL+'app.php?action=getInstructors',
-          method: 'post',
-          params: {
-            authToken: null,
-            concentrationID: ALMITOnTheGo.app.getController('Common').getConcentrationID(concentrationCode)
-          },
-          success: function (response) {
-            var contactsResponse = Ext.JSON.decode(response.responseText);
-            cc.setupContactsViewPanel(contactsResponse);
-          }
-        });
+        cc.setupContactsViewPanel(null, ALMITOnTheGo.app.getController('Common').getConcentrationID(concentrationCode));
+
       } else {
-        Ext.Ajax.request({
-          url: ALMITOnTheGo.app.apiURL+'app.php?action=getInstructors',
-          method: 'post',
-          params: {
-            authToken: ALMITOnTheGo.app.authToken,
-            concentrationID: null
-          },
-          success: function (response) {
-            var contactsResponse = Ext.JSON.decode(response.responseText);
-            cc.setupContactsViewPanel(contactsResponse);
-          }
-        });
+
+        cc.setupContactsViewPanel(ALMITOnTheGo.app.authToken, null);
       }
     },
-    setupContactsViewPanel: function(contactsResponse) {
+    setupContactsViewPanel: function(authToken, concentrationID) {
 
-      var cc = ALMITOnTheGo.app.getController('Contacts');
-      var contactsView = cc.getContactsView();
+      Ext.Ajax.request({
+        url: ALMITOnTheGo.app.apiURL+'app.php?action=getInstructors',
+        method: 'post',
+        params: {
+          authToken: authToken != null ? authToken : null,
+          concentrationID: concentrationID != null ? concentrationID : null
+        },
+        success: function (response) {
+          var contactsResponse = Ext.JSON.decode(response.responseText);
 
-      ALMITOnTheGo.app.viewInstructorsStore.removeAll();
-      ALMITOnTheGo.app.viewInstructorsStore.applyData(contactsResponse.data.instructors);
-      contactsView.down('#viewContactsList').setStore(ALMITOnTheGo.app.viewInstructorsStore);
-      contactsView.down('#viewContactsList').show();
+          var cc = ALMITOnTheGo.app.getController('Contacts');
+          var contactsView = cc.getContactsView();
 
-      if(ALMITOnTheGo.app.authToken == null) {
-        contactsView.down('#SWEButton').show();
-        contactsView.down('#IMSButton').show();
-        contactsView.down('#DGMButton').show();
-      }
+          ALMITOnTheGo.app.viewInstructorsStore.removeAll();
+          ALMITOnTheGo.app.viewInstructorsStore.applyData(contactsResponse.data.instructors);
+          contactsView.down('#viewContactsList').setStore(ALMITOnTheGo.app.viewInstructorsStore);
+          contactsView.down('#viewContactsList').show();
+
+          if(ALMITOnTheGo.app.authToken == null) {
+            contactsView.down('#SWEButton').show();
+            contactsView.down('#IMSButton').show();
+            contactsView.down('#DGMButton').show();
+          }
+
+          contactsView.setMasked(false);
+        }
+      });
     }
   });
