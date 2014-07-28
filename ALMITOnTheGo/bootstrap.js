@@ -37,6 +37,7 @@ Ext.ClassManager.addNameAlternateMappings({
   "ALMITOnTheGo.controller.Analysis": [],
   "ALMITOnTheGo.controller.Calendar": [],
   "ALMITOnTheGo.controller.Common": [],
+  "ALMITOnTheGo.controller.Contacts": [],
   "ALMITOnTheGo.controller.Courses": [],
   "ALMITOnTheGo.controller.Grades": [],
   "ALMITOnTheGo.controller.Landing": [],
@@ -53,10 +54,12 @@ Ext.ClassManager.addNameAlternateMappings({
   "ALMITOnTheGo.store.CourseCalendarEvents": [],
   "ALMITOnTheGo.store.CoursesGPA": [],
   "ALMITOnTheGo.store.ViewCourses": [],
+  "ALMITOnTheGo.store.ViewInstructors": [],
   "ALMITOnTheGo.store.ViewRequirements": [],
   "ALMITOnTheGo.view.AddCourses": [],
   "ALMITOnTheGo.view.Analysis": [],
   "ALMITOnTheGo.view.Calendar": [],
+  "ALMITOnTheGo.view.Contacts": [],
   "ALMITOnTheGo.view.Courses": [],
   "ALMITOnTheGo.view.Grades": [],
   "ALMITOnTheGo.view.Home": [],
@@ -808,6 +811,7 @@ Ext.ClassManager.addNameAliasMappings({
   "ALMITOnTheGo.controller.Analysis": [],
   "ALMITOnTheGo.controller.Calendar": [],
   "ALMITOnTheGo.controller.Common": [],
+  "ALMITOnTheGo.controller.Contacts": [],
   "ALMITOnTheGo.controller.Courses": [],
   "ALMITOnTheGo.controller.Grades": [],
   "ALMITOnTheGo.controller.Landing": [],
@@ -824,6 +828,7 @@ Ext.ClassManager.addNameAliasMappings({
   "ALMITOnTheGo.store.CourseCalendarEvents": [],
   "ALMITOnTheGo.store.CoursesGPA": [],
   "ALMITOnTheGo.store.ViewCourses": [],
+  "ALMITOnTheGo.store.ViewInstructors": [],
   "ALMITOnTheGo.store.ViewRequirements": [],
   "ALMITOnTheGo.view.AddCourses": [
     "widget.addCoursesView"
@@ -833,6 +838,9 @@ Ext.ClassManager.addNameAliasMappings({
   ],
   "ALMITOnTheGo.view.Calendar": [
     "widget.calendarView"
+  ],
+  "ALMITOnTheGo.view.Contacts": [
+    "widget.contactsView"
   ],
   "ALMITOnTheGo.view.Courses": [
     "widget.coursesView"
