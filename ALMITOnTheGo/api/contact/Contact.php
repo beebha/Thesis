@@ -24,7 +24,8 @@ class Contact
             $courseTermLabels = explode(",", $singleInstructor['course_term_labels']);
 
             for($i = 0; $i < count($HESCourseIDs); $i++) {
-                $coursesDetails[] = '<p style="font-size: 70%;font-weight:lighter;">'. $courseCodes[$i]. '<a href="'.$courseUrls[$i].'" target="_blank">'.
+                $coursesDetails[] = '<p style="font-size: 70%;font-weight:lighter;">'. $courseCodes[$i].
+                                    '<a href="#" onclick="window.open(\''.$courseUrls[$i].'\',\'_blank\',\'location=yes\')">'.
                                     '&nbsp;<span style="font-family:\'Pictos\';">A</span></a></p>'.
                                     '<p style="font-size: 70%;font-weight:lighter;">' . $courseTitles[$i] . '</p>' .
                                     '<p style="font-size: 70%;font-weight:lighter;">' . $courseTermLabels[$i] . '</p>';

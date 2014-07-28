@@ -35,7 +35,6 @@ Ext.define('ALMITOnTheGo.controller.Contacts',
           },
           success: function (response) {
             var contactsResponse = Ext.JSON.decode(response.responseText);
-            console.log(contactsResponse);
             cc.setupContactsViewPanel(contactsResponse);
           }
         });
@@ -49,7 +48,6 @@ Ext.define('ALMITOnTheGo.controller.Contacts',
           },
           success: function (response) {
             var contactsResponse = Ext.JSON.decode(response.responseText);
-            console.log(contactsResponse);
             cc.setupContactsViewPanel(contactsResponse);
           }
         });
