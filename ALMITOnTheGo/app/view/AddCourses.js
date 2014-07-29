@@ -336,6 +336,8 @@ Ext.define('ALMITOnTheGo.view.AddCourses', {
 
     addedCoursesContainer.hide();
     me.down('#nextButton').hide();
+    me.down('#editButton').hide();
+    me.down('#addButton').hide();
     addCoursesList.deselectAll();
     addCoursesListPanel.show();
   },
@@ -400,6 +402,8 @@ Ext.define('ALMITOnTheGo.view.AddCourses', {
 
     addCoursesListPanel.hide();
     me.down('#nextButton').show();
+    me.down('#editButton').show();
+    me.down('#addButton').show();
     addedCoursesContainer.show();
   },
   onSearchKeyUp: function (field) {
