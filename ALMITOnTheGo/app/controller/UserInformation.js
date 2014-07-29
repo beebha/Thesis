@@ -64,8 +64,6 @@ Ext.define('ALMITOnTheGo.controller.UserInformation', {
         if (userInfoResponse.success === true) {
           userInformationView.setMasked(false);
           Ext.Viewport.animateActiveItem(mainView, ALMITOnTheGo.app.getController('Common').getSlideLeftTransition());
-        } else {
-          // TODO - error handling
         }
       }
     });

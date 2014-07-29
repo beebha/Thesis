@@ -353,8 +353,6 @@ Ext.define('ALMITOnTheGo.controller.Courses',
         coursesView.down('radiofield[name=courseTerm]').setGroupValue(0);
         coursesView.down('#coursesCardPanel').animateActiveItem(2, {type:'slide', direction:'left'});
 
-      } else {
-        // TODO - error handling
       }
     },
     setupCategoriesViewPanel: function(coursesView, coursesResponse) {
@@ -401,8 +399,6 @@ Ext.define('ALMITOnTheGo.controller.Courses',
         coursesView.down('radiofield[name=category]').setGroupValue(0);
         coursesView.down('#coursesCardPanel').animateActiveItem(1, {type:'slide', direction:'left'});
         coursesView.setMasked(false);
-      } else {
-        // TODO - error handling
       }
     },
     getCheckedCourses: function() {

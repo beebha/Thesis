@@ -90,8 +90,6 @@ Ext.define('ALMITOnTheGo.controller.Register', {
           registerView.setMasked(false);
           Ext.Viewport.animateActiveItem(addCoursesView, ALMITOnTheGo.app.getController('Common').getSlideLeftTransition());
           addCoursesView.fireEvent('showAddCoursesMsg');
-        } else {
-          // TODO - error handling
         }
       }
     });

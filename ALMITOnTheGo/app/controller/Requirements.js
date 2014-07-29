@@ -95,8 +95,6 @@ Ext.define('ALMITOnTheGo.controller.Requirements',
         ALMITOnTheGo.app.authToken == null ? requirementsView.down('#requirementsBackButton').show() : requirementsView.down('#requirementsBackButton').hide();
         requirementsView.down('#requirementsCardPanel').animateActiveItem(1, {type:'slide', direction:'left'});
         requirementsView.setMasked(false);
-      } else {
-        // TODO - error handling
       }
     }
   });

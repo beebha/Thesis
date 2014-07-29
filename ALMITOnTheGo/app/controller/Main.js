@@ -131,8 +131,6 @@ Ext.define('ALMITOnTheGo.controller.Main', {
 
           ALMITOnTheGo.app.getController('UserInformation').populateUserInformation(concentrationID, registrationType);
 
-        } else {
-          // TODO - error handling
         }
       }
     });
@@ -144,9 +142,6 @@ Ext.define('ALMITOnTheGo.controller.Main', {
         method: 'post',
         params: {
           authToken: ALMITOnTheGo.app.authToken
-        },
-        success: function (response) {
-          // TODO
         }
       });
     }

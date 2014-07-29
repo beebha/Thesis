@@ -96,8 +96,6 @@ Ext.define('ALMITOnTheGo.controller.Analysis',
                 ]
               }
             );
-          } else {
-            // TODO - error handling
           }
         }
       });

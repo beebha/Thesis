@@ -41,8 +41,6 @@ Ext.define('ALMITOnTheGo.controller.Grades',
               gradesView.down('#userGPA').setValue(gradesResponse.data.gpa);
               Ext.getStore('gradesCoursesStore').applyData(gradesResponse.data.completedCourses);
             }
-          } else {
-            // TODO - error handling
           }
         }
       });
