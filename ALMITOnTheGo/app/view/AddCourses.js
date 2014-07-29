@@ -189,9 +189,8 @@ Ext.define('ALMITOnTheGo.view.AddCourses', {
       }
     ]
   },
-  onRegistrationMsgPanelHide: function () {
-    console.log("onRegistrationMsgPanelHide");
-
+  onRegistrationMsgPanelHide: function ()
+  {
     Ext.each(Ext.query("*[id^=courseDelete]"), function(item) {
       var courseID = item.id.replace("courseDelete", "");
         Ext.get("courseDelete"+courseID).hide();
@@ -276,9 +275,9 @@ Ext.define('ALMITOnTheGo.view.AddCourses', {
       });
     }
   },
-  onAddedCoursesListItemTap: function (list, index, target, record, e) {
+  onAddedCoursesListItemTap: function (list, index, target, record, e)
+  {
     if (!e.getTarget('.x-list-disclosure')) {
-      console.log("onAddedCoursesListItemTap");
       var me = this;
       var inDeleteMode = me.down('#editMode').getValue() == 'DELETE';
       if(inDeleteMode) {
@@ -296,8 +295,8 @@ Ext.define('ALMITOnTheGo.view.AddCourses', {
       }
     }
   },
-  onSelectGradesListItemTap: function (dataview, index, target, record, e, eOpts) {
-    console.log("onSelectGradesListItemTap");
+  onSelectGradesListItemTap: function (dataview, index, target, record, e, eOpts)
+  {
     var me = this;
     var addedCoursesList = me.down('#addedCoursesList');
     var selectGradesPanel = me.down('#selectGradesPanel');
@@ -315,8 +314,8 @@ Ext.define('ALMITOnTheGo.view.AddCourses', {
     addedCoursesList.deselectAll();
     selectGradesPanel.hide();
   },
-  onAddSelectedCoursesButtonTap: function () {
-    console.log("onAddSelectedCoursesButtonTap");
+  onAddSelectedCoursesButtonTap: function ()
+  {
     var addCoursesList = this.down('#addCoursesList');
     Ext.Array.each(addCoursesList.getSelection(), function (record) {
       // check if course has already been added
@@ -327,8 +326,8 @@ Ext.define('ALMITOnTheGo.view.AddCourses', {
     });
     this.onCloseButtonTap();
   },
-  onAddButtonTap: function () {
-    console.log("onAddButtonTap");
+  onAddButtonTap: function ()
+  {
     var me = this;
     var addCoursesListPanel = me.down('#addCoursesListPanel');
     var addedCoursesContainer = me.down('#addedCoursesContainer');
@@ -341,9 +340,8 @@ Ext.define('ALMITOnTheGo.view.AddCourses', {
     addCoursesList.deselectAll();
     addCoursesListPanel.show();
   },
-  onEditButtonTap: function() {
-    console.log("onEditButtonTap");
-
+  onEditButtonTap: function()
+  {
     var inDeleteMode = this.down('#editMode').getValue() == 'DELETE';
 
     console.log(this.down('#editMode').getValue());
@@ -362,8 +360,8 @@ Ext.define('ALMITOnTheGo.view.AddCourses', {
     inDeleteMode ? this.down('#editMode').setValue('NORMAL') : this.down('#editMode').setValue('DELETE');
     inDeleteMode ? this.down('#editButton').setIconCls('trash') : this.down('#editButton').setIconCls('compose');
   },
-  onNextButtonTap: function () {
-    console.log("onNextButtonTap");
+  onNextButtonTap: function ()
+  {
     var me = this;
     var addedCoursesList = me.down('#addedCoursesList');
     var isAllGradeStatusSet = true;
@@ -394,8 +392,8 @@ Ext.define('ALMITOnTheGo.view.AddCourses', {
       );
     }
   },
-  onCloseButtonTap: function () {
-    console.log("onCloseButtonTap");
+  onCloseButtonTap: function ()
+  {
     var me = this;
     var addCoursesListPanel = me.down('#addCoursesListPanel');
     var addedCoursesContainer = me.down('#addedCoursesContainer');
@@ -406,7 +404,8 @@ Ext.define('ALMITOnTheGo.view.AddCourses', {
     me.down('#addButton').show();
     addedCoursesContainer.show();
   },
-  onSearchKeyUp: function (field) {
+  onSearchKeyUp: function (field)
+  {
     var value = field.getValue(),
       store = ALMITOnTheGo.app.allCoursesStore;
 
@@ -438,7 +437,8 @@ Ext.define('ALMITOnTheGo.view.AddCourses', {
       });
     }
   },
-  onSearchClearIconTap: function () {
+  onSearchClearIconTap: function ()
+  {
     ALMITOnTheGo.app.allCoursesStore.clearFilter();
   }
 });
