@@ -10,31 +10,37 @@ Ext.define('ALMITOnTheGo.store.ViewThesis', {
     root: {
       "items": [
         {
-          "text": "Project A",
+          "thesisGraduation": "Project A",
           "items": [
             {
               "thesisProposal": "2013/07/28",
-              "message": "beebha 1",
+              "thesisDue": "2013/07/28",
+              "thesisGrade": "2013/07/28",
+              "thesisBound": "2013/07/28",
               "leaf": true
             }
           ]
         },
         {
-          "text": "Project B",
+          "thesisGraduation": "Project B",
           "items": [
             {
-              "thesisProposal": "2013/08/28",
-              "message": "beebha 2",
+              "thesisProposal": "2013/06/27",
+              "thesisDue": "2013/06/27",
+              "thesisGrade": "2013/06/27",
+              "thesisBound": "2013/06/27",
               "leaf": true
             }
           ]
         },
         {
-          "text": "Project C",
+          "thesisGraduation": "Project C",
           "items": [
             {
-              "thesisProposal": "2013/09/28",
-              "message": "beebha 3",
+              "thesisProposal": "2014/01/11",
+              "thesisDue": "2014/01/11",
+              "thesisGrade": "2014/01/11",
+              "thesisBound": "2014/01/11",
               "leaf": true
             }
           ]

@@ -2,10 +2,11 @@ Ext.define('ALMITOnTheGo.model.Thesis', {
     extend: 'Ext.data.Model',
     config: {
         fields: [
-            { name: 'text', type: 'string' },
-            { name: 'icon', type: 'string' },
-            { name: 'message', type: 'string' },
-            { name: 'thesisProposal', type: 'string' }
+          { name: 'thesisGraduation', type: 'string' },
+          { name: 'thesisProposal', type: 'string' },
+          { name: 'thesisDue', type: 'string' },
+          { name: 'thesisGrade', type: 'string' },
+          { name: 'thesisBound', type: 'string' }
         ]
     }
 });

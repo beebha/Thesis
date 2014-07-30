@@ -2,8 +2,20 @@
 
   .x-accordion-list {
 
+    .x-innerhtml {
+      margin-top: 0.2em;
+    }
+
     .x-list-item .x-innerhtml {
       display: -webkit-box;
+    }
+
+    .x-scroll-view {
+      background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#D9CFB0), to(#F8F7F1));
+      background: -webkit-linear-gradient(top, #F8F7F1, #D9CFB0);
+      background: -moz-linear-gradient(top, #F8F7F1, #D9CFB0);
+      background: -ms-linear-gradient(top, #F8F7F1, #D9CFB0);
+      background: -o-linear-gradient(top, #F8F7F1, #D9CFB0);
     }
 
     .down {
@@ -11,8 +23,8 @@
       width: 0;
       height: 0;
       border: 8px solid transparent;
-      border-top-color: #999;
-      top: 4px;
+      border-top-color: #330000;
+      padding-top: 1.5em;
       margin-right: 0.4em;
     }
 
@@ -21,25 +33,19 @@
       width: 0;
       height: 0;
       border: 8px solid transparent;
-      border-left-color: #999;
-      top: 2px;
+      border-left-color: #330000;
       margin-right: 0.4em;
-    }
-
-    .x-list-item.x-item-selected .down {
-      border-top-color: #fff;
-    }
-
-    .x-list-item.x-item-selected .right {
-      border-left-color: #fff;
-
     }
   }
 
   .accordion-list-item {
-    background: #ecf0f1;
-    padding-top: .6em;
-    border-bottom: #ddd solid 1px;
+    padding-top: 0.3em;
+    border-bottom: 0.1em solid #330000;
+    background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#D9CFB0), to(#F8F7F1));
+    background: -webkit-linear-gradient(top, #F8F7F1, #D9CFB0);
+    background: -moz-linear-gradient(top, #F8F7F1, #D9CFB0);
+    background: -ms-linear-gradient(top, #F8F7F1, #D9CFB0);
+    background: -o-linear-gradient(top, #F8F7F1, #D9CFB0);
   }
 
 }

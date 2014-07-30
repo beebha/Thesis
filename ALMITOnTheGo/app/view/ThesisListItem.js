@@ -10,76 +10,96 @@ Ext.define('ALMITOnTheGo.view.ThesisListItem', {
     layout: {
       type: 'vbox'
     },
-    text: {
-    },
-    button: null,
-    message: {
-      docked: 'bottom',
-      label: 'message'
+    thesisGraduation: {
     },
     thesisProposal: {
-      docked: 'top',
       label: 'Final thesis proposal submitted to research advisor',
-      readOnly: true
+      readOnly: true,
+      labelWrap: true,
+      labelWidth: '65%',
+      width: '95%',
+      style: {
+        borderTop: '0.1em dotted #330000',
+        borderRight: '0.1em dotted #330000',
+        borderLeft: '0.1em dotted #330000'
+      }
     },
-
+    thesisDue: {
+      label: 'Final thesis due to director and research advisor',
+      readOnly: true,
+      labelWrap: true,
+      labelWidth: '65%',
+      width: '95%',
+      style: {
+        borderTop: '0.1em dotted #330000',
+        borderRight: '0.1em dotted #330000',
+        borderLeft: '0.1em dotted #330000'
+      }
+    },
+    thesisGrade: {
+      label: 'Grade submission',
+      readOnly: true,
+      labelWrap: true,
+      labelWidth: '65%',
+      width: '95%',
+      style: {
+        borderTop: '0.1em dotted #330000',
+        borderRight: '0.1em dotted #330000',
+        borderLeft: '0.1em dotted #330000'
+      }
+    },
+    thesisBound: {
+      label: 'Bound thesis due to program office',
+      readOnly: true,
+      labelWrap: true,
+      labelWidth: '65%',
+      width: '95%',
+      style: {
+        borderTop: '0.1em dotted #330000',
+        borderRight: '0.1em dotted #330000',
+        borderLeft: '0.1em dotted #330000'
+      }
+    },
     headerDataMap: {
-      getText: {
-        setHtml: 'text'
-      },
-      getButton: {
-        setIconCls: 'icon'
+      getThesisGraduation: {
+        setHtml: 'thesisGraduation'
       }
     },
     contentDataMap: {
       getThesisProposal: {
         setValue: 'thesisProposal'
       },
-      getMessage: {
-        setValue: 'message'
+      getThesisDue: {
+        setValue: 'thesisDue'
+      },
+      getThesisGrade: {
+        setValue: 'thesisGrade'
+      },
+      getThesisBound: {
+        setValue: 'thesisBound'
       }
     }
   },
-
   /**
    * @param  {Object} config
    */
-  applyText: function (config) {
+  applyThesisGraduation: function (config) {
     return Ext.factory(config, Ext.Component);
   },
-
   /**
-   * @param  {Ext.Component} newText
+   * @param  {Ext.Component} newThesisGraduation
    */
-  updateText: function (newText) {
-    if (newText) {
-      this.add(newText);
+  updateThesisGraduation: function (newThesisGraduation) {
+    if (newThesisGraduation) {
+      this.add(newThesisGraduation);
     }
   },
-
-  /**
-   * @param  {Object} config
-   */
-  applyButton: function (config) {
-    return Ext.factory(config, Ext.Button);
-  },
-
-  /**
-   * @param  {Ext.Component} newButton
-   */
-  updateButton: function (newButton) {
-    if (newButton) {
-      this.add(newButton);
-    }
-  },
-
   /**
    * @param  {Object} config
    */
   applyThesisProposal: function (config) {
     return Ext.factory(config, Ext.field.Text);
   },
-
   /**
    * @param  {Ext.Component} newThesisProposal
    */
@@ -88,21 +108,46 @@ Ext.define('ALMITOnTheGo.view.ThesisListItem', {
       this.add(newThesisProposal);
     }
   },
-
   /**
    * @param  {Object} config
    */
-  applyMessage: function (config) {
-    return Ext.factory(config, Ext.field.TextArea);
+  applyThesisDue: function (config) {
+    return Ext.factory(config, Ext.field.Text);
   },
-
   /**
-   * @param  {Ext.Component} newMessage
+   * @param  {Ext.Component} newThesisDue
    */
-  updateMessage: function (newMessage) {
-    if (newMessage) {
-      this.add(newMessage);
+  updateThesisDue: function (newThesisDue) {
+    if (newThesisDue) {
+      this.add(newThesisDue);
+    }
+  },
+  /**
+   * @param  {Object} config
+   */
+  applyThesisGrade: function (config) {
+    return Ext.factory(config, Ext.field.Text);
+  },
+  /**
+   * @param  {Ext.Component} newThesisGrade
+   */
+  updateThesisGrade: function (newThesisGrade) {
+    if (newThesisGrade) {
+      this.add(newThesisGrade);
+    }
+  },
+  /**
+   * @param  {Object} config
+   */
+  applyThesisBound: function (config) {
+    return Ext.factory(config, Ext.field.Text);
+  },
+  /**
+   * @param  {Ext.Component} newThesisBound
+   */
+  updateThesisBound: function (newThesisBound) {
+    if (newThesisBound) {
+      this.add(newThesisBound);
     }
   }
-
 });
