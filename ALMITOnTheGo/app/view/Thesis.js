@@ -53,16 +53,6 @@ Ext.define('ALMITOnTheGo.view.Thesis', {
                 ]
               }
             ]
-          },
-          {
-            xtype: 'accordionlist',
-            itemId: 'thesisAccordionList',
-            store: Ext.create('ALMITOnTheGo.store.ViewThesis'),
-            width: '100%',
-            height: '100%',
-            indent: true,
-            useComponents: true,
-            defaultType: 'thesislistitem'
           }
         ]
       }

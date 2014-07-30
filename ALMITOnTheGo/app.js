@@ -33,6 +33,7 @@ Ext.application({
     viewCoursesStore: null,
     viewInstructorsStore: null,
     viewRequirementsStore:null,
+    viewThesisStore: null,
     addedCalendarCoursesStore: null,
     allTermsGPA: null,
     homeTab: 0,
@@ -130,6 +131,7 @@ Ext.application({
       ALMITOnTheGo.app.viewCoursesStore = null;
       ALMITOnTheGo.app.viewInstructorsStore = null;
       ALMITOnTheGo.app.viewRequirementsStore = null;
+      ALMITOnTheGo.app.viewThesisStore = null;
       ALMITOnTheGo.app.allEventsStore = null;
       ALMITOnTheGo.app.addedCalendarCoursesStore = null;
       ALMITOnTheGo.app.allTermsGPA = null;
@@ -163,6 +165,7 @@ Ext.application({
             ALMITOnTheGo.app.viewCoursesStore = Ext.getStore('viewCoursesStore');
             ALMITOnTheGo.app.viewRequirementsStore = Ext.getStore('viewRequirementsStore');
             ALMITOnTheGo.app.viewInstructorsStore = Ext.getStore('viewInstructorsStore');
+            ALMITOnTheGo.app.viewThesisStore = Ext.getStore('viewThesisStore');
             ALMITOnTheGo.app.allEventsStore = Ext.getStore('allEventsStore');
             ALMITOnTheGo.app.addedCalendarCoursesStore = Ext.getStore('addedCalendarCoursesStore');
             ALMITOnTheGo.app.allTermsGPA = Ext.getStore('courseGPAStore');

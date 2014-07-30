@@ -5,7 +5,7 @@ Ext.define('ALMITOnTheGo.model.Thesis', {
             { name: 'text', type: 'string' },
             { name: 'icon', type: 'string' },
             { name: 'message', type: 'string' },
-            { name: 'limit', type: 'string' }
+            { name: 'thesisProposal', type: 'string' }
         ]
     }
 });

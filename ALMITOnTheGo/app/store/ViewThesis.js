@@ -13,7 +13,7 @@ Ext.define('ALMITOnTheGo.store.ViewThesis', {
           "text": "Project A",
           "items": [
             {
-              "limit": "2013/07/28",
+              "thesisProposal": "2013/07/28",
               "message": "beebha 1",
               "leaf": true
             }
@@ -23,7 +23,7 @@ Ext.define('ALMITOnTheGo.store.ViewThesis', {
           "text": "Project B",
           "items": [
             {
-              "limit": "2013/08/28",
+              "thesisProposal": "2013/08/28",
               "message": "beebha 2",
               "leaf": true
             }
@@ -33,7 +33,7 @@ Ext.define('ALMITOnTheGo.store.ViewThesis', {
           "text": "Project C",
           "items": [
             {
-              "limit": "2013/09/28",
+              "thesisProposal": "2013/09/28",
               "message": "beebha 3",
               "leaf": true
             }

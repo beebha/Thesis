@@ -48,6 +48,8 @@ Ext.define('ALMITOnTheGo.controller.Main', {
           showThesisTab = userInfo.concentration_id != 2;
         }
 
+        showThesisTab = true;
+
         var carouselImagesCount = 6;
         var imageNumber = 0;
 
