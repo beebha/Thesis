@@ -18,6 +18,7 @@ $course_key_fileContents = array();
 $detailed_course_requirements_fileContents = array();
 $announcements_fileContents = array();
 $instructors_fileContents = array();
+$thesis_fileContents = array();
 
 $SWE_fileContents = array();
 $IMS_fileContents = array();
@@ -34,6 +35,7 @@ $gradeTableInserts = array();
 $announcementsTableInserts = array();
 $instructorsTableInserts = array();
 $instructorsCoursesTableInserts = array();
+$thesisTableInserts = array();
 
 $dir = new RecursiveIteratorIterator(new RecursiveDirectoryIterator(__DIR__));
 foreach ($dir as $splFileInfo)
@@ -82,6 +84,10 @@ foreach ($dir as $splFileInfo)
 
     if(strrpos($fileName, "data/instructors_and_courses") !== FALSE) {
         $instructors_fileContents[] = file($fileName, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+    }
+
+    if(strrpos($fileName, "data/thesis") !== FALSE) {
+        $thesis_fileContents[] = file($fileName, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
     }
 }
 
@@ -230,6 +236,31 @@ foreach($course_key_fileContents as $singleFile)
                 VALUES (" .$concentrationID. "," .$line. ",'".
             $category[2]."','".
             $category[1]."');";
+
+        $line++;
+    }
+}
+
+foreach($thesis_fileContents as $singleFile)
+{
+    $line = 0;
+    foreach($singleFile as $singleLine)
+    {
+        if ($line == 0) {
+            $line++;
+            continue;
+        }
+
+        $thesis = explode(",", $singleLine);
+
+        $thesisTableInserts[] =
+            "INSERT INTO thesis
+                (thesis_graduation_month, thesis_proposal_month, thesis_proposal_day,
+                thesis_due_month, thesis_due_day, thesis_grade_month, thesis_grade_day,
+                thesis_bound_month, thesis_bound_day)
+                VALUES (".$thesis[0].",".$thesis[1].",".$thesis[2].",".
+                        $thesis[3].",".$thesis[4].",".$thesis[5].",".
+                        $thesis[6].",".$thesis[7].",".$thesis[8].");";
 
         $line++;
     }
@@ -420,7 +451,8 @@ $allInserts =  array_merge(
     $courseTableInserts,
     $announcementsTableInserts,
     $instructorsTableInserts,
-    $instructorsCoursesTableInserts
+    $instructorsCoursesTableInserts,
+    $thesisTableInserts
 );
 
 // drop and create all tables
@@ -438,6 +470,7 @@ include 'createUsersTable.php';
 include 'createUserCoursesTable.php';
 include 'createUserCalendarTable.php';
 include 'createMobileAuthTokenTable.php';
+include 'createThesisTable.php';
 
 foreach ($allInserts as $singleInsert)
 {
