@@ -7,7 +7,6 @@ Ext.define('ALMITOnTheGo.view.AddCourses', {
     'Ext.Panel',
     'Ext.field.Search',
     'Ext.List',
-    'Ext.plugin.SlideToRemove',
     'Ext.Anim',
     'Ext.field.Hidden'
   ],

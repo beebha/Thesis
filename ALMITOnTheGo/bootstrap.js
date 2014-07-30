@@ -45,6 +45,7 @@ Ext.ClassManager.addNameAlternateMappings({
   "ALMITOnTheGo.controller.Main": [],
   "ALMITOnTheGo.controller.Register": [],
   "ALMITOnTheGo.controller.Requirements": [],
+  "ALMITOnTheGo.controller.Thesis": [],
   "ALMITOnTheGo.controller.UserInformation": [],
   "ALMITOnTheGo.model.CalendarEvent": [],
   "ALMITOnTheGo.model.Grade": [],
@@ -68,6 +69,7 @@ Ext.ClassManager.addNameAlternateMappings({
   "ALMITOnTheGo.view.Main": [],
   "ALMITOnTheGo.view.Register": [],
   "ALMITOnTheGo.view.Requirements": [],
+  "ALMITOnTheGo.view.Thesis": [],
   "ALMITOnTheGo.view.UserInformation": [],
   "Ext.AbstractComponent": [],
   "Ext.AbstractManager": [],
@@ -695,7 +697,6 @@ Ext.ClassManager.addNameAlternateMappings({
   "Ext.plugin.BufferedList": [],
   "Ext.plugin.ListPaging": [],
   "Ext.plugin.PullRefresh": [],
-  "Ext.plugin.SlideToRemove": [],
   "Ext.plugin.SortableList": [],
   "Ext.scroll.Indicator": [
     "Ext.util.Indicator"
@@ -819,6 +820,7 @@ Ext.ClassManager.addNameAliasMappings({
   "ALMITOnTheGo.controller.Main": [],
   "ALMITOnTheGo.controller.Register": [],
   "ALMITOnTheGo.controller.Requirements": [],
+  "ALMITOnTheGo.controller.Thesis": [],
   "ALMITOnTheGo.controller.UserInformation": [],
   "ALMITOnTheGo.model.CalendarEvent": [],
   "ALMITOnTheGo.model.Grade": [],
@@ -865,6 +867,9 @@ Ext.ClassManager.addNameAliasMappings({
   ],
   "ALMITOnTheGo.view.Requirements": [
     "widget.requirementsView"
+  ],
+  "ALMITOnTheGo.view.Thesis": [
+    "widget.thesisView"
   ],
   "ALMITOnTheGo.view.UserInformation": [
     "widget.userInformationView"
@@ -1700,9 +1705,6 @@ Ext.ClassManager.addNameAliasMappings({
   ],
   "Ext.plugin.PullRefresh": [
     "plugin.pullrefresh"
-  ],
-  "Ext.plugin.SlideToRemove": [
-    "plugin.slidetoremove"
   ],
   "Ext.plugin.SortableList": [
     "plugin.sortablelist"
