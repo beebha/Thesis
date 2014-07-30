@@ -88,6 +88,11 @@ try {
         if($action == 'getInstructors') {
             $result = ContactController::getInstructors($_POST);
         }
+
+        // redirect to thesis server file
+        if($action == 'getThesisInfo') {
+            $result = ThesisController::getThesisInfo($_POST);
+        }
     }
 } catch (APIException $ex) {
     $error = array();
