@@ -126,8 +126,6 @@ Ext.define('ALMITOnTheGo.view.Contacts', {
           }
         ]
       }
-    ],
-    listeners: [
     ]
   }
 });

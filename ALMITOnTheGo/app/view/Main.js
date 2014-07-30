@@ -40,6 +40,10 @@ Ext.define('ALMITOnTheGo.view.Main', {
           console.log("Contacts clicked!");
           me.fireEvent('contactsViewDetailsCommand');
         }
+        if (tab.config.title == 'Thesis') {
+          console.log("Thesis clicked!");
+          me.fireEvent('thesisViewDetailsCommand');
+        }
       },
       show: function () {
         this.getHomeViewDetails();
@@ -113,6 +117,7 @@ Ext.define('ALMITOnTheGo.view.Main', {
       {
         title: 'Grades',
         iconCls: 'trophy',
+        hidden: true,
         items: {
           xtype: 'gradesView'
         }
@@ -120,6 +125,7 @@ Ext.define('ALMITOnTheGo.view.Main', {
       {
         title: 'Analysis',
         iconCls: 'stats',
+        hidden: true,
         items: {
           xtype: 'analysisView'
         }
@@ -134,10 +140,10 @@ Ext.define('ALMITOnTheGo.view.Main', {
       {
         title: 'Thesis',
         iconCls: 'checkmark-cir',
-        style: {
-          margin: '3em'
-        },
-        html: 'COMING SOON!'
+        hidden: true,
+        items: {
+          xtype: 'thesisView'
+        }
       }
     ]
   },
