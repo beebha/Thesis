@@ -2,8 +2,8 @@ Ext.define('ALMITOnTheGo.view.Thesis', {
   extend: 'Ext.Panel',
   xtype: 'thesisView',
   requires: [
-    'Ext.List',
-    'Ext.Anim'
+    'Ext.ux.AccordionList',
+    'Ext.SegmentedButton'
   ],
   config: {
     width: '100%',
@@ -22,15 +22,47 @@ Ext.define('ALMITOnTheGo.view.Thesis', {
         items: [
           {
             docked: 'top',
-            xtype: 'titlebar',
+            xtype: 'toolbar',
             cls: 'inner-toolbar',
             style: {
               border: 'none'
             },
-            items:
-            [
-
+            items: [
+              {
+                xtype: 'segmentedbutton',
+                centered: true,
+                items: [
+                  {
+                    text: 'Expand',
+                    action: 'expand',
+                    listeners: {
+                      tap: function() {
+                        this.up('#thesisViewContainer').down('#thesisAccordionList').doAllExpand();
+                      }
+                    }
+                  },
+                  {
+                    text: 'Collapse',
+                    action: 'collapse',
+                    listeners: {
+                      tap: function() {
+                        this.up('#thesisViewContainer').down('#thesisAccordionList').doAllCollapse();
+                      }
+                    }
+                  }
+                ]
+              }
             ]
+          },
+          {
+            xtype: 'accordionlist',
+            itemId: 'thesisAccordionList',
+            store: Ext.create('ALMITOnTheGo.store.ViewThesis'),
+            width: '100%',
+            height: '100%',
+            indent: true,
+            useComponents: true,
+            defaultType: 'thesislistitem'
           }
         ]
       }

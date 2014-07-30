@@ -20,6 +20,8 @@ Ext.Loader.addClassPathMappings({
   "Ext.device.sqlite.SQLTransaction": "touch/src/device/sqlite/Sencha.js",
   "Ext.draw.engine.SvgContext.Gradient": "touch/src/draw/engine/SvgContext.js",
   "Ext.util.Region.partial": "touch/src/plugin/Ext.ux.TouchCalendarEvents.js",
+  "Ext.ux.AccordionList": "touch/src/plugin/AccordionList.js",
+  "Ext.ux.AccordionListItem": "touch/src/plugin/AccordionListItem.js",
   "Ext.ux.CalendarEventBarModel": "touch/src/plugin/Ext.ux.TouchCalendarEvents.js",
   "Ext.ux.TouchCalendar": "touch/src/plugin/Ext.ux.TouchCalendar.js",
   "Ext.ux.TouchCalendarDayEvents": "touch/src/plugin/Ext.ux.TouchCalendarDayEvents.js",
@@ -49,6 +51,7 @@ Ext.ClassManager.addNameAlternateMappings({
   "ALMITOnTheGo.controller.UserInformation": [],
   "ALMITOnTheGo.model.CalendarEvent": [],
   "ALMITOnTheGo.model.Grade": [],
+  "ALMITOnTheGo.model.Thesis": [],
   "ALMITOnTheGo.store.AddedCalendarCourses": [],
   "ALMITOnTheGo.store.AddedCourses": [],
   "ALMITOnTheGo.store.AllCourses": [],
@@ -57,6 +60,7 @@ Ext.ClassManager.addNameAlternateMappings({
   "ALMITOnTheGo.store.ViewCourses": [],
   "ALMITOnTheGo.store.ViewInstructors": [],
   "ALMITOnTheGo.store.ViewRequirements": [],
+  "ALMITOnTheGo.store.ViewThesis": [],
   "ALMITOnTheGo.view.AddCourses": [],
   "ALMITOnTheGo.view.Analysis": [],
   "ALMITOnTheGo.view.Calendar": [],
@@ -70,6 +74,7 @@ Ext.ClassManager.addNameAlternateMappings({
   "ALMITOnTheGo.view.Register": [],
   "ALMITOnTheGo.view.Requirements": [],
   "ALMITOnTheGo.view.Thesis": [],
+  "ALMITOnTheGo.view.ThesisListItem": [],
   "ALMITOnTheGo.view.UserInformation": [],
   "Ext.AbstractComponent": [],
   "Ext.AbstractManager": [],
@@ -768,6 +773,10 @@ Ext.ClassManager.addNameAlternateMappings({
   "Ext.util.translatable.CssTransform": [],
   "Ext.util.translatable.Dom": [],
   "Ext.util.translatable.ScrollPosition": [],
+  "Ext.ux.AccordionList": [
+    "Ext.AccordionList"
+  ],
+  "Ext.ux.AccordionListItem": [],
   "Ext.ux.ActionOverFlowMenuButton": [],
   "Ext.ux.ApplicationMenu": [],
   "Ext.ux.CalendarEventBarModel": [],
@@ -824,6 +833,7 @@ Ext.ClassManager.addNameAliasMappings({
   "ALMITOnTheGo.controller.UserInformation": [],
   "ALMITOnTheGo.model.CalendarEvent": [],
   "ALMITOnTheGo.model.Grade": [],
+  "ALMITOnTheGo.model.Thesis": [],
   "ALMITOnTheGo.store.AddedCalendarCourses": [],
   "ALMITOnTheGo.store.AddedCourses": [],
   "ALMITOnTheGo.store.AllCourses": [],
@@ -832,6 +842,7 @@ Ext.ClassManager.addNameAliasMappings({
   "ALMITOnTheGo.store.ViewCourses": [],
   "ALMITOnTheGo.store.ViewInstructors": [],
   "ALMITOnTheGo.store.ViewRequirements": [],
+  "ALMITOnTheGo.store.ViewThesis": [],
   "ALMITOnTheGo.view.AddCourses": [
     "widget.addCoursesView"
   ],
@@ -870,6 +881,9 @@ Ext.ClassManager.addNameAliasMappings({
   ],
   "ALMITOnTheGo.view.Thesis": [
     "widget.thesisView"
+  ],
+  "ALMITOnTheGo.view.ThesisListItem": [
+    "widget.thesislistitem"
   ],
   "ALMITOnTheGo.view.UserInformation": [
     "widget.userInformationView"
@@ -1783,6 +1797,12 @@ Ext.ClassManager.addNameAliasMappings({
   "Ext.util.translatable.CssTransform": [],
   "Ext.util.translatable.Dom": [],
   "Ext.util.translatable.ScrollPosition": [],
+  "Ext.ux.AccordionList": [
+    "widget.accordionlist"
+  ],
+  "Ext.ux.AccordionListItem": [
+    "widget.accordionlistitem"
+  ],
   "Ext.ux.ActionOverFlowMenuButton": [],
   "Ext.ux.ApplicationMenu": [],
   "Ext.ux.CalendarEventBarModel": [],

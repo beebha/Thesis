@@ -19,8 +19,11 @@ $radio-size: 0.6em;
 
 @import 'sencha-touch/default';
 @import 'sencha-touch/default/all';
+@import 'include/accordionlist';
 @import 'include/buttons';
 @import 'include/radios';
+
+@include accordionlist;
 
 @include icon-font(
     'almitonthego',

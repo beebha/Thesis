@@ -14,6 +14,10 @@ Ext.Loader.setPath({
   'GT': 'touch/src/plugin'
 });
 
+Ext.Loader.setPath({
+  'Ext.ux': 'touch/src/plugin'
+});
+
 Ext.application({
     name: 'ALMITOnTheGo',
     authToken: null,
@@ -75,12 +79,14 @@ Ext.application({
       'Calendar',
       'Analysis',
       'Contacts',
-      'Thesis'
+      'Thesis',
+      'ThesisListItem'
     ],
 
     models: [
       'Grade',
-      'CalendarEvent'
+      'CalendarEvent',
+      'Thesis'
     ],
 
     stores: [
@@ -91,7 +97,8 @@ Ext.application({
       'ViewRequirements',
       'CourseCalendarEvents',
       'CoursesGPA',
-      'ViewInstructors'
+      'ViewInstructors',
+      'ViewThesis'
     ],
 
     icon: {
