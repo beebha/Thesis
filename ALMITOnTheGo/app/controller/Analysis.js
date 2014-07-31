@@ -25,8 +25,6 @@ Ext.define('ALMITOnTheGo.controller.Analysis',
 
           var analysisResponse = Ext.JSON.decode(response.responseText);
 
-          console.log(analysisResponse);
-
           if (analysisResponse.success === true) {
             ALMITOnTheGo.app.allTermsGPA.removeAll();
             ALMITOnTheGo.app.allTermsGPA.applyData(analysisResponse.data.gpaByTerms);

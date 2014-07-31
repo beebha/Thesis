@@ -91,7 +91,7 @@ try {
 
         // redirect to thesis server file
         if($action == 'getThesisInfo') {
-            $result = ThesisController::getThesisInfo($_POST);
+            $result = ThesisController::getThesisInfo();
         }
     }
 } catch (APIException $ex) {

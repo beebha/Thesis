@@ -2,7 +2,7 @@
 
 class ThesisController
 {
-    public static function getThesisInfo($postVar)
+    public static function getThesisInfo()
     {
         $result = array();
         $resultData = null;

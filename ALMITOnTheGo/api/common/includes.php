@@ -69,3 +69,9 @@ require_once(dirname(__FILE__) . '/../contact/ContactController.php');
 require_once(dirname(__FILE__) . '/../contact/Contact.php');
 require_once(dirname(__FILE__) . '/../contact/ContactDBUtils.php');
 require_once(dirname(__FILE__) . '/../contact/ContactQuery.php');
+
+// Thesis files
+require_once(dirname(__FILE__) . '/../thesis/ThesisController.php');
+require_once(dirname(__FILE__) . '/../thesis/Thesis.php');
+require_once(dirname(__FILE__) . '/../thesis/ThesisDBUtils.php');
+require_once(dirname(__FILE__) . '/../thesis/ThesisQuery.php');

@@ -39,7 +39,8 @@ Ext.define('ALMITOnTheGo.controller.Main', {
         var announcements = [];
 
         if (userInfo.registration_type == 'GUEST') {
-          welcomeMsg = "Welcome Guest!!!"
+          welcomeMsg = "Welcome Guest!!!";
+          showThesisTab = true;
         } else {
           welcomeMsg = "Welcome back " + userInfo.username + "!!!<br>" + "Last Login: " + userInfo.last_login;
           showSettingsBtn = true;
@@ -47,8 +48,6 @@ Ext.define('ALMITOnTheGo.controller.Main', {
           showAnalysisTab = true;
           showThesisTab = userInfo.concentration_id != 2;
         }
-
-        showThesisTab = true;
 
         var carouselImagesCount = 6;
         var imageNumber = 0;
