@@ -12,6 +12,14 @@ class UserInfoQuery
                 WHERE mat.auth_token = " . UserInfoDBUtils::getDBValue(DBConstants::DB_STRING, $authToken);
     }
 
+    public static function getUserInfoFromEmailQuery($userEmail)
+    {
+        return "SELECT user_id, username
+                FROM users
+                WHERE email = ".
+                UserInfoDBUtils::getDBValue(DBConstants::DB_STRING, $userEmail);
+    }
+
     public static function createUpdateUserCoursesQuery($userID, array $courseIDSAndGrades)
     {
         $queriesToBeExecuted = array();

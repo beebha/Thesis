@@ -44,6 +44,14 @@ class LoginQuery
                 CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)";
     }
 
+    public static function getUpdatePasswordQuery($userID, $passwordHash)
+    {
+        return "UPDATE users
+                SET forgot_password = TRUE,
+                password_hash = ".LoginDBUtils::getDBValue(DBConstants::DB_STRING, $passwordHash)."
+                WHERE user_id = " .LoginDBUtils::getDBValue(DBConstants::DB_VALUE, $userID);
+    }
+
     public static function getUpdateLastLoginQuery($userID)
     {
         return "UPDATE users
