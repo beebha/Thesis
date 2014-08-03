@@ -21,5 +21,14 @@ class LoginValidationUtils extends ValidationUtils
 
         return array_diff($errors, array(""));
     }
+
+    public static function validateUserEmailParams($userEmail)
+    {
+        $errors = array();
+        $errors[] = parent::checkFieldIsNull('email', $userEmail);
+        $errors[] = parent::checkFieldFormat(ValidationRules::$EMAIL_FORMAT, $userEmail);
+
+        return array_diff($errors, array(""));
+    }
 }
  

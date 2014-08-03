@@ -56,6 +56,10 @@ try {
             $result = UserInfoController::getUserInfo($_POST);
         }
 
+        if($action == 'forgotRequest') {
+            $result = UserInfoController::processForgotRequest($_POST);
+        }
+
         // redirect to home server file
         if($action == 'getHomeViewDetails') {
             $result = HomeController::getHomeViewDetails($_POST);

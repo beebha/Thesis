@@ -63,7 +63,8 @@ Ext.application({
     'Calendar',
     'Analysis',
     'Contacts',
-    'Thesis'
+    'Thesis',
+    'Forgot'
   ],
 
   views: [

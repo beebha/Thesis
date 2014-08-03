@@ -103,4 +103,16 @@ class UserInfo
             return array( "status" => TRUE, "errorMsg" => "", "data" => $userResults);
         }
     }
+
+    public static function processForgotRequest($userEmail)
+    {
+        // validate email
+        $validationErrors = LoginValidationUtils::validateUserEmailParams($userEmail);
+
+        if(count($validationErrors) > 0) {
+            throw new APIException("<b>Invalid Email:</b><br>". implode("<br>", $validationErrors));
+        }
+
+        return array( "status" => TRUE, "errorMsg" => "", "data" => NULL);
+    }
 }

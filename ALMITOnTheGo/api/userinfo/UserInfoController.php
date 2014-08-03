@@ -29,5 +29,18 @@ class UserInfoController
         $result['data'] = $resultData['data'];
         return $result;
     }
+
+    public static function processForgotRequest($postVar)
+    {
+        $result = array();
+        $resultData = null;
+
+        $resultData = UserInfo::processForgotRequest($postVar['userEmail']);
+
+        $result['success'] = $resultData['status'];
+        $result['error']['message'] = $resultData['errorMsg'];
+        $result['data'] = $resultData['data'];
+        return $result;
+    }
 }
  

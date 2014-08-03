@@ -22,6 +22,14 @@ Ext.define('ALMITOnTheGo.view.Forgot', {
             title: 'Forgot Username/Password'
           },
           {
+            xtype: 'label',
+            itemId: 'invalidEmailLabel',
+            hidden: true,
+            hideAnimation: 'fadeOut',
+            showAnimation: 'fadeIn',
+            style: 'color:#990000;margin:10px;'
+          },
+          {
             xtype: 'fieldset',
             instructions: {
               title:
@@ -70,14 +78,46 @@ Ext.define('ALMITOnTheGo.view.Forgot', {
     ],
     listeners: [
       {
+        delegate: '#requestButton',
+        event: 'tap',
+        fn: 'onRequestButtonTap'
+      },
+      {
         delegate: '#cancelButton',
         event: 'tap',
         fn: 'onCancelButtonTap'
       }
     ]
   },
+  onRequestButtonTap: function() {
+    console.log("onRequestButtonTap");
+    var me = this;
+
+    var invalidEmailLabel = me.down('#invalidEmailLabel');
+    var emailField = me.down('#emailTextField');
+
+    invalidEmailLabel.hide();
+    invalidEmailLabel.setHtml('');
+
+    var task = Ext.create('Ext.util.DelayedTask', function () {
+      me.fireEvent('requestCommand', emailField.getValue());
+    });
+
+    task.delay(500);
+  },
   onCancelButtonTap: function() {
     console.log("onCancelButtonTap");
-    Ext.Viewport.animateActiveItem({xtype:'loginView'}, ALMITOnTheGo.app.getController('Common').getSlideBottomTransition());
+    var me = this;
+
+    var task = Ext.create('Ext.util.DelayedTask', function () {
+      me.fireEvent('cancelCommand');
+    });
+
+    task.delay(500);
+  },
+  showInvalidEmailMessage: function (message) {
+    var label = this.down('#invalidEmailLabel');
+    label.setHtml(message);
+    label.show();
   }
 });
