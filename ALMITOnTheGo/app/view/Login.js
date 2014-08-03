@@ -77,7 +77,7 @@ Ext.define('ALMITOnTheGo.view.Login', {
       },
       {
         xtype: 'component',
-        html: '<center><a href="#forgotPassword">Forgot your password?</a></center>',
+        html: '<center><div class="forgotLink">Forgot your username/password?</div></center>',
         style: 'margin:10px;'
       }
     ],
@@ -91,6 +91,12 @@ Ext.define('ALMITOnTheGo.view.Login', {
         delegate: '#backButton',
         event: 'tap',
         fn: 'onBackButtonTap'
+      },
+      {
+        element  : 'element',
+        delegate : 'div.forgotLink',
+        event: 'tap',
+        fn: 'onForgotLinkTap'
       }
     ]
   },
@@ -128,5 +134,9 @@ Ext.define('ALMITOnTheGo.view.Login', {
     var label = this.down('#loginFailedLabel');
     label.setHtml(message);
     label.show();
+  },
+  onForgotLinkTap: function() {
+    console.log("onForgotLinkTap");
+    Ext.Viewport.animateActiveItem({xtype:'forgotView'}, ALMITOnTheGo.app.getController('Common').getSlideTopTransition());
   }
 });

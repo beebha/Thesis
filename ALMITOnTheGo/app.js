@@ -81,7 +81,8 @@ Ext.application({
     'Analysis',
     'Contacts',
     'Thesis',
-    'ThesisListItem'
+    'ThesisListItem',
+    'Forgot'
   ],
 
   models: [

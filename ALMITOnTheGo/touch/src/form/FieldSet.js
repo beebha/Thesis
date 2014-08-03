@@ -131,11 +131,13 @@ Ext.define('Ext.form.FieldSet', {
     // @private
     applyInstructions: function(instructions) {
         if (typeof instructions == 'string') {
-            instructions = {title: instructions};
+            instructions = {
+              title: instructions,
+              docked : 'bottom'
+            };
         }
 
         Ext.applyIf(instructions, {
-            docked : 'bottom',
             baseCls: this.getBaseCls() + '-instructions'
         });
 

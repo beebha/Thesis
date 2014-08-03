@@ -56,7 +56,6 @@ Ext.define('ALMITOnTheGo.view.Register', {
             itemId: 'emailTextField',
             name: 'emailTextField',
             required: true
-
           },
           {
             xtype: 'passwordfield',
