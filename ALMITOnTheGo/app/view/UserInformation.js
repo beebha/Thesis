@@ -15,7 +15,23 @@ Ext.define('ALMITOnTheGo.view.UserInformation', {
       {
         xtype: 'titlebar',
         title: 'User Information',
-        docked: 'top'
+        docked: 'top',
+        items: [
+          {
+            xtype: 'fixedbutton',
+            iconCls: 'cogs',
+            itemId: 'passwordButton',
+            align: 'left',
+            style: {
+              color: '#E1D9C0'
+            },
+            listeners: {
+              tap: function () {
+                console.log("Change Password Button tapped");
+              }
+            }
+          }
+        ]
       },
       {
         xtype: 'container',

@@ -25,6 +25,7 @@ $createTableSql = "CREATE TABLE users (
                     registration_type ENUM('DEGREE','PRE-ADMISSION','GUEST') NOT NULL,
                     concentration_id INT(10) UNSIGNED NOT NULL,
                     gpa DECIMAL (3, 2) DEFAULT NULL,
+                    forgot_password TINYINT(1) DEFAULT 0 NOT NULL,
                     current_login DATETIME,
                     last_login DATETIME,
                     create_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
