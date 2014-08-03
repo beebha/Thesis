@@ -53,7 +53,7 @@ Ext.define('ALMITOnTheGo.controller.Forgot',
 
           if (emailResponse.success === true) {
             Ext.Msg.show({
-              title: 'Forgot Username/Password',
+              title: 'Forgot Request',
               message:
                 "Your username and new password has been sent to the registered email address.<br><br>" +
                 "Upon logging in with the new password, you will be asked to set a new password.",
