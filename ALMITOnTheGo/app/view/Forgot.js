@@ -4,7 +4,6 @@ Ext.define('ALMITOnTheGo.view.Forgot', {
   requires: [
   ],
   config: {
-    title: 'Forgot Username/Password',
     width: '100%',
     height: '100%',
     itemId: 'forgotViewPanel',
@@ -19,7 +18,8 @@ Ext.define('ALMITOnTheGo.view.Forgot', {
         items: [
           {
             docked: 'top',
-            xtype: 'toolbar'
+            xtype: 'toolbar',
+            title: 'Forgot Username/Password'
           },
           {
             xtype: 'fieldset',
