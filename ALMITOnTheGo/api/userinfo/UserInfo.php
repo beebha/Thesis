@@ -152,6 +152,8 @@ class UserInfo
                     To change your password, please login to the ALM IT On-The-Go application.<br><br>
                     Cheers ALM IT On-The-Go Bot :)";
 
+        $message = wordwrap($message, 70, "\r\n");
+
         // To send HTML mail, the Content-type header must be set
         $headers  = 'MIME-Version: 1.0' . "\r\n";
         $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
@@ -169,8 +171,32 @@ class UserInfo
         }
 
         // update with new password hash and set forgot password flag to true
-        $updateQuery = LoginQuery::getUpdatePasswordQuery($userID, $passwordHash);
+        $updateQuery = LoginQuery::getUpdatePasswordQuery($userID, $passwordHash, 1);
         UserInfoDBUtils::getInsertUpdateDeleteExecutionResult($updateQuery);
+
+        return array( "status" => TRUE, "errorMsg" => "", "data" => NULL);
+    }
+
+    public static function processChangePassword($authToken, $password, $confirmPassword)
+    {
+        // validate password
+        $validationErrors = LoginValidationUtils::validateUserPasswordParams($password, $confirmPassword);
+
+        if(count($validationErrors) > 0) {
+            throw new APIException("<b>Invalid Password:</b><br>". implode("<br>", $validationErrors));
+        }
+
+        // update password and set forgot password flag to false
+        if(!empty($authToken)) {
+            $query = UserInfoQuery::getUserInfoQuery($authToken);
+            $userResults = CalendarDBUtils::getSingleDetailExecutionResult($query);
+
+            $userID = $userResults['user_id'];
+            $passwordHash = password_hash($password, PASSWORD_BCRYPT);
+
+            $updateQuery = LoginQuery::getUpdatePasswordQuery($userID, $passwordHash, 0);
+            UserInfoDBUtils::getInsertUpdateDeleteExecutionResult($updateQuery);
+        }
 
         return array( "status" => TRUE, "errorMsg" => "", "data" => NULL);
     }

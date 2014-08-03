@@ -19,6 +19,8 @@ class Login
             return array("status" => FALSE, "errorMsg" => "Sorry, unrecognized username or password.", "data" => NULL);
         }
 
+        $forgotPasswordReset = $results['forgot_password'];
+
         // insert/update mobile_auth_token entry in DB
         $userID = $results['user_id'];
         $authToken = md5(uniqid(rand(), true));
@@ -30,7 +32,15 @@ class Login
         $query = LoginQuery::getUpdateLastLoginQuery($userID);
         LoginDBUtils::getInsertUpdateDeleteExecutionResult($query);
 
-        return array("status" => TRUE, "errorMsg" => "", "data" => $authToken);
+        return array(
+            "status" => TRUE,
+            "errorMsg" => "",
+            "data" => array
+            (
+                'authToken' => $authToken,
+                'forgotPasswordReset' => $forgotPasswordReset
+            )
+        );
     }
 
     public static function createAuthToken(array $postVar)

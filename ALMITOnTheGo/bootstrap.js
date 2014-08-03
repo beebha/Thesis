@@ -46,6 +46,7 @@ Ext.ClassManager.addNameAlternateMappings({
   "ALMITOnTheGo.controller.Landing": [],
   "ALMITOnTheGo.controller.Login": [],
   "ALMITOnTheGo.controller.Main": [],
+  "ALMITOnTheGo.controller.Password": [],
   "ALMITOnTheGo.controller.Register": [],
   "ALMITOnTheGo.controller.Requirements": [],
   "ALMITOnTheGo.controller.Thesis": [],
@@ -73,6 +74,7 @@ Ext.ClassManager.addNameAlternateMappings({
   "ALMITOnTheGo.view.Landing": [],
   "ALMITOnTheGo.view.Login": [],
   "ALMITOnTheGo.view.Main": [],
+  "ALMITOnTheGo.view.Password": [],
   "ALMITOnTheGo.view.Register": [],
   "ALMITOnTheGo.view.Requirements": [],
   "ALMITOnTheGo.view.Thesis": [],
@@ -830,6 +832,7 @@ Ext.ClassManager.addNameAliasMappings({
   "ALMITOnTheGo.controller.Landing": [],
   "ALMITOnTheGo.controller.Login": [],
   "ALMITOnTheGo.controller.Main": [],
+  "ALMITOnTheGo.controller.Password": [],
   "ALMITOnTheGo.controller.Register": [],
   "ALMITOnTheGo.controller.Requirements": [],
   "ALMITOnTheGo.controller.Thesis": [],
@@ -878,6 +881,9 @@ Ext.ClassManager.addNameAliasMappings({
   ],
   "ALMITOnTheGo.view.Main": [
     "widget.mainView"
+  ],
+  "ALMITOnTheGo.view.Password": [
+    "widget.passwordView"
   ],
   "ALMITOnTheGo.view.Register": [
     "widget.registerView"

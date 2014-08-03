@@ -30,5 +30,23 @@ class LoginValidationUtils extends ValidationUtils
 
         return array_diff($errors, array(""));
     }
+
+    public static function validateUserPasswordParams($password, $confirmPassword)
+    {
+        $errors = array();
+        $errors[] = parent::checkFieldIsNull('password', $password);
+        $errors[] = parent::checkFieldIsNull('confirm password', $confirmPassword);
+        $errors[] = parent::checkFieldLength(ValidationRules::$PASSWORD_LENGTH, $password);
+        $errors[] = parent::checkFieldChars(ValidationRules::$PASSWORD_CHARS, $password);
+        $errors[] = parent::checkFieldLength(ValidationRules::$PASSWORD_LENGTH, $confirmPassword);
+        $errors[] = parent::checkFieldChars(ValidationRules::$PASSWORD_CHARS, $confirmPassword);
+
+        if($password !== $confirmPassword)
+        {
+            $errors[] = "Password doesn't match confirmation.";
+        }
+
+        return array_diff($errors, array(""));
+    }
 }
  

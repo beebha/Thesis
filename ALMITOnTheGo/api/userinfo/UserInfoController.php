@@ -42,5 +42,22 @@ class UserInfoController
         $result['data'] = $resultData['data'];
         return $result;
     }
+
+    public static function processChangePassword($postVar)
+    {
+        $result = array();
+        $resultData = null;
+
+        $resultData = UserInfo::processChangePassword(
+            $postVar['authToken'],
+            $postVar['password'],
+            $postVar['confirmPassword']
+        );
+
+        $result['success'] = $resultData['status'];
+        $result['error']['message'] = $resultData['errorMsg'];
+        $result['data'] = $resultData['data'];
+        return $result;
+    }
 }
  

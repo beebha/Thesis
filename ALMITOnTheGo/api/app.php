@@ -60,6 +60,10 @@ try {
             $result = UserInfoController::processForgotRequest($_POST);
         }
 
+        if($action == 'changePassword') {
+            $result = UserInfoController::processChangePassword($_POST);
+        }
+
         // redirect to home server file
         if($action == 'getHomeViewDetails') {
             $result = HomeController::getHomeViewDetails($_POST);

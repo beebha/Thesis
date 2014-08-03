@@ -8,7 +8,8 @@ Ext.define('ALMITOnTheGo.controller.Login', {
     refs: {
       landingView: 'landingView',
       loginView: 'loginView',
-      mainView: 'mainView'
+      mainView: 'mainView',
+      passwordView: 'passwordView'
     },
     control: {
       loginView: {
@@ -57,8 +58,8 @@ Ext.define('ALMITOnTheGo.controller.Login', {
 
         if (loginResponse.success === true) {
           // The server will send a token that can be used throughout the app to confirm that the user is authenticated.
-          ALMITOnTheGo.app.authToken = loginResponse.data;
-          me.loginSuccess();
+          ALMITOnTheGo.app.authToken = loginResponse.data.authToken;
+          me.loginSuccess(loginResponse.data.forgotPasswordReset == 1);
         } else {
           ALMITOnTheGo.app.authToken = null;
           me.loginFailure(loginResponse.error.message);
@@ -66,13 +67,24 @@ Ext.define('ALMITOnTheGo.controller.Login', {
       }
     });
   },
-  loginSuccess: function () {
+  loginSuccess: function (forgotPasswordReset) {
     window.history.back();
     var loginView = this.getLoginView();
     var mainView = this.getMainView();
+    var passwordView = this.getPasswordView();
+
     loginView.setMasked(false);
 
-    Ext.Viewport.animateActiveItem(mainView, ALMITOnTheGo.app.getController('Common').getSlideLeftTransition());
+    if(forgotPasswordReset) {
+      passwordView.down('#passwordFieldSet').setInstructions({
+        title:
+        'For privacy and security reasons you must change your password.<br><br>',
+        docked: 'top'
+      });
+      Ext.Viewport.animateActiveItem(passwordView, ALMITOnTheGo.app.getController('Common').getSlideTopTransition());
+    } else {
+      Ext.Viewport.animateActiveItem(mainView, ALMITOnTheGo.app.getController('Common').getSlideLeftTransition());
+    }
   },
   loginFailure: function (message) {
     var loginView = this.getLoginView();

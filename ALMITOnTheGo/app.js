@@ -64,7 +64,8 @@ Ext.application({
     'Analysis',
     'Contacts',
     'Thesis',
-    'Forgot'
+    'Forgot',
+    'Password'
   ],
 
   views: [
@@ -83,7 +84,8 @@ Ext.application({
     'Contacts',
     'Thesis',
     'ThesisListItem',
-    'Forgot'
+    'Forgot',
+    'Password'
   ],
 
   models: [
@@ -148,7 +150,8 @@ Ext.application({
       { xtype: 'registerView' },
       { xtype: 'loginView' },
       { xtype: 'addCoursesView' },
-      { xtype: 'userInformationView' }
+      { xtype: 'userInformationView' },
+      { xtype: 'passwordView' }
     ]);
 
     Ext.Ajax.request({

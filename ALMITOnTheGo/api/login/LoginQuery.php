@@ -6,7 +6,8 @@ class LoginQuery
     {
         return "SELECT
                 u.user_id, u.username, u.password_hash,
-                u.registration_type, u.concentration_id, u.last_login
+                u.registration_type, u.concentration_id,
+                u.last_login, u.forgot_password
                 FROM users u
                 WHERE u.username = " . LoginDBUtils::getDBValue(DBConstants::DB_STRING, $username);
     }
@@ -44,10 +45,10 @@ class LoginQuery
                 CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)";
     }
 
-    public static function getUpdatePasswordQuery($userID, $passwordHash)
+    public static function getUpdatePasswordQuery($userID, $passwordHash, $forgotPasswordFlag)
     {
         return "UPDATE users
-                SET forgot_password = TRUE,
+                SET forgot_password = ".LoginDBUtils::getDBValue(DBConstants::DB_VALUE, $forgotPasswordFlag).",
                 password_hash = ".LoginDBUtils::getDBValue(DBConstants::DB_STRING, $passwordHash)."
                 WHERE user_id = " .LoginDBUtils::getDBValue(DBConstants::DB_VALUE, $userID);
     }
