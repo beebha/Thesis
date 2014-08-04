@@ -137,48 +137,7 @@ class UserInfo
         $password = self::randomPassword();
         $passwordHash = password_hash($password, PASSWORD_BCRYPT);
 
-        error_log("Password : " . $password);
-        error_log("Password Hash: " . $passwordHash);
-        error_log("User ID: " . $userID);
-        error_log("User Name: " . $username);
-        error_log("User Email: " . $userEmail);
-
-        $to = $userEmail;
-        $from = "Bharathi Balasubramanyam <bharathi.thesis@gmail.com>";
-        $subject = "Your new password for ALM IT On-The-Go";
-        $message = "Dear ".$username." <br>,
-                    As you requested, your password has now been reset.<br>
-                    Your new details are as follows:<br>
-                    Username: ".$username."<br>
-                    Password: ".$password."<br>
-                    To change your password, please login to the ALM IT On-The-Go application.<br><br>
-                    Cheers ALM IT On-The-Go Bot :)";
-
-        $message = wordwrap($message, 70, "\r\n");
-
-        $separator = md5(time());
-
-        // carriage return type (we use a PHP end of line constant)
-        $eol = PHP_EOL;
-
-        // main header
-        $headers  = "From: ".$from.$eol;
-        $headers .= "MIME-Version: 1.0".$eol;
-        $headers .= "Content-Type: multipart/mixed; boundary=\"".$separator."\"";
-
-        // no more headers after this, we start the body
-        $body = "--".$separator.$eol;
-        $body .= "Content-Transfer-Encoding: 7bit".$eol.$eol;
-        $body .= "This is a MIME encoded message.".$eol;
-
-        // message
-        $body .= "--".$separator.$eol;
-        $body .= "Content-Type: text/html; charset=\"iso-8859-1\"".$eol;
-        $body .= "Content-Transfer-Encoding: 8bit".$eol.$eol;
-        $body .= $message.$eol;
-        $body .= "--".$separator."--";
-
-        $sentEmail = mail($to, $subject, $body, $headers);
+        $sentEmail = self::sendResetEmail($userEmail, $username, $password);
 
         if(!$sentEmail) {
             return array
@@ -235,5 +194,28 @@ class UserInfo
         }
         shuffle($temp_array);
         return implode('', $temp_array);
+    }
+
+    private static function sendResetEmail($userEmail, $username, $password)
+    {
+        $message = "Dear ".$username.",<br><br>
+                    As you requested, your password has now been reset.<br>
+                    Your new details are as follows:<br>
+                    Username: <b>".$username."</b><br>
+                    Password: <b>".$password."</b><br>
+                    To change your password, please login to the ALM IT On-The-Go application.<br><br>
+                    Cheers<br>
+                    ALM IT On-The-Go Bot :)";
+
+        $message = wordwrap($message, 70, "\r\n");
+
+        // To send HTML mail, the Content-type header must be set
+        $headers  = 'MIME-Version: 1.0' . "\r\n";
+        $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+        $headers .= 'From: ALM IT On-The-Go Bot <almitonthego@bot.com>' . "\r\n";
+
+        $sentEmail = mail($userEmail,'Your new password for ALM IT On-The-Go', $message, $headers);
+
+        return $sentEmail;
     }
 }
