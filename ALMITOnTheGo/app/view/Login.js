@@ -28,7 +28,6 @@ Ext.define('ALMITOnTheGo.view.Login', {
       },
       {
         xtype: 'label',
-        html: 'Login failed. Please enter the correct credentials.',
         itemId: 'loginFailedLabel',
         hidden: true,
         hideAnimation: 'fadeOut',

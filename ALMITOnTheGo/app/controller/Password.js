@@ -4,7 +4,8 @@ Ext.define('ALMITOnTheGo.controller.Password',
     config: {
       refs: {
         passwordView: 'passwordView',
-        mainView: 'mainView'
+        mainView: 'mainView',
+        userInformationView: 'userInformationView'
       },
       control: {
         passwordView: {
@@ -17,10 +18,15 @@ Ext.define('ALMITOnTheGo.controller.Password',
     {
       console.log("onCancelCommand");
       var pc = this;
-      var mainView = pc.getMainView();
+      var passwordView = pc.getPasswordView();
+      var userInformationView = pc.getUserInformationView();
+
+      passwordView.down('#invalidPasswordLabel').setHtml("");
+      passwordView.down('#passwordTextField').setValue("");
+      passwordView.down('#confirmPasswordTextField').setValue("");
 
       Ext.Viewport.animateActiveItem(
-        mainView,
+        userInformationView,
         ALMITOnTheGo.app.getController('Common').getSlideBottomTransition()
       );
     },
@@ -29,9 +35,7 @@ Ext.define('ALMITOnTheGo.controller.Password',
       var pc = this;
       var passwordView = pc.getPasswordView();
       var mainView = pc.getMainView();
-
-      console.log(password);
-      console.log(confirmPassword);
+      var userInformationView = pc.getUserInformationView();
 
       console.log("onChangePwdCommand");
       if (password.length === 0 || confirmPassword.length === 0) {
@@ -55,23 +59,31 @@ Ext.define('ALMITOnTheGo.controller.Password',
         success: function (response) {
 
           var changePwdResponse = Ext.JSON.decode(response.responseText);
+
           passwordView.setMasked(false);
+          passwordView.down('#passwordTextField').setValue("");
+          passwordView.down('#confirmPasswordTextField').setValue("");
 
           if (changePwdResponse.success === true) {
             Ext.Msg.show({
-              title: 'Change Password',
-              message:
-                "Congratulations!<br><br>You have successfully changed your password.",
-              width: 210,
-              height: 200,
-              style: {
-                fontSize: '80%'
-              },
-              fn:function(btn) {
-                Ext.Viewport.animateActiveItem(
-                  mainView,
-                  ALMITOnTheGo.app.getController('Common').getSlideBottomTransition()
-                );
+            title: 'Change Password',
+            message: "Congratulations!<br><br>You have successfully changed your password.",
+            width: 210,
+            height: 200,
+            style: {
+            fontSize: '80%'
+          },
+            fn:function(btn) {
+                // if cancel button is visible, change password from User Information vs Reset
+                passwordView.down('#cancelButton').isHidden() ?
+                  Ext.Viewport.animateActiveItem(
+                    mainView,
+                    ALMITOnTheGo.app.getController('Common').getSlideBottomTransition()
+                  ):
+                  Ext.Viewport.animateActiveItem(
+                    userInformationView,
+                    ALMITOnTheGo.app.getController('Common').getSlideBottomTransition()
+                  );
               }
             });
           } else {

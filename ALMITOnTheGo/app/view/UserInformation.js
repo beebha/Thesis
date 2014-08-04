@@ -24,11 +24,6 @@ Ext.define('ALMITOnTheGo.view.UserInformation', {
             align: 'left',
             style: {
               color: '#E1D9C0'
-            },
-            listeners: {
-              tap: function () {
-                console.log("Change Password Button tapped");
-              }
             }
           }
         ]
@@ -203,6 +198,11 @@ Ext.define('ALMITOnTheGo.view.UserInformation', {
         delegate: '#registeredEditButton',
         event: 'tap',
         fn: 'onEditButtonTap'
+      },
+      {
+        delegate: '#passwordButton',
+        event: 'tap',
+        fn: 'onPasswordButtonTap'
       }
 
     ]
@@ -229,6 +229,15 @@ Ext.define('ALMITOnTheGo.view.UserInformation', {
 
     var task = Ext.create('Ext.util.DelayedTask', function () {
       me.fireEvent('doneButtonCommand', me);
+    });
+
+    task.delay(500);
+  },
+  onPasswordButtonTap: function () {
+    var me = this;
+
+    var task = Ext.create('Ext.util.DelayedTask', function () {
+      me.fireEvent('passwordButtonCommand', me);
     });
 
     task.delay(500);

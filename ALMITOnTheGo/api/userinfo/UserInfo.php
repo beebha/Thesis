@@ -143,7 +143,9 @@ class UserInfo
         error_log("User Name: " . $username);
         error_log("User Email: " . $userEmail);
 
-        // send email to user with username and password
+        $to = $userEmail;
+        $from = "Bharathi Balasubramanyam <bharathi.thesis@gmail.com>";
+        $subject = "Your new password for ALM IT On-The-Go";
         $message = "Dear ".$username." <br>,
                     As you requested, your password has now been reset.<br>
                     Your new details are as follows:<br>
@@ -154,12 +156,29 @@ class UserInfo
 
         $message = wordwrap($message, 70, "\r\n");
 
-        // To send HTML mail, the Content-type header must be set
-        $headers  = 'MIME-Version: 1.0' . "\r\n";
-        $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
-        $headers .= 'From: ALM IT On-The-Go Bot <almitonthego@bot.com>' . "\r\n";
+        $separator = md5(time());
 
-        $sentEmail = mail($userEmail,'Your new password for ALM IT On-The-Go', $message, $headers);
+        // carriage return type (we use a PHP end of line constant)
+        $eol = PHP_EOL;
+
+        // main header
+        $headers  = "From: ".$from.$eol;
+        $headers .= "MIME-Version: 1.0".$eol;
+        $headers .= "Content-Type: multipart/mixed; boundary=\"".$separator."\"";
+
+        // no more headers after this, we start the body
+        $body = "--".$separator.$eol;
+        $body .= "Content-Transfer-Encoding: 7bit".$eol.$eol;
+        $body .= "This is a MIME encoded message.".$eol;
+
+        // message
+        $body .= "--".$separator.$eol;
+        $body .= "Content-Type: text/html; charset=\"iso-8859-1\"".$eol;
+        $body .= "Content-Transfer-Encoding: 8bit".$eol.$eol;
+        $body .= $message.$eol;
+        $body .= "--".$separator."--";
+
+        $sentEmail = mail($to, $subject, $body, $headers);
 
         if(!$sentEmail) {
             return array

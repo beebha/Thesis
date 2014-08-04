@@ -63,6 +63,11 @@ Ext.define('ALMITOnTheGo.controller.Forgot',
                 fontSize: '80%'
               },
               fn:function(btn) {
+
+                loginView.down('#loginFailedLabel').setHtml("");
+                loginView.down('#usernameTextField').setValue("");
+                loginView.down('#passwordTextField').setValue("");
+
                 Ext.Viewport.animateActiveItem(
                   loginView,
                   ALMITOnTheGo.app.getController('Common').getSlideBottomTransition()

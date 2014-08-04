@@ -4,14 +4,31 @@ Ext.define('ALMITOnTheGo.controller.UserInformation', {
     refs: {
       userInformationView: 'userInformationView',
       addCoursesView: 'addCoursesView',
-      mainView: 'mainView'
+      mainView: 'mainView',
+      passwordView: 'passwordView'
     },
     control: {
       userInformationView: {
         editButtonCommand: 'oneEditButtonCommand',
-        doneButtonCommand: 'onDoneButtonCommand'
+        doneButtonCommand: 'onDoneButtonCommand',
+        passwordButtonCommand: 'onPasswordButtonCommand'
       }
     }
+  },
+  onPasswordButtonCommand: function() {
+    console.log("onPasswordButtonCommand");
+    var uic = this;
+    var userInformationView = uic.getUserInformationView();
+    var passwordView = uic.getPasswordView();
+
+    userInformationView.setMasked(false);
+    passwordView.down('#passwordFieldSet').setInstructions({
+      title:
+        'Please enter new password.<br><br>',
+      docked: 'top'
+    });
+    passwordView.down('#cancelButton').show();
+    Ext.Viewport.animateActiveItem(passwordView, ALMITOnTheGo.app.getController('Common').getSlideTopTransition());
   },
   oneEditButtonCommand: function () {
     var uic = this;
