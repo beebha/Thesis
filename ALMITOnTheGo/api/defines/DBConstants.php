@@ -1,5 +1,9 @@
 <?php
-
+/**
+ * Class DBConstants
+ *
+ * A class that defines constants for the database
+ */
 class DBConstants
 {
     const DB_STRING = "STRING";
