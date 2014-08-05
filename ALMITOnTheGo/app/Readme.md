@@ -17,3 +17,5 @@ This folder contains the stores
 # ./form
 
 This folder contains the forms
+
+Please read the Readme.md contained in each folder for further details
