@@ -1,25 +1,45 @@
 <?php
+
+/**
+ * Class ALMITOnTheGo
+ *
+ * This class that is used for
+ * pre-populating static data upon
+ * the applications's initialization.
+ *
+ */
  
 class ALMITOnTheGo
 {
+    /**
+     * Method that returns all relevant static info
+     * required for bootstrapping the application
+     *
+     * @return array
+     */
     public static function getAllStaticInfo()
     {
+        // get all grades defined for this application
         $query = ALMITOnTheGoQuery::getGradesQuery();
-        $gradesResults = ALMITOnTheGoDBUtils::getAllResults($query);
+        $gradesResults = DBUtils::getAllResults($query);
 
+        // get all concentrations defined for this application
         $query = ALMITOnTheGoQuery::getConcentrationsQuery();
-        $concentrationResults = ALMITOnTheGoDBUtils::getAllResults($query);
+        $concentrationResults = DBUtils::getAllResults($query);
 
+        // get all categories defined for this application
         $query = ALMITOnTheGoQuery::getCategoriesQuery();
-        $categoriesResults = ALMITOnTheGoDBUtils::getAllResults($query);
+        $categoriesResults = DBUtils::getAllResults($query);
 
+        // get all course terms defined for this application
         $query = ALMITOnTheGoQuery::getCourseTermsQuery();
-        $courseTermsResults = ALMITOnTheGoDBUtils::getAllResults($query);
+        $courseTermsResults = DBUtils::getAllResults($query);
 
         $allConcentrations = array();
         $allCategories = array();
         $allCourseTerms = array();
 
+        // loop through all the results and build an results array
         foreach($concentrationResults as $singleConcentration)
         {
             $allConcentrations[intval($singleConcentration['concentration_id'])] = $singleConcentration['concentration_label'];
@@ -35,6 +55,7 @@ class ALMITOnTheGo
             $allCourseTerms[intval($singleCourseTerm['course_term_id'])] = $singleCourseTerm['course_term_label'];
         }
 
+        // return a results array
         return array(
             "status" => TRUE,
             "errorMsg" => "",

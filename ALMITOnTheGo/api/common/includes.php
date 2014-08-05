@@ -13,7 +13,6 @@ require_once(dirname(__FILE__) . '/../defines/DBConstants.php');
 // ALMITOnTheGo files
 require_once(dirname(__FILE__) . '/../almitonthego/ALMITOnTheGo.php');
 require_once(dirname(__FILE__) . '/../almitonthego/ALMITOnTheGoController.php');
-require_once(dirname(__FILE__) . '/../almitonthego/ALMITOnTheGoDBUtils.php');
 require_once(dirname(__FILE__) . '/../almitonthego/ALMITOnTheGoQuery.php');
 
 // Login files
