@@ -26,11 +26,14 @@ Ext.define('ALMITOnTheGo.view.Password', {
             hidden: true,
             hideAnimation: 'fadeOut',
             showAnimation: 'fadeIn',
-            style: 'color:#990000;margin:10px;'
+            style: 'color:#990000;margin-top:0.5em;margin-left:0.5em;'
           },
           {
             xtype: 'fieldset',
             itemId: 'passwordFieldSet',
+            style: {
+              marginTop: '-0.2em'
+            },
             items: [
               {
                 xtype: 'passwordfield',

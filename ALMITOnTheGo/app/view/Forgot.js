@@ -27,16 +27,17 @@ Ext.define('ALMITOnTheGo.view.Forgot', {
             hidden: true,
             hideAnimation: 'fadeOut',
             showAnimation: 'fadeIn',
-            style: 'color:#990000;margin:10px;'
+            style: 'color:#990000;margin-top:0.5em;margin-left:0.5em;'
           },
           {
             xtype: 'fieldset',
+            style: {
+              marginTop: '-0.5em'
+            },
             instructions: {
               title:
                 'You can request to have your username emailed to you ' +
-                'and to reset your password if you have forgotten your username or password.<br><br>' +
-                'When you fill in your registered email address, you will be sent instructions ' +
-                'on how to reset your password.<br><br>',
+                'and to reset your password if you have forgotten your username or password.<br><br>',
               docked: 'top'
             },
             items: [
