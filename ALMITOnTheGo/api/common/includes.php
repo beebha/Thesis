@@ -1,4 +1,7 @@
 <?php
+/**
+ * This file is a common file that includes all php files for the ALMITOnTheGo application's API
+ */
 
 // private files
 require_once(dirname(__FILE__) . '/../private/ValidationUtils.php');
@@ -64,7 +67,6 @@ require_once(dirname(__FILE__) . '/../analysis/AnalysisQuery.php');
 // Contact files
 require_once(dirname(__FILE__) . '/../contact/ContactController.php');
 require_once(dirname(__FILE__) . '/../contact/Contact.php');
-require_once(dirname(__FILE__) . '/../contact/ContactDBUtils.php');
 require_once(dirname(__FILE__) . '/../contact/ContactQuery.php');
 
 // Thesis files

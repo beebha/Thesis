@@ -1,19 +1,34 @@
 <?php
- 
+/**
+ * Class Contact
+ *
+ * This class that is used for
+ * retrieving instructors information
+ * to display in the Contact view.
+ *
+ */
 class Contact
 {
+    /**
+     * Method that allows a user to view the
+     * courses and information of all ainstructors
+     *
+     * @param $authToken - registered user's auth token
+     * @param $concentrationID - ID of concentration to get instructors
+     * @return array
+     */
     public static function getInstructors($authToken, $concentrationID)
     {
         $instructors = array();
 
         if(!empty($authToken)) {
             $userInfoQuery = UserInfoQuery::getUserInfoQuery($authToken);
-            $userResults = ContactDBUtils::getSingleDetailExecutionResult($userInfoQuery);
+            $userResults = DBUtils::getSingleDetailExecutionResult($userInfoQuery);
             $concentrationID = $userResults['concentration_id'];
         }
-
+        // execute query only for all users
         $query = ContactQuery::getInstructorsQuery($concentrationID);
-        $instructorResults = ContactDBUtils::getAllResults($query);
+        $instructorResults = DBUtils::getAllResults($query);
 
         foreach($instructorResults as $singleInstructor) {
             $coursesDetails = array();
@@ -35,6 +50,7 @@ class Contact
             $instructors[] = $singleInstructor;
         }
 
+        // return a results array
         return array(
             "status" => TRUE,
             "errorMsg" => "",

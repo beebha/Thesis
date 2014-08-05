@@ -1,5 +1,9 @@
 <?php
-
+/**
+ * Class ContactQuery
+ *
+ * A class that builds queries to be executed for the Contact view
+ */
 class ContactQuery
 {
     public static function getInstructorsQuery($concentrationID)
