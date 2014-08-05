@@ -1,7 +1,24 @@
 <?php
+
+/**
+ * Class Analysis
+ *
+ * This class that is used for
+ * getting GPA data for a registered user
+ * to display in the Analysis view.
+ *
+ */
  
 class Analysis
 {
+
+    /**
+     * Method that returns all relevant GPA info
+     * required for displaying analysis graph
+     *
+     * @param $authToken - registered user's auth token
+     * @return array
+     */
     public static function getGPAForAllTerms($authToken)
     {
         $gpaByTerms = array();
@@ -17,11 +34,13 @@ class Analysis
             8 => 'Spr 15',
         );
 
+        // execute query only for registered user
         if (!empty($authToken)) {
             $query = AnalysisQuery::getGPAByTermsQuery($authToken);
-            $results = AnalysisDBUtils::getAllResults($query);
+            $results = DBUtils::getAllResults($query);
         }
 
+        // loop through and build result set
         foreach($results as $gpaResult) {
             $gpaArray = explode(",", $gpaResult['all_gpa']);
             $gpaResult['gpa'] = round(array_sum($gpaArray)/count($gpaArray), 2);
@@ -29,6 +48,7 @@ class Analysis
             $gpaByTerms[] = $gpaResult;
         }
 
+        // return a results array
         return array(
             "status" => TRUE,
             "errorMsg" => "",

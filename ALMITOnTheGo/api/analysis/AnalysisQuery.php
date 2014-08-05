@@ -11,7 +11,7 @@ class AnalysisQuery
                 INNER JOIN course c ON c.course_id = uc.course_id
                 INNER JOIN grades g ON g.grade_id = uc.grade_id
                 INNER JOIN course_terms ct ON ct.course_term_id = c.course_term_id
-                WHERE mat.auth_token = ".AnalysisDBUtils::getDBValue(DBConstants::DB_STRING, $authToken)."
+                WHERE mat.auth_token = ".DBUtils::getDBValue(DBConstants::DB_STRING, $authToken)."
                 AND uc.grade_id NOT IN (1)
                 GROUP BY ct.course_term_id
                 ORDER BY ct.course_term_id ASC";

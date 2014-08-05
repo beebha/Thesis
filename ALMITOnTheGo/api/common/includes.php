@@ -60,7 +60,6 @@ require_once(dirname(__FILE__) . '/../calendar/CalendarQuery.php');
 // Analysis files
 require_once(dirname(__FILE__) . '/../analysis/AnalysisController.php');
 require_once(dirname(__FILE__) . '/../analysis/Analysis.php');
-require_once(dirname(__FILE__) . '/../analysis/AnalysisDBUtils.php');
 require_once(dirname(__FILE__) . '/../analysis/AnalysisQuery.php');
 
 // Contact files
