@@ -32,7 +32,6 @@ require_once(dirname(__FILE__) . '/../register/RegisterValidationUtils.php');
 // Course files
 require_once(dirname(__FILE__) . '/../course/CourseController.php');
 require_once(dirname(__FILE__) . '/../course/Course.php');
-require_once(dirname(__FILE__) . '/../course/CourseDBUtils.php');
 require_once(dirname(__FILE__) . '/../course/CourseQuery.php');
 require_once(dirname(__FILE__) . '/../course/CourseValidationUtils.php');
 

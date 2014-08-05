@@ -11,7 +11,7 @@ class Contact
 {
     /**
      * Method that allows a user to view the
-     * courses and information of all ainstructors
+     * courses and information of all instructors
      *
      * @param $authToken - registered user's auth token
      * @param $concentrationID - ID of concentration to get instructors

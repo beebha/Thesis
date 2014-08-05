@@ -1,7 +1,19 @@
 <?php
-
+/**
+ * Class CourseController
+ *
+ * A controller class that directs calls to @see Course
+ */
 class CourseController
 {
+    /**
+     * Method executes call in @see Course::getCoursesForConcentration
+     * after parameter validation
+     *
+     * @param $postVar - post variables in HTTP Request
+     * @return array
+     * @throws APIException
+     */
     public static function getCourses($postVar)
     {
         $result = array();
@@ -23,12 +35,21 @@ class CourseController
         return $result;
     }
 
+    /**
+     * Method executes call in @see Course::getCourseCategoryViewDetails
+     *
+     * @param $postVar - post variables in HTTP Request
+     * @return array
+     */
     public static function getCourseCategoryViewDetails($postVar)
     {
         $result = array();
         $resultData = null;
 
-        $resultData = Course::getCourseCategoryViewDetails($postVar['authToken'], $postVar['concentrationID']);
+        $resultData = Course::getCourseCategoryViewDetails(
+            $postVar['authToken'],
+            $postVar['concentrationID']
+        );
 
         $result['success'] = $resultData['status'];
         $result['error']['message'] = $resultData['errorMsg'];
@@ -36,6 +57,11 @@ class CourseController
         return $result;
     }
 
+    /**
+     * Method executes call in @see Course::getCourseTermViewDetails
+     *
+     * @return array
+     */
     public static function getCourseTermViewDetails()
     {
         $result = array();
@@ -49,12 +75,23 @@ class CourseController
         return $result;
     }
 
+    /**
+     * Method executes call in @see Course::getCoursesResults
+     *
+     * @param $postVar - post variables in HTTP Request
+     * @return array
+     */
     public static function getCoursesResults($postVar)
     {
         $result = array();
         $resultData = null;
 
-        $resultData = Course::getCoursesResults($postVar['authToken'], $postVar['concentrationID'], $postVar['categoryID'], $postVar['courseTermID']);
+        $resultData = Course::getCoursesResults(
+            $postVar['authToken'],
+            $postVar['concentrationID'],
+            $postVar['categoryID'],
+            $postVar['courseTermID']
+        );
 
         $result['success'] = $resultData['status'];
         $result['error']['message'] = $resultData['errorMsg'];

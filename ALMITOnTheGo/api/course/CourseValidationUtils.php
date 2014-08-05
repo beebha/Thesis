@@ -1,5 +1,9 @@
 <?php
-
+/**
+ * Class CourseValidationUtils
+ *
+ * A class that executes validation rules for HTTP Post parameters
+ */
 class CourseValidationUtils extends ValidationUtils
 {
     public static function validateCoursesParams(array $postVar)

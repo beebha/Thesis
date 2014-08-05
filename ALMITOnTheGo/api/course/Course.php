@@ -1,11 +1,25 @@
 <?php
- 
+/**
+ * Class Course
+ *
+ * This class that is used for
+ * retrieving course information
+ * to display in the Course view.
+ *
+ */
 class Course
 {
+    /**
+     * Method that retrieves all courses associated
+     * with a concentration for active course terms
+     *
+     * @param $concentrationID - ID of concentration to get course
+     * @return array
+     */
     public static function getCoursesForConcentration($concentrationID)
     {
         $query = CourseQuery::getCoursesForConcentrationQuery($concentrationID);
-        $courses = CourseDBUtils::getAllResults($query);
+        $courses = DBUtils::getAllResults($query);
 
         return array(
             "status" => TRUE,
@@ -13,6 +27,14 @@ class Course
             "data" => $courses);
     }
 
+    /**
+     * Method that retrieves all course categories
+     * associated with a concentration
+     *
+     * @param $authToken
+     * @param $concentrationID
+     * @return array
+     */
     public static function getCourseCategoryViewDetails($authToken, $concentrationID)
     {
         $completedRequirementsResults = array();
@@ -20,12 +42,12 @@ class Course
 
         if (!empty($authToken)) {
             $query = CourseQuery::getCompletedRequirements($authToken);
-            $completedRequirementsResults = CourseDBUtils::getAllResults($query);
+            $completedRequirementsResults = DBUtils::getAllResults($query);
             $concentrationID = $completedRequirementsResults[0]['concentration_id'];
         }
 
         $courseRequirementsQuery = CourseQuery::getCourseRequirements($concentrationID);
-        $courseRequirementsResults = CourseDBUtils::getAllResults($courseRequirementsQuery);
+        $courseRequirementsResults = DBUtils::getAllResults($courseRequirementsQuery);
 
         // manipulate results
         foreach($courseRequirementsResults as $singleReq)
@@ -74,10 +96,15 @@ class Course
             "data" => array('currentReqs' => $currentRequirementsResults, 'concentrationID' => $concentrationID));
     }
 
+    /**
+     * Method that retrieves all active course terms
+     *
+     * @return array
+     */
     public static function getCourseTermViewDetails()
     {
         $courseTermsQuery = ALMITOnTheGoQuery::getCourseTermsQuery();
-        $courseTermsResults = CourseDBUtils::getAllResults($courseTermsQuery);
+        $courseTermsResults = DBUtils::getAllResults($courseTermsQuery);
 
         return array(
             "status" => TRUE,
@@ -85,18 +112,28 @@ class Course
             "data" => array('currentCourseTerms' => $courseTermsResults));
     }
 
+    /**
+     * Method that retrieves all courses based on
+     * concentration, category and course term selected
+     *
+     * @param $authToken - registered user's auth token
+     * @param $concentrationID - ID of concentration to get courses
+     * @param $categoryID - ID of category to get courses
+     * @param $courseTermID - ID of course term to get courses
+     * @return array
+     */
     public static function getCoursesResults($authToken, $concentrationID, $categoryID, $courseTermID)
     {
         $coursesResults = array();
 
         if (!empty($authToken)) {
             $query = CourseQuery::getCompletedCourses($authToken);
-            $completedCoursesResults = CourseDBUtils::getAllResults($query);
+            $completedCoursesResults = DBUtils::getAllResults($query);
             $concentrationID = $completedCoursesResults[0]['concentration_id'];
         }
 
         $coursesQuery = CourseQuery::getCourses($concentrationID, $categoryID, $courseTermID);
-        $results = CourseDBUtils::getAllResults($coursesQuery);
+        $results = DBUtils::getAllResults($coursesQuery);
 
         foreach($results as $singleResult)
         {
@@ -112,6 +149,10 @@ class Course
             "data" => array('concentrationID'=> $concentrationID, 'coursesResults' => $coursesResults));
     }
 
+    /**
+     * @param $req
+     * @return string
+     */
     private static function getSubTextForCategory($req)
     {
         $categoryCount = $req['category_count'];
