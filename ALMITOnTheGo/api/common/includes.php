@@ -54,7 +54,6 @@ require_once(dirname(__FILE__) . '/../grade/GradeQuery.php');
 // Calendar files
 require_once(dirname(__FILE__) . '/../calendar/CalendarController.php');
 require_once(dirname(__FILE__) . '/../calendar/Calendar.php');
-require_once(dirname(__FILE__) . '/../calendar/CalendarDBUtils.php');
 require_once(dirname(__FILE__) . '/../calendar/CalendarQuery.php');
 
 // Analysis files

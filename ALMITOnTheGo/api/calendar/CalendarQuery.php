@@ -1,5 +1,9 @@
 <?php
-
+/**
+ * Class CalendarQuery
+ *
+ * A class that builds queries to be executed for the Calendar view
+ */
 class CalendarQuery
 {
     public static function getCalendarViewQuery($concentrationID)
@@ -16,7 +20,7 @@ class CalendarQuery
                     INNER JOIN instructors i ON i.instructor_code = ic.instructor_code
                     AND ct.current_course = true
                     AND c.course_day <> ''
-                    WHERE c.concentration_id = ".CalendarDBUtils::getDBValue(DBConstants::DB_VALUE, $concentrationID)."
+                    WHERE c.concentration_id = ".DBUtils::getDBValue(DBConstants::DB_VALUE, $concentrationID)."
                     GROUP BY ic.hes_course_id
                     ORDER BY c.course_term_id ASC";
     }
@@ -27,8 +31,8 @@ class CalendarQuery
         for($i = 0; $i < count($courseIDs); $i++)
         {
             $query = "INSERT IGNORE into users_calendar (user_id, course_id) VALUES
-            (" .CalendarDBUtils::getDBValue(DBConstants::DB_VALUE, $userID). "," .
-                CalendarDBUtils::getDBValue(DBConstants::DB_VALUE, $courseIDs[$i]). ")";
+            (" .DBUtils::getDBValue(DBConstants::DB_VALUE, $userID). "," .
+                DBUtils::getDBValue(DBConstants::DB_VALUE, $courseIDs[$i]). ")";
             $queriesToBeExecuted[] = $query;
         }
 
@@ -38,15 +42,15 @@ class CalendarQuery
     public static function deleteUserCalendarQuery($userID, $courseID)
     {
         return "DELETE from users_calendar
-                WHERE user_id = " .CalendarDBUtils::getDBValue(DBConstants::DB_VALUE, $userID). "
-                AND course_id = " . CalendarDBUtils::getDBValue(DBConstants::DB_VALUE, $courseID);
+                WHERE user_id = " .DBUtils::getDBValue(DBConstants::DB_VALUE, $userID). "
+                AND course_id = " . DBUtils::getDBValue(DBConstants::DB_VALUE, $courseID);
     }
 
     public static function getUserCalendarQuery($userID)
     {
         return "SELECT group_concat(course_id) allCourseIDs
                 FROM users_calendar
-                WHERE users_calendar.user_id = " .CalendarDBUtils::getDBValue(DBConstants::DB_VALUE, $userID);
+                WHERE users_calendar.user_id = " .DBUtils::getDBValue(DBConstants::DB_VALUE, $userID);
     }
 }
  

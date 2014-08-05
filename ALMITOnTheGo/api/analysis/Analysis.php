@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Class Analysis
  *
@@ -8,10 +7,8 @@
  * to display in the Analysis view.
  *
  */
- 
 class Analysis
 {
-
     /**
      * Method that returns all relevant GPA info
      * required for displaying analysis graph

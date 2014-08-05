@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Class ALMITOnTheGoController
  *
@@ -8,7 +7,7 @@
 class ALMITOnTheGoController
 {
     /**
-     * Method executes call in @see ALMITOnTheGo @method getAllStaticInfo
+     * Method executes call in @see ALMITOnTheGo::getAllStaticInfo
      * @return array
      */
     public static function getAllStaticInfoForApp()

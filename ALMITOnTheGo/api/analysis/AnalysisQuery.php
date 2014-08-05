@@ -1,5 +1,9 @@
 <?php
-
+/**
+ * Class AnalysisQuery
+ *
+ * A class that builds queries to be executed for the Analysis view
+ */
 class AnalysisQuery
 {
     public static function getGPAByTermsQuery($authToken)

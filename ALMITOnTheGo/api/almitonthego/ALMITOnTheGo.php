@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Class ALMITOnTheGo
  *
@@ -8,7 +7,6 @@
  * the applications's initialization.
  *
  */
- 
 class ALMITOnTheGo
 {
     /**

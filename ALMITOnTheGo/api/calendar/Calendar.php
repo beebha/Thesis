@@ -1,13 +1,29 @@
 <?php
- 
+/**
+ * Class Calendar
+ *
+ * This class that is used for
+ * adding calendar events, deleting calendar events,
+ * getting calendar view details
+ * to display in the Calendar view.
+ *
+ */
 class Calendar
 {
+    /**
+     * Method that allows a registered user to add calendar events
+     *
+     * @param $authToken - registered user's auth token
+     * @param $allCheckedCourses - course IDs of checked courses to add
+     * @return array
+     */
     public static function addCalendarEvents($authToken, $allCheckedCourses)
     {
+        // execute query only for registered user
         if(!empty($authToken))
         {
             $query = UserInfoQuery::getUserInfoQuery($authToken);
-            $userResults = CalendarDBUtils::getSingleDetailExecutionResult($query);
+            $userResults = DBUtils::getSingleDetailExecutionResult($query);
 
             $userID = $userResults['user_id'];
             $courseIDs = array();
@@ -17,48 +33,69 @@ class Calendar
             }
 
             $createUserCalendarQuery = CalendarQuery::createUserCalendarQuery($userID, $courseIDs);
-            $createUserCalendarResults = CalendarDBUtils::getInsertUpdateDeleteBulkExecutionResult($createUserCalendarQuery);
+            $createUserCalendarResults = DBUtils::getInsertUpdateDeleteBulkExecutionResult($createUserCalendarQuery);
 
             if(!$createUserCalendarResults) {
                 return array("status" => FALSE, "errorMsg" => "DB Error", "data" => NULL);
             }
         }
 
+        // return a results array
         return array(
             "status" => TRUE,
             "errorMsg" => "",
             "data" => NULL);
     }
 
+    /**
+     * Method that allows a registered user to delete calendar events
+     *
+     * @param $authToken - registered user's auth token
+     * @param $courseID - ID of course to be deleted
+     * @return array
+     */
     public static function deleteCalendarEvent($authToken, $courseID)
     {
+        // execute query only for registered user
         if(!empty($authToken))
         {
             $query = UserInfoQuery::getUserInfoQuery($authToken);
-            $userResults = CalendarDBUtils::getSingleDetailExecutionResult($query);
+            $userResults = DBUtils::getSingleDetailExecutionResult($query);
 
             $userID = $userResults['user_id'];
 
             $deleteUserCalendarQuery = CalendarQuery::deleteUserCalendarQuery($userID, $courseID);
-            $deleteUserCalendarResults = CalendarDBUtils::getInsertUpdateDeleteExecutionResult($deleteUserCalendarQuery);
+            $deleteUserCalendarResults = DBUtils::getInsertUpdateDeleteExecutionResult($deleteUserCalendarQuery);
 
             if(!$deleteUserCalendarResults) {
                 return array("status" => FALSE, "errorMsg" => "DB Error", "data" => NULL);
             }
         }
 
+        // return a results array
         return array(
             "status" => TRUE,
             "errorMsg" => "",
             "data" => NULL);
     }
 
+    /**
+     * Method that allows a registered user or guest to view calendar events
+     *
+     * @param $authToken - registered user's auth token
+     * @param $concentrationID - ID of concentration
+     * @param $mode - month/week
+     * @param $minDate - start date of month/wek
+     * @param $maxDate - end date of month/week
+     * @return array
+     */
     public static function getCalendarViewDetails($authToken, $concentrationID, $mode, $minDate, $maxDate)
     {
         $userCalendarEvents = array();
         $startDate = "";
         $endDate = "";
 
+        // define start and end date for mode if value is current
         if($minDate == 'current' && $maxDate == 'current') {
             $timeStamp = strtotime("now");
             if($mode == 'MONTH') {
@@ -78,27 +115,30 @@ class Calendar
             $endDate = $maxDate;
         }
 
+        // execute query only for registered user
         if(!empty($authToken)) {
             $userInfoQuery = UserInfoQuery::getUserInfoQuery($authToken);
-            $userResults = CalendarDBUtils::getSingleDetailExecutionResult($userInfoQuery);
+            $userResults = DBUtils::getSingleDetailExecutionResult($userInfoQuery);
 
             $userID = $userResults['user_id'];
             $concentrationID = $userResults['concentration_id'];
 
             $userCalendarQuery = CalendarQuery::getUserCalendarQuery($userID);
-            $userCalendarResults = CalendarDBUtils::getSingleDetailExecutionResult($userCalendarQuery);
+            $userCalendarResults = DBUtils::getSingleDetailExecutionResult($userCalendarQuery);
 
             if(!is_null($userCalendarResults['allCourseIDs'])) {
                 $userCalendarEvents = explode(",", $userCalendarResults['allCourseIDs']);
             }
         }
 
+        // get all calendar events for selected concentration
         $query = CalendarQuery::getCalendarViewQuery($concentrationID);
-        $calendarCourses = CalendarDBUtils::getAllResults($query);
+        $calendarCourses = DBUtils::getAllResults($query);
 
         $calendarEvents = array();
         $userAddedCalendarCourses = array();
 
+        // loop through calendar events and indicate of user has added to schedule
         foreach($calendarCourses as $singleCourse)
         {
             $currentDate = $startDate;
@@ -173,6 +213,7 @@ class Calendar
             }
         }
 
+        // return a results array
         return array(
             "status" => TRUE,
             "errorMsg" => "",

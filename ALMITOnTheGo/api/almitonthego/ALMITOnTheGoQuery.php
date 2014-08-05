@@ -1,11 +1,9 @@
 <?php
-
 /**
  * Class ALMITOnTheGoQuery
  *
  * A class that builds queries to be executed
  */
-
 class ALMITOnTheGoQuery
 {
     public static function getGradesQuery()

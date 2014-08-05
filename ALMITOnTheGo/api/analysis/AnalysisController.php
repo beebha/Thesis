@@ -1,15 +1,13 @@
 <?php
-
 /**
  * Class AnalysisController
  *
  * A controller class that directs calls to @see Analysis
  */
-
 class AnalysisController
 {
     /**
-     * Method executes call in @see Analysis @method getGPAForAllTerms
+     * Method executes call in @see Analysis::getGPAForAllTerms
      *
      * @param $postVar - post variables in HTTP Request
      * @return array
