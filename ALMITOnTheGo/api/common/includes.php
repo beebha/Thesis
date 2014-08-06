@@ -37,7 +37,6 @@ require_once(dirname(__FILE__) . '/../course/CourseValidationUtils.php');
 // User Info files
 require_once(dirname(__FILE__) . '/../userinfo/UserInfoController.php');
 require_once(dirname(__FILE__) . '/../userinfo/UserInfo.php');
-require_once(dirname(__FILE__) . '/../userinfo/UserInfoDBUtils.php');
 require_once(dirname(__FILE__) . '/../userinfo/UserInfoQuery.php');
 
 // Home files
@@ -68,5 +67,4 @@ require_once(dirname(__FILE__) . '/../contact/ContactQuery.php');
 // Thesis files
 require_once(dirname(__FILE__) . '/../thesis/ThesisController.php');
 require_once(dirname(__FILE__) . '/../thesis/Thesis.php');
-require_once(dirname(__FILE__) . '/../thesis/ThesisDBUtils.php');
 require_once(dirname(__FILE__) . '/../thesis/ThesisQuery.php');

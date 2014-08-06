@@ -1,5 +1,9 @@
 <?php
-
+/**
+ * Class UserInfoQuery
+ *
+ * A class that builds queries to be executed for the User Information view
+ */
 class UserInfoQuery
 {
     public static function getUserInfoQuery($authToken)
@@ -9,7 +13,7 @@ class UserInfoQuery
                 DATE_FORMAT(u.last_login,'%b %d %Y %h:%i %p') last_login, u.username
                 FROM mobile_auth_token mat
                 INNER JOIN users u ON u.user_id = mat.user_id
-                WHERE mat.auth_token = " . UserInfoDBUtils::getDBValue(DBConstants::DB_STRING, $authToken);
+                WHERE mat.auth_token = " . DBUtils::getDBValue(DBConstants::DB_STRING, $authToken);
     }
 
     public static function getUserInfoFromEmailQuery($userEmail)
@@ -17,7 +21,7 @@ class UserInfoQuery
         return "SELECT user_id, username
                 FROM users
                 WHERE email = ".
-                UserInfoDBUtils::getDBValue(DBConstants::DB_STRING, $userEmail);
+                DBUtils::getDBValue(DBConstants::DB_STRING, $userEmail);
     }
 
     public static function createUpdateUserCoursesQuery($userID, array $courseIDSAndGrades)
@@ -26,11 +30,11 @@ class UserInfoQuery
         foreach($courseIDSAndGrades as $courseID => $gradeID)
         {
             $query = "INSERT into users_courses (user_id, course_id, grade_id) VALUES
-            (" .UserInfoDBUtils::getDBValue(DBConstants::DB_VALUE, $userID). "," .
-            UserInfoDBUtils::getDBValue(DBConstants::DB_VALUE, $courseID). "," .
-            UserInfoDBUtils::getDBValue(DBConstants::DB_VALUE, $gradeID). ")
+            (" .DBUtils::getDBValue(DBConstants::DB_VALUE, $userID). "," .
+            DBUtils::getDBValue(DBConstants::DB_VALUE, $courseID). "," .
+            DBUtils::getDBValue(DBConstants::DB_VALUE, $gradeID). ")
             ON DUPLICATE KEY UPDATE
-            grade_id = " .UserInfoDBUtils::getDBValue(DBConstants::DB_VALUE, $gradeID);
+            grade_id = " .DBUtils::getDBValue(DBConstants::DB_VALUE, $gradeID);
             $queriesToBeExecuted[] = $query;
         }
 
@@ -40,14 +44,14 @@ class UserInfoQuery
     public static function deleteUserCoursesQuery($userID, array $courseIDS)
     {
         return "DELETE FROM users_courses WHERE user_id = " .
-                UserInfoDBUtils::getDBValue(DBConstants::DB_VALUE, $userID). "
+                DBUtils::getDBValue(DBConstants::DB_VALUE, $userID). "
                 AND course_id NOT IN (". implode(",", $courseIDS) .")";
     }
 
     public static function updateGPAQuery($userID, $gpa)
     {
-        return "UPDATE users SET gpa = " .UserInfoDBUtils::getDBValue(DBConstants::DB_VALUE, $gpa). "
-                     WHERE user_id = " .UserInfoDBUtils::getDBValue(DBConstants::DB_VALUE, $userID);
+        return "UPDATE users SET gpa = " .DBUtils::getDBValue(DBConstants::DB_VALUE, $gpa). "
+                     WHERE user_id = " .DBUtils::getDBValue(DBConstants::DB_VALUE, $userID);
     }
 
     public static function getUserCoursesQuery($userID)
@@ -59,7 +63,7 @@ class UserInfoQuery
                 INNER JOIN course c ON c.course_id = uc.course_id
                 INNER JOIN grades g ON g.grade_id = uc.grade_id
                 INNER JOIN course_terms ct ON ct.course_term_id = c.course_term_id
-                WHERE uc.user_id = " .UserInfoDBUtils::getDBValue(DBConstants::DB_VALUE, $userID). "
+                WHERE uc.user_id = " .DBUtils::getDBValue(DBConstants::DB_VALUE, $userID). "
                 ORDER BY c.course_id ASC";
     }
 }

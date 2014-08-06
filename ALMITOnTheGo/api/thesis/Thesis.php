@@ -1,15 +1,25 @@
 <?php
- 
+/**
+ * Class Thesis
+ *
+ * This class is used for
+ * retrieving thesis information
+ * to display in the Thesis view.
+ *
+ */
 class Thesis
 {
+    /**
+     * Method that retrieves all thesis dates information
+     *
+     * @return array
+     */
     public static function getThesisInfo()
     {
         $thesis = array();
 
         $query = ThesisQuery::getThesisInfoQuery();
-        $thesisResults = ThesisDBUtils::getAllResults($query);
-
-        error_log(print_r($thesisResults, true));
+        $thesisResults = DBUtils::getAllResults($query);
 
         foreach($thesisResults as $singleThesis) {
             $thesisInfo['graduation_date'] = date("F jS", strtotime($singleThesis['graduation_date']));

@@ -1,7 +1,20 @@
 <?php
- 
+/**
+ * Class UserInfo
+ *
+ * This class is used for
+ * retrieving user information
+ * to display in the User Information view.
+ *
+ */
 class UserInfo
 {
+    /**
+     * Method that saves all updated user information
+     *
+     * @param array $userInfoData
+     * @return array
+     */
     public static function saveUserInfo(array $userInfoData)
     {
         $authToken = $userInfoData['authToken'];
@@ -9,7 +22,7 @@ class UserInfo
         $concentrationID = $userInfoData['concentrationID'];
 
         $query = UserInfoQuery::getUserInfoQuery($authToken);
-        $userResults = UserInfoDBUtils::getSingleDetailExecutionResult($query);
+        $userResults = DBUtils::getSingleDetailExecutionResult($query);
 
         if($userResults['registration_type'] != $registrationType || $userResults['concentration_id'] != $concentrationID)
         {
@@ -45,7 +58,7 @@ class UserInfo
 
         if(count($allCourseIDsAndGrades) > 0) {
             $createUserCoursesQuery = UserInfoQuery::createUpdateUserCoursesQuery($userID, $allCourseIDsAndGrades);
-            $createUserCoursesResults = UserInfoDBUtils::getInsertUpdateDeleteBulkExecutionResult($createUserCoursesQuery);
+            $createUserCoursesResults = DBUtils::getInsertUpdateDeleteBulkExecutionResult($createUserCoursesQuery);
 
             if(!$createUserCoursesResults) {
                 return array("status" => FALSE, "errorMsg" => "DB Error", "data" => NULL);
@@ -53,7 +66,7 @@ class UserInfo
 
             if(count(array_keys($allCourseIDsAndGrades)) > 0) {
                 $deleteUserCoursesQuery = UserInfoQuery::deleteUserCoursesQuery($userID, array_keys($allCourseIDsAndGrades));
-                $deleteUserCoursesResults = UserInfoDBUtils::getInsertUpdateDeleteExecutionResult($deleteUserCoursesQuery);
+                $deleteUserCoursesResults = DBUtils::getInsertUpdateDeleteExecutionResult($deleteUserCoursesQuery);
 
                 if(!$deleteUserCoursesResults) {
                     return array("status" => FALSE, "errorMsg" => "DB Error", "data" => NULL);
@@ -63,7 +76,7 @@ class UserInfo
 
         if(is_numeric($currentGPA)) {
             $updateGPAQuery = UserInfoQuery::updateGPAQuery($userID, $currentGPA);
-            $updateGPAResults = UserInfoDBUtils::getInsertUpdateDeleteExecutionResult($updateGPAQuery);
+            $updateGPAResults = DBUtils::getInsertUpdateDeleteExecutionResult($updateGPAQuery);
 
             if(!$updateGPAResults) {
                 return array("status" => FALSE, "errorMsg" => "DB Error", "data" => NULL);
@@ -73,12 +86,18 @@ class UserInfo
         return array( "status" => TRUE, "errorMsg" => "", "data" => NULL);
     }
 
+    /**
+     * Method that retrieves all user information details of a registered user.
+     *
+     * @param $authToken
+     * @return array
+     */
     public static function getUserInfoDetails($authToken)
     {
         if (!empty($authToken))
         {
             $query = UserInfoQuery::getUserInfoQuery($authToken);
-            $userResults = UserInfoDBUtils::getSingleDetailExecutionResult($query);
+            $userResults = DBUtils::getSingleDetailExecutionResult($query);
 
             if(is_null($userResults)) {
                 return array("status" => FALSE, "errorMsg" => "DB Error", "data" => NULL);
@@ -86,7 +105,7 @@ class UserInfo
 
             $userID = $userResults['user_id'];
             $userCoursesQuery = UserInfoQuery::getUserCoursesQuery($userID);
-            $userCoursesResults = UserInfoDBUtils::getAllResults($userCoursesQuery);
+            $userCoursesResults = DBUtils::getAllResults($userCoursesQuery);
 
             $registeredCourses = array();
             $completedCourses = array();
@@ -109,6 +128,13 @@ class UserInfo
         }
     }
 
+    /**
+     * Method that processes a forgot username/password request
+     *
+     * @param $userEmail
+     * @return array
+     * @throws APIException
+     */
     public static function processForgotRequest($userEmail)
     {
         // validate email
@@ -120,7 +146,7 @@ class UserInfo
 
         // check if email exists
         $query = UserInfoQuery::getUserInfoFromEmailQuery($userEmail);
-        $userEmailResults = UserInfoDBUtils::getSingleDetailExecutionResult($query);
+        $userEmailResults = DBUtils::getSingleDetailExecutionResult($query);
 
         if(is_null($userEmailResults))
         {
@@ -150,11 +176,20 @@ class UserInfo
 
         // update with new password hash and set forgot password flag to true
         $updateQuery = LoginQuery::getUpdatePasswordQuery($userID, $passwordHash, 1);
-        UserInfoDBUtils::getInsertUpdateDeleteExecutionResult($updateQuery);
+        DBUtils::getInsertUpdateDeleteExecutionResult($updateQuery);
 
         return array( "status" => TRUE, "errorMsg" => "", "data" => NULL);
     }
 
+    /**
+     * Method that processes a change password request
+     *
+     * @param $authToken
+     * @param $password
+     * @param $confirmPassword
+     * @return array
+     * @throws APIException
+     */
     public static function processChangePassword($authToken, $password, $confirmPassword)
     {
         // validate password
@@ -173,12 +208,15 @@ class UserInfo
             $passwordHash = password_hash($password, PASSWORD_BCRYPT);
 
             $updateQuery = LoginQuery::getUpdatePasswordQuery($userID, $passwordHash, 0);
-            UserInfoDBUtils::getInsertUpdateDeleteExecutionResult($updateQuery);
+            DBUtils::getInsertUpdateDeleteExecutionResult($updateQuery);
         }
 
         return array( "status" => TRUE, "errorMsg" => "", "data" => NULL);
     }
 
+    /**
+     * @return string
+     */
     private static function randomPassword()
     {
         $character_set_array = array();
@@ -196,6 +234,12 @@ class UserInfo
         return implode('', $temp_array);
     }
 
+    /**
+     * @param $userEmail
+     * @param $username
+     * @param $password
+     * @return bool
+     */
     private static function sendResetEmail($userEmail, $username, $password)
     {
         $message = "Dear ".$username.",<br><br>

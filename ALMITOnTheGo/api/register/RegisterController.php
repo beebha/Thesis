@@ -1,7 +1,19 @@
 <?php
-
+/**
+ * Class RegisterController
+ *
+ * A controller class that directs calls to @see Login
+ */
 class RegisterController
 {
+    /**
+     * Method executes call in @see Login::createAuthToken
+     * after parameter validation
+     *
+     * @param $postVar
+     * @return array
+     * @throws APIException
+     */
     public static function registerNewUser($postVar)
     {
         $result = array();

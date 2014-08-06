@@ -1,11 +1,14 @@
 <?php
 
+// set the default timezone for the application
 date_default_timezone_set('America/New_York');
 
+// require the file that includes all files used in the application
 require_once 'common/includes.php';
 
 $result = array();
 
+// based on the action, direct to the appropriate Controller class
 try {
     if (isset($_REQUEST['action']) && !is_null($_REQUEST['action']))
     {
@@ -109,6 +112,7 @@ try {
     $result['success'] = FALSE;
 }
 
+// set the header content type to JSON, encode the results and return back to client
 header("Content-Type: application/json");
 header("Content-length: ". strlen(json_encode($result)));
 echo json_encode($result);

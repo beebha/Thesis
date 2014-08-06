@@ -1,5 +1,9 @@
 <?php
-
+/**
+ * Class ThesisQuery
+ *
+ * A class that builds queries to be executed for the Thesis view
+ */
 class ThesisQuery
 {
     public static function getThesisInfoQuery()

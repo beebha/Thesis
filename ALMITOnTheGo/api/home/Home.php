@@ -22,7 +22,7 @@ class Home
 
         if (!empty($authToken)) {
             $query = UserInfoQuery::getUserInfoQuery($authToken);
-            $userIDResults = UserInfoDBUtils::getSingleDetailExecutionResult($query);
+            $userIDResults = DBUtils::getSingleDetailExecutionResult($query);
         } else {
             $userIDResults['registration_type'] = 'GUEST';
         }

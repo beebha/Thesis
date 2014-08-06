@@ -1,5 +1,9 @@
 <?php
-
+/**
+ * Class RegisterValidationUtils
+ *
+ * A class that executes validation rules for HTTP Post parameters
+ */
 class RegisterValidationUtils extends ValidationUtils
 {
     public static function validateRegisterParams(array $postVar)
