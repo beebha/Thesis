@@ -5,47 +5,42 @@ Ext.define('ALMITOnTheGo.view.Main', {
     'Ext.TitleBar'
   ],
   config: {
-    tabBar     : {
-      docked     : 'bottom',
-      scrollable : 'horizontal'
+    tabBar: {
+      docked: 'bottom',
+      scrollable: 'horizontal'
     },
     id: 'mainViewTabPanel',
     listeners: {
-      activeitemchange: function (tabPanel, tab, oldTab) {
+      activeitemchange: function (tabPanel, tab, oldTab)
+      {
         Ext.getCmp('mainTitle').setTitle(tab.config.title);
 
         var me = this;
 
         if (tab.config.title == 'Courses') {
-          console.log("Courses clicked!");
           me.fireEvent('coursesViewDetailsCommand');
         }
         if (tab.config.title == 'Requirements') {
-          console.log("Requirements clicked!");
           me.fireEvent('requirementsViewDetailsCommand');
         }
         if (tab.config.title == 'Calendar') {
-          console.log("Calendar clicked!");
           me.fireEvent('calendarViewDetailsCommand', 'month', 'current', 'current');
         }
         if (tab.config.title == 'Grades') {
-          console.log("Grades clicked!");
           me.fireEvent('gradesViewDetailsCommand');
         }
         if (tab.config.title == 'Analysis') {
-          console.log("Analysis clicked!");
           me.fireEvent('analysisViewDetailsCommand');
         }
         if (tab.config.title == 'Contacts') {
-          console.log("Contacts clicked!");
           me.fireEvent('contactsViewDetailsCommand');
         }
         if (tab.config.title == 'Thesis') {
-          console.log("Thesis clicked!");
           me.fireEvent('thesisViewDetailsCommand');
         }
       },
-      show: function () {
+      show: function ()
+      {
         this.getHomeViewDetails();
       }
     },
@@ -65,7 +60,8 @@ Ext.define('ALMITOnTheGo.view.Main', {
             },
             hidden: true,
             listeners: {
-              tap: function () {
+              tap: function ()
+              {
                 ALMITOnTheGo.app.getController('Main').onSettingsCommand();
               }
             }
@@ -79,7 +75,8 @@ Ext.define('ALMITOnTheGo.view.Main', {
               color: '#E1D9C0'
             },
             listeners: {
-              tap: function () {
+              tap: function ()
+              {
                 ALMITOnTheGo.app.getController('Main').onLogoutCommand();
               }
             }
@@ -147,7 +144,8 @@ Ext.define('ALMITOnTheGo.view.Main', {
       }
     ]
   },
-  getHomeViewDetails: function () {
+  getHomeViewDetails: function ()
+  {
     var me = this;
     me.fireEvent('homeViewDetailsCommand');
   }

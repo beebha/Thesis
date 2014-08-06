@@ -12,10 +12,10 @@ Ext.define('ALMITOnTheGo.view.Courses', {
       {
         xtype: 'panel',
         itemId: 'coursesCardPanel',
-        layout:{
-          type:'card',
-          animation:{
-            type:'slide',
+        layout: {
+          type: 'card',
+          animation: {
+            type: 'slide',
             direction: 'left'
           }
         },
@@ -84,7 +84,8 @@ Ext.define('ALMITOnTheGo.view.Courses', {
                         iconCls: 'arrow_right inner-toolbar-button',
                         itemId: 'coursesNextButton',
                         align: 'right',
-                        handler: function() {
+                        handler: function ()
+                        {
                           this.up('#coursesViewPanel').fireEvent('coursesNextButtonCommand');
                         }
                       }
@@ -133,7 +134,8 @@ Ext.define('ALMITOnTheGo.view.Courses', {
                         itemId: 'categoryBackButton',
                         align: 'left',
                         hidden: true,
-                        handler: function() {
+                        handler: function ()
+                        {
                           this.up('#coursesViewPanel').fireEvent('categoryBackButtonCommand');
                         }
                       },
@@ -142,7 +144,8 @@ Ext.define('ALMITOnTheGo.view.Courses', {
                         iconCls: 'arrow_right inner-toolbar-button',
                         itemId: 'categoryNextButton',
                         align: 'right',
-                        handler: function() {
+                        handler: function ()
+                        {
                           this.up('#coursesViewPanel').fireEvent('categoryNextButtonCommand');
                         }
                       }
@@ -189,7 +192,8 @@ Ext.define('ALMITOnTheGo.view.Courses', {
                         iconCls: 'arrow_left inner-toolbar-button',
                         itemId: 'courseTermBackButton',
                         align: 'left',
-                        handler: function() {
+                        handler: function ()
+                        {
                           this.up('#coursesViewPanel').fireEvent('courseTermBackButtonCommand');
                         }
                       },
@@ -198,7 +202,8 @@ Ext.define('ALMITOnTheGo.view.Courses', {
                         iconCls: 'arrow_right inner-toolbar-button',
                         itemId: 'courseTermNextButton',
                         align: 'right',
-                        handler: function() {
+                        handler: function ()
+                        {
                           this.up('#coursesViewPanel').fireEvent('courseTermNextButtonCommand');
                         }
                       }
@@ -218,7 +223,7 @@ Ext.define('ALMITOnTheGo.view.Courses', {
                 xtype: 'fieldset',
                 itemId: 'viewCoursesFieldSet',
                 width: '95%',
-                height:'96%',
+                height: '96%',
                 centered: true,
                 items: [
                   {
@@ -248,8 +253,9 @@ Ext.define('ALMITOnTheGo.view.Courses', {
                     useSimpleItems: true,
                     disableSelection: true,
                     onItemDisclosure: true,
-                    listeners : {
-                      itemtap : function(list, index, target, record, e) {
+                    listeners: {
+                      itemtap: function (list, index, target, record, e)
+                      {
                         if (e.getTarget('.x-list-disclosure')) {
                           list.up('#coursesViewPanel').fireEvent('viewCoursesListItemDiscloseCommand', list, index, target, record, e);
                         } else if (e.getTarget('.x-innerhtml')) {
@@ -280,7 +286,8 @@ Ext.define('ALMITOnTheGo.view.Courses', {
                         iconCls: 'arrow_left inner-toolbar-button',
                         itemId: 'courseResultsBackButton',
                         align: 'left',
-                        handler: function() {
+                        handler: function ()
+                        {
                           this.up('#coursesViewPanel').fireEvent('courseResultsBackButtonCommand');
                         }
                       },
@@ -289,7 +296,8 @@ Ext.define('ALMITOnTheGo.view.Courses', {
                         text: 'VIEW CONFLICTS',
                         itemId: 'viewConflictsButton',
                         align: 'right',
-                        handler: function() {
+                        handler: function ()
+                        {
                           this.up('#coursesViewPanel').fireEvent('viewConflictsButtonCommand');
                         }
                       },
@@ -301,7 +309,8 @@ Ext.define('ALMITOnTheGo.view.Courses', {
                         itemId: 'addToCalendarButton',
                         align: 'right',
                         hidden: true,
-                        handler: function() {
+                        handler: function ()
+                        {
                           this.up('#coursesViewPanel').fireEvent('addToCalendarButtonCommand');
                         }
                       }
@@ -401,7 +410,8 @@ Ext.define('ALMITOnTheGo.view.Courses', {
                         iconCls: 'arrow_left inner-toolbar-button',
                         itemId: 'courseDetailBackButton',
                         align: 'left',
-                        handler: function() {
+                        handler: function ()
+                        {
                           this.up('#coursesViewPanel').fireEvent('courseDetailBackButtonCommand');
                         }
                       }

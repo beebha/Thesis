@@ -6,10 +6,10 @@ Ext.define('ALMITOnTheGo.view.Landing', {
   config: {
     fullscreen: true,
     layout: 'fit',
-    scrollable:'false',
+    scrollable: 'false',
     style: 'background:url(resources/images/mobile_bg.jpg);background-repeat:no-repeat;' +
-           '-webkit-background-size: cover;-moz-background-size: cover;' +
-           '-o-background-size: cover;background-size: cover;',
+      '-webkit-background-size: cover;-moz-background-size: cover;' +
+      '-o-background-size: cover;background-size: cover;',
     items: [
       {
         xtype: 'titlebar',
@@ -39,7 +39,7 @@ Ext.define('ALMITOnTheGo.view.Landing', {
         xtype: 'panel',
         layout: {
           type: 'vbox',
-          align:'center'
+          align: 'center'
         },
         items: [
           {
@@ -62,35 +62,35 @@ Ext.define('ALMITOnTheGo.view.Landing', {
             items: [
               {
                 html: '<center>' +
-                      '<span style ="font-size:120%;color:#A4946D;font-weight:bold;">' +
-                      '<br><br>ALM IT On The Go<br>' +
-                      'A personal assistant mobile application for ALM IT Graduate Program candidates.' +
-                      '</span>' +
-                      '</center>'
+                  '<span style ="font-size:120%;color:#A4946D;font-weight:bold;">' +
+                  '<br><br>ALM IT On The Go<br>' +
+                  'A personal assistant mobile application for ALM IT Graduate Program candidates.' +
+                  '</span>' +
+                  '</center>'
               },
               {
                 html: '<span style ="font-size:110%;color:#A4946D;">' +
-                      'A one-stop mobile application that allows <B>Registered</B> users to:<br><br>' +
-                      'View & Schedule Courses<br>' +
-                      'View Courses Conflicts<br>' +
-                      'View Requirements<br>' +
-                      'View User Information<br>' +
-                      'View GPA & Analysis<br>' +
-                      'View Contacts<br>' +
-                      'View Thesis Info<br>' +
-                      'View Announcements<br>' +
-                      '</span>'
+                  'A one-stop mobile application that allows <B>Registered</B> users to:<br><br>' +
+                  'View & Schedule Courses<br>' +
+                  'View Courses Conflicts<br>' +
+                  'View Requirements<br>' +
+                  'View User Information<br>' +
+                  'View GPA & Analysis<br>' +
+                  'View Contacts<br>' +
+                  'View Thesis Info<br>' +
+                  'View Announcements<br>' +
+                  '</span>'
               },
               {
                 html: '<span style ="font-size:110%;color:#A4946D;">' +
-                      'A one-stop mobile application that allows <B>Guest</B> users to:<br><br>' +
-                      'View Courses<br>' +
-                      'View Courses Conflicts<br>' +
-                      'View Requirements<br>' +
-                      'View Contacts<br>' +
-                      'View Thesis Info<br>' +
-                      'View Announcements<br>' +
-                      '</span>'
+                  'A one-stop mobile application that allows <B>Guest</B> users to:<br><br>' +
+                  'View Courses<br>' +
+                  'View Courses Conflicts<br>' +
+                  'View Requirements<br>' +
+                  'View Contacts<br>' +
+                  'View Thesis Info<br>' +
+                  'View Announcements<br>' +
+                  '</span>'
               }
             ]
           },
@@ -110,10 +110,12 @@ Ext.define('ALMITOnTheGo.view.Landing', {
       }
     ]
   },
-  onGuestButtonTap: function () {
+  onGuestButtonTap: function ()
+  {
     ALMITOnTheGo.app.authToken = null;
     var me = this;
-    var task = Ext.create('Ext.util.DelayedTask', function () {
+    var task = Ext.create('Ext.util.DelayedTask', function ()
+    {
       me.fireEvent('guestCommand');
     });
 

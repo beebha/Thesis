@@ -36,7 +36,8 @@ Ext.define('ALMITOnTheGo.view.Thesis', {
                     text: 'Expand',
                     action: 'expand',
                     listeners: {
-                      tap: function() {
+                      tap: function ()
+                      {
                         this.up('#thesisViewContainer').down('#thesisAccordionList').doAllExpand();
                       }
                     }
@@ -45,7 +46,8 @@ Ext.define('ALMITOnTheGo.view.Thesis', {
                     text: 'Collapse',
                     action: 'collapse',
                     listeners: {
-                      tap: function() {
+                      tap: function ()
+                      {
                         this.up('#thesisViewContainer').down('#thesisAccordionList').doAllCollapse();
                       }
                     }

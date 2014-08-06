@@ -13,21 +13,19 @@ Ext.define('ALMITOnTheGo.controller.Main', {
       }
     }
   },
-  onHomeViewDetailsCommand: function () {
-
-    console.log("onHomeViewDetailsCommand");
-
+  onHomeViewDetailsCommand: function ()
+  {
     var mc = this;
     var mainView = mc.getMainView();
 
     Ext.Ajax.request({
-      url: ALMITOnTheGo.app.apiURL+'app.php?action=getHomeViewDetails',
+      url: ALMITOnTheGo.app.apiURL + 'app.php?action=getHomeViewDetails',
       method: 'post',
       params: {
         authToken: ALMITOnTheGo.app.authToken
       },
-      success: function (response) {
-
+      success: function (response)
+      {
         var mainViewResponse = Ext.JSON.decode(response.responseText);
 
         var welcomeMsg = "";
@@ -100,18 +98,20 @@ Ext.define('ALMITOnTheGo.controller.Main', {
       }
     });
   },
-  onSettingsCommand: function () {
+  onSettingsCommand: function ()
+  {
     var mc = this;
     var mainView = mc.getMainView();
     var addCoursesView = mc.getAddCoursesView();
 
     Ext.Ajax.request({
-      url: ALMITOnTheGo.app.apiURL+'app.php?action=getUserInfo',
+      url: ALMITOnTheGo.app.apiURL + 'app.php?action=getUserInfo',
       method: 'post',
       params: {
         authToken: ALMITOnTheGo.app.authToken
       },
-      success: function (response) {
+      success: function (response)
+      {
 
         var settingsResponse = Ext.JSON.decode(response.responseText);
 
@@ -123,11 +123,13 @@ Ext.define('ALMITOnTheGo.controller.Main', {
 
           ALMITOnTheGo.app.addedCoursesStore.removeAll();
 
-          Ext.Array.each(settingsResponse.data.completed, function (record) {
+          Ext.Array.each(settingsResponse.data.completed, function (record)
+          {
             ALMITOnTheGo.app.addedCoursesStore.addData(record);
           });
 
-          Ext.Array.each(settingsResponse.data.registered, function (record) {
+          Ext.Array.each(settingsResponse.data.registered, function (record)
+          {
             ALMITOnTheGo.app.addedCoursesStore.addData(record);
           });
 
@@ -141,10 +143,11 @@ Ext.define('ALMITOnTheGo.controller.Main', {
       }
     });
   },
-  onLogoutCommand: function () {
-    if(ALMITOnTheGo.app.authToken != null) {
+  onLogoutCommand: function ()
+  {
+    if (ALMITOnTheGo.app.authToken != null) {
       Ext.Ajax.request({
-        url: ALMITOnTheGo.app.apiURL+'app.php?action=doLogoff',
+        url: ALMITOnTheGo.app.apiURL + 'app.php?action=doLogoff',
         method: 'post',
         params: {
           authToken: ALMITOnTheGo.app.authToken

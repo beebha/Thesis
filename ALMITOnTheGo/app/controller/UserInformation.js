@@ -15,22 +15,22 @@ Ext.define('ALMITOnTheGo.controller.UserInformation', {
       }
     }
   },
-  onPasswordButtonCommand: function() {
-    console.log("onPasswordButtonCommand");
+  onPasswordButtonCommand: function ()
+  {
     var uic = this;
     var userInformationView = uic.getUserInformationView();
     var passwordView = uic.getPasswordView();
 
     userInformationView.setMasked(false);
     passwordView.down('#passwordFieldSet').setInstructions({
-      title:
-        'Please enter new password.<br><br>',
+      title: 'Please enter new password.<br><br>',
       docked: 'top'
     });
     passwordView.down('#cancelButton').show();
     Ext.Viewport.animateActiveItem(passwordView, ALMITOnTheGo.app.getController('Common').getSlideTopTransition());
   },
-  oneEditButtonCommand: function () {
+  oneEditButtonCommand: function ()
+  {
     var uic = this;
     var addCoursesView = uic.getAddCoursesView();
     var userInformationView = uic.getUserInformationView();
@@ -39,7 +39,8 @@ Ext.define('ALMITOnTheGo.controller.UserInformation', {
     addCoursesView.onRegistrationMsgPanelHide();
     Ext.Viewport.animateActiveItem(addCoursesView, ALMITOnTheGo.app.getController('Common').getSlideRightTransition());
   },
-  onDoneButtonCommand: function (userView) {
+  onDoneButtonCommand: function (userView)
+  {
     var userInfoData = {};
     var completedCourses = [];
     var registeredCourses = [];
@@ -52,11 +53,13 @@ Ext.define('ALMITOnTheGo.controller.UserInformation', {
     userInfoData.registrationType = userView.down('#registrationType').getValue();
     userInfoData.currentGPA = userView.down('#currentGPA').getValue();
 
-    Ext.Array.each(Ext.getStore('completedCoursesStore').getData().items, function (record) {
+    Ext.Array.each(Ext.getStore('completedCoursesStore').getData().items, function (record)
+    {
       completedCourses.push(record.data);
     });
 
-    Ext.Array.each(Ext.getStore('registeredCoursesStore').getData().items, function (record) {
+    Ext.Array.each(Ext.getStore('registeredCoursesStore').getData().items, function (record)
+    {
       registeredCourses.push(record.data);
     });
 
@@ -69,13 +72,13 @@ Ext.define('ALMITOnTheGo.controller.UserInformation', {
     });
 
     Ext.Ajax.request({
-      url: ALMITOnTheGo.app.apiURL+'app.php?action=saveUserInfo',
+      url: ALMITOnTheGo.app.apiURL + 'app.php?action=saveUserInfo',
       method: 'post',
       params: {
         data: Ext.JSON.encode(userInfoData)
       },
-      success: function (response) {
-
+      success: function (response)
+      {
         var userInfoResponse = Ext.JSON.decode(response.responseText);
 
         if (userInfoResponse.success === true) {
@@ -85,7 +88,8 @@ Ext.define('ALMITOnTheGo.controller.UserInformation', {
       }
     });
   },
-  populateUserInformation: function (concentrationID, registrationType) {
+  populateUserInformation: function (concentrationID, registrationType)
+  {
     var uic = this;
     var userInformationView = uic.getUserInformationView();
     var addCoursesView = uic.getAddCoursesView();
@@ -109,7 +113,8 @@ Ext.define('ALMITOnTheGo.controller.UserInformation', {
     var credits = 0;
     var totalScore = 0;
 
-    Ext.Array.each(addedCoursesStore.getData().items, function (record) {
+    Ext.Array.each(addedCoursesStore.getData().items, function (record)
+    {
       if (record.data.gpa == -1) {
         Ext.getStore('registeredCoursesStore').addData(record.data);
       } else {

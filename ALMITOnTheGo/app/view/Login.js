@@ -92,22 +92,25 @@ Ext.define('ALMITOnTheGo.view.Login', {
         fn: 'onBackButtonTap'
       },
       {
-        element  : 'element',
-        delegate : 'div.forgotLink',
+        element: 'element',
+        delegate: 'div.forgotLink',
         event: 'tap',
         fn: 'onForgotLinkTap'
       }
     ]
   },
-  onBackButtonTap: function () {
+  onBackButtonTap: function ()
+  {
     var me = this;
-    var task = Ext.create('Ext.util.DelayedTask', function () {
+    var task = Ext.create('Ext.util.DelayedTask', function ()
+    {
       me.fireEvent('backCommand');
     });
 
     task.delay(500);
   },
-  onLoginButtonTap: function () {
+  onLoginButtonTap: function ()
+  {
     ALMITOnTheGo.app.authToken = null;
     var me = this;
 
@@ -120,7 +123,8 @@ Ext.define('ALMITOnTheGo.view.Login', {
     var username = usernameField.getValue(),
       password = passwordField.getValue();
 
-    var task = Ext.create('Ext.util.DelayedTask', function () {
+    var task = Ext.create('Ext.util.DelayedTask', function ()
+    {
       loginFailedLabel.setHtml('');
       usernameField.setValue('');
       passwordField.setValue('');
@@ -129,13 +133,14 @@ Ext.define('ALMITOnTheGo.view.Login', {
 
     task.delay(500);
   },
-  showLoginFailedMessage: function (message) {
+  showLoginFailedMessage: function (message)
+  {
     var label = this.down('#loginFailedLabel');
     label.setHtml(message);
     label.show();
   },
-  onForgotLinkTap: function() {
-    console.log("onForgotLinkTap");
-    Ext.Viewport.animateActiveItem({xtype:'forgotView'}, ALMITOnTheGo.app.getController('Common').getSlideTopTransition());
+  onForgotLinkTap: function ()
+  {
+    Ext.Viewport.animateActiveItem({xtype: 'forgotView'}, ALMITOnTheGo.app.getController('Common').getSlideTopTransition());
   }
 });

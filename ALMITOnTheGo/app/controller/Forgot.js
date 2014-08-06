@@ -13,9 +13,8 @@ Ext.define('ALMITOnTheGo.controller.Forgot',
         }
       }
     },
-    onCancelCommand:function()
+    onCancelCommand: function ()
     {
-      console.log("onCancelCommand");
       var fc = this;
       var loginView = fc.getLoginView();
 
@@ -26,7 +25,6 @@ Ext.define('ALMITOnTheGo.controller.Forgot',
     },
     onRequestCommand: function (userEmail)
     {
-      console.log("onRequestCommand");
       var fc = this;
       var forgotView = fc.getForgotView();
       var loginView = fc.getLoginView();
@@ -42,28 +40,28 @@ Ext.define('ALMITOnTheGo.controller.Forgot',
       });
 
       Ext.Ajax.request({
-        url: ALMITOnTheGo.app.apiURL+'app.php?action=forgotRequest',
+        url: ALMITOnTheGo.app.apiURL + 'app.php?action=forgotRequest',
         method: 'post',
         params: {
           userEmail: userEmail
         },
-        success: function (response) {
+        success: function (response)
+        {
           var emailResponse = Ext.JSON.decode(response.responseText);
           forgotView.setMasked(false);
 
           if (emailResponse.success === true) {
             Ext.Msg.show({
               title: 'Forgot Request',
-              message:
-                "Your username and new password has been sent to the registered email address.<br><br>" +
+              message: "Your username and new password has been sent to the registered email address.<br><br>" +
                 "Upon logging in with the new password, you will be asked to set a new password.",
               width: 210,
               height: 200,
               style: {
                 fontSize: '80%'
               },
-              fn:function(btn) {
-
+              fn: function (btn)
+              {
                 loginView.down('#loginFailedLabel').setHtml("");
                 loginView.down('#usernameTextField').setValue("");
                 loginView.down('#passwordTextField').setValue("");

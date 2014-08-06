@@ -18,10 +18,8 @@ Ext.define('ALMITOnTheGo.controller.Login', {
       }
     }
   },
-  forgotPassword: function () {
-    console.log("forgotPassword");
-  },
-  onBackCommand: function () {
+  onBackCommand: function ()
+  {
     window.history.back();
     var loginView = this.getLoginView();
     var landingView = this.getLandingView();
@@ -29,7 +27,8 @@ Ext.define('ALMITOnTheGo.controller.Login', {
 
     Ext.Viewport.animateActiveItem(landingView, ALMITOnTheGo.app.getController('Common').getSlideRightTransition());
   },
-  onLoginCommand: function (view, username, password) {
+  onLoginCommand: function (view, username, password)
+  {
     var me = this,
       loginView = me.getLoginView();
 
@@ -44,7 +43,7 @@ Ext.define('ALMITOnTheGo.controller.Login', {
     });
 
     Ext.Ajax.request({
-      url: ALMITOnTheGo.app.apiURL+'app.php?action=doLogin',
+      url: ALMITOnTheGo.app.apiURL + 'app.php?action=doLogin',
       method: 'post',
       params: {
         username: username,
@@ -52,8 +51,8 @@ Ext.define('ALMITOnTheGo.controller.Login', {
         deviceType: Ext.os.deviceType,
         deviceOS: Ext.os.name
       },
-      success: function (response) {
-
+      success: function (response)
+      {
         var loginResponse = Ext.JSON.decode(response.responseText);
 
         if (loginResponse.success === true) {
@@ -67,7 +66,8 @@ Ext.define('ALMITOnTheGo.controller.Login', {
       }
     });
   },
-  loginSuccess: function (forgotPasswordReset) {
+  loginSuccess: function (forgotPasswordReset)
+  {
     window.history.back();
     var loginView = this.getLoginView();
     var mainView = this.getMainView();
@@ -75,10 +75,9 @@ Ext.define('ALMITOnTheGo.controller.Login', {
 
     loginView.setMasked(false);
 
-    if(forgotPasswordReset) {
+    if (forgotPasswordReset) {
       passwordView.down('#passwordFieldSet').setInstructions({
-        title:
-        'For privacy and security reasons you must change your password.<br><br>',
+        title: 'For privacy and security reasons you must change your password.<br><br>',
         docked: 'top'
       });
       Ext.Viewport.animateActiveItem(passwordView, ALMITOnTheGo.app.getController('Common').getSlideTopTransition());
@@ -86,7 +85,8 @@ Ext.define('ALMITOnTheGo.controller.Login', {
       Ext.Viewport.animateActiveItem(mainView, ALMITOnTheGo.app.getController('Common').getSlideLeftTransition());
     }
   },
-  loginFailure: function (message) {
+  loginFailure: function (message)
+  {
     var loginView = this.getLoginView();
     loginView.showLoginFailedMessage(message);
     loginView.setMasked(false);

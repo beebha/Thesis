@@ -12,10 +12,10 @@ Ext.define('ALMITOnTheGo.view.Requirements', {
       {
         xtype: 'panel',
         itemId: 'requirementsCardPanel',
-        layout:{
-          type:'card',
-          animation:{
-            type:'slide',
+        layout: {
+          type: 'card',
+          animation: {
+            type: 'slide',
             direction: 'left'
           }
         },
@@ -101,7 +101,7 @@ Ext.define('ALMITOnTheGo.view.Requirements', {
                 xtype: 'fieldset',
                 itemId: 'viewRequirementsFieldSet',
                 width: '95%',
-                height:'95%',
+                height: '95%',
                 defaults: {
                   labelWidth: '88%'
                 },
@@ -168,19 +168,23 @@ Ext.define('ALMITOnTheGo.view.Requirements', {
       }
     ]
   },
-  onRequirementsNextButton: function () {
+  onRequirementsNextButton: function ()
+  {
     var me = this;
 
-    var task = Ext.create('Ext.util.DelayedTask', function () {
+    var task = Ext.create('Ext.util.DelayedTask', function ()
+    {
       me.fireEvent('requirementsNextButtonCommand');
     });
 
     task.delay(500);
   },
-  onRequirementsBackButton: function () {
+  onRequirementsBackButton: function ()
+  {
     var me = this;
 
-    var task = Ext.create('Ext.util.DelayedTask', function () {
+    var task = Ext.create('Ext.util.DelayedTask', function ()
+    {
       me.fireEvent('requirementsBackButtonCommand');
     });
 

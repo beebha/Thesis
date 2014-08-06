@@ -83,13 +83,15 @@ Ext.define('ALMITOnTheGo.view.ThesisListItem', {
   /**
    * @param  {Object} config
    */
-  applyThesisGraduation: function (config) {
+  applyThesisGraduation: function (config)
+  {
     return Ext.factory(config, Ext.Component);
   },
   /**
    * @param  {Ext.Component} newThesisGraduation
    */
-  updateThesisGraduation: function (newThesisGraduation) {
+  updateThesisGraduation: function (newThesisGraduation)
+  {
     if (newThesisGraduation) {
       this.add(newThesisGraduation);
     }
@@ -97,13 +99,15 @@ Ext.define('ALMITOnTheGo.view.ThesisListItem', {
   /**
    * @param  {Object} config
    */
-  applyThesisProposal: function (config) {
+  applyThesisProposal: function (config)
+  {
     return Ext.factory(config, Ext.field.Text);
   },
   /**
    * @param  {Ext.Component} newThesisProposal
    */
-  updateThesisProposal: function (newThesisProposal) {
+  updateThesisProposal: function (newThesisProposal)
+  {
     if (newThesisProposal) {
       this.add(newThesisProposal);
     }
@@ -111,13 +115,15 @@ Ext.define('ALMITOnTheGo.view.ThesisListItem', {
   /**
    * @param  {Object} config
    */
-  applyThesisDue: function (config) {
+  applyThesisDue: function (config)
+  {
     return Ext.factory(config, Ext.field.Text);
   },
   /**
    * @param  {Ext.Component} newThesisDue
    */
-  updateThesisDue: function (newThesisDue) {
+  updateThesisDue: function (newThesisDue)
+  {
     if (newThesisDue) {
       this.add(newThesisDue);
     }
@@ -125,13 +131,15 @@ Ext.define('ALMITOnTheGo.view.ThesisListItem', {
   /**
    * @param  {Object} config
    */
-  applyThesisGrade: function (config) {
+  applyThesisGrade: function (config)
+  {
     return Ext.factory(config, Ext.field.Text);
   },
   /**
    * @param  {Ext.Component} newThesisGrade
    */
-  updateThesisGrade: function (newThesisGrade) {
+  updateThesisGrade: function (newThesisGrade)
+  {
     if (newThesisGrade) {
       this.add(newThesisGrade);
     }
@@ -139,13 +147,15 @@ Ext.define('ALMITOnTheGo.view.ThesisListItem', {
   /**
    * @param  {Object} config
    */
-  applyThesisBound: function (config) {
+  applyThesisBound: function (config)
+  {
     return Ext.factory(config, Ext.field.Text);
   },
   /**
    * @param  {Ext.Component} newThesisBound
    */
-  updateThesisBound: function (newThesisBound) {
+  updateThesisBound: function (newThesisBound)
+  {
     if (newThesisBound) {
       this.add(newThesisBound);
     }

@@ -14,7 +14,8 @@ Ext.define('ALMITOnTheGo.controller.AddCourses', {
       }
     }
   },
-  onShowAddCoursesMsg: function() {
+  onShowAddCoursesMsg: function ()
+  {
     var ac = this;
     var addCoursesView = ac.getAddCoursesView();
 
@@ -26,12 +27,14 @@ Ext.define('ALMITOnTheGo.controller.AddCourses', {
       style: {
         fontSize: '80%'
       },
-      fn:function(btn) {
+      fn: function (btn)
+      {
         addCoursesView.onRegistrationMsgPanelHide();
       }
     });
   },
-  onNextViewCommand: function (addedCoursesCount) {
+  onNextViewCommand: function (addedCoursesCount)
+  {
     var ac = this;
     var addCoursesView = ac.getAddCoursesView();
     var mainView = ac.getMainView();

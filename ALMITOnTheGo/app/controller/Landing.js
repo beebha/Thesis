@@ -4,7 +4,7 @@ Ext.define('ALMITOnTheGo.controller.Landing', {
   config: {
     routes: {
       'registerNewUser': 'registerNewUser',
-      'loginUser' : 'loginUser'
+      'loginUser': 'loginUser'
     },
     refs: {
       landingView: 'landingView',
@@ -19,23 +19,24 @@ Ext.define('ALMITOnTheGo.controller.Landing', {
       }
     }
   },
-  registerNewUser: function () {
-    console.log("registerNewUser");
+  registerNewUser: function ()
+  {
     var landingView = this.getLandingView();
     var registerView = this.getRegisterView();
     landingView.setMasked(false);
 
     Ext.Viewport.animateActiveItem(registerView, ALMITOnTheGo.app.getController('Common').getSlideLeftTransition());
   },
-  loginUser: function () {
-    console.log("loginUser");
+  loginUser: function ()
+  {
     var landingView = this.getLandingView();
     var loginView = this.getLoginView();
     landingView.setMasked(false);
 
     Ext.Viewport.animateActiveItem(loginView, ALMITOnTheGo.app.getController('Common').getSlideLeftTransition());
   },
-  onGuestCommand: function () {
+  onGuestCommand: function ()
+  {
     var landingView = this.getLandingView();
     var mainView = this.getMainView();
     landingView.setMasked(false);

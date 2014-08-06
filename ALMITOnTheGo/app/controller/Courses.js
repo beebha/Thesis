@@ -24,20 +24,20 @@ Ext.define('ALMITOnTheGo.controller.Courses',
         }
       }
     },
-    onViewConflictsButtonCommand: function() {
-      console.log("onViewConflictsButtonCommand");
-
+    onViewConflictsButtonCommand: function ()
+    {
       var cc = this;
       var coursesView = cc.getCoursesView();
       var viewCoursesList = coursesView.down('#viewCoursesList');
 
-      ALMITOnTheGo.app.viewCoursesStore.each(function (item, index, length) {
+      ALMITOnTheGo.app.viewCoursesStore.each(function (item, index, length)
+      {
         viewCoursesList.getItemAt(index).setStyle('background-color:#FFFFFF;');
       });
 
       var allCheckedCourses = cc.getCheckedCourses();
 
-      if(allCheckedCourses.length < 2) {
+      if (allCheckedCourses.length < 2) {
         Ext.Msg.alert('Select Course', 'Please select at least 2 courses to view conflicts', Ext.emptyFn);
       } else {
 
@@ -46,35 +46,30 @@ Ext.define('ALMITOnTheGo.controller.Courses',
         var courseConflictIDs = [];
         var coursesToCheck = allCheckedCourses.slice();
 
-        for(var i=0; i<allCheckedCourses.length; i++)
-        {
+        for (var i = 0; i < allCheckedCourses.length; i++) {
           var currentCourseRecord = allCheckedCourses[i];
 
-          for(var j=0; j<coursesToCheck.length; j++)
-          {
+          for (var j = 0; j < coursesToCheck.length; j++) {
             var courseToCheck = coursesToCheck[j];
             var courseCombo = currentCourseRecord.course_id + "|" + courseToCheck.course_id;
 
-            if((currentCourseRecord.course_id != courseToCheck.course_id) && !Ext.Array.contains(coursesComboChecked, courseCombo))
-            {
+            if ((currentCourseRecord.course_id != courseToCheck.course_id) && !Ext.Array.contains(coursesComboChecked, courseCombo)) {
               coursesComboChecked.push(currentCourseRecord.course_id + "|" + courseToCheck.course_id);
               coursesComboChecked.push(courseToCheck.course_id + "|" + currentCourseRecord.course_id);
 
-              if(currentCourseRecord.course_term_id == courseToCheck.course_term_id)
-              {
+              if (currentCourseRecord.course_term_id == courseToCheck.course_term_id) {
                 var currentCourseDays = !Ext.isEmpty(currentCourseRecord.course_day) ? currentCourseRecord.course_day.split(",") : [];
                 var courseToCheckDays = !Ext.isEmpty(courseToCheck.course_day) ? courseToCheck.course_day.split(",") : [];
 
                 var conflictDays = Ext.Array.intersect(currentCourseDays, courseToCheckDays);
 
-                if(!Ext.isEmpty(conflictDays))
-                {
+                if (!Ext.isEmpty(conflictDays)) {
                   courseConflictsMsg += currentCourseRecord.course_code + " and " + courseToCheck.course_code + " conflict on: " + conflictDays.join(",") + "<br>";
 
-                  if(!Ext.Array.contains(courseConflictIDs, currentCourseRecord.course_id)) {
+                  if (!Ext.Array.contains(courseConflictIDs, currentCourseRecord.course_id)) {
                     courseConflictIDs.push(currentCourseRecord.course_id);
                   }
-                  if(!Ext.Array.contains(courseConflictIDs, courseToCheck.course_id)) {
+                  if (!Ext.Array.contains(courseConflictIDs, courseToCheck.course_id)) {
                     courseConflictIDs.push(courseToCheck.course_id);
                   }
                 }
@@ -83,7 +78,7 @@ Ext.define('ALMITOnTheGo.controller.Courses',
           }
         }
 
-        if(!Ext.isEmpty(courseConflictsMsg)) {
+        if (!Ext.isEmpty(courseConflictsMsg)) {
           Ext.Msg.show({
             title: 'Course Conflicts',
             message: courseConflictsMsg,
@@ -95,8 +90,10 @@ Ext.define('ALMITOnTheGo.controller.Courses',
             style: {
               fontSize: '80%'
             },
-            fn:function(btn) {
-              Ext.Array.each(courseConflictIDs, function (courseID) {
+            fn: function (btn)
+            {
+              Ext.Array.each(courseConflictIDs, function (courseID)
+              {
                 var index = ALMITOnTheGo.app.viewCoursesStore.find("course_id", courseID);
                 viewCoursesList.getItemAt(index).setStyle('background-color:#C24641');
               });
@@ -107,26 +104,26 @@ Ext.define('ALMITOnTheGo.controller.Courses',
         }
       }
     },
-    onAddToCalendarButtonCommand: function() {
-      console.log("onAddToCalendarButtonCommand");
-
+    onAddToCalendarButtonCommand: function ()
+    {
       var cc = this;
       var allCheckedCourses = cc.getCheckedCourses();
 
-      if(allCheckedCourses.length < 1) {
+      if (allCheckedCourses.length < 1) {
         Ext.Msg.alert('Select Course', 'Please select at least 1 course to add to the calendar', Ext.emptyFn);
       } else {
-        console.log(allCheckedCourses);
+
         Ext.Ajax.request({
-          url: ALMITOnTheGo.app.apiURL+'app.php?action=addCalendarEvents',
+          url: ALMITOnTheGo.app.apiURL + 'app.php?action=addCalendarEvents',
           method: 'post',
           params: {
             authToken: ALMITOnTheGo.app.authToken,
-            allCheckedCourses : Ext.encode(allCheckedCourses)
+            allCheckedCourses: Ext.encode(allCheckedCourses)
           },
-          success: function (response) {
+          success: function (response)
+          {
             var calendarResponse = Ext.JSON.decode(response.responseText);
-            if(calendarResponse.success) {
+            if (calendarResponse.success) {
               Ext.Msg.alert('Congratulations!', 'Courses have been successfully added to the calendar', Ext.emptyFn);
             } else {
               Ext.Msg.alert('Oops!', 'An error has occurred while adding to the calendar', Ext.emptyFn);
@@ -135,21 +132,18 @@ Ext.define('ALMITOnTheGo.controller.Courses',
         });
       }
     },
-    onViewCoursesListItemTapCommand: function(list, index, target, record, e) {
-      console.log("onViewCoursesListItemTapCommand");
-
+    onViewCoursesListItemTapCommand: function (list, index, target, record, e)
+    {
       var courseID = record.data.course_id;
-      var checkboxCourse = Ext.get('chkCourse'+courseID);
+      var checkboxCourse = Ext.get('chkCourse' + courseID);
       var checkboxCourseDom = checkboxCourse.dom;
 
-      if (e.target.tagName.toUpperCase() != 'LABEL' )
-      {
+      if (e.target.tagName.toUpperCase() != 'LABEL') {
         checkboxCourseDom.checked = !checkboxCourseDom.checked;
       }
     },
-    onViewCoursesListItemDiscloseCommand: function(list, index, target, record, e) {
-      console.log("onViewCoursesListItemDiscloseCommand");
-      console.log(record);
+    onViewCoursesListItemDiscloseCommand: function (list, index, target, record, e)
+    {
       var cc = this;
       var coursesView = cc.getCoursesView();
 
@@ -163,10 +157,10 @@ Ext.define('ALMITOnTheGo.controller.Courses',
       coursesView.down('#courseInstructor').setValue(record.data.instructors);
       coursesView.down('#courseLimit').setValue(record.data.course_limit == 0 ? "No Limit" : record.data.course_limit);
 
-      coursesView.down('#coursesCardPanel').animateActiveItem(4, {type:'flip'});
+      coursesView.down('#coursesCardPanel').animateActiveItem(4, {type: 'flip'});
     },
-    onCoursesViewDetailsCommand: function () {
-      console.log("onCoursesViewDetailsCommand");
+    onCoursesViewDetailsCommand: function ()
+    {
       var cc = this;
       var coursesView = cc.getCoursesView();
 
@@ -176,7 +170,7 @@ Ext.define('ALMITOnTheGo.controller.Courses',
       if (ALMITOnTheGo.app.authToken == null) {
         coursesView.down('#coursesCardPanel').show();
         coursesView.down('radiofield[name=concentration]').setGroupValue(1);
-        coursesView.down('#coursesCardPanel').animateActiveItem(0, {type:'slide', direction:'left'});
+        coursesView.down('#coursesCardPanel').animateActiveItem(0, {type: 'slide', direction: 'left'});
       } else {
 
         coursesView.setMasked({
@@ -185,21 +179,22 @@ Ext.define('ALMITOnTheGo.controller.Courses',
         });
 
         Ext.Ajax.request({
-          url: ALMITOnTheGo.app.apiURL+'app.php?action=getCourseCategoryViewDetails',
+          url: ALMITOnTheGo.app.apiURL + 'app.php?action=getCourseCategoryViewDetails',
           method: 'post',
           params: {
             authToken: ALMITOnTheGo.app.authToken,
-            concentrationID : null
+            concentrationID: null
           },
-          success: function (response) {
+          success: function (response)
+          {
             var coursesResponse = Ext.JSON.decode(response.responseText);
             cc.setupCategoriesViewPanel(coursesView, coursesResponse);
           }
         });
       }
     },
-    onCoursesNextButtonCommand: function () {
-      console.log("onCoursesNextButtonCommand");
+    onCoursesNextButtonCommand: function ()
+    {
       var cc = this;
       var coursesView = cc.getCoursesView();
 
@@ -209,34 +204,36 @@ Ext.define('ALMITOnTheGo.controller.Courses',
       });
 
       Ext.Ajax.request({
-        url: ALMITOnTheGo.app.apiURL+'app.php?action=getCourseCategoryViewDetails',
+        url: ALMITOnTheGo.app.apiURL + 'app.php?action=getCourseCategoryViewDetails',
         method: 'post',
         params: {
           authToken: ALMITOnTheGo.app.authToken,
           concentrationID: coursesView.down('radiofield[name=concentration]').getGroupValue()
         },
-        success: function (response) {
+        success: function (response)
+        {
           var coursesResponse = Ext.JSON.decode(response.responseText);
           cc.setupCategoriesViewPanel(coursesView, coursesResponse);
         }
       });
     },
-    onCategoryNextButtonCommand: function () {
-      console.log("onCategoryNextButtonCommand");
+    onCategoryNextButtonCommand: function ()
+    {
       var cc = this;
       var coursesView = cc.getCoursesView();
 
       Ext.Ajax.request({
-        url: ALMITOnTheGo.app.apiURL+'app.php?action=getCourseTermViewDetails',
+        url: ALMITOnTheGo.app.apiURL + 'app.php?action=getCourseTermViewDetails',
         method: 'post',
-        success: function (response) {
+        success: function (response)
+        {
           var courseTermsResponse = Ext.JSON.decode(response.responseText);
           cc.setupCourseTermsViewPanel(coursesView, courseTermsResponse);
         }
       });
     },
-    onCourseTermNextButtonCommand: function () {
-      console.log("onCourseTermNextButtonCommand");
+    onCourseTermNextButtonCommand: function ()
+    {
       var cc = this;
       var coursesView = cc.getCoursesView();
 
@@ -246,7 +243,7 @@ Ext.define('ALMITOnTheGo.controller.Courses',
       });
 
       Ext.Ajax.request({
-        url: ALMITOnTheGo.app.apiURL+'app.php?action=getCoursesResults',
+        url: ALMITOnTheGo.app.apiURL + 'app.php?action=getCoursesResults',
         method: 'post',
         params: {
           authToken: ALMITOnTheGo.app.authToken,
@@ -254,38 +251,39 @@ Ext.define('ALMITOnTheGo.controller.Courses',
           categoryID: coursesView.down('radiofield[name=category]').getGroupValue(),
           courseTermID: coursesView.down('radiofield[name=courseTerm]').getGroupValue()
         },
-        success: function (response) {
+        success: function (response)
+        {
           var courseResultsResponse = Ext.JSON.decode(response.responseText);
           cc.setupCourseResultsViewPanel(coursesView, courseResultsResponse);
         }
       });
     },
-    onCategoryBackButtonCommand: function () {
-      console.log("onCategoryBackButtonCommand");
+    onCategoryBackButtonCommand: function ()
+    {
       var cc = this;
       var coursesView = cc.getCoursesView();
-      coursesView.down('#coursesCardPanel').animateActiveItem(0, {type:'slide', direction:'right'});
+      coursesView.down('#coursesCardPanel').animateActiveItem(0, {type: 'slide', direction: 'right'});
     },
-    onCourseTermBackButtonCommand: function () {
-      console.log("onCourseTermBackButtonCommand");
+    onCourseTermBackButtonCommand: function ()
+    {
       var cc = this;
       var coursesView = cc.getCoursesView();
-      coursesView.down('#coursesCardPanel').animateActiveItem(1, {type:'slide', direction:'right'});
+      coursesView.down('#coursesCardPanel').animateActiveItem(1, {type: 'slide', direction: 'right'});
     },
-    onCourseResultsBackButtonCommand: function () {
-      console.log("onCourseResultsBackButtonCommand");
+    onCourseResultsBackButtonCommand: function ()
+    {
       var cc = this;
       var coursesView = cc.getCoursesView();
-      coursesView.down('#coursesCardPanel').animateActiveItem(2, {type:'slide', direction:'right'});
+      coursesView.down('#coursesCardPanel').animateActiveItem(2, {type: 'slide', direction: 'right'});
     },
-    onCourseDetailBackButtonCommand: function () {
-      console.log("onCourseDetailBackButtonCommand");
+    onCourseDetailBackButtonCommand: function ()
+    {
       var cc = this;
       var coursesView = cc.getCoursesView();
-      coursesView.down('#coursesCardPanel').animateActiveItem(3, {type:'flip'});
+      coursesView.down('#coursesCardPanel').animateActiveItem(3, {type: 'flip'});
     },
-    setupCourseResultsViewPanel: function(coursesView, courseResultsResponse) {
-      console.log("setupCourseResultsViewPanel");
+    setupCourseResultsViewPanel: function (coursesView, courseResultsResponse)
+    {
       if (courseResultsResponse.success === true) {
 
         var concentrationIDText = ALMITOnTheGo.app.getController('Common').getConcentrationText(courseResultsResponse.data.concentrationID);
@@ -293,23 +291,24 @@ Ext.define('ALMITOnTheGo.controller.Courses',
         var courseTermIDText = ALMITOnTheGo.app.getController('Common').getCourseTermText(coursesView.down('radiofield[name=courseTerm]').getGroupValue());
         var searchCriteria = ALMITOnTheGo.app.authToken == null ? "Concentration: " + concentrationIDText + "<br>" : "";
         searchCriteria += "Category: " + categoryIDText + "<br>" +
-                          "Course Term: " + courseTermIDText;
+          "Course Term: " + courseTermIDText;
 
         coursesView.down('#viewConflictsButton').hide();
         coursesView.down('#addToCalendarButton').hide();
 
-        if(courseResultsResponse.data.coursesResults.length > 0) {
+        if (courseResultsResponse.data.coursesResults.length > 0) {
           ALMITOnTheGo.app.viewCoursesStore.applyData(courseResultsResponse.data.coursesResults);
           coursesView.down('#viewCoursesList').setStore(ALMITOnTheGo.app.viewCoursesStore);
-          ALMITOnTheGo.app.viewCoursesStore.each(function (item, index, length) {
+          ALMITOnTheGo.app.viewCoursesStore.each(function (item, index, length)
+          {
             coursesView.down('#viewCoursesList').getItemAt(index).setStyle('background-color:#FFFFFF;');
           });
           coursesView.down('#viewCoursesList').show();
 
-          if(courseResultsResponse.data.coursesResults.length >= 2) {
+          if (courseResultsResponse.data.coursesResults.length >= 2) {
             coursesView.down('#viewConflictsButton').show();
           }
-          if(ALMITOnTheGo.app.authToken != null) {
+          if (ALMITOnTheGo.app.authToken != null) {
             coursesView.down('#addToCalendarButton').show();
           }
         } else {
@@ -318,12 +317,12 @@ Ext.define('ALMITOnTheGo.controller.Courses',
         }
 
         coursesView.down('#courseSearchLabel').setHtml(searchCriteria);
-        coursesView.down('#coursesCardPanel').animateActiveItem(3, {type:'slide', direction:'left'});
+        coursesView.down('#coursesCardPanel').animateActiveItem(3, {type: 'slide', direction: 'left'});
         coursesView.setMasked(false);
       }
     },
-    setupCourseTermsViewPanel: function(coursesView, courseTermsResponse) {
-      console.log("setupCourseTermsViewPanel");
+    setupCourseTermsViewPanel: function (coursesView, courseTermsResponse)
+    {
       if (courseTermsResponse.success === true) {
 
         var courseTerms = courseTermsResponse.data.currentCourseTerms;
@@ -351,12 +350,12 @@ Ext.define('ALMITOnTheGo.controller.Courses',
           }
         );
         coursesView.down('radiofield[name=courseTerm]').setGroupValue(0);
-        coursesView.down('#coursesCardPanel').animateActiveItem(2, {type:'slide', direction:'left'});
+        coursesView.down('#coursesCardPanel').animateActiveItem(2, {type: 'slide', direction: 'left'});
 
       }
     },
-    setupCategoriesViewPanel: function(coursesView, coursesResponse) {
-      console.log("setupCategoriesViewPanel");
+    setupCategoriesViewPanel: function (coursesView, coursesResponse)
+    {
       if (coursesResponse.success === true) {
 
         var currentReqs = coursesResponse.data.currentReqs;
@@ -366,7 +365,7 @@ Ext.define('ALMITOnTheGo.controller.Courses',
 
         for (singleReq in currentReqs) {
           var subText = "<div style = 'font-weight:normal;font-size: 95%;'>"
-            +currentReqs[singleReq]['subText'] +
+            + currentReqs[singleReq]['subText'] +
             "</div>";
           coursesView.down('#selectCategoryFieldSet').add(
             {
@@ -397,15 +396,17 @@ Ext.define('ALMITOnTheGo.controller.Courses',
         coursesView.down('#coursesCardPanel').show();
         ALMITOnTheGo.app.authToken == null ? coursesView.down('#categoryBackButton').show() : coursesView.down('#categoryBackButton').hide();
         coursesView.down('radiofield[name=category]').setGroupValue(0);
-        coursesView.down('#coursesCardPanel').animateActiveItem(1, {type:'slide', direction:'left'});
+        coursesView.down('#coursesCardPanel').animateActiveItem(1, {type: 'slide', direction: 'left'});
         coursesView.setMasked(false);
       }
     },
-    getCheckedCourses: function() {
+    getCheckedCourses: function ()
+    {
       var allCheckedCourses = [];
 
-      Ext.each(Ext.query("input[type='checkbox']"), function(item) {
-        if(item.checked) {
+      Ext.each(Ext.query("input[type='checkbox']"), function (item)
+      {
+        if (item.checked) {
           var courseID = item.value;
           var record = ALMITOnTheGo.app.viewCoursesStore.findRecord("course_id", courseID);
           allCheckedCourses.push(record.data);

@@ -38,8 +38,7 @@ Ext.define('ALMITOnTheGo.view.Calendar', {
               border: 'none',
               height: '2.8em'
             },
-            items:
-            [
+            items: [
               {
                 xtype: 'fixedbutton',
                 iconCls: 'trash',
@@ -55,10 +54,11 @@ Ext.define('ALMITOnTheGo.view.Calendar', {
                 width: '7em',
                 value: 1,
                 listeners: {
-                  change: function(field, newValue, oldValue) {
-                    if(field.up('#calendarViewContainer')) {
+                  change: function (field, newValue, oldValue)
+                  {
+                    if (field.up('#calendarViewContainer')) {
                       var touchCalendarViewWidget = field.up('#calendarViewContainer').down('#touchCalendarViewWidget');
-                      if(newValue == 1) {
+                      if (newValue == 1) {
                         touchCalendarViewWidget.setViewMode('month');
                         touchCalendarViewWidget.updateViewMode('month');
                       } else {
@@ -75,15 +75,15 @@ Ext.define('ALMITOnTheGo.view.Calendar', {
                 text: 'View Added Courses',
                 align: 'right',
                 hidden: true,
-                listeners : {
-                  tap : function(button, e, eOpts) {
-                    console.log('View Added Courses tapped');
+                listeners: {
+                  tap: function (button, e, eOpts)
+                  {
                     var touchCalendarViewWidget = button.up('#calendarViewContainer').down('#touchCalendarViewWidget');
                     var addedCalendarCoursesList = button.up('#calendarViewContainer').down('#addedCalendarCoursesList');
                     var calendarToggleSwitch = button.up('#calendarViewContainer').down('#calendarToggle');
                     var editCalendarButton = button.up('#calendarViewContainer').down('#editCalendarButton');
 
-                    if(touchCalendarViewWidget.isHidden()) {
+                    if (touchCalendarViewWidget.isHidden()) {
                       touchCalendarViewWidget.show();
                       calendarToggleSwitch.show();
                       addedCalendarCoursesList.hide();
@@ -105,9 +105,9 @@ Ext.define('ALMITOnTheGo.view.Calendar', {
                 text: 'SWE&nbsp;<span class="squarebox SWE">&nbsp;&nbsp;</span>',
                 align: 'right',
                 hidden: true,
-                listeners : {
-                  tap : function(button, e, eOpts) {
-                    console.log('SWE button tapped');
+                listeners: {
+                  tap: function (button, e, eOpts)
+                  {
                     button.up('#calendarViewContainer').down('#concentrationCode').setValue('SWE');
                     button.setText('SWE&nbsp;<span class="squarebox SWE">&nbsp;&nbsp;</span>');
                     button.up('#calendarViewContainer').down('#IMSButton').setText('IMS&nbsp;<span class="squarebox NONE">&nbsp;&nbsp;</span>');
@@ -125,9 +125,9 @@ Ext.define('ALMITOnTheGo.view.Calendar', {
                 text: 'IMS&nbsp;<span class="squarebox NONE">&nbsp;&nbsp;</span>',
                 align: 'right',
                 hidden: true,
-                listeners : {
-                  tap : function(button, e, eOpts) {
-                    console.log('IMS button tapped');
+                listeners: {
+                  tap: function (button, e, eOpts)
+                  {
                     button.up('#calendarViewContainer').down('#concentrationCode').setValue('IMS');
                     button.setText('IMS&nbsp;<span class="squarebox IMS">&nbsp;&nbsp;</span>');
                     button.up('#calendarViewContainer').down('#SWEButton').setText('SWE&nbsp;<span class="squarebox NONE">&nbsp;&nbsp;</span>');
@@ -145,9 +145,9 @@ Ext.define('ALMITOnTheGo.view.Calendar', {
                 text: 'DGM&nbsp;<span class="squarebox NONE">&nbsp;&nbsp;</span>',
                 align: 'right',
                 hidden: true,
-                listeners : {
-                  tap : function(button, e, eOpts) {
-                    console.log('DGM button tapped');
+                listeners: {
+                  tap: function (button, e, eOpts)
+                  {
                     button.up('#calendarViewContainer').down('#concentrationCode').setValue('DGM');
                     button.setText('DGM&nbsp;<span class="squarebox DGM">&nbsp;&nbsp;</span>');
                     button.up('#calendarViewContainer').down('#SWEButton').setText('SWE&nbsp;<span class="squarebox NONE">&nbsp;&nbsp;</span>');
@@ -187,32 +187,31 @@ Ext.define('ALMITOnTheGo.view.Calendar', {
     ]
   },
 
-  onAddedCalendarCoursesListItemTap: function (list, index, target, record, e) {
-    console.log("onAddedCalendarCoursesListItemTap");
+  onAddedCalendarCoursesListItemTap: function (list, index, target, record, e)
+  {
     var me = this;
     var inDeleteMode = me.down('#editCalendarMode').getValue() == 'DELETE';
-    if(inDeleteMode) {
+    if (inDeleteMode) {
 
-      var task = Ext.create('Ext.util.DelayedTask', function () {
+      var task = Ext.create('Ext.util.DelayedTask', function ()
+      {
         me.fireEvent('deleteUserCalendarCourseCommand', record);
       });
 
       task.delay(500);
     }
   },
-  onEditCalendarButtonTap: function() {
-    console.log("onEditCalendarButtonTap");
-
+  onEditCalendarButtonTap: function ()
+  {
     var inDeleteMode = this.down('#editCalendarMode').getValue() == 'DELETE';
 
-    console.log(this.down('#editCalendarMode').getValue());
-
-    Ext.each(Ext.query("*[id^=courseCalendarDelete]"), function(item) {
+    Ext.each(Ext.query("*[id^=courseCalendarDelete]"), function (item)
+    {
       var courseID = item.id.replace("courseCalendarDelete", "");
       if (inDeleteMode) {
-        Ext.get("courseCalendarDelete"+courseID).hide();
+        Ext.get("courseCalendarDelete" + courseID).hide();
       } else {
-        Ext.get("courseCalendarDelete"+courseID).show();
+        Ext.get("courseCalendarDelete" + courseID).show();
       }
     });
 

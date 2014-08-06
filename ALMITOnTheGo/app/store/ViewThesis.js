@@ -7,6 +7,6 @@ Ext.define('ALMITOnTheGo.store.ViewThesis', {
     storeId: 'viewThesisStore',
     defaultRootProperty: 'items',
     model: 'ALMITOnTheGo.model.Thesis',
-    root: {'items' : [] }
+    root: {'items': [] }
   }
 });

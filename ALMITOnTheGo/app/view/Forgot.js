@@ -35,8 +35,7 @@ Ext.define('ALMITOnTheGo.view.Forgot', {
               marginTop: '-0.5em'
             },
             instructions: {
-              title:
-                'You can request to have your username emailed to you ' +
+              title: 'You can request to have your username emailed to you ' +
                 'and to reset your password if you have forgotten your username or password.<br><br>',
               docked: 'top'
             },
@@ -90,8 +89,8 @@ Ext.define('ALMITOnTheGo.view.Forgot', {
       }
     ]
   },
-  onRequestButtonTap: function() {
-    console.log("onRequestButtonTap");
+  onRequestButtonTap: function ()
+  {
     var me = this;
 
     var invalidEmailLabel = me.down('#invalidEmailLabel');
@@ -100,23 +99,26 @@ Ext.define('ALMITOnTheGo.view.Forgot', {
     invalidEmailLabel.hide();
     invalidEmailLabel.setHtml('');
 
-    var task = Ext.create('Ext.util.DelayedTask', function () {
+    var task = Ext.create('Ext.util.DelayedTask', function ()
+    {
       me.fireEvent('requestCommand', emailField.getValue());
     });
 
     task.delay(500);
   },
-  onCancelButtonTap: function() {
-    console.log("onCancelButtonTap");
+  onCancelButtonTap: function ()
+  {
     var me = this;
 
-    var task = Ext.create('Ext.util.DelayedTask', function () {
+    var task = Ext.create('Ext.util.DelayedTask', function ()
+    {
       me.fireEvent('cancelCommand');
     });
 
     task.delay(500);
   },
-  showInvalidEmailMessage: function (message) {
+  showInvalidEmailMessage: function (message)
+  {
     var label = this.down('#invalidEmailLabel');
     label.setHtml(message);
     label.show();

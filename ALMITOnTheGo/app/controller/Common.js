@@ -2,19 +2,24 @@ Ext.define('ALMITOnTheGo.controller.Common',
   {
     extend: 'Ext.app.Controller',
 
-    getSlideLeftTransition: function () {
+    getSlideLeftTransition: function ()
+    {
       return { type: 'slide', direction: 'left' };
     },
-    getSlideRightTransition: function () {
+    getSlideRightTransition: function ()
+    {
       return { type: 'slide', direction: 'right' };
     },
-    getSlideTopTransition: function () {
+    getSlideTopTransition: function ()
+    {
       return { type: 'slide', direction: 'up' };
     },
-    getSlideBottomTransition: function () {
+    getSlideBottomTransition: function ()
+    {
       return { type: 'slide', direction: 'down' };
     },
-    getConcentrationText: function (concentrationID) {
+    getConcentrationText: function (concentrationID)
+    {
       var concentrationText = "";
       if (parseInt(concentrationID) == 0) {
         concentrationText = "All";
@@ -23,7 +28,8 @@ Ext.define('ALMITOnTheGo.controller.Common',
       }
       return concentrationText;
     },
-    getCategoryText: function (categoryID) {
+    getCategoryText: function (categoryID)
+    {
       var categoryText = "";
       if (parseInt(categoryID) == 0) {
         categoryText = "All";
@@ -32,7 +38,8 @@ Ext.define('ALMITOnTheGo.controller.Common',
       }
       return categoryText;
     },
-    getCourseTermText: function (courseTermID) {
+    getCourseTermText: function (courseTermID)
+    {
       var courseTermText = "";
       if (parseInt(courseTermID) == 0) {
         courseTermText = "All";
@@ -41,7 +48,8 @@ Ext.define('ALMITOnTheGo.controller.Common',
       }
       return courseTermText;
     },
-    getRegistrationTypeText: function (registrationType) {
+    getRegistrationTypeText: function (registrationType)
+    {
       var registrationTypeText = "";
       switch (registrationType) {
         case 'GUEST':
@@ -56,7 +64,8 @@ Ext.define('ALMITOnTheGo.controller.Common',
       }
       return registrationTypeText;
     },
-    getConcentrationID: function (concentrationCode) {
+    getConcentrationID: function (concentrationCode)
+    {
       var concentrationID = 0;
       switch (concentrationCode) {
         case 'SWE':

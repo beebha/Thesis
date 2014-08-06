@@ -11,7 +11,8 @@ Ext.define('ALMITOnTheGo.store.AllCourses', {
       'grade_id'
     ],
     sorters: 'course_code',
-    grouper: function (record) {
+    grouper: function (record)
+    {
       return record.get('course_code')[0];
     },
     data: []

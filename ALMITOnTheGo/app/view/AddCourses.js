@@ -69,9 +69,9 @@ Ext.define('ALMITOnTheGo.view.AddCourses', {
             grouped: true,
             indexBar: true,
             mode: 'MULTI',
-            itemTpl:  '<p><b>{course_code}</b></p>' +
-                      '<p style="font-size: 80%">{course_title}</p>'+
-                      '<p style="font-size: 80%"><i>{course_term_label}</i></p>',
+            itemTpl: '<p><b>{course_code}</b></p>' +
+              '<p style="font-size: 80%">{course_title}</p>' +
+              '<p style="font-size: 80%"><i>{course_term_label}</i></p>',
             store: null,
             useSimpleItems: true,
             emptyText: '<div style="margin-top: 15px; text-align: center">No Matching Items</div>',
@@ -190,10 +190,11 @@ Ext.define('ALMITOnTheGo.view.AddCourses', {
   },
   onRegistrationMsgPanelHide: function ()
   {
-    Ext.each(Ext.query("*[id^=courseDelete]"), function(item) {
+    Ext.each(Ext.query("*[id^=courseDelete]"), function (item)
+    {
       var courseID = item.id.replace("courseDelete", "");
-        Ext.get("courseDelete"+courseID).hide();
-        Ext.get("courseGrade"+courseID).show();
+      Ext.get("courseDelete" + courseID).hide();
+      Ext.get("courseGrade" + courseID).show();
     });
 
     this.down('#editMode').setValue('NORMAL');
@@ -203,7 +204,7 @@ Ext.define('ALMITOnTheGo.view.AddCourses', {
     this.down('#editButton').show();
     this.down('#nextButton').show();
 
-    if(!this.down('#addedCoursesContainer')) {
+    if (!this.down('#addedCoursesContainer')) {
       this.add({
         xtype: 'container',
         itemId: 'addedCoursesContainer',
@@ -279,12 +280,13 @@ Ext.define('ALMITOnTheGo.view.AddCourses', {
     if (!e.getTarget('.x-list-disclosure')) {
       var me = this;
       var inDeleteMode = me.down('#editMode').getValue() == 'DELETE';
-      if(inDeleteMode) {
+      if (inDeleteMode) {
         ALMITOnTheGo.app.addedCoursesStore.remove(record);
-        Ext.each(Ext.query("*[id^=courseDelete]"), function(item) {
+        Ext.each(Ext.query("*[id^=courseDelete]"), function (item)
+        {
           var courseID = item.id.replace("courseDelete", "");
-          Ext.get("courseDelete"+courseID).show();
-          Ext.get("courseGrade"+courseID).hide();
+          Ext.get("courseDelete" + courseID).show();
+          Ext.get("courseGrade" + courseID).hide();
         });
       } else {
         var selectGradesPanel = me.down('#selectGradesPanel');
@@ -302,7 +304,7 @@ Ext.define('ALMITOnTheGo.view.AddCourses', {
     var selectedCourseRow = addedCoursesList.getSelection()[0];
     var courseID = selectedCourseRow.data.course_id;
 
-    Ext.get('courseStatusText' + courseID).setHtml("Grade: <span style='height:1.6em;' class='squarebox grade'>"+record.data.grade_label+ "</span>");
+    Ext.get('courseStatusText' + courseID).setHtml("Grade: <span style='height:1.6em;' class='squarebox grade'>" + record.data.grade_label + "</span>");
     selectedCourseRow.data.grade_id = record.data.grade_id;
     selectedCourseRow.data.grade_label = record.data.grade_label;
     selectedCourseRow.data.gpa = record.data.gpa;
@@ -316,7 +318,8 @@ Ext.define('ALMITOnTheGo.view.AddCourses', {
   onAddSelectedCoursesButtonTap: function ()
   {
     var addCoursesList = this.down('#addCoursesList');
-    Ext.Array.each(addCoursesList.getSelection(), function (record) {
+    Ext.Array.each(addCoursesList.getSelection(), function (record)
+    {
       // check if course has already been added
       var existingRecord = ALMITOnTheGo.app.addedCoursesStore.findRecord('course_id', record.data.course_id);
       if (existingRecord == null) {
@@ -339,20 +342,19 @@ Ext.define('ALMITOnTheGo.view.AddCourses', {
     addCoursesList.deselectAll();
     addCoursesListPanel.show();
   },
-  onEditButtonTap: function()
+  onEditButtonTap: function ()
   {
     var inDeleteMode = this.down('#editMode').getValue() == 'DELETE';
 
-    console.log(this.down('#editMode').getValue());
-
-    Ext.each(Ext.query("*[id^=courseDelete]"), function(item) {
+    Ext.each(Ext.query("*[id^=courseDelete]"), function (item)
+    {
       var courseID = item.id.replace("courseDelete", "");
       if (inDeleteMode) {
-        Ext.get("courseDelete"+courseID).hide();
-        Ext.get("courseGrade"+courseID).show();
+        Ext.get("courseDelete" + courseID).hide();
+        Ext.get("courseGrade" + courseID).show();
       } else {
-        Ext.get("courseDelete"+courseID).show();
-        Ext.get("courseGrade"+courseID).hide();
+        Ext.get("courseDelete" + courseID).show();
+        Ext.get("courseGrade" + courseID).hide();
       }
     });
 
@@ -366,7 +368,8 @@ Ext.define('ALMITOnTheGo.view.AddCourses', {
     var isAllGradeStatusSet = true;
     var itemsWithNoGradeStatus = [];
 
-    ALMITOnTheGo.app.addedCoursesStore.each(function (item, index, length) {
+    ALMITOnTheGo.app.addedCoursesStore.each(function (item, index, length)
+    {
       if (item.get('grade_id') == 'NONE') {
         isAllGradeStatusSet = false;
         itemsWithNoGradeStatus.push(index);
@@ -374,7 +377,8 @@ Ext.define('ALMITOnTheGo.view.AddCourses', {
     });
 
     if (isAllGradeStatusSet) {
-      var task = Ext.create('Ext.util.DelayedTask', function () {
+      var task = Ext.create('Ext.util.DelayedTask', function ()
+      {
         me.fireEvent('nextViewCommand', ALMITOnTheGo.app.addedCoursesStore.getCount());
       });
       task.delay(500);
@@ -383,8 +387,10 @@ Ext.define('ALMITOnTheGo.view.AddCourses', {
       Ext.Msg.alert(
         'Courses Status',
         'Please set the grades/registration for the highlighted courses.',
-        function () {
-          Ext.Array.each(itemsWithNoGradeStatus, function (index) {
+        function ()
+        {
+          Ext.Array.each(itemsWithNoGradeStatus, function (index)
+          {
             addedCoursesList.getItemAt(index).setStyle('background-color:#C24641');
           });
         }
@@ -423,7 +429,8 @@ Ext.define('ALMITOnTheGo.view.AddCourses', {
         regexps.push(new RegExp(regex.trim(), 'i'));
       }
 
-      store.filter(function (record) {
+      store.filter(function (record)
+      {
         var matched = [];
         for (i = 0; i < regexps.length; i++) {
           var search = regexps[i],

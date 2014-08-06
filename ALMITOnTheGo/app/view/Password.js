@@ -95,8 +95,8 @@ Ext.define('ALMITOnTheGo.view.Password', {
       }
     ]
   },
-  onChangePwdButtonTap: function() {
-    console.log("onChangePwdButtonTap");
+  onChangePwdButtonTap: function ()
+  {
     var me = this;
 
     var invalidPasswordLabel = me.down('#invalidPasswordLabel');
@@ -106,23 +106,26 @@ Ext.define('ALMITOnTheGo.view.Password', {
     invalidPasswordLabel.hide();
     invalidPasswordLabel.setHtml('');
 
-    var task = Ext.create('Ext.util.DelayedTask', function () {
+    var task = Ext.create('Ext.util.DelayedTask', function ()
+    {
       me.fireEvent('changePwdCommand', passwordField.getValue(), confirmPasswordField.getValue());
     });
 
     task.delay(500);
   },
-  onCancelButtonTap: function() {
-    console.log("onCancelButtonTap");
+  onCancelButtonTap: function ()
+  {
     var me = this;
 
-    var task = Ext.create('Ext.util.DelayedTask', function () {
+    var task = Ext.create('Ext.util.DelayedTask', function ()
+    {
       me.fireEvent('cancelCommand');
     });
 
     task.delay(500);
   },
-  showInvalidPasswordMessage: function (message) {
+  showInvalidPasswordMessage: function (message)
+  {
     var label = this.down('#invalidPasswordLabel');
     label.setHtml(message);
     label.show();

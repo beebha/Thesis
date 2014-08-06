@@ -132,16 +132,19 @@ Ext.define('ALMITOnTheGo.view.Register', {
       }
     ]
   },
-  onBackButtonTap: function () {
+  onBackButtonTap: function ()
+  {
     var me = this;
-    var task = Ext.create('Ext.util.DelayedTask', function () {
+    var task = Ext.create('Ext.util.DelayedTask', function ()
+    {
       me.fireEvent('backCommand');
     });
 
     task.delay(500);
 
   },
-  onRegisterButtonTap: function () {
+  onRegisterButtonTap: function ()
+  {
     history.pushState("", document.title, window.location.pathname);
 
     var me = this;
@@ -163,13 +166,15 @@ Ext.define('ALMITOnTheGo.view.Register', {
       registrationType = registrationTypeField.getValue(),
       concentration = concentrationField.getValue();
 
-    var task = Ext.create('Ext.util.DelayedTask', function () {
+    var task = Ext.create('Ext.util.DelayedTask', function ()
+    {
       registrationFailedLabel.setHtml('');
       me.fireEvent('registerCommand', me, email, username, password, confirmPassword, registrationType, concentration);
     });
     task.delay(500);
   },
-  showRegistrationFailedMessage: function (message) {
+  showRegistrationFailedMessage: function (message)
+  {
     var label = this.down('#registrationFailedLabel');
     label.setHtml(message);
     label.show();

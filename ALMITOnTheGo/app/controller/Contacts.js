@@ -11,9 +11,8 @@ Ext.define('ALMITOnTheGo.controller.Contacts',
         }
       }
     },
-    onContactsViewDetailsCommand: function() {
-      console.log("onContactsViewDetailsCommand");
-
+    onContactsViewDetailsCommand: function ()
+    {
       var cc = this;
       var contactsView = cc.getContactsView();
 
@@ -26,7 +25,7 @@ Ext.define('ALMITOnTheGo.controller.Contacts',
 
         var concentrationCode = contactsView.down('#concentrationCode').getValue();
 
-        if(concentrationCode != 'SWE' && concentrationCode != 'IMS' && concentrationCode != 'DGM' ) {
+        if (concentrationCode != 'SWE' && concentrationCode != 'IMS' && concentrationCode != 'DGM') {
           concentrationCode = ALMITOnTheGo.app.defaultConcentrationCode;
           contactsView.down('#concentrationCode').setValue(concentrationCode);
         }
@@ -38,16 +37,17 @@ Ext.define('ALMITOnTheGo.controller.Contacts',
         cc.setupContactsViewPanel(ALMITOnTheGo.app.authToken, null);
       }
     },
-    setupContactsViewPanel: function(authToken, concentrationID) {
-
+    setupContactsViewPanel: function (authToken, concentrationID)
+    {
       Ext.Ajax.request({
-        url: ALMITOnTheGo.app.apiURL+'app.php?action=getInstructors',
+        url: ALMITOnTheGo.app.apiURL + 'app.php?action=getInstructors',
         method: 'post',
         params: {
           authToken: authToken != null ? authToken : null,
           concentrationID: concentrationID != null ? concentrationID : null
         },
-        success: function (response) {
+        success: function (response)
+        {
           var contactsResponse = Ext.JSON.decode(response.responseText);
 
           var cc = ALMITOnTheGo.app.getController('Contacts');
@@ -58,7 +58,7 @@ Ext.define('ALMITOnTheGo.controller.Contacts',
           contactsView.down('#viewContactsList').setStore(ALMITOnTheGo.app.viewInstructorsStore);
           contactsView.down('#viewContactsList').show();
 
-          if(ALMITOnTheGo.app.authToken == null) {
+          if (ALMITOnTheGo.app.authToken == null) {
             contactsView.down('#SWEButton').show();
             contactsView.down('#IMSButton').show();
             contactsView.down('#DGMButton').show();

@@ -14,9 +14,8 @@ Ext.define('ALMITOnTheGo.controller.Password',
         }
       }
     },
-    onCancelCommand:function()
+    onCancelCommand: function ()
     {
-      console.log("onCancelCommand");
       var pc = this;
       var passwordView = pc.getPasswordView();
       var userInformationView = pc.getUserInformationView();
@@ -37,7 +36,6 @@ Ext.define('ALMITOnTheGo.controller.Password',
       var mainView = pc.getMainView();
       var userInformationView = pc.getUserInformationView();
 
-      console.log("onChangePwdCommand");
       if (password.length === 0 || confirmPassword.length === 0) {
         passwordView.showInvalidPasswordMessage('Please enter password.');
         return;
@@ -49,15 +47,15 @@ Ext.define('ALMITOnTheGo.controller.Password',
       });
 
       Ext.Ajax.request({
-        url: ALMITOnTheGo.app.apiURL+'app.php?action=changePassword',
+        url: ALMITOnTheGo.app.apiURL + 'app.php?action=changePassword',
         method: 'post',
         params: {
           authToken: ALMITOnTheGo.app.authToken,
           password: password,
           confirmPassword: confirmPassword
         },
-        success: function (response) {
-
+        success: function (response)
+        {
           var changePwdResponse = Ext.JSON.decode(response.responseText);
 
           passwordView.setMasked(false);
@@ -66,20 +64,21 @@ Ext.define('ALMITOnTheGo.controller.Password',
 
           if (changePwdResponse.success === true) {
             Ext.Msg.show({
-            title: 'Change Password',
-            message: "Congratulations!<br><br>You have successfully changed your password.",
-            width: 210,
-            height: 200,
-            style: {
-            fontSize: '80%'
-          },
-            fn:function(btn) {
+              title: 'Change Password',
+              message: "Congratulations!<br><br>You have successfully changed your password.",
+              width: 210,
+              height: 200,
+              style: {
+                fontSize: '80%'
+              },
+              fn: function (btn)
+              {
                 // if cancel button is visible, change password from User Information vs Reset
                 passwordView.down('#cancelButton').isHidden() ?
                   Ext.Viewport.animateActiveItem(
                     mainView,
                     ALMITOnTheGo.app.getController('Common').getSlideBottomTransition()
-                  ):
+                  ) :
                   Ext.Viewport.animateActiveItem(
                     userInformationView,
                     ALMITOnTheGo.app.getController('Common').getSlideBottomTransition()

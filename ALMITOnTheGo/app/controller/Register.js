@@ -15,7 +15,8 @@ Ext.define('ALMITOnTheGo.controller.Register', {
       }
     }
   },
-  onRegisterCommand: function (view, email, username, password, confirmPassword, registrationType, concentration) {
+  onRegisterCommand: function (view, email, username, password, confirmPassword, registrationType, concentration)
+  {
     var rc = this;
     var registerView = rc.getRegisterView();
 
@@ -30,7 +31,7 @@ Ext.define('ALMITOnTheGo.controller.Register', {
     });
 
     Ext.Ajax.request({
-      url: ALMITOnTheGo.app.apiURL+'app.php?action=doRegister',
+      url: ALMITOnTheGo.app.apiURL + 'app.php?action=doRegister',
       method: 'post',
       params: {
         email: email,
@@ -42,8 +43,8 @@ Ext.define('ALMITOnTheGo.controller.Register', {
         deviceType: Ext.os.deviceType,
         deviceOS: Ext.os.name
       },
-      success: function (response) {
-
+      success: function (response)
+      {
         var registerResponse = Ext.JSON.decode(response.responseText);
 
         if (registerResponse.success === true) {
@@ -55,24 +56,27 @@ Ext.define('ALMITOnTheGo.controller.Register', {
           rc.registerFailure(registerResponse.error.message);
         }
       },
-      failure: function (response) {
+      failure: function (response)
+      {
         ALMITOnTheGo.app.authToken = null;
         rc.registerFailure('Registration failed. Please try again later.');
       }
     });
   },
-  registerSuccess: function () {
+  registerSuccess: function ()
+  {
     var rc = this;
     var registerView = rc.getRegisterView();
     var addCoursesView = rc.getAddCoursesView();
 
     Ext.Ajax.request({
-      url: ALMITOnTheGo.app.apiURL+'app.php?action=getCourses',
+      url: ALMITOnTheGo.app.apiURL + 'app.php?action=getCourses',
       method: 'post',
       params: {
         concentration: rc.concentration
       },
-      success: function (response) {
+      success: function (response)
+      {
 
         var coursesResponse = Ext.JSON.decode(response.responseText);
 
@@ -94,12 +98,14 @@ Ext.define('ALMITOnTheGo.controller.Register', {
       }
     });
   },
-  registerFailure: function (message) {
+  registerFailure: function (message)
+  {
     var registerView = this.getRegisterView();
     registerView.showRegistrationFailedMessage(message);
     registerView.setMasked(false);
   },
-  onBackCommand: function () {
+  onBackCommand: function ()
+  {
     window.history.back();
     var registerView = this.getRegisterView();
     var landingView = this.getLandingView();

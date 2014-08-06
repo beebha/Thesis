@@ -11,18 +11,19 @@ Ext.define('ALMITOnTheGo.controller.Analysis',
         }
       }
     },
-    onAnalysisViewDetailsCommand: function () {
+    onAnalysisViewDetailsCommand: function ()
+    {
       var ac = this;
       var analysisView = ac.getAnalysisView();
 
       Ext.Ajax.request({
-        url: ALMITOnTheGo.app.apiURL+'app.php?action=getGPAForAllTerms',
+        url: ALMITOnTheGo.app.apiURL + 'app.php?action=getGPAForAllTerms',
         method: 'post',
         params: {
           authToken: ALMITOnTheGo.app.authToken
         },
-        success: function (response) {
-
+        success: function (response)
+        {
           var analysisResponse = Ext.JSON.decode(response.responseText);
 
           if (analysisResponse.success === true) {

@@ -10,7 +10,8 @@ Ext.define('ALMITOnTheGo.store.ViewInstructors', {
       'instructor_url',
       'courses_details'
     ],
-    grouper: function (record) {
+    grouper: function (record)
+    {
       return record.get('instructor_name')[0];
     },
     data: []

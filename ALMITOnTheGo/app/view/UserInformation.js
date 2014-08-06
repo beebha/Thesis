@@ -207,36 +207,42 @@ Ext.define('ALMITOnTheGo.view.UserInformation', {
 
     ]
   },
-  onUserInformationPanelShow: function () {
+  onUserInformationPanelShow: function ()
+  {
     var me = this;
     me.down('#completedCoursesList').refresh();
     me.down('#registeredCoursesList').refresh();
     me.down('#userInformationContainer').show();
     me.down('#doneButton').show();
   },
-  onEditButtonTap: function () {
-    console.log("onEditButtonTap");
+  onEditButtonTap: function ()
+  {
     var me = this;
 
-    var task = Ext.create('Ext.util.DelayedTask', function () {
+    var task = Ext.create('Ext.util.DelayedTask', function ()
+    {
       me.fireEvent('editButtonCommand');
     });
 
     task.delay(500);
   },
-  onDoneButtonTap: function () {
+  onDoneButtonTap: function ()
+  {
     var me = this;
 
-    var task = Ext.create('Ext.util.DelayedTask', function () {
+    var task = Ext.create('Ext.util.DelayedTask', function ()
+    {
       me.fireEvent('doneButtonCommand', me);
     });
 
     task.delay(500);
   },
-  onPasswordButtonTap: function () {
+  onPasswordButtonTap: function ()
+  {
     var me = this;
 
-    var task = Ext.create('Ext.util.DelayedTask', function () {
+    var task = Ext.create('Ext.util.DelayedTask', function ()
+    {
       me.fireEvent('passwordButtonCommand', me);
     });
 

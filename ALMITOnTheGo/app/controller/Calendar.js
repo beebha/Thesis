@@ -14,51 +14,48 @@ Ext.define('ALMITOnTheGo.controller.Calendar',
         }
       }
     },
-    onDeleteUserCalendarCourseCommand: function(recordToBeDeleted) {
-      console.log("onDeleteUserCalendarCourseCommand");
-
+    onDeleteUserCalendarCourseCommand: function (recordToBeDeleted)
+    {
       ALMITOnTheGo.app.addedCalendarCoursesStore.remove(recordToBeDeleted);
 
       Ext.Ajax.request({
-        url: ALMITOnTheGo.app.apiURL+'app.php?action=deleteCalendarEvents',
+        url: ALMITOnTheGo.app.apiURL + 'app.php?action=deleteCalendarEvents',
         method: 'post',
         params: {
           authToken: ALMITOnTheGo.app.authToken,
           courseID: recordToBeDeleted.data.course_id
         },
-        success: function () {
-          Ext.each(Ext.query("*[id^=courseCalendarDelete]"), function(item) {
+        success: function ()
+        {
+          Ext.each(Ext.query("*[id^=courseCalendarDelete]"), function (item)
+          {
             var courseID = item.id.replace("courseCalendarDelete", "");
-            Ext.get("courseCalendarDelete"+courseID).show();
+            Ext.get("courseCalendarDelete" + courseID).show();
           });
         }
       });
     },
-    onShowSelectedEventCommand: function(selectedDate, displayDate) {
-      console.log("onCalendarViewDetailsCommand");
-      console.log("selectedDate : " + selectedDate);
-
+    onShowSelectedEventCommand: function (selectedDate, displayDate)
+    {
       var showEventsHtml = "";
 
-      for (var j=0; j<ALMITOnTheGo.app.allEventsStore.getCount(); j++)
-      {
+      for (var j = 0; j < ALMITOnTheGo.app.allEventsStore.getCount(); j++) {
         var singleDayRecord = ALMITOnTheGo.app.allEventsStore.getAt(j);
-        if(singleDayRecord.get('singleDate') == selectedDate) {
-          showEventsHtml  += '<span style="font-size:90%;font-weight:normal;float:left;">'+singleDayRecord.data.title + ': ' + singleDayRecord.data.event;
-          showEventsHtml  += singleDayRecord.get('userAddedCourse') ? " [Added]</span><br>" : "</span><br>";
+        if (singleDayRecord.get('singleDate') == selectedDate) {
+          showEventsHtml += '<span style="font-size:90%;font-weight:normal;float:left;">' + singleDayRecord.data.title + ': ' + singleDayRecord.data.event;
+          showEventsHtml += singleDayRecord.get('userAddedCourse') ? " [Added]</span><br>" : "</span><br>";
         }
       }
 
-      if(showEventsHtml != "") {
+      if (showEventsHtml != "") {
         Ext.Msg.alert(
           displayDate,
           showEventsHtml
         );
       }
     },
-    onCalendarViewDetailsCommand: function (viewMode, minDate, maxDate) {
-      console.log("onCalendarViewDetailsCommand");
-
+    onCalendarViewDetailsCommand: function (viewMode, minDate, maxDate)
+    {
       this.getCalendarView().setMasked({
         xtype: 'loadmask',
         message: '&nbsp;'
@@ -66,7 +63,7 @@ Ext.define('ALMITOnTheGo.controller.Calendar',
 
       var concentrationCode = this.getCalendarView().down('#concentrationCode').getValue();
 
-      if(concentrationCode != 'SWE' && concentrationCode != 'IMS' && concentrationCode != 'DGM' ) {
+      if (concentrationCode != 'SWE' && concentrationCode != 'IMS' && concentrationCode != 'DGM') {
         concentrationCode = ALMITOnTheGo.app.defaultConcentrationCode;
         this.getCalendarView().down('#concentrationCode').setValue(concentrationCode);
       }
@@ -79,14 +76,10 @@ Ext.define('ALMITOnTheGo.controller.Calendar',
         maxDate
       );
     },
-    getCalendarEvents: function(authToken, concentrationID, mode, minDate, maxDate) {
-      console.log("getCalendarEvents");
-      console.log("mode : " + mode);
-      console.log("minDate : " + minDate);
-      console.log("maxDate : " + maxDate);
-
+    getCalendarEvents: function (authToken, concentrationID, mode, minDate, maxDate)
+    {
       Ext.Ajax.request({
-        url: ALMITOnTheGo.app.apiURL+'app.php?action=getCalendarViewDetails',
+        url: ALMITOnTheGo.app.apiURL + 'app.php?action=getCalendarViewDetails',
         method: 'post',
         params: {
           authToken: authToken,
@@ -95,15 +88,15 @@ Ext.define('ALMITOnTheGo.controller.Calendar',
           minDate: minDate,
           maxDate: maxDate
         },
-        success: function (response) {
+        success: function (response)
+        {
           var calResponse = Ext.JSON.decode(response.responseText);
           ALMITOnTheGo.app.getController('Calendar').setupCalendarViewPanel(calResponse, mode);
         }
       });
     },
-    setupCalendarViewPanel: function(calResponse, mode) {
-      console.log("setupCalendarViewPanel");
-
+    setupCalendarViewPanel: function (calResponse, mode)
+    {
       var cal = ALMITOnTheGo.app.getController('Calendar');
       var calendarView = cal.getCalendarView();
 
@@ -111,52 +104,49 @@ Ext.define('ALMITOnTheGo.controller.Calendar',
       ALMITOnTheGo.app.addedCalendarCoursesStore.removeAll();
 
       var calendarEvents = calResponse.data.calendarEvents;
-      for (var i=0; i<calendarEvents.length; i++)
-      {
+      for (var i = 0; i < calendarEvents.length; i++) {
         calendarEvents[i]['start'] = cal.getDateForCalendar(calendarEvents[i]['startDate']);
         calendarEvents[i]['end'] = cal.getDateForCalendar(calendarEvents[i]['endDate']);
         ALMITOnTheGo.app.allEventsStore.addData(calendarEvents[i]);
       }
 
       var userAddedCalendarCourses = calResponse.data.userAddedCalendarCourses;
-      for (var i=0; i<userAddedCalendarCourses.length; i++)
-      {
+      for (var i = 0; i < userAddedCalendarCourses.length; i++) {
         ALMITOnTheGo.app.addedCalendarCoursesStore.addData(userAddedCalendarCourses[i]);
       }
 
       var touchCalendar = calendarView.down('#touchCalendarViewWidget');
 
-      if(touchCalendar != null) {
-        Ext.each(touchCalendar.items.items, function(singleCalendarView) {
+      if (touchCalendar != null) {
+        Ext.each(touchCalendar.items.items, function (singleCalendarView)
+        {
           singleCalendarView.eventStore = ALMITOnTheGo.app.allEventsStore;
           singleCalendarView.syncHeight();
         });
 
-        if(mode == 'WEEK') {
-          Ext.each(Ext.query('td.time-block'), function(singleDayElement)
+        if (mode == 'WEEK') {
+          Ext.each(Ext.query('td.time-block'), function (singleDayElement)
           {
-            if(Ext.getDom(singleDayElement).innerHTML.indexOf('simple-event-wrapper') !== -1 )
-            {
+            if (Ext.getDom(singleDayElement).innerHTML.indexOf('simple-event-wrapper') !== -1) {
               var singleDate = Ext.getDom(singleDayElement).getAttribute('datetime');
               var eventsHtml = "";
               var eventCount = 0;
 
-              for (var j=0; j<ALMITOnTheGo.app.allEventsStore.getCount(); j++)
-              {
+              for (var j = 0; j < ALMITOnTheGo.app.allEventsStore.getCount(); j++) {
                 var singleDayRecord = ALMITOnTheGo.app.allEventsStore.getAt(j);
-                if(singleDayRecord.get('singleDate') == singleDate) {
-                  if(eventCount == 0) {
-                    eventsHtml  += singleDayRecord.data.singleDateDay+"<br>";
+                if (singleDayRecord.get('singleDate') == singleDate) {
+                  if (eventCount == 0) {
+                    eventsHtml += singleDayRecord.data.singleDateDay + "<br>";
                     eventCount++;
                   }
 
                   var additionalCSSClass = singleDayRecord.get('userAddedCourse') ? "calendar-event" : "";
-                  eventsHtml  += '<br><span class="'+additionalCSSClass+'" '+
-                              'style="float:left;padding-left:0.2em;font-weight:bold;font-size:60%;text-align:center;">' +
-                              singleDayRecord.data.title +
-                              '</span><br><span class="'+additionalCSSClass+'" '+
-                              'style="float:left;padding-left:0.2em;font-weight:normal;font-size:60%;text-align:center;font-style:italic">' +
-                              singleDayRecord.data.event + '</span><br>';
+                  eventsHtml += '<br><span class="' + additionalCSSClass + '" ' +
+                    'style="float:left;padding-left:0.2em;font-weight:bold;font-size:60%;text-align:center;">' +
+                    singleDayRecord.data.title +
+                    '</span><br><span class="' + additionalCSSClass + '" ' +
+                    'style="float:left;padding-left:0.2em;font-weight:normal;font-size:60%;text-align:center;font-style:italic">' +
+                    singleDayRecord.data.event + '</span><br>';
                 }
               }
               Ext.get(singleDayElement).setHtml(eventsHtml);
@@ -172,9 +162,8 @@ Ext.define('ALMITOnTheGo.controller.Calendar',
             height: '100%',
             showAnimation: 'flip',
             listeners: {
-              periodchange: function (calendarView, minDate, maxDate, direction, eOpts) {
-                console.log("periodchange");
-
+              periodchange: function (calendarView, minDate, maxDate, direction, eOpts)
+              {
                 var min = new Date(minDate);
                 var max = new Date(maxDate);
                 var minDateString = min.getFullYear() + "-" + (min.getMonth() + 1) + "-" + min.getDate();
@@ -182,13 +171,11 @@ Ext.define('ALMITOnTheGo.controller.Calendar',
 
                 ALMITOnTheGo.app.getController('Calendar').onCalendarViewDetailsCommand(calendarView.getViewMode(), minDateString, maxDateString);
               },
-              selectionchange: function (calendarView, newDate, oldDate, eOpts) {
-                console.log("selectionchange");
-
-                if(calendarView.getViewMode().toUpperCase() == 'MONTH') {
-
+              selectionchange: function (calendarView, newDate, oldDate, eOpts)
+              {
+                if (calendarView.getViewMode().toUpperCase() == 'MONTH') {
                   var selectedDate = new Date(newDate);
-                  var selectedDateString = ('0'+selectedDate.getDate()).slice(-2) + "-" + ('0'+(selectedDate.getMonth() + 1)).slice(-2) + "-" + selectedDate.getFullYear();
+                  var selectedDateString = ('0' + selectedDate.getDate()).slice(-2) + "-" + ('0' + (selectedDate.getMonth() + 1)).slice(-2) + "-" + selectedDate.getFullYear();
                   var displayDate = selectedDate.toDateString();
 
                   ALMITOnTheGo.app.getController('Calendar').onShowSelectedEventCommand(selectedDateString, displayDate);
@@ -243,12 +230,13 @@ Ext.define('ALMITOnTheGo.controller.Calendar',
       ALMITOnTheGo.app.authToken == null ? calendarView.down('#viewAddedCoursesButton').hide() : calendarView.down('#viewAddedCoursesButton').show();
       calendarView.setMasked(false);
     },
-    getDateForCalendar: function(dateObj) {
+    getDateForCalendar: function (dateObj)
+    {
       return new Date(
         dateObj['year'],
-        dateObj['month']-1,
+        dateObj['month'] - 1,
         dateObj['day'],
         dateObj['hour'],
         dateObj['min']);
-      }
+    }
   });

@@ -11,18 +11,19 @@ Ext.define('ALMITOnTheGo.controller.Grades',
         }
       }
     },
-    onGradesViewDetailsCommand: function () {
+    onGradesViewDetailsCommand: function ()
+    {
       var gc = this;
       var gradesView = gc.getGradesView();
 
       Ext.Ajax.request({
-        url: ALMITOnTheGo.app.apiURL+'app.php?action=getGradeViewDetails',
+        url: ALMITOnTheGo.app.apiURL + 'app.php?action=getGradeViewDetails',
         method: 'post',
         params: {
           authToken: ALMITOnTheGo.app.authToken
         },
-        success: function (response) {
-
+        success: function (response)
+        {
           var gradesResponse = Ext.JSON.decode(response.responseText);
 
           if (gradesResponse.success === true) {

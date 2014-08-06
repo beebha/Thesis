@@ -28,17 +28,16 @@ Ext.define('ALMITOnTheGo.view.Contacts', {
             style: {
               border: 'none'
             },
-            items:
-            [
+            items: [
               {
                 xtype: 'fixedbutton',
                 itemId: 'SWEButton',
                 text: 'SWE&nbsp;<span class="squarebox SWE">&nbsp;&nbsp;</span>',
                 align: 'right',
                 hidden: true,
-                listeners : {
-                  tap : function(button, e, eOpts) {
-                    console.log('SWE button tapped');
+                listeners: {
+                  tap: function (button, e, eOpts)
+                  {
                     button.up('#contactsViewContainer').down('#concentrationCode').setValue('SWE');
                     button.setText('SWE&nbsp;<span class="squarebox SWE">&nbsp;&nbsp;</span>');
                     button.up('#contactsViewContainer').down('#IMSButton').setText('IMS&nbsp;<span class="squarebox NONE">&nbsp;&nbsp;</span>');
@@ -53,9 +52,9 @@ Ext.define('ALMITOnTheGo.view.Contacts', {
                 text: 'IMS&nbsp;<span class="squarebox NONE">&nbsp;&nbsp;</span>',
                 align: 'right',
                 hidden: true,
-                listeners : {
-                  tap : function(button, e, eOpts) {
-                    console.log('IMS button tapped');
+                listeners: {
+                  tap: function (button, e, eOpts)
+                  {
                     button.up('#contactsViewContainer').down('#concentrationCode').setValue('IMS');
                     button.setText('IMS&nbsp;<span class="squarebox IMS">&nbsp;&nbsp;</span>');
                     button.up('#contactsViewContainer').down('#SWEButton').setText('SWE&nbsp;<span class="squarebox NONE">&nbsp;&nbsp;</span>');
@@ -70,9 +69,9 @@ Ext.define('ALMITOnTheGo.view.Contacts', {
                 text: 'DGM&nbsp;<span class="squarebox NONE">&nbsp;&nbsp;</span>',
                 align: 'right',
                 hidden: true,
-                listeners : {
-                  tap : function(button, e, eOpts) {
-                    console.log('DGM button tapped');
+                listeners: {
+                  tap: function (button, e, eOpts)
+                  {
                     button.up('#contactsViewContainer').down('#concentrationCode').setValue('DGM');
                     button.setText('DGM&nbsp;<span class="squarebox DGM">&nbsp;&nbsp;</span>');
                     button.up('#contactsViewContainer').down('#SWEButton').setText('SWE&nbsp;<span class="squarebox NONE">&nbsp;&nbsp;</span>');
