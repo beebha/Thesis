@@ -1,7 +1,21 @@
 <?php
- 
+/**
+ * Class Home
+ *
+ * This class is used for
+ * retrieving announcements
+ * to display in the Home view.
+ *
+ */
 class Home
 {
+    /**
+     * Method that retrieves all announcements
+     * for the concentration of a registered user
+     *
+     * @param $authToken - registered user's auth token
+     * @return array
+     */
     public static function getHomeViewDetails($authToken)
     {
         $userIDResults = array();
@@ -17,7 +31,7 @@ class Home
         $registrationType = !empty($authToken) ? $userIDResults['registration_type'] : 'GUEST';
 
         $query = HomeQuery::getHomeView($concentrationID, $registrationType);
-        $announcements = HomeDBUtils::getAllResults($query);
+        $announcements = DBUtils::getAllResults($query);
 
         return array(
             "status" => TRUE,

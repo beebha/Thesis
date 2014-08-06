@@ -1,5 +1,9 @@
 <?php
-
+/**
+ * Class LoginValidationUtils
+ *
+ * A class that executes validation rules for HTTP Post parameters
+ */
 class LoginValidationUtils extends ValidationUtils
 {
     public static function validateLoginParams(array $postVar)

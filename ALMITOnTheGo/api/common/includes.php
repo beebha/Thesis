@@ -22,7 +22,6 @@ require_once(dirname(__FILE__) . '/../almitonthego/ALMITOnTheGoQuery.php');
 require_once(dirname(__FILE__) . '/../login/Login.php');
 require_once(dirname(__FILE__) . '/../login/LoginController.php');
 require_once(dirname(__FILE__) . '/../login/LoginQuery.php');
-require_once(dirname(__FILE__) . '/../login/LoginDBUtils.php');
 require_once(dirname(__FILE__) . '/../login/LoginValidationUtils.php');
 
 // Register files
@@ -44,7 +43,6 @@ require_once(dirname(__FILE__) . '/../userinfo/UserInfoQuery.php');
 // Home files
 require_once(dirname(__FILE__) . '/../home/HomeController.php');
 require_once(dirname(__FILE__) . '/../home/Home.php');
-require_once(dirname(__FILE__) . '/../home/HomeDBUtils.php');
 require_once(dirname(__FILE__) . '/../home/HomeQuery.php');
 
 // Grade files

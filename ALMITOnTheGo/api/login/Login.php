@@ -1,11 +1,26 @@
 <?php
- 
+/**
+ * Class Login
+ *
+ * This class is used for logging in a user.
+ *
+ */
 class Login
 {
+    /**
+     * Method that gets an auth token for the
+     * current logged in session of a registered user
+     *
+     * @param $username
+     * @param $password
+     * @param $deviceType
+     * @param $deviceOS
+     * @return array
+     */
     public static function getAuthToken($username, $password, $deviceType, $deviceOS)
     {
         $query = LoginQuery::getUserDetailsQuery($username);
-        $results = LoginDBUtils::getSingleDetailExecutionResult($query);
+        $results = DBUtils::getSingleDetailExecutionResult($query);
 
         if(is_null($results))
         {
@@ -26,11 +41,11 @@ class Login
         $authToken = md5(uniqid(rand(), true));
 
         $query = LoginQuery::getInsertUpdateMobileAuthTokenQuery($userID, $authToken, $deviceType, $deviceOS);
-        LoginDBUtils::getInsertUpdateDeleteExecutionResult($query);
+        DBUtils::getInsertUpdateDeleteExecutionResult($query);
 
         // insert/update last_login entry in DB
         $query = LoginQuery::getUpdateLastLoginQuery($userID);
-        LoginDBUtils::getInsertUpdateDeleteExecutionResult($query);
+        DBUtils::getInsertUpdateDeleteExecutionResult($query);
 
         return array(
             "status" => TRUE,
@@ -43,6 +58,13 @@ class Login
         );
     }
 
+    /**
+     * Method that creates an auth token for the
+     * current logged in session of a registered user
+     *
+     * @param array $postVar - passed values in HTTP POST request
+     * @return array
+     */
     public static function createAuthToken(array $postVar)
     {
         $email = $postVar['email'];
@@ -54,7 +76,7 @@ class Login
         $deviceOS = $postVar['deviceOS'];
 
         $query = LoginQuery::getUserDetailsQuery($username);
-        $results = LoginDBUtils::getSingleDetailExecutionResult($query);
+        $results = DBUtils::getSingleDetailExecutionResult($query);
 
         if(!is_null($results))
         {
@@ -65,13 +87,13 @@ class Login
         $passwordHash = password_hash($password, PASSWORD_BCRYPT);
 
         $query = LoginQuery::getInsertUserQuery($username, $passwordHash, $email, $registrationType, $concentration);
-        $userID = LoginDBUtils::getIDAfterInsertResult($query);
+        $userID = DBUtils::getIDAfterInsertResult($query);
 
         // insert/update mobile_auth_token entry in DB
         $authToken = md5(uniqid(rand(), true));
 
         $query = LoginQuery::getInsertUpdateMobileAuthTokenQuery($userID, $authToken, $deviceType, $deviceOS);
-        LoginDBUtils::getInsertUpdateDeleteExecutionResult($query);
+        DBUtils::getInsertUpdateDeleteExecutionResult($query);
 
         return array(
             "status" => TRUE,
@@ -83,13 +105,20 @@ class Login
             ));
     }
 
+    /**
+     * Method that deletes an auth token for the
+     * current logged in session of a registered user
+     *
+     * @param $authToken - registered user's auth token
+     * @return array
+     */
     public static function deleteAuthToken($authToken)
     {
         $authTokenDeleteResult = false;
 
         if (!empty($authToken)) {
             $query = LoginQuery::deleteAuthTokenQuery($authToken);
-            $authTokenDeleteResult = LoginDBUtils::getInsertUpdateDeleteExecutionResult($query);
+            $authTokenDeleteResult = DBUtils::getInsertUpdateDeleteExecutionResult($query);
         }
 
         return array(

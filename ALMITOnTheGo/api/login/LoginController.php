@@ -1,7 +1,18 @@
 <?php
-
+/**
+ * Class LoginController
+ *
+ * A controller class that directs calls to @see Login
+ */
 class LoginController
 {
+    /**
+     * Method executes call in @see Login::getAuthToken
+     *
+     * @param $postVar - post variables in HTTP Request
+     * @return array
+     * @throws APIException
+     */
     public static function doLogin($postVar)
     {
         $result = array();
@@ -28,6 +39,12 @@ class LoginController
         return $result;
     }
 
+    /**
+     * Method executes call in @see Login::deleteAuthToken
+     *
+     * @param $postVar - post variables in HTTP Request
+     * @return array
+     */
     public static function doLogoff($postVar)
     {
         $result = array();

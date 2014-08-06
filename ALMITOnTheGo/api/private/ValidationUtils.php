@@ -1,5 +1,9 @@
 <?php
-
+/**
+ * Class ValidationUtils
+ *
+ * A custom validation utility class that checks rules for the ALMITOnTheGo application
+ */
 class ValidationUtils
 {
     static function checkFieldLength($validationType, $fieldValue)

@@ -1,5 +1,10 @@
 <?php
-
+/**
+ * Class DBUtils
+ *
+ * A database utility class with methods
+ * to get a connection and execute queries
+ */
 class DBUtils
 {
     // LOCAL DEV SETTINGS

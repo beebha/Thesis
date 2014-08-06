@@ -1,5 +1,9 @@
 <?php
- 
+/**
+ * Class ValidationRules
+ *
+ * A custom validation class that defines rules for the ALMITOnTheGo application
+ */
 class ValidationRules
 {
     static $USERNAME_LENGTH = "username_length";
