@@ -2,7 +2,7 @@
 /**
  * Class Calendar
  *
- * This class that is used for
+ * This class is used for
  * adding calendar events, deleting calendar events,
  * getting calendar view details
  * to display in the Calendar view.

@@ -1,7 +1,17 @@
 <?php
-
+/**
+ * Class GradeController
+ *
+ * A controller class that directs calls to @see Grade
+ */
 class GradeController
 {
+    /**
+     * Method executes call in @see Grade::getGradeViewDetails
+     *
+     * @param $postVar - post variables in HTTP Request
+     * @return array
+     */
     public static function getGradeViewDetails($postVar)
     {
         $result = array();

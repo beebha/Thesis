@@ -1,5 +1,9 @@
 <?php
-
+/**
+ * Class GradeQuery
+ *
+ * A class that builds queries to be executed for the Grades view
+ */
 class GradeQuery
 {
     public static function getGradeViewQuery($authToken)
@@ -11,7 +15,7 @@ class GradeQuery
                 INNER JOIN course c ON c.course_id = uc.course_id
                 INNER JOIN grades g ON g.grade_id = uc.grade_id
                 INNER JOIN course_terms ct ON ct.course_term_id = c.course_term_id
-                WHERE mat.auth_token = " .GradeDBUtils::getDBValue(DBConstants::DB_STRING, $authToken). "
+                WHERE mat.auth_token = " .DBUtils::getDBValue(DBConstants::DB_STRING, $authToken). "
                 AND uc.grade_id NOT IN (1)
                 ORDER BY ct.course_term_id, c.course_code ASC";
     }

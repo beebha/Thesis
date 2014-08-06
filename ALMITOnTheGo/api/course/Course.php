@@ -2,7 +2,7 @@
 /**
  * Class Course
  *
- * This class that is used for
+ * This class is used for
  * retrieving course information
  * to display in the Course view.
  *
@@ -31,8 +31,8 @@ class Course
      * Method that retrieves all course categories
      * associated with a concentration
      *
-     * @param $authToken
-     * @param $concentrationID
+     * @param $authToken - registered user's auth token
+     * @param $concentrationID - ID of concentration to get category
      * @return array
      */
     public static function getCourseCategoryViewDetails($authToken, $concentrationID)

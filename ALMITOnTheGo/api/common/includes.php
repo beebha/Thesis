@@ -50,7 +50,6 @@ require_once(dirname(__FILE__) . '/../home/HomeQuery.php');
 // Grade files
 require_once(dirname(__FILE__) . '/../grade/GradeController.php');
 require_once(dirname(__FILE__) . '/../grade/Grade.php');
-require_once(dirname(__FILE__) . '/../grade/GradeDBUtils.php');
 require_once(dirname(__FILE__) . '/../grade/GradeQuery.php');
 
 // Calendar files

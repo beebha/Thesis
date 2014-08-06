@@ -2,7 +2,7 @@
 /**
  * Class ALMITOnTheGo
  *
- * This class that is used for
+ * This class is used for
  * pre-populating static data upon
  * the applications's initialization.
  *

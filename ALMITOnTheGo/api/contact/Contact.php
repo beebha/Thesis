@@ -2,7 +2,7 @@
 /**
  * Class Contact
  *
- * This class that is used for
+ * This class is used for
  * retrieving instructors information
  * to display in the Contact view.
  *

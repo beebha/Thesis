@@ -1,7 +1,21 @@
 <?php
- 
+/**
+ * Class Grade
+ *
+ * This class is used for
+ * retrieving GPA information
+ * to display in the Grade view.
+ *
+ */
 class Grade
 {
+    /**
+     * Method that retrieves all grades
+     * for completed courses of a registered user
+     *
+     * @param $authToken - registered user's auth token
+     * @return array
+     */
     public static function getGradeViewDetails($authToken)
     {
         $completedCourses = array();
@@ -10,7 +24,7 @@ class Grade
 
         if (!empty($authToken)) {
             $query = GradeQuery::getGradeViewQuery($authToken);
-            $completedCourses = GradeDBUtils::getAllResults($query);
+            $completedCourses = DBUtils::getAllResults($query);
             $gpa = count($completedCourses) > 0 ? $completedCourses[0]['gpa'] : 0;
         }
 

@@ -2,7 +2,7 @@
 /**
  * Class Analysis
  *
- * This class that is used for
+ * This class is used for
  * getting GPA data for a registered user
  * to display in the Analysis view.
  *
