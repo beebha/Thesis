@@ -29,30 +29,21 @@ Ext.define('ALMITOnTheGo.view.Thesis', {
             },
             items: [
               {
-                xtype: 'segmentedbutton',
+                xtype: 'fixedbutton',
                 centered: true,
-                items: [
+                text: 'Expand All Thesis Info',
+                listeners: {
+                  tap: function ()
                   {
-                    text: 'Expand',
-                    action: 'expand',
-                    listeners: {
-                      tap: function ()
-                      {
-                        this.up('#thesisViewContainer').down('#thesisAccordionList').doAllExpand();
-                      }
-                    }
-                  },
-                  {
-                    text: 'Collapse',
-                    action: 'collapse',
-                    listeners: {
-                      tap: function ()
-                      {
-                        this.up('#thesisViewContainer').down('#thesisAccordionList').doAllCollapse();
-                      }
+                    if(this.getText() == 'Expand All Thesis Info') {
+                      this.up('#thesisViewContainer').down('#thesisAccordionList').doAllExpand();
+                      this.setText("Collapse All Thesis Info");
+                    } else {
+                      this.up('#thesisViewContainer').down('#thesisAccordionList').doAllCollapse();
+                      this.setText("Expand All Thesis Info");
                     }
                   }
-                ]
+                }
               }
             ]
           }
