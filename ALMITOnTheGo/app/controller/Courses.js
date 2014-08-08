@@ -123,10 +123,24 @@ Ext.define('ALMITOnTheGo.controller.Courses',
           success: function (response)
           {
             var calendarResponse = Ext.JSON.decode(response.responseText);
+
+            console.log(calendarResponse);
+
             if (calendarResponse.success) {
-              Ext.Msg.alert('Congratulations!', 'Courses have been successfully added to the calendar', Ext.emptyFn);
+              if(calendarResponse.data.existingCourseCodes.length > 0 && calendarResponse.data.existingCourseCodes.length == allCheckedCourses.length) {
+                Ext.Msg.alert('Oops!', 'All selected courses have already been added to the calendar.', Ext.emptyFn);
+              } else if (calendarResponse.data.existingCourseCodes.length > 0 && calendarResponse.data.existingCourseCodes.length < allCheckedCourses.length) {
+                Ext.Msg.alert(
+                  'Congratulations!',
+                  'Courses have been successfully added to the calendar. ' +
+                  'The following courses have already been added to the calendar: ' +
+                  calendarResponse.data.existingCourseCodes.join(", "),
+                  Ext.emptyFn);
+              } else {
+                Ext.Msg.alert('Congratulations!', 'Courses have been successfully added to the calendar.', Ext.emptyFn);
+              }
             } else {
-              Ext.Msg.alert('Oops!', 'An error has occurred while adding to the calendar', Ext.emptyFn);
+              Ext.Msg.alert('Oops!', 'An error has occurred while adding to the calendar.', Ext.emptyFn);
             }
           }
         });

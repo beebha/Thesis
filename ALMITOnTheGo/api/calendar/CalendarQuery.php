@@ -52,5 +52,12 @@ class CalendarQuery
                 FROM users_calendar
                 WHERE users_calendar.user_id = " .DBUtils::getDBValue(DBConstants::DB_VALUE, $userID);
     }
+
+    public static function getCourseCodeQuery(array $courseIDs)
+    {
+        return "SELECT group_concat(c.course_code) existingCourseCodes
+                FROM course c
+                WHERE c.course_id IN (". implode(",", $courseIDs) .")";
+    }
 }
  

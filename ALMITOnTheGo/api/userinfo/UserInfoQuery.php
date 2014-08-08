@@ -24,10 +24,10 @@ class UserInfoQuery
                 DBUtils::getDBValue(DBConstants::DB_STRING, $userEmail);
     }
 
-    public static function createUpdateUserCoursesQuery($userID, array $courseIDSAndGrades)
+    public static function createUpdateUserCoursesQuery($userID, array $courseIDsAndGrades)
     {
         $queriesToBeExecuted = array();
-        foreach($courseIDSAndGrades as $courseID => $gradeID)
+        foreach($courseIDsAndGrades as $courseID => $gradeID)
         {
             $query = "INSERT into users_courses (user_id, course_id, grade_id) VALUES
             (" .DBUtils::getDBValue(DBConstants::DB_VALUE, $userID). "," .
@@ -41,11 +41,11 @@ class UserInfoQuery
         return $queriesToBeExecuted;
     }
 
-    public static function deleteUserCoursesQuery($userID, array $courseIDS)
+    public static function deleteUserCoursesQuery($userID, array $courseIDs)
     {
         return "DELETE FROM users_courses WHERE user_id = " .
                 DBUtils::getDBValue(DBConstants::DB_VALUE, $userID). "
-                AND course_id NOT IN (". implode(",", $courseIDS) .")";
+                AND course_id NOT IN (". implode(",", $courseIDs) .")";
     }
 
     public static function updateGPAQuery($userID, $gpa)

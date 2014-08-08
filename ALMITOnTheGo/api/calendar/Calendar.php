@@ -19,6 +19,8 @@ class Calendar
      */
     public static function addCalendarEvents($authToken, $allCheckedCourses)
     {
+        $existingCourseCodes = array();
+
         // execute query only for registered user
         if(!empty($authToken))
         {
@@ -27,16 +29,34 @@ class Calendar
 
             $userID = $userResults['user_id'];
             $courseIDs = array();
+            $userCalendarEvents = array();
 
             for($i = 0; $i < count($allCheckedCourses); $i++) {
                 $courseIDs[] = $allCheckedCourses[$i]['course_id'];
             }
 
+            // get list of courses already added to calendar
+            $userCalendarQuery = CalendarQuery::getUserCalendarQuery($userID);
+            $userCalendarResults = DBUtils::getSingleDetailExecutionResult($userCalendarQuery);
+
+            if(!is_null($userCalendarResults['allCourseIDs'])) {
+                $userCalendarEvents = explode(",", $userCalendarResults['allCourseIDs']);
+            }
+
             $createUserCalendarQuery = CalendarQuery::createUserCalendarQuery($userID, $courseIDs);
             $createUserCalendarResults = DBUtils::getInsertUpdateDeleteBulkExecutionResult($createUserCalendarQuery);
 
+
             if(!$createUserCalendarResults) {
                 return array("status" => FALSE, "errorMsg" => "DB Error", "data" => NULL);
+            }
+
+            // get list of courses that already had been added
+            $existingCourseIDs = array_intersect($userCalendarEvents, $courseIDs);
+
+            if(count($existingCourseIDs) > 0) {
+                $courseCodeQuery = CalendarQuery::getCourseCodeQuery($existingCourseIDs);
+                $existingCourseCodes = DBUtils::getSingleDetailExecutionResult($courseCodeQuery);
             }
         }
 
@@ -44,7 +64,7 @@ class Calendar
         return array(
             "status" => TRUE,
             "errorMsg" => "",
-            "data" => NULL);
+            "data" => array('existingCourseCodes' => explode(",", $existingCourseCodes['existingCourseCodes'])));
     }
 
     /**
