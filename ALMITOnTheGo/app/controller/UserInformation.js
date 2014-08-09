@@ -15,6 +15,7 @@ Ext.define('ALMITOnTheGo.controller.UserInformation', {
       }
     }
   },
+  // function to show change password screen when user clicks button in user information view
   onPasswordButtonCommand: function ()
   {
     var uic = this;
@@ -29,6 +30,7 @@ Ext.define('ALMITOnTheGo.controller.UserInformation', {
     passwordView.down('#cancelButton').show();
     Ext.Viewport.animateActiveItem(passwordView, ALMITOnTheGo.app.getController('Common').getSlideTopTransition());
   },
+  // function to bring user to add courses screen when user clicks edit button
   oneEditButtonCommand: function ()
   {
     var uic = this;
@@ -39,6 +41,7 @@ Ext.define('ALMITOnTheGo.controller.UserInformation', {
     addCoursesView.onRegistrationMsgPanelHide();
     Ext.Viewport.animateActiveItem(addCoursesView, ALMITOnTheGo.app.getController('Common').getSlideRightTransition());
   },
+  // function to save user information when done button is clicked
   onDoneButtonCommand: function (userView)
   {
     var userInfoData = {};
@@ -88,6 +91,7 @@ Ext.define('ALMITOnTheGo.controller.UserInformation', {
       }
     });
   },
+  // function to get data to populate user information screen
   populateUserInformation: function (concentrationID, registrationType)
   {
     var uic = this;

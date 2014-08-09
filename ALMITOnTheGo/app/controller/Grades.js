@@ -11,6 +11,7 @@ Ext.define('ALMITOnTheGo.controller.Grades',
         }
       }
     },
+    // function to get details to populate grade view
     onGradesViewDetailsCommand: function ()
     {
       var gc = this;

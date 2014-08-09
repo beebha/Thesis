@@ -14,6 +14,7 @@ Ext.define('ALMITOnTheGo.controller.Calendar',
         }
       }
     },
+    // function that handles deletion of calendar events
     onDeleteUserCalendarCourseCommand: function (recordToBeDeleted)
     {
       ALMITOnTheGo.app.addedCalendarCoursesStore.remove(recordToBeDeleted);
@@ -35,6 +36,7 @@ Ext.define('ALMITOnTheGo.controller.Calendar',
         }
       });
     },
+    // function that is called when calendar Day is clicked to show events for selected day
     onShowSelectedEventCommand: function (selectedDate, displayDate)
     {
       var showEventsHtml = "";
@@ -54,6 +56,7 @@ Ext.define('ALMITOnTheGo.controller.Calendar',
         );
       }
     },
+    // function that is called to populate the Calendar View
     onCalendarViewDetailsCommand: function (viewMode, minDate, maxDate)
     {
       this.getCalendarView().setMasked({
@@ -76,6 +79,7 @@ Ext.define('ALMITOnTheGo.controller.Calendar',
         maxDate
       );
     },
+    // function that gets all calendar events for registered user or guest
     getCalendarEvents: function (authToken, concentrationID, mode, minDate, maxDate)
     {
       Ext.Ajax.request({
@@ -95,6 +99,7 @@ Ext.define('ALMITOnTheGo.controller.Calendar',
         }
       });
     },
+    // function that set up the Calendar view UI
     setupCalendarViewPanel: function (calResponse, mode)
     {
       var cal = ALMITOnTheGo.app.getController('Calendar');
@@ -230,6 +235,7 @@ Ext.define('ALMITOnTheGo.controller.Calendar',
       ALMITOnTheGo.app.authToken == null ? calendarView.down('#viewAddedCoursesButton').hide() : calendarView.down('#viewAddedCoursesButton').show();
       calendarView.setMasked(false);
     },
+    // utility method to get date based on dateObj passed
     getDateForCalendar: function (dateObj)
     {
       return new Date(

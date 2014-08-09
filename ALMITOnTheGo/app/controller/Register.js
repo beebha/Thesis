@@ -15,6 +15,7 @@ Ext.define('ALMITOnTheGo.controller.Register', {
       }
     }
   },
+  // function that registers a user after validation
   onRegisterCommand: function (view, email, username, password, confirmPassword, registrationType, concentration)
   {
     var rc = this;
@@ -63,6 +64,7 @@ Ext.define('ALMITOnTheGo.controller.Register', {
       }
     });
   },
+  // function that brings user to add courses view after a successful registration
   registerSuccess: function ()
   {
     var rc = this;
@@ -98,12 +100,14 @@ Ext.define('ALMITOnTheGo.controller.Register', {
       }
     });
   },
+  // function to show registration failure message
   registerFailure: function (message)
   {
     var registerView = this.getRegisterView();
     registerView.showRegistrationFailedMessage(message);
     registerView.setMasked(false);
   },
+  // function to bring user back to landing view when cancel button is clicked
   onBackCommand: function ()
   {
     window.history.back();

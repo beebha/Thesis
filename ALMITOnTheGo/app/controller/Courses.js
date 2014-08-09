@@ -24,6 +24,7 @@ Ext.define('ALMITOnTheGo.controller.Courses',
         }
       }
     },
+    // function to check and display course conflicts
     onViewConflictsButtonCommand: function ()
     {
       var cc = this;
@@ -104,6 +105,7 @@ Ext.define('ALMITOnTheGo.controller.Courses',
         }
       }
     },
+    // function to add event to calendar for scheduling
     onAddToCalendarButtonCommand: function ()
     {
       var cc = this;
@@ -146,6 +148,7 @@ Ext.define('ALMITOnTheGo.controller.Courses',
         });
       }
     },
+    // function to check or uncheck a course
     onViewCoursesListItemTapCommand: function (list, index, target, record, e)
     {
       var courseID = record.data.course_id;
@@ -156,6 +159,7 @@ Ext.define('ALMITOnTheGo.controller.Courses',
         checkboxCourseDom.checked = !checkboxCourseDom.checked;
       }
     },
+    // function to display details for selected course when the disclosure button is clicked
     onViewCoursesListItemDiscloseCommand: function (list, index, target, record, e)
     {
       var cc = this;
@@ -173,6 +177,7 @@ Ext.define('ALMITOnTheGo.controller.Courses',
 
       coursesView.down('#coursesCardPanel').animateActiveItem(4, {type: 'flip'});
     },
+    // function to figure out which screen to show to a registered user vs a guest
     onCoursesViewDetailsCommand: function ()
     {
       var cc = this;
@@ -207,6 +212,7 @@ Ext.define('ALMITOnTheGo.controller.Courses',
         });
       }
     },
+    // function to figure out next view based on being a registered user or guest
     onCoursesNextButtonCommand: function ()
     {
       var cc = this;
@@ -231,6 +237,7 @@ Ext.define('ALMITOnTheGo.controller.Courses',
         }
       });
     },
+    // function to show course term view after category view
     onCategoryNextButtonCommand: function ()
     {
       var cc = this;
@@ -246,6 +253,7 @@ Ext.define('ALMITOnTheGo.controller.Courses',
         }
       });
     },
+    // function to show all courses view after course term view
     onCourseTermNextButtonCommand: function ()
     {
       var cc = this;
@@ -272,30 +280,35 @@ Ext.define('ALMITOnTheGo.controller.Courses',
         }
       });
     },
+    // function to show course view when back button is clicked from category view
     onCategoryBackButtonCommand: function ()
     {
       var cc = this;
       var coursesView = cc.getCoursesView();
       coursesView.down('#coursesCardPanel').animateActiveItem(0, {type: 'slide', direction: 'right'});
     },
+    // function to show category view when back button is clicked from course term view
     onCourseTermBackButtonCommand: function ()
     {
       var cc = this;
       var coursesView = cc.getCoursesView();
       coursesView.down('#coursesCardPanel').animateActiveItem(1, {type: 'slide', direction: 'right'});
     },
+    // function to show course term view when back button is clicked from course results view
     onCourseResultsBackButtonCommand: function ()
     {
       var cc = this;
       var coursesView = cc.getCoursesView();
       coursesView.down('#coursesCardPanel').animateActiveItem(2, {type: 'slide', direction: 'right'});
     },
+    // function to show course list view when back button is clicked from course detail view
     onCourseDetailBackButtonCommand: function ()
     {
       var cc = this;
       var coursesView = cc.getCoursesView();
       coursesView.down('#coursesCardPanel').animateActiveItem(3, {type: 'flip'});
     },
+    // function to set up the course results of the user's search
     setupCourseResultsViewPanel: function (coursesView, courseResultsResponse)
     {
       if (courseResultsResponse.success === true) {
@@ -335,6 +348,7 @@ Ext.define('ALMITOnTheGo.controller.Courses',
         coursesView.setMasked(false);
       }
     },
+    // function to set up the course terms view
     setupCourseTermsViewPanel: function (coursesView, courseTermsResponse)
     {
       if (courseTermsResponse.success === true) {
@@ -368,6 +382,7 @@ Ext.define('ALMITOnTheGo.controller.Courses',
 
       }
     },
+    // function to set up the category view
     setupCategoriesViewPanel: function (coursesView, coursesResponse)
     {
       if (coursesResponse.success === true) {
@@ -414,6 +429,7 @@ Ext.define('ALMITOnTheGo.controller.Courses',
         coursesView.setMasked(false);
       }
     },
+    // function to get all checked courses
     getCheckedCourses: function ()
     {
       var allCheckedCourses = [];

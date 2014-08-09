@@ -15,6 +15,7 @@ Ext.define('ALMITOnTheGo.controller.Requirements',
         }
       }
     },
+    // function to bring user back to concentration screen for a guest when back button is clicked
     onRequirementsBackButtonCommand: function ()
     {
       var rc = this;
@@ -22,6 +23,7 @@ Ext.define('ALMITOnTheGo.controller.Requirements',
       requirementsView.down('radiofield[name=concentration]').setGroupValue(1);
       requirementsView.down('#requirementsCardPanel').animateActiveItem(0, {type: 'slide', direction: 'right'});
     },
+    // function to get data to build initial requirements view
     onRequirementsViewDetailsCommand: function ()
     {
       var rc = this;
@@ -56,6 +58,7 @@ Ext.define('ALMITOnTheGo.controller.Requirements',
         });
       }
     },
+    // function to bring user to category requirements screen
     onRequirementsNextButtonCommand: function ()
     {
       var rc = this;
@@ -75,6 +78,7 @@ Ext.define('ALMITOnTheGo.controller.Requirements',
         }
       });
     },
+    // function to set data to build requirements view
     setupRequirementsViewPanel: function (requirementsView, requirementsResponse)
     {
       if (requirementsResponse.success === true) {

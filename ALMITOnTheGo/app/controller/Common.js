@@ -1,23 +1,27 @@
 Ext.define('ALMITOnTheGo.controller.Common',
   {
     extend: 'Ext.app.Controller',
-
+    // utility function to allow view to transition by sliding to left
     getSlideLeftTransition: function ()
     {
       return { type: 'slide', direction: 'left' };
     },
+    // utility function to allow view to transition by sliding to right
     getSlideRightTransition: function ()
     {
       return { type: 'slide', direction: 'right' };
     },
+    // utility function to allow view to transition by sliding up
     getSlideTopTransition: function ()
     {
       return { type: 'slide', direction: 'up' };
     },
+    // utility function to allow view to transition by sliding down
     getSlideBottomTransition: function ()
     {
       return { type: 'slide', direction: 'down' };
     },
+    // utility function to get concentration display text based on concentration ID
     getConcentrationText: function (concentrationID)
     {
       var concentrationText = "";
@@ -28,6 +32,7 @@ Ext.define('ALMITOnTheGo.controller.Common',
       }
       return concentrationText;
     },
+    // utility function to get category display text based on category ID
     getCategoryText: function (categoryID)
     {
       var categoryText = "";
@@ -38,6 +43,7 @@ Ext.define('ALMITOnTheGo.controller.Common',
       }
       return categoryText;
     },
+    // utility function to get course term display text based on course term ID
     getCourseTermText: function (courseTermID)
     {
       var courseTermText = "";
@@ -48,6 +54,7 @@ Ext.define('ALMITOnTheGo.controller.Common',
       }
       return courseTermText;
     },
+    // utility function to get course term display text based on course term ID
     getRegistrationTypeText: function (registrationType)
     {
       var registrationTypeText = "";
@@ -64,6 +71,7 @@ Ext.define('ALMITOnTheGo.controller.Common',
       }
       return registrationTypeText;
     },
+    // utility function to get concentration ID based on concentration Code
     getConcentrationID: function (concentrationCode)
     {
       var concentrationID = 0;

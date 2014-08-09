@@ -18,6 +18,7 @@ Ext.define('ALMITOnTheGo.controller.Login', {
       }
     }
   },
+  // function to bring user to landing view when back button is clicked
   onBackCommand: function ()
   {
     window.history.back();
@@ -27,6 +28,7 @@ Ext.define('ALMITOnTheGo.controller.Login', {
 
     Ext.Viewport.animateActiveItem(landingView, ALMITOnTheGo.app.getController('Common').getSlideRightTransition());
   },
+  // function to log in user after credentials verification
   onLoginCommand: function (view, username, password)
   {
     var me = this,
@@ -66,6 +68,7 @@ Ext.define('ALMITOnTheGo.controller.Login', {
       }
     });
   },
+  // function to bring user to main view after successful login
   loginSuccess: function (forgotPasswordReset)
   {
     window.history.back();
@@ -85,6 +88,7 @@ Ext.define('ALMITOnTheGo.controller.Login', {
       Ext.Viewport.animateActiveItem(mainView, ALMITOnTheGo.app.getController('Common').getSlideLeftTransition());
     }
   },
+  // function that shows login failure message
   loginFailure: function (message)
   {
     var loginView = this.getLoginView();

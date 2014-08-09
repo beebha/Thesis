@@ -11,6 +11,7 @@ Ext.define('ALMITOnTheGo.controller.Analysis',
         }
       }
     },
+    // function that gets GPA details across all course terms and displays chart graph
     onAnalysisViewDetailsCommand: function ()
     {
       var ac = this;

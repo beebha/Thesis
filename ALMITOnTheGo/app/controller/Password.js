@@ -14,6 +14,7 @@ Ext.define('ALMITOnTheGo.controller.Password',
         }
       }
     },
+    // function that brings registered user to user information view when cancel button is clicked
     onCancelCommand: function ()
     {
       var pc = this;
@@ -29,6 +30,7 @@ Ext.define('ALMITOnTheGo.controller.Password',
         ALMITOnTheGo.app.getController('Common').getSlideBottomTransition()
       );
     },
+    // function that changes a registered user's password after validation
     onChangePwdCommand: function (password, confirmPassword)
     {
       var pc = this;

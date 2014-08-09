@@ -13,6 +13,7 @@ Ext.define('ALMITOnTheGo.controller.Forgot',
         }
       }
     },
+    // function to hide forgot username/password view when cancel button is clicked
     onCancelCommand: function ()
     {
       var fc = this;
@@ -23,6 +24,7 @@ Ext.define('ALMITOnTheGo.controller.Forgot',
         ALMITOnTheGo.app.getController('Common').getSlideBottomTransition()
       );
     },
+    // function to send email in forgot username/password view when request button is clicked
     onRequestCommand: function (userEmail)
     {
       var fc = this;

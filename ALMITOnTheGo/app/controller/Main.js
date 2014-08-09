@@ -13,6 +13,7 @@ Ext.define('ALMITOnTheGo.controller.Main', {
       }
     }
   },
+  // function to get data required to display home view, i.e all announcements
   onHomeViewDetailsCommand: function ()
   {
     var mc = this;
@@ -98,6 +99,7 @@ Ext.define('ALMITOnTheGo.controller.Main', {
       }
     });
   },
+  // function to show registered user's settings when settings button is clicked
   onSettingsCommand: function ()
   {
     var mc = this;
@@ -143,6 +145,7 @@ Ext.define('ALMITOnTheGo.controller.Main', {
       }
     });
   },
+  // function to log out both registered user or guest
   onLogoutCommand: function ()
   {
     if (ALMITOnTheGo.app.authToken != null) {

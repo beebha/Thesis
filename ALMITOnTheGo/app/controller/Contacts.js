@@ -11,6 +11,7 @@ Ext.define('ALMITOnTheGo.controller.Contacts',
         }
       }
     },
+    // function to populate details for contacts view
     onContactsViewDetailsCommand: function ()
     {
       var cc = this;
@@ -37,6 +38,7 @@ Ext.define('ALMITOnTheGo.controller.Contacts',
         cc.setupContactsViewPanel(ALMITOnTheGo.app.authToken, null);
       }
     },
+    // function to get data to populate lecturers details
     setupContactsViewPanel: function (authToken, concentrationID)
     {
       Ext.Ajax.request({

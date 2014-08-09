@@ -19,6 +19,7 @@ Ext.define('ALMITOnTheGo.controller.Landing', {
       }
     }
   },
+  // function to bring user to register view
   registerNewUser: function ()
   {
     var landingView = this.getLandingView();
@@ -27,6 +28,7 @@ Ext.define('ALMITOnTheGo.controller.Landing', {
 
     Ext.Viewport.animateActiveItem(registerView, ALMITOnTheGo.app.getController('Common').getSlideLeftTransition());
   },
+  // function to bring user to login view
   loginUser: function ()
   {
     var landingView = this.getLandingView();
@@ -35,6 +37,7 @@ Ext.define('ALMITOnTheGo.controller.Landing', {
 
     Ext.Viewport.animateActiveItem(loginView, ALMITOnTheGo.app.getController('Common').getSlideLeftTransition());
   },
+  // function to bring login user as guest
   onGuestCommand: function ()
   {
     var landingView = this.getLandingView();

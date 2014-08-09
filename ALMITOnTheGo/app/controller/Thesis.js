@@ -11,6 +11,7 @@ Ext.define('ALMITOnTheGo.controller.Thesis',
         }
       }
     },
+    // function to get data to build thesis view
     onThesisViewDetailsCommand: function ()
     {
       var tc = this;

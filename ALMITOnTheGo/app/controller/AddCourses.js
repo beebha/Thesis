@@ -14,6 +14,7 @@ Ext.define('ALMITOnTheGo.controller.AddCourses', {
       }
     }
   },
+  // function that is called upon successful registration of user
   onShowAddCoursesMsg: function ()
   {
     var ac = this;
@@ -33,6 +34,7 @@ Ext.define('ALMITOnTheGo.controller.AddCourses', {
       }
     });
   },
+  // function populates user information screen when Next button is clicked
   onNextViewCommand: function (addedCoursesCount)
   {
     var ac = this;
