@@ -19,7 +19,7 @@ class ContactQuery
                 INNER JOIN instructors_courses ic ON ic.instructor_code = i.instructor_code
                 INNER JOIN course c ON c.hes_course_id = ic.hes_course_id
                 INNER JOIN course_terms ct ON ct.course_term_id = c.course_term_id
-                WHERE c.concentration_id = ".CalendarDBUtils::getDBValue(DBConstants::DB_VALUE, $concentrationID)."
+                WHERE c.concentration_id = ".DBUtils::getDBValue(DBConstants::DB_VALUE, $concentrationID)."
                 GROUP BY ic.instructor_code
                 ORDER BY ic.instructor_code ASC";
     }
