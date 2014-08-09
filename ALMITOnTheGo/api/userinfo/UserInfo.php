@@ -202,7 +202,7 @@ class UserInfo
         // update password and set forgot password flag to false
         if(!empty($authToken)) {
             $query = UserInfoQuery::getUserInfoQuery($authToken);
-            $userResults = CalendarDBUtils::getSingleDetailExecutionResult($query);
+            $userResults = DBUtils::getSingleDetailExecutionResult($query);
 
             $userID = $userResults['user_id'];
             $passwordHash = password_hash($password, PASSWORD_BCRYPT);
