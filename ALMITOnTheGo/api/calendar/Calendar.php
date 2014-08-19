@@ -64,7 +64,7 @@ class Calendar
         return array(
             "status" => TRUE,
             "errorMsg" => "",
-            "data" => array('existingCourseCodes' => explode(",", $existingCourseCodes['existingCourseCodes'])));
+            "data" => array('existingCourseCodes' => count($existingCourseCodes) > 0 ? explode(",", $existingCourseCodes['existingCourseCodes']) : ""));
     }
 
     /**
