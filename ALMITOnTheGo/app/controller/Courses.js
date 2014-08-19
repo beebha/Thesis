@@ -126,8 +126,6 @@ Ext.define('ALMITOnTheGo.controller.Courses',
           {
             var calendarResponse = Ext.JSON.decode(response.responseText);
 
-            console.log(calendarResponse);
-
             if (calendarResponse.success) {
               if(calendarResponse.data.existingCourseCodes.length > 0 && calendarResponse.data.existingCourseCodes.length == allCheckedCourses.length) {
                 Ext.Msg.alert('Oops!', 'All selected courses have already been added to the calendar.', Ext.emptyFn);
