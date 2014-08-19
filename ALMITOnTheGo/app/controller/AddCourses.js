@@ -39,18 +39,13 @@ Ext.define('ALMITOnTheGo.controller.AddCourses', {
   {
     var ac = this;
     var addCoursesView = ac.getAddCoursesView();
-    var mainView = ac.getMainView();
 
     addCoursesView.setMasked(false);
 
-    if (addedCoursesCount == 0) {
-      Ext.Viewport.animateActiveItem(mainView, ALMITOnTheGo.app.getController('Common').getSlideLeftTransition());
-    } else {
+    var concentrationID = parseInt(addCoursesView.down('#concentrationID').getValue());
+    var registrationType = addCoursesView.down('#registrationType').getValue();
 
-      var concentrationID = parseInt(addCoursesView.down('#concentrationID').getValue());
-      var registrationType = addCoursesView.down('#registrationType').getValue();
+    ALMITOnTheGo.app.getController('UserInformation').populateUserInformation(concentrationID, registrationType);
 
-      ALMITOnTheGo.app.getController('UserInformation').populateUserInformation(concentrationID, registrationType);
-    }
   }
 });
