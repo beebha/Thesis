@@ -379,7 +379,7 @@ Ext.define('ALMITOnTheGo.view.AddCourses', {
     if (isAllGradeStatusSet) {
       var task = Ext.create('Ext.util.DelayedTask', function ()
       {
-        me.fireEvent('nextViewCommand', ALMITOnTheGo.app.addedCoursesStore.getCount());
+        me.fireEvent('nextViewCommand');
       });
       task.delay(500);
 

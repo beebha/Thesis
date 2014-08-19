@@ -35,7 +35,7 @@ Ext.define('ALMITOnTheGo.controller.AddCourses', {
     });
   },
   // function populates user information screen when Next button is clicked
-  onNextViewCommand: function (addedCoursesCount)
+  onNextViewCommand: function()
   {
     var ac = this;
     var addCoursesView = ac.getAddCoursesView();
