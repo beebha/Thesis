@@ -43,9 +43,10 @@ class UserInfoQuery
 
     public static function deleteUserCoursesQuery($userID, array $courseIDs)
     {
+        $coursesClause = count($courseIDs) > 0 ? " AND course_id NOT IN (". implode(",", $courseIDs) .")" : "";
+
         return "DELETE FROM users_courses WHERE user_id = " .
-                DBUtils::getDBValue(DBConstants::DB_VALUE, $userID). "
-                AND course_id NOT IN (". implode(",", $courseIDs) .")";
+                DBUtils::getDBValue(DBConstants::DB_VALUE, $userID). $coursesClause;
     }
 
     public static function updateGPAQuery($userID, $gpa)

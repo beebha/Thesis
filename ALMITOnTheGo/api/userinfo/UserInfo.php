@@ -72,6 +72,13 @@ class UserInfo
                     return array("status" => FALSE, "errorMsg" => "DB Error", "data" => NULL);
                 }
             }
+        } else {
+            $deleteUserCoursesQuery = UserInfoQuery::deleteUserCoursesQuery($userID, array());
+            $deleteUserCoursesResults = DBUtils::getInsertUpdateDeleteExecutionResult($deleteUserCoursesQuery);
+
+            if(!$deleteUserCoursesResults) {
+                return array("status" => FALSE, "errorMsg" => "DB Error", "data" => NULL);
+            }
         }
 
         if(is_numeric($currentGPA)) {
