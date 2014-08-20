@@ -1,7 +1,5 @@
 <?php
 
-include_once 'include/password.php';
-
 if (!$link = mysqli_connect('127.0.0.1', 'root', 'root', 'thesis', 8889, ':/Applications/MAMP/tmp/mysql/mysql.sock')) {
     echo 'Could not connect to mysql';
     exit;
